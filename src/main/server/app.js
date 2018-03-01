@@ -22,6 +22,7 @@ app.get("/", (req, res) => {
     <head>
       <meta charSet="utf-8"/>
       <meta name="description" content="Список проектов furnas-team" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
       <title>Furnas team</title>
       <link rel="stylesheet" type="text/css" href="/styles.css"/>
     </head>
