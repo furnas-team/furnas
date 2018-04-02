@@ -2,7 +2,7 @@ const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const clientConfig = {
-  entry: ["./src/main/client/client.js"],
+  entry: ["babel-polyfill", "./src/main/client/client.js"],
   output: {
     path: path.resolve(__dirname, "public"),
     filename: "furnas.client.js"
@@ -27,7 +27,7 @@ const clientConfig = {
         })
       },
       {
-        test: /\.(png|jpg|gif|jpeg)$/,
+        test: /\.(png|jpg|gif|jpeg|svg)$/,
         use: [
           {
             loader: 'file-loader',
@@ -43,7 +43,7 @@ const clientConfig = {
 };
 
 const serverConfig = {
-  entry: "./src/main/server/server.js",
+  entry: ["babel-polyfill", "./src/main/server/server.js"],
   target: 'node',
   output: {
     path: path.resolve(__dirname, "server"),
@@ -67,7 +67,7 @@ const serverConfig = {
         }]
       },
       {
-        test: /\.(png|jpg|gif|jpeg)$/,
+        test: /\.(png|jpg|gif|jpeg|svg)$/,
         use: [
           {
             loader: 'file-loader',

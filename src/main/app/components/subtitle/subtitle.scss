@@ -1,0 +1,13 @@
+@import "../../common/vars";
+@import "../../common/mixins";
+
+.subtitle {
+  font-family: $font-family;
+  font-size: $font-subtitle-size;
+  color: $font-color-white;
+  letter-spacing: $letter-spacing;
+  font-weight: $font-weight-light;
+  @include for-phone-only {
+    font-size: $font-subtitle-mobile-size;
+  }
+}

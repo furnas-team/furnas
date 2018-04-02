@@ -21,9 +21,13 @@ app.get("/", (req, res) => {
     <html>
     <head>
       <meta charSet="utf-8"/>
-      <meta name="description" content="Список проектов furnas-team" />
+      <meta name="description" content="Создаем Landing page поэтапно.  Показываем вам результат
+      на каждом шаге и вы платите
+      только в том случае, если он вам
+      нравится." />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-      <title>Furnas team</title>
+      <title>Дизайн и верстка Lading pages | Furnas</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css"/>
       <link rel="stylesheet" type="text/css" href="/styles.css"/>
     </head>
     <body>

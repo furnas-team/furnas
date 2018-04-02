@@ -1,0 +1,26 @@
+@import "../../common/vars";
+@import "../../common/mixins";
+
+.button {
+  border: none;
+  padding: 16px 30px;
+  color: $font-color-white;
+  font-family: $font-family;
+  font-size: $font-button-size;
+  cursor: pointer;
+  background-color: $background-red;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+
+  @include for-desktop-up {
+    opacity: 0.8;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  @include for-phone-only {
+    font-size: $font-button-mobile-size;
+    padding: 8px 16px;
+  }
+}
