@@ -8,6 +8,8 @@ import {BlockText} from '../../components/block-text/BlockText';
 import {InputLabel} from '../../components/input-label/InputLabel';
 import {Input} from '../../components/input/Input';
 import {Button} from '../../components/button/Button';
+import {BlockSubtitle} from '../../components/block-subtitle/BlockSubtitle';
+import {Link} from '../../components/link/Link';
 
 export function HomePage() {
   return (
@@ -28,65 +30,101 @@ export function HomePage() {
               Интервью
             </BlockTitle>
             <BlockText>
-              Мы задаем вопросы - вы отвечаете.
-              <br/>
-              Документируем требования к будущему прототипу.
-              <br/>
-              Длительность этапа: 1 день.
-              <br/>
-              Платите в конце этапа, только если довольны работой: 5000 руб.
+              Общаемся, документируем требования к будущему прототипу.
             </BlockText>
-          </div>
-          <div className="home__process-block">
-            <BlockTitle className="home__process-block-title">
-              UX прототип
-            </BlockTitle>
+            <BlockSubtitle className="home__process-block-subtitle">
+              Время выполнения
+            </BlockSubtitle>
             <BlockText>
-              Схематично рисуем Landing page.
-              <br/>
-              Определяем расположение информационных блоков, их содержание.
-              Показываем, обсуждаем.
-              <br/>
-              Длительность этапа: 2 дня.
-              <br/>
-              Платите в конце этапа, только если довольны работой: 10000 руб.
+              1 день
             </BlockText>
+            <BlockSubtitle className="home__process-block-subtitle">
+              Стоимость
+            </BlockSubtitle>
+            <BlockText>
+              Платите в конце этапа, только если довольный работой: 5&nbsp;000&nbsp;руб.
+            </BlockText>
+            <Link className="home__expamle-link">
+              Пример документации
+            </Link>
           </div>
           <div className="home__process-block">
             <BlockTitle className="home__process-block-title">
-              Финальный дизайн
+              Прототип
+            </BlockTitle>
+            <BlockText className="home__process-block-text-with-margin">
+              Схематично рисуем Landing page.
+            </BlockText>
+            <BlockText className="home__process-block-text-with-margin">
+              Определяем расположение информационных блоков, их содержание.
+            </BlockText>
+            <BlockText>
+              Показываем, обсуждаем.
+            </BlockText>
+            <BlockSubtitle className="home__process-block-subtitle">
+              Время выполнения
+            </BlockSubtitle>
+            <BlockText>
+              2 дня
+            </BlockText>
+            <BlockSubtitle className="home__process-block-subtitle">
+              Стоимость
+            </BlockSubtitle>
+            <BlockText>
+              Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.
+            </BlockText>
+            <Link className="home__expamle-link">
+              Пример прототипа
+            </Link>
+          </div>
+          <div className="home__process-block">
+            <BlockTitle className="home__process-block-title">
+              Дизайн
             </BlockTitle>
             <BlockText>
               Вы получаете полностью готовый дизайн в виде sketch файла и pdf.
-              <br/>
-              Длительность этапа: 3 дня.
-              <br/>
-              Платите в конце этапа, только если довольны работой: 10000 руб.
             </BlockText>
+            <BlockSubtitle className="home__process-block-subtitle">
+              Время выполнения
+            </BlockSubtitle>
+            <BlockText>
+              3 дня
+            </BlockText>
+            <BlockSubtitle className="home__process-block-subtitle">
+              Стоимость
+            </BlockSubtitle>
+            <BlockText>
+              Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.
+            </BlockText>
+            <Link className="home__expamle-link">
+              Пример дизайна
+            </Link>
           </div>
           <div className="home__process-block">
             <BlockTitle className="home__process-block-title">
-              Верстка
+              Разработка
             </BlockTitle>
-            <BlockText>
+            <BlockText className="home__process-block-text-with-margin">
               Получаете разработанный Landing page в виде архива с html, js и css кодом.
-              <br/>
-              Длительность этапа: 2 дня.
-              <br/>
-              Платите в конце этапа, только если довольны работой: 10000 руб.
             </BlockText>
-          </div>
-          <div className="home__process-block">
-            <BlockTitle className="home__process-block-title">
-              Запуск
-            </BlockTitle>
             <BlockText>
-              Ваш Landing page доступен пользователям.
-              <br/>
-              Длительность этапа: 2 дня.
-              <br/>
-              Платите в конце этапа, только если довольны работой: 10000 руб.
+              Поможем разместить на хостинге, купить домен и разместить рекламу.
             </BlockText>
+            <BlockSubtitle className="home__process-block-subtitle">
+              Время выполнения
+            </BlockSubtitle>
+            <BlockText>
+              2 - 3 дня
+            </BlockText>
+            <BlockSubtitle className="home__process-block-subtitle">
+              Стоимость
+            </BlockSubtitle>
+            <BlockText>
+              Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.&nbsp;&mdash;&nbsp;30&nbsp;000&nbsp;руб.
+            </BlockText>
+            <Link className="home__expamle-link">
+              Пример кода
+            </Link>
           </div>
         </div>
         <SectionTitle className="home__order-section-title">

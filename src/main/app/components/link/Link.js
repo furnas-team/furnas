@@ -1,19 +1,20 @@
 import React from 'react';
-import './block-text.scss';
+import './link.scss';
 import classNames from 'classnames';
 import {string, any} from 'prop-types';
 
-BlockText.propTypes = {
+Link.propTypes = {
   className: string,
+  href: string,
   children: any
 };
 
-export function BlockText({className, children}) {
+export function Link({className, children, href}) {
 
   return (
-    <div className={classNames('block-text', className)}>
+    <a className={classNames('link', className)} href={href}>
       {children}
-    </div>
+    </a>
   );
 
 }
