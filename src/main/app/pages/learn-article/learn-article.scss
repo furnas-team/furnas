@@ -1,0 +1,24 @@
+.learn-article {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    width: 600px;
+    padding-top: 88px;
+    padding-left: 88px;
+    padding-bottom: 52px;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+  }
+
+  &__subtitle {
+    margin-bottom: 48px;
+  }
+  &__article-link {
+    margin-bottom: 24px;
+  }
+}

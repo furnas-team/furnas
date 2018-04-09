@@ -4,8 +4,14 @@
 .block-title {
   font-family: $font-family;
   font-size: $font-block-title-size;
-  color: $font-color-white;
   @include for-phone-only {
     font-size: $font-block-title-mobile-size;
+  }
+
+  &_theme-dark {
+    color: $font-color-white;
+  }
+  &_theme-light {
+    color: $font-color-black;
   }
 }

@@ -1,0 +1,18 @@
+@import "../../common/vars";
+@import "../../common/mixins";
+
+.article-link {
+  font-family: $font-family;
+  font-size: $font-article-link-size;
+  line-height: $font-block-text-line-height;
+  cursor: pointer;
+  @include for-phone-only {
+    font-size: $font-article-link-mobile-size;
+  }
+
+  &__a {
+    border-bottom: 1px solid $font-color-black;
+    text-decoration: none;
+    color: $font-color-black;
+  }
+}

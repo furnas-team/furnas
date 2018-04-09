@@ -8,11 +8,11 @@ const {renderToString, renderToStaticMarkup} = require('react-dom/server');
 const app = express();
 app.use(express.static('public'));
 
-app.get("/", (req, res) => {
+app.get("*", (req, res) => {
   let context = {};
 
   const appString = renderToString((
-    <StaticRouter context={context}>
+    <StaticRouter location={req.url} context={context}>
       <App/>
     </StaticRouter>));
 
@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
       только в том случае, если он вам
       нравится." />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-      <title>Дизайн и верстка Lading pages | Furnas</title>
+      <title>Дизайн и верстка Landing pages | Furnas</title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css"/>
       <link rel="stylesheet" type="text/css" href="/styles.css"/>
     </head>

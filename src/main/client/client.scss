@@ -2,10 +2,11 @@ body, html {
   min-height: 100%;
   padding: 0;
   margin: 0;
+  display: flex;
 }
 
 body {
-  display: flex;
+  flex-grow: 1;
 }
 
 #root {

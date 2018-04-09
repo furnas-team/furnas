@@ -11,9 +11,9 @@ BlockText.propTypes = {
 export function BlockText({className, children}) {
 
   return (
-    <div className={classNames('block-text', className)}>
+    <p className={classNames('block-text', className)}>
       {children}
-    </div>
+    </p>
   );
 
 }
