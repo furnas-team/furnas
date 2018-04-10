@@ -1,3 +1,6 @@
+@import "../../common/vars";
+@import "../../common/mixins";
+
 .home {
   height: 100%;
   width: 100%;
@@ -27,7 +30,7 @@
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
-    margin-bottom: 38px;
+    margin-bottom: 74px;
   }
 
   &__process-block {
@@ -47,30 +50,56 @@
     margin-top: 16px;
   }
 
-  &__order-section-title {
+  &__expamle-link {
+    margin-top: 16px;
+  }
+
+  &__contact-us-button {
+    margin-bottom: 64px;
+  }
+
+  &__blog-section-title {
     margin-bottom: 24px;
   }
 
-  &__order-input-label {
+  &__article-link {
     margin-bottom: 16px;
   }
 
-  &__order-row {
+  &__more-articles-row {
+    color: $font-color-white;
+    font-size: $font-block-text-size;
+    font-family: $font-family;
+    margin-bottom: 56px;
+  }
+
+  &__contact-us-section-title {
+    margin-bottom: 24px;
+  }
+
+  &__phone-contact {
+    margin-bottom: 16px;
+  }
+
+  &__email-contact {
+    margin-bottom: 24px;
+  }
+
+  &__contact-input-label {
+    margin-bottom: 5px;
+  }
+
+  &__contact-us-row {
     display: flex;
     flex-direction: row;
-    width: 100%;
   }
 
-  &__order-button {
-    width: 188px;
-  }
-
-  &__order-input {
+  &__contact-us-input {
     width: 518px;
-    margin-right: 40px;
+    margin-right: 24px;
   }
 
-  &__expamle-link {
-    margin-top: 16px;
+  &__send-contact {
+    width: 156px;
   }
 }

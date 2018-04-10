@@ -11,6 +11,8 @@ import {Button} from '../../components/button/Button';
 import {BlockSubtitle} from '../../components/block-subtitle/BlockSubtitle';
 import {Link} from '../../components/link/Link';
 import {ThemeName, ThemeProvider} from '../../components/theme-context/ThemeContext';
+import {ArticleName} from '../../common/models/ArticleName';
+import {ArticleLink, ArticleLinkSize} from '../../components/article-link/ArticleLink';
 
 export function HomePage() {
   return (
@@ -46,9 +48,11 @@ export function HomePage() {
               <BlockText>
                 Платите в конце этапа, только если довольный работой: 5&nbsp;000&nbsp;руб.
               </BlockText>
-              <Link className="home__expamle-link">
-                Пример документации
-              </Link>
+              <div className="home__expamle-link">
+                <Link>
+                  Пример документации
+                </Link>
+              </div>
             </div>
             <div className="home__process-block">
               <BlockTitle className="home__process-block-title">
@@ -75,9 +79,11 @@ export function HomePage() {
               <BlockText>
                 Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.
               </BlockText>
-              <Link className="home__expamle-link">
-                Пример прототипа
-              </Link>
+              <div className="home__expamle-link">
+                <Link>
+                  Пример прототипа
+                </Link>
+              </div>
             </div>
             <div className="home__process-block">
               <BlockTitle className="home__process-block-title">
@@ -98,9 +104,11 @@ export function HomePage() {
               <BlockText>
                 Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.
               </BlockText>
-              <Link className="home__expamle-link">
-                Пример дизайна
-              </Link>
+              <div className="home__expamle-link">
+                <Link>
+                  Пример дизайна
+                </Link>
+              </div>
             </div>
             <div className="home__process-block">
               <BlockTitle className="home__process-block-title">
@@ -124,21 +132,57 @@ export function HomePage() {
               <BlockText>
                 Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.&nbsp;&mdash;&nbsp;30&nbsp;000&nbsp;руб.
               </BlockText>
-              <Link className="home__expamle-link">
-                Пример кода
-              </Link>
+              <div className="home__expamle-link">
+                <Link>
+                  Пример кода
+                </Link>
+              </div>
             </div>
           </div>
-          <SectionTitle className="home__order-section-title">
-            Заказать
+          <Button className="home__contact-us-button">
+            Связаться с нами
+          </Button>
+          <SectionTitle className="home__blog-section-title">
+            Полезные статьи
           </SectionTitle>
-          <InputLabel className="home__order-input-label">
-            Как с вами связаться (телефон, почта, skype)
+          <ArticleLink articleName={ArticleName.DO_I_NEED_LANDING_PAGE}
+                       size={ArticleLinkSize.SMALL}
+                       className="home__article-link"/>
+          <ArticleLink articleName={ArticleName.WHAT_IS_LANDING_PAGE}
+                       size={ArticleLinkSize.SMALL}
+                       className="home__article-link"/>
+          <ArticleLink articleName={ArticleName.DO_I_NEED_SEO_EXPERT}
+                       size={ArticleLinkSize.SMALL}
+                       className="home__article-link"/>
+          <ArticleLink articleName={ArticleName.HOW_USERS_FIND_LANDING_PAGE}
+                       size={ArticleLinkSize.SMALL}
+                       className="home__article-link"/>
+          <ArticleLink articleName={ArticleName.WHERE_BUY_ADS_FOR_LANDING_PAGE}
+                       size={ArticleLinkSize.SMALL}
+                       className="home__article-link"/>
+          <div className="home__more-articles-row">
+            больше статей на <Link href="/learn">furnas.blog</Link>
+          </div>
+          <SectionTitle className="home__contact-us-section-title">
+            Контакты
+          </SectionTitle>
+          <div className="home__phone-contact">
+            <Link href="tel:+7(919)081-68-22">
+              +7(919)081-68-22
+            </Link>
+          </div>
+          <div className="home__email-contact">
+            <Link href="mailto:furnasteam@gmail.com">
+              furnasteam@gmail.com
+            </Link>
+          </div>
+          <InputLabel className="home__contact-input-label">
+            Или оставьте свои контактные данные (телефон, почта или skype)
           </InputLabel>
-          <div className="home__order-row">
-            <Input className="home__order-input"/>
-            <Button className="home__order-button">
-              Заказать
+          <div className="home__contact-us-row">
+            <Input className="home__contact-us-input"/>
+            <Button className="home__send-contact">
+              Отправить
             </Button>
           </div>
         </div>

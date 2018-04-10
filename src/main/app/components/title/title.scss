@@ -6,8 +6,6 @@
   font-size: $font-title-size;
   text-transform: uppercase;
   color: $font-color-white;
-  margin: 0;
-  padding: 0;
   font-weight: normal;
   @include for-phone-only {
     font-size: $font-title-mobile-size;

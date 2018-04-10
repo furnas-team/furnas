@@ -6,7 +6,6 @@
   font-size: $font-block-text-size;
   color: $font-color-gray;
   line-height: $font-block-text-line-height;
-  margin: 0;
   @include for-phone-only {
     font-size: $font-block-text-mobile-size;
   }

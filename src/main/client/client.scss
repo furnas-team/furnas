@@ -5,6 +5,11 @@ body, html {
   display: flex;
 }
 
+h1, h2, p {
+  padding: 0;
+  margin: 0;
+}
+
 body {
   flex-grow: 1;
 }
