@@ -1,3 +1,6 @@
+@import "../../common/vars";
+@import "../../common/mixins";
+
 .learn {
   height: 100%;
   width: 100%;
@@ -8,6 +11,10 @@
     width: 600px;
     padding-top: 88px;
     padding-bottom: 52px;
+    @include for-phone-only {
+      width: auto;
+      padding: 48px 24px;
+    }
   }
 
   &__title {
