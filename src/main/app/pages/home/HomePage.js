@@ -13,10 +13,15 @@ import {Link} from '../../components/link/Link';
 import {ThemeName, ThemeProvider} from '../../components/theme-context/ThemeContext';
 import {ArticleName} from '../../common/models/ArticleName';
 import {ArticleLink, ArticleLinkSize} from '../../components/article-link/ArticleLink';
+import {Helmet} from 'react-helmet';
 
 export function HomePage() {
   return (
     <ThemeProvider value={ThemeName.DARK}>
+      <Helmet>
+        <title>Дизайн и верстка Landing pages | Furnas</title>
+        <meta name="description" content="Создаем Landing page поэтапно.  Показываем вам результат на каждом шаге и вы платите только в том случае, если он вам нравится." />
+      </Helmet>
       <div className="home">
         <div itemScope itemType="http://schema.org/LocalBusiness" className="home__container">
           <span itemProp="name">
