@@ -122,22 +122,22 @@ export function LearnArticlePage(props) {
         <meta name="description" content="Полезные статьи по теме Landing page" />
       </Helmet>
       <div className="learn-article">
-        <div className="learn-article__container">
+        <div className="learn-article__container" itemScope itemType="http://schema.org/Article">
           <a href="/">
             <Title className="learn-article__title">
               Furnas
             </Title>
           </a>
-          <Subtitle className="learn-article__subtitle">
+          <Subtitle className="learn-article__subtitle" itemProp="articleSection">
             Полезные статьи по теме Landing page
           </Subtitle>
 
 
-          <BlockTitle className="learn-article__article-title">
+          <BlockTitle className="learn-article__article-title" itemProp="name">
             {ArticleTitle[articleName]}
           </BlockTitle>
 
-          <div>
+          <div itemProp="articleBody">
             {renderArticleBody(articleName)}
           </div>
 

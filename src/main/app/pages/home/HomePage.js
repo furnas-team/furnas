@@ -18,13 +18,15 @@ export function HomePage() {
   return (
     <ThemeProvider value={ThemeName.DARK}>
       <div className="home">
-        <div className="home__container">
+        <div itemScope itemType="http://schema.org/LocalBusiness" className="home__container">
+          <span itemProp="name">
           <Title className="home__title">
             Furnas
           </Title>
           <Subtitle className="home__subtitle">
             Дизайн и верстка Landing page
           </Subtitle>
+          </span>
           <SectionTitle className="home__process-section-title">
             Процесс
           </SectionTitle>
@@ -49,9 +51,9 @@ export function HomePage() {
                 Платите в конце этапа, только если довольный работой: 5&nbsp;000&nbsp;руб.
               </BlockText>
               {/*<div className="home__expamle-link">*/}
-                {/*<Link>*/}
-                  {/*Пример документации*/}
-                {/*</Link>*/}
+              {/*<Link>*/}
+              {/*Пример документации*/}
+              {/*</Link>*/}
               {/*</div>*/}
             </div>
             <div className="home__process-block">
@@ -80,9 +82,9 @@ export function HomePage() {
                 Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.
               </BlockText>
               {/*<div className="home__expamle-link">*/}
-                {/*<Link>*/}
-                  {/*Пример прототипа*/}
-                {/*</Link>*/}
+              {/*<Link>*/}
+              {/*Пример прототипа*/}
+              {/*</Link>*/}
               {/*</div>*/}
             </div>
             <div className="home__process-block">
@@ -105,9 +107,9 @@ export function HomePage() {
                 Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.
               </BlockText>
               {/*<div className="home__expamle-link">*/}
-                {/*<Link>*/}
-                  {/*Пример дизайна*/}
-                {/*</Link>*/}
+              {/*<Link>*/}
+              {/*Пример дизайна*/}
+              {/*</Link>*/}
               {/*</div>*/}
             </div>
             <div className="home__process-block">
@@ -133,9 +135,9 @@ export function HomePage() {
                 Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.&nbsp;&mdash;&nbsp;30&nbsp;000&nbsp;руб.
               </BlockText>
               {/*<div className="home__expamle-link">*/}
-                {/*<Link>*/}
-                  {/*Пример кода*/}
-                {/*</Link>*/}
+              {/*<Link>*/}
+              {/*Пример кода*/}
+              {/*</Link>*/}
               {/*</div>*/}
             </div>
           </div>
@@ -168,12 +170,16 @@ export function HomePage() {
           </SectionTitle>
           <div className="home__phone-contact">
             <Link href="tel:+7(919)081-68-22">
+              <span itemProp="telephone">
               +7(919)081-68-22
+              </span>
             </Link>
           </div>
           <div className="home__email-contact">
             <Link href="mailto:furnasteam@gmail.com">
+              <span itemProp="email">
               furnasteam@gmail.com
+              </span>
             </Link>
           </div>
           <InputLabel className="home__contact-input-label">
