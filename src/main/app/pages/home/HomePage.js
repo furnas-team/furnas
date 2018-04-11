@@ -163,7 +163,7 @@ export function HomePage() {
                        size={ArticleLinkSize.SMALL}
                        className="home__article-link"/>
           <div className="home__more-articles-row">
-            Больше статей на <Link href="/learn">furnas.blog</Link>
+            Больше статей на <Link href="/learn">furnas.ru/learn</Link>
           </div>
           <SectionTitle className="home__contact-us-section-title">
             Контакты

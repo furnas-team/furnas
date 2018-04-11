@@ -36,6 +36,10 @@ const clientConfig = {
             options: {}
           }
         ]
+      },
+      {
+        test: /\.ico$/,
+        use: 'base64-inline-loader?limit=1000&name=[name].[ext]'
       }
     ]
   },
@@ -77,6 +81,10 @@ const serverConfig = {
             options: {}
           }
         ]
+      },
+      {
+        test: /\.ico$/,
+        use: 'base64-inline-loader?limit=1000&name=[name].[ext]'
       }
     ]
   },
