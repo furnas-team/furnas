@@ -7,7 +7,6 @@
   &__container {
     width: 600px;
     padding-top: 88px;
-    padding-left: 88px;
     padding-bottom: 52px;
   }
 
@@ -18,7 +17,16 @@
   &__subtitle {
     margin-bottom: 48px;
   }
+
   &__article-link {
     margin-bottom: 24px;
+  }
+
+  &__article-title {
+    margin-bottom: 16px;
+  }
+
+  &__learn-link {
+    margin-top: 48px;
   }
 }

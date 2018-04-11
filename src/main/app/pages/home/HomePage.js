@@ -48,11 +48,11 @@ export function HomePage() {
               <BlockText>
                 Платите в конце этапа, только если довольный работой: 5&nbsp;000&nbsp;руб.
               </BlockText>
-              <div className="home__expamle-link">
-                <Link>
-                  Пример документации
-                </Link>
-              </div>
+              {/*<div className="home__expamle-link">*/}
+                {/*<Link>*/}
+                  {/*Пример документации*/}
+                {/*</Link>*/}
+              {/*</div>*/}
             </div>
             <div className="home__process-block">
               <BlockTitle className="home__process-block-title">
@@ -79,11 +79,11 @@ export function HomePage() {
               <BlockText>
                 Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.
               </BlockText>
-              <div className="home__expamle-link">
-                <Link>
-                  Пример прототипа
-                </Link>
-              </div>
+              {/*<div className="home__expamle-link">*/}
+                {/*<Link>*/}
+                  {/*Пример прототипа*/}
+                {/*</Link>*/}
+              {/*</div>*/}
             </div>
             <div className="home__process-block">
               <BlockTitle className="home__process-block-title">
@@ -104,11 +104,11 @@ export function HomePage() {
               <BlockText>
                 Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.
               </BlockText>
-              <div className="home__expamle-link">
-                <Link>
-                  Пример дизайна
-                </Link>
-              </div>
+              {/*<div className="home__expamle-link">*/}
+                {/*<Link>*/}
+                  {/*Пример дизайна*/}
+                {/*</Link>*/}
+              {/*</div>*/}
             </div>
             <div className="home__process-block">
               <BlockTitle className="home__process-block-title">
@@ -132,11 +132,11 @@ export function HomePage() {
               <BlockText>
                 Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.&nbsp;&mdash;&nbsp;30&nbsp;000&nbsp;руб.
               </BlockText>
-              <div className="home__expamle-link">
-                <Link>
-                  Пример кода
-                </Link>
-              </div>
+              {/*<div className="home__expamle-link">*/}
+                {/*<Link>*/}
+                  {/*Пример кода*/}
+                {/*</Link>*/}
+              {/*</div>*/}
             </div>
           </div>
           <Button className="home__contact-us-button">
@@ -161,7 +161,7 @@ export function HomePage() {
                        size={ArticleLinkSize.SMALL}
                        className="home__article-link"/>
           <div className="home__more-articles-row">
-            больше статей на <Link href="/learn">furnas.blog</Link>
+            Больше статей на <Link href="/learn">furnas.blog</Link>
           </div>
           <SectionTitle className="home__contact-us-section-title">
             Контакты

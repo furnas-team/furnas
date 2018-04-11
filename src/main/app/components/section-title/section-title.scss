@@ -6,6 +6,7 @@
   font-size: $font-section-title-size;
   color: $font-color-white;
   text-transform: uppercase;
+  letter-spacing: 1px;
   @include for-phone-only {
     font-size: $font-section-title-mobile-size;
   }

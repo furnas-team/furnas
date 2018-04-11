@@ -6,13 +6,16 @@ import {string, any} from 'prop-types';
 Link.propTypes = {
   className: string,
   href: string,
-  children: any
+  children: any,
+  target: string
 };
 
-export function Link({className, children, href}) {
+export function Link({className, children, href, target}) {
 
   return (
-    <a className={classNames('link', className)} href={href}>
+    <a className={classNames('link', className)}
+       target={target}
+       href={href}>
       {children}
     </a>
   );
