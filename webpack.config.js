@@ -38,6 +38,17 @@ const clientConfig = {
         ]
       },
       {
+        test: /\.xml$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]'
+            }
+          }
+        ]
+      },
+      {
         test: /\.ico$/,
         use: 'base64-inline-loader?limit=1000&name=[name].[ext]'
       }
@@ -79,6 +90,17 @@ const serverConfig = {
           {
             loader: 'file-loader',
             options: {}
+          }
+        ]
+      },
+      {
+        test: /\.xml$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]'
+            }
           }
         ]
       },

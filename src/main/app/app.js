@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import {LearnPage} from './pages/learn/LearnPage';
 import {LearnArticlePage} from './pages/learn-article/LearnArticlePage';
 import Favicon from 'react-favicon';
+import './seo/sitemap.xml';
 
 export class App extends React.Component {
 
