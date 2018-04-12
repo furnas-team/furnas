@@ -4,20 +4,36 @@
 .home {
   height: 100%;
   width: 100%;
-  background: #2E2E31;
+  background: #2E2E31 url('images/background.png') calc(100% + 250px) -350px no-repeat;
+  @include for-tablet-portrait-up {
+    background: #2E2E31 url('images/background.png') calc(100% + 150px) -250px no-repeat;
+  }
+  @include for-tablet-landscape-up {
+    background: #2E2E31 url('images/background.png') calc(100% + 150px) -250px no-repeat;
+  }
   @include for-desktop-up {
     background: #2E2E31 url('images/background.png') 100% 0 no-repeat;
   }
 
   &__container {
-    max-width: 960px;
-    padding-top: 106px;
-    padding-left: 88px;
-    padding-bottom: 52px;
+    max-width: 500px;
+    margin: 48px 48px;
     @include for-phone-only {
       max-width: none;
-      padding: 0;
       margin: 48px 24px;
+    }
+
+    @include for-tablet-landscape-up {
+      margin: 80px 48px;
+      max-width: 960px;
+    }
+
+    @include for-desktop-up {
+      margin: 0;
+      padding-top: 106px;
+      padding-left: 88px;
+      padding-bottom: 52px;
+      max-width: 960px;
     }
   }
 
@@ -26,7 +42,10 @@
   }
 
   &__subtitle {
-    margin-bottom: 54px;
+    margin-bottom: 36px;
+    @include for-tablet-landscape-up {
+      margin-bottom: 54px;
+    }
   }
 
   &__process-section-title {
@@ -129,5 +148,26 @@
 
   &__send-contact {
     width: 156px;
+  }
+
+  &__mobile-explain-text {
+    color: $font-color-white;
+    font-size: 16px;
+    font-family: $font-family;
+    font-weight: 300;
+    line-height: 19px;
+    letter-spacing: 1px;
+    margin-bottom: 36px;
+
+    @include for-tablet-landscape-up {
+      display: none;
+    }
+  }
+
+  &__contact-us-mobile-button {
+    margin-bottom: 48px;
+    @include for-tablet-landscape-up {
+      display: none;
+    }
   }
 }

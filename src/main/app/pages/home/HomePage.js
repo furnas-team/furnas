@@ -48,6 +48,17 @@ export class HomePage extends React.Component {
           <Subtitle className="home__subtitle">
             Дизайн и верстка Landing page
           </Subtitle>
+          <div className="home__mobile-explain-text">
+            Создаем Landing page поэтапно.  Показываем вам результат
+            на каждом шаге и вы платите
+            только в том случае, если он вам
+            нравится.
+          </div>
+          <a href="#contact-us-section">
+            <Button className="home__contact-us-mobile-button">
+              Связаться с нами
+            </Button>
+          </a>
           </span>
             <SectionTitle className="home__process-section-title">
               Процесс
@@ -163,9 +174,11 @@ export class HomePage extends React.Component {
                 {/*</div>*/}
               </div>
             </div>
-            <Button className="home__contact-us-button">
-              Связаться с нами
-            </Button>
+            <a href="#contact-us-section">
+              <Button className="home__contact-us-button">
+                Связаться с нами
+              </Button>
+            </a>
             <SectionTitle className="home__blog-section-title">
               Полезные статьи
             </SectionTitle>
@@ -187,7 +200,7 @@ export class HomePage extends React.Component {
             <div className="home__more-articles-row">
               Больше статей на <Link href="/learn">furnas.ru/learn</Link>
             </div>
-            <SectionTitle className="home__contact-us-section-title">
+            <SectionTitle className="home__contact-us-section-title" id="contact-us-section">
               Контакты
             </SectionTitle>
             <div className="home__phone-contact">

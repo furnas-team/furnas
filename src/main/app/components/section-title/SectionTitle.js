@@ -5,13 +5,14 @@ import './section-title.scss';
 
 SectionTitle.propTypes = {
   className: string,
-  children: any
+  children: any,
+  id: string
 };
 
-export function SectionTitle({className, children}) {
+export function SectionTitle({className, children, id}) {
 
   return (
-    <div className={classNames('section-title', className)}>
+    <div id={id} className={classNames('section-title', className)}>
       {children}
     </div>
   );
