@@ -15,15 +15,32 @@ import {ArticleName} from '../../common/models/ArticleName';
 import {ArticleLink, ArticleLinkSize} from '../../components/article-link/ArticleLink';
 import {Helmet} from 'react-helmet';
 
-export function HomePage() {
-  return (
-    <ThemeProvider value={ThemeName.DARK}>
-      <Helmet>
-        <title>Дизайн и верстка Landing pages | Furnas</title>
-        <meta name="description" content="Создаем Landing page поэтапно.  Показываем вам результат на каждом шаге и вы платите только в том случае, если он вам нравится." />
-      </Helmet>
-      <div className="home">
-        <div itemScope itemType="http://schema.org/LocalBusiness" className="home__container">
+export class HomePage extends React.Component {
+
+  state = {
+    userContact: ''
+  };
+
+  handleSendContact = () => {
+    window.mixpanel.track(
+      "Furnas | added user contact",
+      {contact: this.state.userContact}
+    );
+  };
+
+  handleUserContactInputChange = event => {
+    this.setState({userContact: event.target.value});
+  };
+
+  render() {
+    return (
+      <ThemeProvider value={ThemeName.DARK}>
+        <Helmet>
+          <title>Дизайн и верстка Landing pages | Furnas</title>
+          <meta name="description" content="Создаем Landing page поэтапно.  Показываем вам результат на каждом шаге и вы платите только в том случае, если он вам нравится."/>
+        </Helmet>
+        <div className="home">
+          <div itemScope itemType="http://schema.org/LocalBusiness" className="home__container">
           <span itemProp="name">
           <Title className="home__title">
             Furnas
@@ -32,173 +49,177 @@ export function HomePage() {
             Дизайн и верстка Landing page
           </Subtitle>
           </span>
-          <SectionTitle className="home__process-section-title">
-            Процесс
-          </SectionTitle>
-          <div className="home__process">
-            <div className="home__process-block">
-              <BlockTitle className="home__process-block-title">
-                Интервью
-              </BlockTitle>
-              <BlockText>
-                Общаемся, документируем требования к будущему прототипу.
-              </BlockText>
-              <BlockSubtitle className="home__process-block-subtitle">
-                Время выполнения
-              </BlockSubtitle>
-              <BlockText>
-                1 день
-              </BlockText>
-              <BlockSubtitle className="home__process-block-subtitle">
-                Стоимость
-              </BlockSubtitle>
-              <BlockText>
-                Платите в конце этапа, только если довольный работой: 5&nbsp;000&nbsp;руб.
-              </BlockText>
-              {/*<div className="home__expamle-link">*/}
-              {/*<Link>*/}
-              {/*Пример документации*/}
-              {/*</Link>*/}
-              {/*</div>*/}
+            <SectionTitle className="home__process-section-title">
+              Процесс
+            </SectionTitle>
+            <div className="home__process">
+              <div className="home__process-block">
+                <BlockTitle className="home__process-block-title">
+                  Интервью
+                </BlockTitle>
+                <BlockText>
+                  Общаемся, документируем требования к будущему прототипу.
+                </BlockText>
+                <BlockSubtitle className="home__process-block-subtitle">
+                  Время выполнения
+                </BlockSubtitle>
+                <BlockText>
+                  1 день
+                </BlockText>
+                <BlockSubtitle className="home__process-block-subtitle">
+                  Стоимость
+                </BlockSubtitle>
+                <BlockText>
+                  Платите в конце этапа, только если довольный работой: 5&nbsp;000&nbsp;руб.
+                </BlockText>
+                {/*<div className="home__expamle-link">*/}
+                {/*<Link>*/}
+                {/*Пример документации*/}
+                {/*</Link>*/}
+                {/*</div>*/}
+              </div>
+              <div className="home__process-block">
+                <BlockTitle className="home__process-block-title">
+                  Прототип
+                </BlockTitle>
+                <BlockText className="home__process-block-text-with-margin">
+                  Схематично рисуем Landing page.
+                </BlockText>
+                <BlockText className="home__process-block-text-with-margin">
+                  Определяем расположение информационных блоков, их содержание.
+                </BlockText>
+                <BlockText>
+                  Показываем, обсуждаем.
+                </BlockText>
+                <BlockSubtitle className="home__process-block-subtitle">
+                  Время выполнения
+                </BlockSubtitle>
+                <BlockText>
+                  2 дня
+                </BlockText>
+                <BlockSubtitle className="home__process-block-subtitle">
+                  Стоимость
+                </BlockSubtitle>
+                <BlockText>
+                  Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.
+                </BlockText>
+                {/*<div className="home__expamle-link">*/}
+                {/*<Link>*/}
+                {/*Пример прототипа*/}
+                {/*</Link>*/}
+                {/*</div>*/}
+              </div>
+              <div className="home__process-block">
+                <BlockTitle className="home__process-block-title">
+                  Дизайн
+                </BlockTitle>
+                <BlockText>
+                  Вы получаете полностью готовый дизайн в виде sketch файла и pdf.
+                </BlockText>
+                <BlockSubtitle className="home__process-block-subtitle">
+                  Время выполнения
+                </BlockSubtitle>
+                <BlockText>
+                  3 дня
+                </BlockText>
+                <BlockSubtitle className="home__process-block-subtitle">
+                  Стоимость
+                </BlockSubtitle>
+                <BlockText>
+                  Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.
+                </BlockText>
+                {/*<div className="home__expamle-link">*/}
+                {/*<Link>*/}
+                {/*Пример дизайна*/}
+                {/*</Link>*/}
+                {/*</div>*/}
+              </div>
+              <div className="home__process-block">
+                <BlockTitle className="home__process-block-title">
+                  Разработка
+                </BlockTitle>
+                <BlockText className="home__process-block-text-with-margin">
+                  Получаете разработанный Landing page в виде архива с html, js и css кодом.
+                </BlockText>
+                <BlockText>
+                  Поможем разместить на хостинге, купить домен и разместить рекламу.
+                </BlockText>
+                <BlockSubtitle className="home__process-block-subtitle">
+                  Время выполнения
+                </BlockSubtitle>
+                <BlockText>
+                  2 - 3 дня
+                </BlockText>
+                <BlockSubtitle className="home__process-block-subtitle">
+                  Стоимость
+                </BlockSubtitle>
+                <BlockText>
+                  Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.&nbsp;&mdash;&nbsp;30&nbsp;000&nbsp;руб.
+                </BlockText>
+                {/*<div className="home__expamle-link">*/}
+                {/*<Link>*/}
+                {/*Пример кода*/}
+                {/*</Link>*/}
+                {/*</div>*/}
+              </div>
             </div>
-            <div className="home__process-block">
-              <BlockTitle className="home__process-block-title">
-                Прототип
-              </BlockTitle>
-              <BlockText className="home__process-block-text-with-margin">
-                Схематично рисуем Landing page.
-              </BlockText>
-              <BlockText className="home__process-block-text-with-margin">
-                Определяем расположение информационных блоков, их содержание.
-              </BlockText>
-              <BlockText>
-                Показываем, обсуждаем.
-              </BlockText>
-              <BlockSubtitle className="home__process-block-subtitle">
-                Время выполнения
-              </BlockSubtitle>
-              <BlockText>
-                2 дня
-              </BlockText>
-              <BlockSubtitle className="home__process-block-subtitle">
-                Стоимость
-              </BlockSubtitle>
-              <BlockText>
-                Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.
-              </BlockText>
-              {/*<div className="home__expamle-link">*/}
-              {/*<Link>*/}
-              {/*Пример прототипа*/}
-              {/*</Link>*/}
-              {/*</div>*/}
+            <Button className="home__contact-us-button">
+              Связаться с нами
+            </Button>
+            <SectionTitle className="home__blog-section-title">
+              Полезные статьи
+            </SectionTitle>
+            <ArticleLink articleName={ArticleName.DO_I_NEED_LANDING_PAGE}
+                         size={ArticleLinkSize.SMALL}
+                         className="home__article-link"/>
+            <ArticleLink articleName={ArticleName.WHAT_IS_LANDING_PAGE}
+                         size={ArticleLinkSize.SMALL}
+                         className="home__article-link"/>
+            <ArticleLink articleName={ArticleName.DO_I_NEED_SEO_EXPERT}
+                         size={ArticleLinkSize.SMALL}
+                         className="home__article-link"/>
+            <ArticleLink articleName={ArticleName.HOW_USERS_FIND_LANDING_PAGE}
+                         size={ArticleLinkSize.SMALL}
+                         className="home__article-link"/>
+            <ArticleLink articleName={ArticleName.WHERE_BUY_ADS_FOR_LANDING_PAGE}
+                         size={ArticleLinkSize.SMALL}
+                         className="home__article-link"/>
+            <div className="home__more-articles-row">
+              Больше статей на <Link href="/learn">furnas.ru/learn</Link>
             </div>
-            <div className="home__process-block">
-              <BlockTitle className="home__process-block-title">
-                Дизайн
-              </BlockTitle>
-              <BlockText>
-                Вы получаете полностью готовый дизайн в виде sketch файла и pdf.
-              </BlockText>
-              <BlockSubtitle className="home__process-block-subtitle">
-                Время выполнения
-              </BlockSubtitle>
-              <BlockText>
-                3 дня
-              </BlockText>
-              <BlockSubtitle className="home__process-block-subtitle">
-                Стоимость
-              </BlockSubtitle>
-              <BlockText>
-                Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.
-              </BlockText>
-              {/*<div className="home__expamle-link">*/}
-              {/*<Link>*/}
-              {/*Пример дизайна*/}
-              {/*</Link>*/}
-              {/*</div>*/}
-            </div>
-            <div className="home__process-block">
-              <BlockTitle className="home__process-block-title">
-                Разработка
-              </BlockTitle>
-              <BlockText className="home__process-block-text-with-margin">
-                Получаете разработанный Landing page в виде архива с html, js и css кодом.
-              </BlockText>
-              <BlockText>
-                Поможем разместить на хостинге, купить домен и разместить рекламу.
-              </BlockText>
-              <BlockSubtitle className="home__process-block-subtitle">
-                Время выполнения
-              </BlockSubtitle>
-              <BlockText>
-                2 - 3 дня
-              </BlockText>
-              <BlockSubtitle className="home__process-block-subtitle">
-                Стоимость
-              </BlockSubtitle>
-              <BlockText>
-                Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.&nbsp;&mdash;&nbsp;30&nbsp;000&nbsp;руб.
-              </BlockText>
-              {/*<div className="home__expamle-link">*/}
-              {/*<Link>*/}
-              {/*Пример кода*/}
-              {/*</Link>*/}
-              {/*</div>*/}
-            </div>
-          </div>
-          <Button className="home__contact-us-button">
-            Связаться с нами
-          </Button>
-          <SectionTitle className="home__blog-section-title">
-            Полезные статьи
-          </SectionTitle>
-          <ArticleLink articleName={ArticleName.DO_I_NEED_LANDING_PAGE}
-                       size={ArticleLinkSize.SMALL}
-                       className="home__article-link"/>
-          <ArticleLink articleName={ArticleName.WHAT_IS_LANDING_PAGE}
-                       size={ArticleLinkSize.SMALL}
-                       className="home__article-link"/>
-          <ArticleLink articleName={ArticleName.DO_I_NEED_SEO_EXPERT}
-                       size={ArticleLinkSize.SMALL}
-                       className="home__article-link"/>
-          <ArticleLink articleName={ArticleName.HOW_USERS_FIND_LANDING_PAGE}
-                       size={ArticleLinkSize.SMALL}
-                       className="home__article-link"/>
-          <ArticleLink articleName={ArticleName.WHERE_BUY_ADS_FOR_LANDING_PAGE}
-                       size={ArticleLinkSize.SMALL}
-                       className="home__article-link"/>
-          <div className="home__more-articles-row">
-            Больше статей на <Link href="/learn">furnas.ru/learn</Link>
-          </div>
-          <SectionTitle className="home__contact-us-section-title">
-            Контакты
-          </SectionTitle>
-          <div className="home__phone-contact">
-            <Link href="tel:+7(919)081-68-22">
+            <SectionTitle className="home__contact-us-section-title">
+              Контакты
+            </SectionTitle>
+            <div className="home__phone-contact">
+              <Link href="tel:+7(919)081-68-22">
               <span itemProp="telephone">
               +7(919)081-68-22
               </span>
-            </Link>
-          </div>
-          <div className="home__email-contact">
-            <Link href="mailto:furnasteam@gmail.com">
+              </Link>
+            </div>
+            <div className="home__email-contact">
+              <Link href="mailto:furnasteam@gmail.com">
               <span itemProp="email">
               furnasteam@gmail.com
               </span>
-            </Link>
-          </div>
-          <InputLabel className="home__contact-input-label">
-            Или оставьте свои контактные данные (телефон, почта или skype)
-          </InputLabel>
-          <div className="home__contact-us-row">
-            <Input className="home__contact-us-input"/>
-            <Button className="home__send-contact">
-              Отправить
-            </Button>
+              </Link>
+            </div>
+            <InputLabel className="home__contact-input-label">
+              Или оставьте свои контактные данные (телефон, почта или skype)
+            </InputLabel>
+            <div className="home__contact-us-row">
+              <Input className="home__contact-us-input"
+                     value={this.state.userContact}
+                     onChange={this.handleUserContactInputChange}/>
+              <Button className="home__send-contact"
+                      onClick={this.handleSendContact}>
+                Отправить
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
-    </ThemeProvider>
-  );
+      </ThemeProvider>
+    );
+  }
 
 }

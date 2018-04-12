@@ -31,6 +31,7 @@ app.get("*", (req, res) => {
       {helmet.link.toComponent()}
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css"/>
       <link rel="stylesheet" type="text/css" href="/styles.css"/>
+      <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
     </head>
     <body>
     <div id="root" dangerouslySetInnerHTML={ {__html: appString} }>
