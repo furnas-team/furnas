@@ -2,5 +2,63 @@
 @import "../../common/mixins";
 
 .test {
+  background: url('images/background.png') no-repeat 0 -15px;
+  background-size: contain;
 
+  &__step {
+
+  }
+
+  &__step-title {
+    color: #ffffff;
+    font-family: $font-family;
+    font-size: 20px;
+    padding: 32px 16px 60px 16px;
+    letter-spacing: 2px;
+    font-weight: 300;
+  }
+
+  &__step-body {
+  }
+
+  &__header-links-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  &__header-link {
+    color: #ffffff;
+    font-family: $font-family;
+    font-size: 14px;
+    margin: 12px;
+    display: block;
+  }
+
+  &__text-block {
+    color: #6A7A98;
+    font-family: $font-family;
+    font-size: 14px;
+    margin: 0 16px 8px 16px;
+  }
+
+  &__button {
+    border: none;
+    padding: 11px 32px;
+    color: $font-color-white;
+    font-family: $font-family;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #E50085;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 18px;
+  }
+
+  &__button-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 48px;
+  }
 }
