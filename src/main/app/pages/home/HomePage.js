@@ -83,11 +83,11 @@ export class HomePage extends React.Component {
                 <BlockText>
                   Платите в конце этапа, только если довольный работой: 5&nbsp;000&nbsp;руб.
                 </BlockText>
-                {/*<div className="home__expamle-link">*/}
-                {/*<Link>*/}
-                {/*Пример документации*/}
-                {/*</Link>*/}
-                {/*</div>*/}
+                <div className="home__expamle-link">
+                <Link href="https://drive.google.com/file/d/1gAhHYEyBYqPLLLfKc-w4446bDYgpVzYz/view?usp=sharing" target="_blank">
+                Пример документации
+                </Link>
+                </div>
               </div>
               <div className="home__process-block">
                 <BlockTitle className="home__process-block-title">
@@ -114,18 +114,18 @@ export class HomePage extends React.Component {
                 <BlockText>
                   Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.
                 </BlockText>
-                {/*<div className="home__expamle-link">*/}
-                {/*<Link>*/}
-                {/*Пример прототипа*/}
-                {/*</Link>*/}
-                {/*</div>*/}
+                <div className="home__expamle-link">
+                <Link href="https://drive.google.com/file/d/1CWc_lmUYfTYll3a6D1EugHbWLjk1oe1p/view?usp=sharing">
+                Пример прототипа
+                </Link>
+                </div>
               </div>
               <div className="home__process-block">
                 <BlockTitle className="home__process-block-title">
                   Дизайн
                 </BlockTitle>
                 <BlockText>
-                  Вы получаете полностью готовый дизайн в виде sketch файла и pdf.
+                  Вы получаете полностью готовый дизайн в виде sketch файла и png.
                 </BlockText>
                 <BlockSubtitle className="home__process-block-subtitle">
                   Время выполнения
@@ -139,11 +139,11 @@ export class HomePage extends React.Component {
                 <BlockText>
                   Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.
                 </BlockText>
-                {/*<div className="home__expamle-link">*/}
-                {/*<Link>*/}
-                {/*Пример дизайна*/}
-                {/*</Link>*/}
-                {/*</div>*/}
+                <div className="home__expamle-link">
+                <Link href="https://drive.google.com/file/d/1xnE4ifqIChav1WbuAeZ55qsVgMr9jB0n/view?usp=sharing">
+                Пример дизайна
+                </Link>
+                </div>
               </div>
               <div className="home__process-block">
                 <BlockTitle className="home__process-block-title">
@@ -167,11 +167,11 @@ export class HomePage extends React.Component {
                 <BlockText>
                   Платите в конце этапа, только если довольный работой: 10&nbsp;000&nbsp;руб.&nbsp;&mdash;&nbsp;30&nbsp;000&nbsp;руб.
                 </BlockText>
-                {/*<div className="home__expamle-link">*/}
-                {/*<Link>*/}
-                {/*Пример кода*/}
-                {/*</Link>*/}
-                {/*</div>*/}
+                <div className="home__expamle-link">
+                <Link href="https://drive.google.com/file/d/1IjFCFFExWlXotDTfHR5cDdWA82-tw8F_/view?usp=sharing" target="_blank">
+                Пример кода
+                </Link>
+                </div>
               </div>
             </div>
             <a href="#contact-us-section">
