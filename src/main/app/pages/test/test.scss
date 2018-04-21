@@ -47,7 +47,7 @@
   }
 
   &__text-block {
-    color: #6A7A98;
+    color: #566a8e;
     font-family: $font-family;
     font-size: 4.5vw;
     font-weight: 300;
@@ -63,17 +63,18 @@
     font-family: $font-family;
     font-size: 5vw;
     cursor: pointer;
-    background-color: #E50085;
+    background-color: #ef1650;
     outline: none;
     -webkit-tap-highlight-color: transparent;
     border-radius: 100vw;
     letter-spacing: 1px;
+    margin-top: 2vw;
   }
 
   &__button-row {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 48px;
+    margin-top: 13vw;
   }
 }
