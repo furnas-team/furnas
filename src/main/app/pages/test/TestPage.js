@@ -31,20 +31,6 @@ class TestPage extends React.Component {
           <meta name="description" content="Тест из 5-ти вопросов, чтобы лучше понять у кого заказать лендинг"/>
         </Helmet>
         <div className="test">
-          <div className="test__header-links-row">
-            <a className="test__header-link"
-               href="/">
-              furnas
-            </a>
-            <a className="test__header-link"
-               href="/learn">
-              blog
-            </a>
-            <a className="test__header-link"
-               href="/#contact-us-section">
-              email
-            </a>
-          </div>
           {step === TestStep.START && <StartStepPage onClick={this.handleGoToNextStepClick}/>}
           {step === TestStep.RESULT && <ResultStepPage/>}
           {step !== TestStep.START && step !== TestStep.RESULT && <QuestionStepPage/>}

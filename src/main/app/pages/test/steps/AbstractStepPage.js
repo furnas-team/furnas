@@ -21,7 +21,23 @@ export function AbstractStepPage({children}) {
   }
   return (
     <div className="test__step">
+      <div className="test__header">
+        <div className="test__header-links-row">
+          <a className="test__header-link"
+             href="/">
+            furnas
+          </a>
+          <a className="test__header-link"
+             href="/learn">
+            blog
+          </a>
+          <a className="test__header-link"
+             href="/#contact-us-section">
+            email
+          </a>
+        </div>
       <div className="test__step-title">{headerChildren}</div>
+      </div>
       <div className="test__step-body">{bodyChidlren}</div>
     </div>
   )
