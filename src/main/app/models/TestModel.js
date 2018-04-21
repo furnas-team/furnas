@@ -8,6 +8,9 @@ export const TestStep = {
   RESULT: 'result'
 };
 
+export const TestActionType = {
+  SET_TEST_STEP: 'set-test-step'
+};
 
 export const testStepsOrder = [
   TestStep.START,
@@ -24,10 +27,37 @@ const initialState = {
 };
 
 
-export function testReducer(state = initialState) {
+export function testReducer(state = initialState, action) {
+
+  switch (action.type) {
+    case TestActionType.SET_TEST_STEP:
+      return { ...state, step: action.payloads.step}
+  }
+
   return state;
 }
 
-export function selectTestStep(state) {
-  return state.step;
+export function goToNextStep() {
+  return (dispatch, getState) => {
+    const currentStep = getTestStep(selectTest(getState()));
+    const nextStep = testStepsOrder[testStepsOrder.indexOf(currentStep) + 1];
+    dispatch(setTestStep(nextStep));
+  }
+}
+
+export function setTestStep(step) {
+  return {
+    type: TestActionType.SET_TEST_STEP,
+    payloads: {
+      step
+    }
+  }
+}
+
+export function selectTest(state) {
+  return state.test;
+}
+
+export function getTestStep(test) {
+  return test.step;
 }

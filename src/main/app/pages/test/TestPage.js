@@ -2,9 +2,11 @@ import React from 'react';
 import {ThemeName, ThemeProvider} from '../../components/theme-context/ThemeContext';
 import './test.scss';
 import {Helmet} from "react-helmet";
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {func} from 'prop-types';
 import {object} from 'prop-types';
-import {selectTestStep, TestStep} from '../../models/TestModel';
+import {goToNextStep, getTestStep, TestStep, selectTest} from '../../models/TestModel';
 import {StartStepPage} from './steps/StartTestPage';
 import {ResultStepPage} from './steps/ResultStepPage';
 import {QuestionStepPage} from './steps/QuestionStepPage';
@@ -13,16 +15,19 @@ import {QuestionStepPage} from './steps/QuestionStepPage';
 class TestPage extends React.Component {
 
   static propTypes = {
-    test: object
+    test: object,
+    goToNextStep: func
   };
 
-  handleGoToNextStepClick = () => {};
+  handleGoToNextStepClick = () => {
+    this.props.goToNextStep();
+  };
 
   render() {
 
     const {test} = this.props;
 
-    const step = selectTestStep(test);
+    const step = getTestStep(test);
 
     return (
       <ThemeProvider value={ThemeName.LIGHT}>
@@ -33,7 +38,9 @@ class TestPage extends React.Component {
         <div className="test">
           {step === TestStep.START && <StartStepPage onClick={this.handleGoToNextStepClick}/>}
           {step === TestStep.RESULT && <ResultStepPage/>}
-          {step !== TestStep.START && step !== TestStep.RESULT && <QuestionStepPage/>}
+          {step !== TestStep.START && step !== TestStep.RESULT &&
+          <QuestionStepPage step={step}
+                            onNextButtonClick={this.handleGoToNextStepClick}/>}
         </div>
       </ThemeProvider>
     );
@@ -44,8 +51,14 @@ class TestPage extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    test: state.test,
+    test: selectTest(state),
   }
 }
 
-export const ConnectedTestPage = connect(mapStateToProps)(TestPage);
+function mapDispatchToProps(dispatch) {
+  return {
+    goToNextStep: bindActionCreators(goToNextStep, dispatch)
+  }
+}
+
+export const ConnectedTestPage = connect(mapStateToProps, mapDispatchToProps)(TestPage);

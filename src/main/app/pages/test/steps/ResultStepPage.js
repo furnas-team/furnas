@@ -5,7 +5,7 @@ export function ResultStepPage() {
   return (
     <AbstractStepPage>
       <AbstractStepPageHeader>
-        Start Page Header
+        Результат
       </AbstractStepPageHeader>
       <AbstractStepPageBody>
         Start Page Body
