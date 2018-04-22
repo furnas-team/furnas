@@ -74,7 +74,7 @@ export function ResultStepPage({answer}) {
           Мы тоже небольшая студия, посмотрите как мы работаем
         </p>
         <div>
-          <a className="test__result-link" href="https://furnas.ru/">
+          <a className="test__result-link" href="http://furnas.ru/">
             furnas.ru
           </a>
         </div>
@@ -99,7 +99,7 @@ export function ResultStepPage({answer}) {
           Мы тоже небольшая студия, посмотрите как мы работаем
         </p>
         <div>
-          <a className="test__result-link" href="https://furnas.ru/">
+          <a className="test__result-link" href="http://furnas.ru/">
             furnas.ru
           </a>
         </div>
@@ -124,7 +124,7 @@ export function ResultStepPage({answer}) {
           Если вы все же хотите просто проверить гипотезу и не вкладывать сразу большие деньги - обратите внимание на нашу небольшую студию
         </p>
         <div>
-          <a className="test__result-link" href="https://furnas.ru/">
+          <a className="test__result-link" href="http://furnas.ru/">
             furnas.ru
           </a>
         </div>
