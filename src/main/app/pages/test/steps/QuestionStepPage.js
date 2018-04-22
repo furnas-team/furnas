@@ -14,7 +14,7 @@ function renderQuestionHeader(step) {
     case TestStep.CONTROL:
       return <div className="test__step-title_small">Как вы хотите участвовать в процессе создания лендинга?</div>;
     case TestStep.EXCEPT_LANDING:
-      return <div className="test__step-title_small">Что нужно кроме дизайна и верстки лендинга (можно выбрать несколько)?</div>;
+      return <div className="test__step-title_small">Что нужно кроме дизайна и верстки лендинга?</div>;
     case TestStep.TIME:
       return <div className="test__step-title_small">Сколько времени вы готовы уделить созданию лендинга?</div>;
   }

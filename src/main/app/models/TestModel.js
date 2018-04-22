@@ -60,7 +60,7 @@ const initialState = {
   answer: {
     [TestStep.MONEY]: null,
     [TestStep.TIME]: null,
-    [TestStep.EXCEPT_LANDING]: [],
+    [TestStep.EXCEPT_LANDING]: null,
     [TestStep.CONTROL]: null,
     [TestStep.WHAT_IS_DONE]: null,
   }
@@ -123,6 +123,20 @@ export function getTestStep(test) {
   return test.step;
 }
 
-export function getCurrentStepAnswer(test) {
-  return test.answer[getTestStep(test)];
+export function getTestAnswer(test) {
+  return test.answer;
 }
+
+export function getAnswerValueByStep(answer, step) {
+  return answer[step];
+}
+
+export function getTestAnswerByStep(test, step) {
+  return getAnswerValueByStep(getTestAnswer(test), step);
+}
+
+export function getTestCurrentStepAnswerValue(test) {
+  return getTestAnswerByStep(test, getTestStep(test))
+}
+
+

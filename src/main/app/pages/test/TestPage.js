@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {func} from 'prop-types';
 import {object} from 'prop-types';
-import {goToNextStep, getTestStep, TestStep, selectTest, setAnswerForCurrentStep, getCurrentStepAnswer} from '../../models/TestModel';
+import {goToNextStep, getTestStep, TestStep, selectTest, setAnswerForCurrentStep, getTestCurrentStepAnswerValue, getTestAnswer} from '../../models/TestModel';
 import {StartStepPage} from './steps/StartTestPage';
 import {ResultStepPage} from './steps/ResultStepPage';
 import {QuestionStepPage} from './steps/QuestionStepPage';
@@ -40,11 +40,11 @@ class TestPage extends React.Component {
         </Helmet>
         <div className="test">
           {step === TestStep.START && <StartStepPage onClick={this.handleGoToNextStepClick}/>}
-          {step === TestStep.RESULT && <ResultStepPage/>}
+          {step === TestStep.RESULT && <ResultStepPage answer={getTestAnswer(test)}/>}
           {step !== TestStep.START && step !== TestStep.RESULT &&
           <QuestionStepPage step={step}
                             onAnswerChange={this.handleAnswerChange}
-                            answerValue={getCurrentStepAnswer(test)}
+                            answerValue={getTestCurrentStepAnswerValue(test)}
                             onNextButtonClick={this.handleGoToNextStepClick}/>}
         </div>
       </ThemeProvider>

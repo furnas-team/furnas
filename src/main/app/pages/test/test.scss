@@ -101,7 +101,7 @@
     margin: 0 5vw;
   }
 
-  &__question-option + &__question-option{
+  &__question-option + &__question-option {
     border-top: 1px solid #B3C5E6;
   }
 
@@ -122,5 +122,23 @@
   &__question-button-row {
     margin-top: 6.5vw;
     margin-left: 5vw;
+  }
+
+  &__result-title {
+    color: #6A7A98;
+    font-family: $font-family;
+    font-size: 7vw;
+    letter-spacing: 1px;
+    margin: 0 5vw 5vw
+  }
+
+  &__result-link {
+    color: #566a8e;
+    font-family: $font-family;
+    font-size: 4.5vw;
+    margin: 0 5vw 3vw 5vw;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #566a8e;
+    display: inline-block;
   }
 }
