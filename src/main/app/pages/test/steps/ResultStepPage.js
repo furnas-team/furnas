@@ -107,7 +107,7 @@ export function ResultStepPage({answer}) {
       {getAnswerValueByStep(answer, TestStep.MONEY) === TestMoneyOption.FROM_150000 &&
       <AbstractStepPageBody>
         <div className="test__result-title">
-          Компания по брендированию
+          Дизайн агентство
         </div>
         <p className="test__text-block">
           Для создания собственного стиля,
