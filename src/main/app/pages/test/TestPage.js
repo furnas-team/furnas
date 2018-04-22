@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {func} from 'prop-types';
 import {object} from 'prop-types';
-import {goToNextStep, getTestStep, TestStep, selectTest} from '../../models/TestModel';
+import {goToNextStep, getTestStep, TestStep, selectTest, setAnswerForCurrentStep, getCurrentStepAnswer} from '../../models/TestModel';
 import {StartStepPage} from './steps/StartTestPage';
 import {ResultStepPage} from './steps/ResultStepPage';
 import {QuestionStepPage} from './steps/QuestionStepPage';
@@ -16,12 +16,15 @@ class TestPage extends React.Component {
 
   static propTypes = {
     test: object,
-    goToNextStep: func
+    goToNextStep: func,
+    setAnswerForCurrentStep: func
   };
 
   handleGoToNextStepClick = () => {
     this.props.goToNextStep();
   };
+
+  handleAnswerChange = (value) => this.props.setAnswerForCurrentStep(value);
 
   render() {
 
@@ -40,6 +43,8 @@ class TestPage extends React.Component {
           {step === TestStep.RESULT && <ResultStepPage/>}
           {step !== TestStep.START && step !== TestStep.RESULT &&
           <QuestionStepPage step={step}
+                            onAnswerChange={this.handleAnswerChange}
+                            answerValue={getCurrentStepAnswer(test)}
                             onNextButtonClick={this.handleGoToNextStepClick}/>}
         </div>
       </ThemeProvider>
@@ -57,7 +62,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    goToNextStep: bindActionCreators(goToNextStep, dispatch)
+    goToNextStep: bindActionCreators(goToNextStep, dispatch),
+    setAnswerForCurrentStep: bindActionCreators(setAnswerForCurrentStep, dispatch)
   }
 }
 
