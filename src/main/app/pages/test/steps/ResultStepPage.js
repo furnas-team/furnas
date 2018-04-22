@@ -71,29 +71,13 @@ export function ResultStepPage({answer}) {
           Но качество выполненный работы будет стоить своих денег.
         </p>
         <p className="test__text-block">
-          Сайты, где найти фрилансера
+          Мы тоже небольшая студия, посмотрите как мы работаем
         </p>
         <div>
-          <a className="test__result-link" href="https://freelance.ru/">
-            freelance.ru
+          <a className="test__result-link" href="https://furnas.ru/">
+            furnas.ru
           </a>
         </div>
-        <div>
-          <a className="test__result-link" href="https://www.fl.ru/">
-            fl.ru
-          </a>
-        </div>
-        <div>
-          <a className="test__result-link" href="https://www.upwork.com/">
-            upwork.com
-          </a>
-        </div>
-        <p className="test__text-block">
-          Если нужна помощь с составлением технического задания для фрилансера или его собеседования - мы вам поможем
-        </p>
-        <a className="test__result-link" href="https://furnas.ru/">
-          furnas.ru
-        </a>
       </AbstractStepPageBody>}
       {getAnswerValueByStep(answer, TestStep.MONEY) === TestMoneyOption.FROM_70000_TO_150000 &&
       <AbstractStepPageBody>
@@ -112,29 +96,13 @@ export function ResultStepPage({answer}) {
           Но качество выполненный работы будет стоить своих денег.
         </p>
         <p className="test__text-block">
-          Сайты, где найти фрилансера
+          Мы тоже небольшая студия, посмотрите как мы работаем
         </p>
         <div>
-          <a className="test__result-link" href="https://freelance.ru/">
-            freelance.ru
+          <a className="test__result-link" href="https://furnas.ru/">
+            furnas.ru
           </a>
         </div>
-        <div>
-          <a className="test__result-link" href="https://www.fl.ru/">
-            fl.ru
-          </a>
-        </div>
-        <div>
-          <a className="test__result-link" href="https://www.upwork.com/">
-            upwork.com
-          </a>
-        </div>
-        <p className="test__text-block">
-          Если нужна помощь с составлением технического задания для фрилансера или его собеседования - мы вам поможем
-        </p>
-        <a className="test__result-link" href="https://furnas.ru/">
-          furnas.ru
-        </a>
       </AbstractStepPageBody>}
       {getAnswerValueByStep(answer, TestStep.MONEY) === TestMoneyOption.FROM_150000 &&
       <AbstractStepPageBody>
@@ -153,29 +121,13 @@ export function ResultStepPage({answer}) {
           Такие вещи лучше делать сразу и всецело, а то потом могут быть неприятные последствия.
         </p>
         <p className="test__text-block">
-          Сайты, где найти фрилансера
+          Если вы все же хотите просто проверить гипотезу и не вкладывать сразу большие деньги - обратите внимание на нашу небольшую студию
         </p>
         <div>
-          <a className="test__result-link" href="https://freelance.ru/">
-            freelance.ru
+          <a className="test__result-link" href="https://furnas.ru/">
+            furnas.ru
           </a>
         </div>
-        <div>
-          <a className="test__result-link" href="https://www.fl.ru/">
-            fl.ru
-          </a>
-        </div>
-        <div>
-          <a className="test__result-link" href="https://www.upwork.com/">
-            upwork.com
-          </a>
-        </div>
-        <p className="test__text-block">
-          Если нужна помощь с составлением технического задания для фрилансера или его собеседования - мы вам поможем
-        </p>
-        <a className="test__result-link" href="https://furnas.ru/">
-          furnas.ru
-        </a>
       </AbstractStepPageBody>}
 
     </AbstractStepPage>
