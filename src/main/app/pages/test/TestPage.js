@@ -21,6 +21,15 @@ class TestPage extends React.Component {
   };
 
   handleGoToNextStepClick = () => {
+    const {test} = this.props;
+    const step = getTestStep(test);
+
+    if (step !== TestStep.START && step !== TestStep.RESULT) {
+      window.mixpanel.track(
+        "step " + step,
+        {answer: getTestCurrentStepAnswerValue(test)}
+      );
+    }
     this.props.goToNextStep();
   };
 
