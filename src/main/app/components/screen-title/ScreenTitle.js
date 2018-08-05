@@ -1,7 +1,7 @@
 import React from 'react';
 import {string, any} from 'prop-types';
 import classNames from 'classnames';
-import './section-title.scss';
+import './screen-title.scss';
 
 SectionTitle.propTypes = {
   className: string,
@@ -12,8 +12,8 @@ SectionTitle.propTypes = {
 export function SectionTitle({className, children, id}) {
 
   return (
-    <div id={id} className={classNames('section-title', className)}>
+    <h3 className={classNames('section-title', className)}>
       {children}
-    </div>
+    </h3>
   );
 }

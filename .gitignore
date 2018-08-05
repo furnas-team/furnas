@@ -10,3 +10,4 @@ gen
 /node_modules/
 /public/
 /server/
+.DS_Store

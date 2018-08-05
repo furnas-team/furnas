@@ -30,6 +30,7 @@ app.get("*", (req, res) => {
       {helmet.title.toComponent()}
       {helmet.meta.toComponent()}
       {helmet.link.toComponent()}
+      <link href="https://fonts.googleapis.com/css?family=Roboto|Rubik" rel="stylesheet"/>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css"/>
       <link rel="stylesheet" type="text/css" href="/styles.css"/>
       <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
