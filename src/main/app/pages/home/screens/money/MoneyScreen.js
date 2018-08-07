@@ -10,7 +10,7 @@ export class MoneyScreen extends React.Component {
       <div className="money-screen">
         <div className="money-screen__text">
           <SectionTitle className="money-screen__title">
-            А кто делает?
+            А сколько стоит?
           </SectionTitle>
           <BlockText>
             Каждый этап оплачивается отдельно.

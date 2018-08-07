@@ -1,0 +1,78 @@
+@import "../../../../common/vars";
+@import "../../../../common/mixins";
+
+.steps-explanation-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 850px;
+
+  &__title {
+    margin-top: 24px;
+    margin-bottom: 14px;
+  }
+
+  &__text {
+    margin: 62px 16px 0;
+    text-align: right;
+  }
+
+  &__schema {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__schema-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 48px 16px 0;
+  }
+
+  &__right-arrow {
+    width: 73px;
+    height: 73px;
+    background: url('images/right-arrow.svg') no-repeat;
+    background-size: contain;
+    align-self: flex-end;
+    margin-right: 68px;
+    margin-bottom: -24px;
+  }
+
+  &__left-arrow {
+    width: 73px;
+    height: 73px;
+    background: url('images/right-arrow.svg') no-repeat;
+    background-size: contain;
+    align-self: flex-end;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    margin-left: 48px;
+    margin-bottom: -24px;
+  }
+
+  &__schema-block {
+    width: 135px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__schema-block-title {
+    margin-bottom: 8px;
+  }
+
+  &__schema-block-text {
+
+  }
+
+  &__schema-block-number {
+    font-weight: 400;
+    font-family: $font-family;
+    font-size: 18px;
+    color: #E91FFF;
+    opacity: 0.4;
+    margin-right: 8px;
+  }
+}
