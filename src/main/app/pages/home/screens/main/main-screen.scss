@@ -1,0 +1,50 @@
+@import "../../../../common/vars";
+@import "../../../../common/mixins";
+
+.main-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  &__title {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    line-height: 40px;
+    max-width: 300px;
+  }
+
+  &__form {
+    margin: 102px 16px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__links {
+    margin: 40px 16px 0;
+    text-align: center;
+  }
+
+  &__input {
+    margin-top: 32px;
+  }
+
+  &__button {
+    margin-top: 24px;
+  }
+
+  &__link {
+    margin-bottom: 16px;
+  }
+
+  &__pink-word {
+    padding: 0 2px;
+    background: #F8BBFF;
+  }
+
+  &__blue-word {
+    padding: 0 2px;
+    background: #B7EAFF;
+  }
+}

@@ -8,7 +8,8 @@ export class Input extends React.Component {
   static propTypes = {
     className: string,
     value: string,
-    onChange: func
+    onChange: func,
+    placeholder: string
   };
 
   static defaultProps = {
@@ -17,10 +18,13 @@ export class Input extends React.Component {
   };
 
   render() {
-    const {className, value, onChange} = this.props;
+    const {className, value, onChange, placeholder} = this.props;
 
     return (
-      <input className={classNames('input', className)} value={value} onChange={onChange}/>
+      <input className={classNames('input', className)}
+             value={value}
+             onChange={onChange}
+             placeholder={placeholder}/>
     );
   }
 
