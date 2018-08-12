@@ -15,6 +15,10 @@
   background: #ffffff;
   z-index: 1;
 
+  &_header-without-shadow {
+    box-shadow: none;
+  }
+
   &__title {
     font-family: $font-family;
     font-size: 18px;
@@ -31,6 +35,13 @@
   &__title-with-logo {
     display: flex;
     flex-direction: row;
+  }
+
+  &__close-contact-popup-button {
+    background: url('images/close-button.png') no-repeat;
+    width: 16px;
+    height: 16px;
+    background-size: contain;
   }
 
 }
