@@ -1,18 +1,6 @@
 import React from 'react';
 import './home.scss';
-import {Title} from '../../components/title/Title';
-import {Subtitle} from '../../components/subtitle/Subtitle';
-import {SectionTitle} from '../../components/screen-title/ScreenTitle';
-import {BlockTitle} from '../../components/block-title/BlockTitle';
-import {BlockText} from '../../components/block-text/BlockText';
-import {InputLabel} from '../../components/input-label/InputLabel';
-import {Input} from '../../components/input/Input';
-import {Button} from '../../components/button/Button';
-import {BlockSubtitle} from '../../components/block-subtitle/BlockSubtitle';
-import {Link} from '../../components/link/Link';
 import {ThemeName, ThemeProvider} from '../../components/theme-context/ThemeContext';
-import {ArticleName} from '../../common/models/ArticleName';
-import {ArticleLink, ArticleLinkSize} from '../../components/article-link/ArticleLink';
 import {Helmet} from 'react-helmet';
 import {Header} from '../../components/header/Header';
 import {MainScreen} from './screens/main/MainScreen';
@@ -21,11 +9,13 @@ import {TeamScreen} from './screens/team/TeamScreen';
 import {MoneyScreen} from './screens/money/MoneyScreen';
 import {DislikeScreen} from './screens/dislike/DislikeScreen';
 import {ContactScreen} from './screens/contact/ContactScreen';
+import {Popup} from '../../components/Popup/Popup';
 
 export class HomePage extends React.Component {
 
   state = {
-    userContact: ''
+    userContact: '',
+    contactPopupShown: false
   };
 
   handleSendContact = () => {
@@ -39,7 +29,12 @@ export class HomePage extends React.Component {
     this.setState({userContact: event.target.value});
   };
 
+  handleContactClick = () => {
+    this.setState({contactPopupShown: !this.state.contactPopupShown});
+  };
+
   render() {
+    const {contactPopupShown} = this.state;
     return (
       <ThemeProvider value={ThemeName.LIGHT}>
         <Helmet>
@@ -47,13 +42,16 @@ export class HomePage extends React.Component {
           <meta name="description" content="Создаем Landing page поэтапно.  Показываем вам результат на каждом шаге и вы платите только в том случае, если он вам нравится."/>
         </Helmet>
         <div className="home">
-          <Header/>
+          <Header onContactClick={this.handleContactClick}/>
           <MainScreen/>
           <StepsExplanationScreen/>
           <TeamScreen/>
           <MoneyScreen/>
           <DislikeScreen/>
           <ContactScreen/>
+          <Popup shown={contactPopupShown}>
+            <ContactScreen/>
+          </Popup>
         </div>
       </ThemeProvider>
     );

@@ -5,6 +5,11 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  transition: 0.5s ease-out;
+
+  &_animation-finished {
+    height: 420px;
+  }
 
   &__title {
     margin-top: 24px;
