@@ -6,9 +6,16 @@
   flex-direction: column;
   height: 100vh;
   transition: 0.5s ease-out;
+  align-items:center;
 
   &_animation-finished {
     height: 420px;
+    #animation_container{
+      display: none;
+    }
+    .main-screen__form{
+      display: flex;
+    }
   }
 
   &__title {
@@ -21,7 +28,7 @@
   &__form {
     margin: 102px 16px 0;
     text-align: center;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
   }
@@ -52,4 +59,27 @@
     padding: 0 2px;
     background: #B7EAFF;
   }
+}
+
+#animation_container {
+  background-color: rgba(255, 255, 255, 1.00);
+  width: 320px;
+  height: 560px;
+}
+
+#canvas {
+  position: absolute;
+  display: block;
+  background-color: rgba(255, 255, 255, 1.00);
+}
+
+#dom_overlay_container {
+  pointer-events: none;
+  overflow: hidden;
+  width: 320px;
+  height: 560px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: block;
 }
