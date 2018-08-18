@@ -5,28 +5,63 @@ import {SectionTitle} from '../../../../components/screen-title/ScreenTitle';
 import {BlockText} from '../../../../components/block-text/BlockText';
 import {Link} from '../../../../components/link/Link';
 import {Button, ButtonStyle} from '../../../../components/button/Button';
+import {bool, func} from 'prop-types';
 
 export class ContactScreen extends React.Component {
 
+  static propTypes = {
+    requestSent: bool,
+    onSendContactClick: func,
+    onCloseButtonClick: func
+  };
+
   render() {
+    const {requestSent, onSendContactClick, onCloseButtonClick} = this.props;
+
     return (
       <div className="contact-screen">
         <div className="contact-screen__form">
+          {!requestSent &&
           <SectionTitle className="contact-screen__title">
             Как связаться?
-          </SectionTitle>
-          <BlockText>
-            Оставьте свои контактные данные и
-          </BlockText>
-          <BlockText>
-            мы свяжемся с вами в течение дня
-          </BlockText>
-          <Input className="contact-screen__input" placeholder="Телефон, почта или скайп"/>
-          <Button className="contact-screen__button"
-                  buttonStyle={ButtonStyle.BIG_BLUE}>
-            Связаться
-          </Button>
+          </SectionTitle>}
+          {requestSent &&
+          <SectionTitle className="contact-screen__title">
+            Письмо отправлено!
+          </SectionTitle>}
+          {!requestSent &&
+          <div>
+            <BlockText>
+              Оставьте свои контактные данные и
+            </BlockText>
+            <BlockText>
+              мы свяжемся с вами в течение дня
+            </BlockText>
+            <Input className="contact-screen__input" placeholder="Телефон, почта или скайп"/>
+            <Button className="contact-screen__button"
+                    buttonStyle={ButtonStyle.BIG_BLUE}
+                    onClick={onSendContactClick}>
+              Связаться
+            </Button>
+          </div>}
+          {requestSent &&
+          <div>
+            <div className="contact-screen__image">
+            </div>
+            <BlockText>
+              Мы свяжемся с вами в
+            </BlockText>
+            <BlockText>
+              ближайшее время.
+            </BlockText>
+            <Button className="contact-screen__button-back"
+                    buttonStyle={ButtonStyle.BIG_PINK}
+                    onClick={onCloseButtonClick}>
+              Вернуться
+            </Button>
+          </div>}
         </div>
+        {!requestSent &&
         <div className="contact-screen__links">
           <SectionTitle className="contact-screen__title">
             Контакты
@@ -41,7 +76,7 @@ export class ContactScreen extends React.Component {
               sdaleshin@gmail.com
             </Link>
           </div>
-        </div>
+        </div>}
       </div>
     );
   }

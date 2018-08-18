@@ -7,21 +7,27 @@ import './main-screen.scss';
 import classNames from 'classnames';
 import {firstScreenAnimation} from './animation/first-screen';
 import {init} from './animation/animation';
+import {func} from 'prop-types';
 
 export class MainScreen extends React.Component {
 
+  static propTypes = {
+    onSendContactClick: func
+  };
+
   state = {
-    animationFinished: false
+    animationFinished: false,
   };
 
   componentDidMount() {
     const AdobeAn = window.AdobeAn = {};
     firstScreenAnimation(window.createjs, AdobeAn);
     init();
-    setTimeout(() => this.setState({animationFinished: true}), 8000)
+    setTimeout(() => this.setState({animationFinished: true}), 2000)
   }
 
   render() {
+    const {onSendContactClick} = this.props;
     const {animationFinished} = this.state;
     return (
       <div className={classNames("main-screen", {"main-screen_animation-finished": animationFinished})}>
@@ -35,15 +41,17 @@ export class MainScreen extends React.Component {
             <span className="main-screen__pink-word">Дизайн</span> и <span className="main-screen__blue-word">вёрстка</span> лендинга в 4 шага
           </SectionTitle>
           <BlockText>
-            Немного текста о сайте, на который
+            Красивые лендинги,
           </BlockText>
           <BlockText>
-            попал пользователь
+            оригинальные идеи, чистый код.
           </BlockText>
-          <Input className="main-screen__input" placeholder="Телефон, почта или скайп"/>
+          <Input className="main-screen__input"
+                 placeholder="Телефон, почта или скайп"/>
           <Button className="main-screen__button"
-                  buttonStyle={ButtonStyle.BIG_BLUE}>
-            Отправить
+                  buttonStyle={ButtonStyle.BIG_BLUE}
+                  onClick={onSendContactClick}>
+            Связаться
           </Button>
         </div>
       </div>

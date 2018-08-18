@@ -15,7 +15,8 @@ export class HomePage extends React.Component {
 
   state = {
     userContact: '',
-    contactPopupShown: false
+    contactPopupShown: false,
+    requestSent: false
   };
 
   handleSendContact = () => {
@@ -30,11 +31,19 @@ export class HomePage extends React.Component {
   };
 
   handleContactClick = () => {
-    this.setState({contactPopupShown: !this.state.contactPopupShown});
+    this.setState({contactPopupShown: !this.state.contactPopupShown, requestSent: false});
+  };
+
+  handleSendContactClick = () => {
+    this.setState({contactPopupShown: true, requestSent: true});
+  };
+
+  handleCloseButtonClick = () => {
+    this.setState({contactPopupShown: false, requestSent: false});
   };
 
   render() {
-    const {contactPopupShown} = this.state;
+    const {contactPopupShown, requestSent} = this.state;
     return (
       <ThemeProvider value={ThemeName.LIGHT}>
         <Helmet>
@@ -44,14 +53,16 @@ export class HomePage extends React.Component {
         <div className="home">
           <Header onContactClick={this.handleContactClick}
                   contactPopupShown={contactPopupShown}/>
-          <MainScreen/>
+          <MainScreen onSendContactClick={this.handleSendContactClick}/>
           <StepsExplanationScreen/>
           <TeamScreen/>
           <MoneyScreen/>
           <DislikeScreen/>
-          <ContactScreen/>
+          <ContactScreen onSendContactClick={this.handleSendContactClick}/>
           <Popup shown={contactPopupShown}>
-            <ContactScreen/>
+            <ContactScreen requestSent={requestSent}
+                           onCloseButtonClick={this.handleCloseButtonClick}
+                           onSendContactClick={this.handleSendContactClick}/>
           </Popup>
         </div>
       </ThemeProvider>

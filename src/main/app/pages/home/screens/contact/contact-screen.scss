@@ -29,7 +29,22 @@
     margin-top: 24px;
   }
 
+  &__button-back {
+    margin-top: 32px;
+  }
+
   &__link {
     margin-bottom: 16px;
+  }
+
+  &__image {
+    background: url('images/plane.png') no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 250px;
+    height: 82px;
+    margin: auto;
+    margin-top: 32px;
+    margin-bottom: 56px;
   }
 }
