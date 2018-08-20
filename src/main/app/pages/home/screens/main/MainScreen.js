@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import {firstScreenAnimation} from './animation/first-screen';
 import {init} from './animation/animation';
 import {func} from 'prop-types';
+import ReactDOM from 'react-dom';
 
 export class MainScreen extends React.Component {
 
@@ -18,6 +19,8 @@ export class MainScreen extends React.Component {
   state = {
     animationFinished: false,
   };
+
+  inputRef = React.createRef();
 
   componentDidMount() {
     const AdobeAn = window.AdobeAn = {};
@@ -47,10 +50,11 @@ export class MainScreen extends React.Component {
             оригинальные идеи, чистый код.
           </BlockText>
           <Input className="main-screen__input"
-                 placeholder="Телефон, почта или скайп"/>
+                 placeholder="Телефон, почта или скайп"
+                 ref={this.inputRef}/>
           <Button className="main-screen__button"
                   buttonStyle={ButtonStyle.BIG_BLUE}
-                  onClick={onSendContactClick}>
+                  onClick={() => onSendContactClick(ReactDOM.findDOMNode(this.inputRef.current).value)}>
             Связаться
           </Button>
         </div>

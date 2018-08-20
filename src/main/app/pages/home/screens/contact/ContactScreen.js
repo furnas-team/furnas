@@ -6,6 +6,7 @@ import {BlockText} from '../../../../components/block-text/BlockText';
 import {Link} from '../../../../components/link/Link';
 import {Button, ButtonStyle} from '../../../../components/button/Button';
 import {bool, func} from 'prop-types';
+import ReactDOM from 'react-dom';
 
 export class ContactScreen extends React.Component {
 
@@ -14,6 +15,8 @@ export class ContactScreen extends React.Component {
     onSendContactClick: func,
     onCloseButtonClick: func
   };
+
+  inputRef = React.createRef();
 
   render() {
     const {requestSent, onSendContactClick, onCloseButtonClick} = this.props;
@@ -37,10 +40,12 @@ export class ContactScreen extends React.Component {
             <BlockText>
               мы свяжемся с вами в течение дня
             </BlockText>
-            <Input className="contact-screen__input" placeholder="Телефон, почта или скайп"/>
+            <Input className="contact-screen__input"
+                   placeholder="Телефон, почта или скайп"
+                   ref={this.inputRef}/>
             <Button className="contact-screen__button"
                     buttonStyle={ButtonStyle.BIG_BLUE}
-                    onClick={onSendContactClick}>
+                    onClick={() => onSendContactClick(ReactDOM.findDOMNode(this.inputRef.current).value)}>
               Связаться
             </Button>
           </div>}
@@ -68,12 +73,12 @@ export class ContactScreen extends React.Component {
           </SectionTitle>
           <div className="contact-screen__link">
             <Link>
-              +7(919) 081-68-22
+              +7(915) 682-19-55
             </Link>
           </div>
           <div className="contact-screen__link">
             <Link>
-              sdaleshin@gmail.com
+              furnasteam@gmail.com
             </Link>
           </div>
         </div>}
