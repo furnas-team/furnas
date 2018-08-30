@@ -72,7 +72,7 @@ export class ContactScreen extends React.Component {
             Контакты
           </SectionTitle>
           <div className="contact-screen__link">
-            <Link>
+            <Link href="tel:+7(915)682-19-55">
               +7(915) 682-19-55
             </Link>
           </div>

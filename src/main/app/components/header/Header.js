@@ -40,22 +40,24 @@ export class Header extends React.Component {
     const {className, onContactClick, contactPopupShown} = this.props;
     return (
       <div className={classNames('header', {'header_header-without-shadow': scrollY === 0 || contactPopupShown}, className)}>
-        <div className="header__title-with-logo">
-          <div className="header__logo-image">
+        <div className="header__container">
+          <div className="header__title-with-logo">
+            <div className="header__logo-image">
+            </div>
+            <MediumText className="header__title">
+              Furnas
+            </MediumText>
           </div>
-          <MediumText className="header__title">
-            Furnas
-          </MediumText>
-        </div>
-        <div>
-          {contactPopupShown &&
-          <div className="header__close-contact-popup-button"
-               onClick={onContactClick}>
-          </div>}
-          {!contactPopupShown &&
-          <Button onClick={onContactClick}>
-            Связаться
-          </Button>}
+          <div>
+            {contactPopupShown &&
+            <div className="header__close-contact-popup-button"
+                 onClick={onContactClick}>
+            </div>}
+            {!contactPopupShown &&
+            <Button onClick={onContactClick}>
+              Связаться
+            </Button>}
+          </div>
         </div>
       </div>
     );

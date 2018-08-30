@@ -6,14 +6,14 @@
   flex-direction: column;
   height: 100vh;
   transition: 0.5s ease-out;
-  align-items:center;
+  align-items: center;
 
   &_animation-finished {
     height: 420px;
-    #animation_container{
+    #animation_container {
       display: none;
     }
-    .main-screen__form{
+    .main-screen__form {
       display: flex;
     }
   }

@@ -6,14 +6,22 @@
   height: 62px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 0 16px;
-  align-items: center;
   width: calc(100% - 32px);
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.20);
   background: #ffffff;
   z-index: 1;
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 936px;
+  }
 
   &_header-without-shadow {
     box-shadow: none;
