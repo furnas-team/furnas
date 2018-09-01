@@ -23,9 +23,9 @@ export class MainScreen extends React.Component {
   inputRef = React.createRef();
 
   componentDidMount() {
-    // const AdobeAn = window.AdobeAn = {};
-    // firstScreenAnimation(window.createjs, AdobeAn);
-    // init();
+    const AdobeAn = window.AdobeAn = {};
+    firstScreenAnimation(window.createjs, AdobeAn);
+    init();
     setTimeout(() => this.setState({animationFinished: true}), 2000)
   }
 

@@ -17,8 +17,8 @@ export class App extends React.Component {
     const store = configureStore();
 
     return ([
-      <Provider store={store}>
-        <Switch key="1">
+      <Provider key="1" store={store}>
+        <Switch>
           <Route exact path='/learn' component={LearnPage}/>
           <Route exact path='/learn/:name' component={LearnArticlePage}/>
           <Route exact path='/test' component={ConnectedTestPage}/>
