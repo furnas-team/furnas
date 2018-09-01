@@ -20,17 +20,20 @@ export class HomePage extends React.Component {
   };
 
   handleContactClick = () => {
+    window.mixpanel.track(
+      "Furnas | user clicked contact button"
+    );
     this.setState({contactPopupShown: !this.state.contactPopupShown, requestSent: false});
   };
 
   handleSendContactClick = contact => {
-    if(contact) {
+    if (contact) {
       window.mixpanel.track(
         "Furnas | added user contact",
         {contact}
       );
+      this.setState({contactPopupShown: true, requestSent: true});
     }
-    this.setState({contactPopupShown: true, requestSent: true});
   };
 
   handleCloseButtonClick = () => {

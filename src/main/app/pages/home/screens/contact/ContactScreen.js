@@ -16,6 +16,18 @@ export class ContactScreen extends React.Component {
     onCloseButtonClick: func
   };
 
+  handlePhoneClick = () => {
+    window.mixpanel.track(
+      "Furnas | user clicked phone link"
+    );
+  };
+
+  handleEmailClick = () => {
+    window.mixpanel.track(
+      "Furnas | user clicked phone link"
+    );
+  };
+
   inputRef = React.createRef();
 
   render() {
@@ -72,12 +84,13 @@ export class ContactScreen extends React.Component {
             Контакты
           </SectionTitle>
           <div className="contact-screen__link">
-            <Link href="tel:+7(915)682-19-55">
+            <Link href="tel:+7(915)682-19-55"
+                  onClick={this.handlePhoneClick}>
               +7(915) 682-19-55
             </Link>
           </div>
           <div className="contact-screen__link">
-            <Link>
+            <Link onClick={this.handleEmailClick}>
               furnasteam@gmail.com
             </Link>
           </div>
