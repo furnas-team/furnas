@@ -9,4 +9,8 @@
   @include for-phone-only {
     font-size: $font-block-text-mobile-size;
   }
+  @include for-tablet-portrait-up {
+    font-family: $font-family-alternative;
+  }
+
 }

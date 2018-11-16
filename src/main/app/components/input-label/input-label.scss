@@ -8,4 +8,8 @@
   @include for-phone-only {
     font-size: $font-input-label-mobile-size;
   }
+
+  @include for-tablet-portrait-up {
+    font-family: $font-family-alternative;
+  }
 }

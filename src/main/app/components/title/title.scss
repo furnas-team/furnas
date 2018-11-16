@@ -16,4 +16,8 @@
   &_theme-light {
     color: $font-color-black;
   }
+
+  @include for-tablet-portrait-up {
+    font-family: $font-family-alternative;
+  }
 }

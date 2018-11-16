@@ -21,6 +21,7 @@ export class MainScreen extends React.Component {
   };
 
   inputRef = React.createRef();
+  desktopInputRef = React.createRef();
 
   componentDidMount() {
     const AdobeAn = window.AdobeAn = {};
@@ -58,8 +59,20 @@ export class MainScreen extends React.Component {
             Связаться
           </Button>
         </div>
-        <div className="main-screen__form-dektop">
-
+        <div className="main-screen__form-desktop">
+          <SectionTitle className="main-screen__title">
+            Дизайн и вертска лендинга в 4 шага
+          </SectionTitle>
+          <div className="main-screen__desktop-contact-row">
+            <Input className="main-screen__input"
+                   placeholder="Телефон, почта или скайп"
+                   ref={this.desktopInputRef}/>
+            <Button className="main-screen__button"
+                    buttonStyle={ButtonStyle.BIG_BLUE}
+                    onClick={() => onSendContactClick(ReactDOM.findDOMNode(this.desktopInputRef.current).value)}>
+              Связаться
+            </Button>
+          </div>
         </div>
       </div>
     );

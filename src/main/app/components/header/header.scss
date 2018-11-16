@@ -13,6 +13,9 @@
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.20);
   background: #ffffff;
   z-index: 1;
+  @include for-tablet-portrait-up {
+    height: 70px;
+  }
 
   &__container {
     display: flex;
@@ -30,6 +33,10 @@
   &__title {
     font-family: $font-family;
     font-size: 18px;
+    @include for-tablet-portrait-up {
+      font-family: $font-family-alternative;
+      font-size: 24px;
+    }
   }
 
   &__logo-image {

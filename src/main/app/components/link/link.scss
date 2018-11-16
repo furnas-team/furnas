@@ -11,4 +11,7 @@
   cursor: pointer;
   padding: 2px 0;
   font-weight: 400;
+  @include for-tablet-portrait-up {
+    font-family: $font-family-alternative;
+  }
 }

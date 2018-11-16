@@ -4,7 +4,7 @@
 .input {
   font-family: Roboto, sans-serif;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 300;
   background: #FFFFFF;
   border: 1px solid #A5AEB1;
   color: #333333;
@@ -16,7 +16,12 @@
   box-shadow: none;
   -webkit-appearance: none;
 
-  &::placeholder{
+  @include for-tablet-portrait-up {
+    padding: 16px;
+  }
+
+  &::placeholder {
     color: #A5AEB1;
   }
+
 }

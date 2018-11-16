@@ -23,6 +23,10 @@
 
   &__input {
     margin-top: 32px;
+    @include for-tablet-portrait-up {
+      flex-grow: 1;
+      margin-right: 24px;
+    }
   }
 
   &__button {

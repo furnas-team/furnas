@@ -7,6 +7,10 @@
   line-height: 22px;
   font-weight: 300;
 
+  @include for-tablet-portrait-up {
+    font-family: $font-family-alternative;
+  }
+
   &_theme-dark {
     color: $font-color-gray;
   }

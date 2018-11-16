@@ -21,7 +21,7 @@ export class Input extends React.Component {
     const {className, value, onChange, placeholder} = this.props;
 
     return (
-      <input className={classNames('input', className)}
+      <input className={classNames('input',  className)}
              value={value}
              onChange={onChange}
              placeholder={placeholder}/>

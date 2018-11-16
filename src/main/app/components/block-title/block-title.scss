@@ -6,6 +6,11 @@
   font-size: 18px;
   font-weight: 500;
 
+  @include for-tablet-portrait-up {
+    font-family: $font-family-alternative;
+    font-weight: 400;
+  }
+
   &_theme-dark {
     color: #333333;
   }
