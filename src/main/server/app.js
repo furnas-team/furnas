@@ -5,8 +5,13 @@ const {App} = require('../app/app');
 const {StaticRouter} = require('react-router-dom');
 const {renderToString, renderToStaticMarkup} = require('react-dom/server');
 const {Helmet} = require('react-helmet');
+const endsWith = require('lodash/endsWith')
 
 const app = express();
+app.get('*.gz', function(req, res, next) {
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
 app.use(express.static('public'));
 
 app.get("*", (req, res) => {
@@ -30,7 +35,7 @@ app.get("*", (req, res) => {
       {helmet.title.toComponent()}
       {helmet.meta.toComponent()}
       {helmet.link.toComponent()}
-      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&amp;subset=cyrillic|Rubik:300,400,500&amp;subset=cyrillic" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400|Rubik:300,400,500&amp;subset=cyrillic" rel="stylesheet"/>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css"/>
       <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
       <link rel="stylesheet" type="text/css" href="/styles.css"/>
@@ -39,7 +44,7 @@ app.get("*", (req, res) => {
     <body>
     <div id="root" dangerouslySetInnerHTML={ {__html: appString} }>
     </div>
-    <script src="/furnas.client.js"></script>
+    <script src="/furnas.client.js.gz"></script>
     </body>
     </html>));
   res.end();
