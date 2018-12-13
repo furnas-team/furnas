@@ -37,13 +37,12 @@ app.get("*", (req, res) => {
       {helmet.link.toComponent()}
       <link href="https://fonts.googleapis.com/css?family=Roboto:300,400|Rubik:300,400,500&amp;subset=cyrillic" rel="stylesheet"/>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css"/>
-      <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
       <link rel="stylesheet" type="text/css" href="/styles.css"/>
-      <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
     </head>
     <body>
     <div id="root" dangerouslySetInnerHTML={ {__html: appString} }>
     </div>
+    <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
     <script src="/furnas.client.js.gz"></script>
     </body>
     </html>));
