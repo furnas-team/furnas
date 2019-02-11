@@ -41,10 +41,21 @@
 
   &__logo-image {
     background: url('images/logo.png') no-repeat;
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
     margin-right: 8px;
-    background-size: contain;
+    background-size: contain !important;
+    @include for-phone-only {
+      background: url('images/logo_mob.png') no-repeat;
+      width: 18px;
+      height: 28px;
+    }
+    @include for-phone-only-retina {
+      background: url('images/logo_mob_2x.png') no-repeat;
+    }
+    @include for-desktop-up-retina {
+      background: url('images/logo_2x.png') no-repeat;
+    }
   }
 
   &__title-with-logo {

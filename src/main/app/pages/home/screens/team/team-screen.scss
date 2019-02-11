@@ -21,11 +21,21 @@
   &__image {
     background: url('images/team-image.png') no-repeat;
     flex-grow: 1;
-    background-position: center;
-    background-size: contain;
+    background-position: left !important;
+    background-size: contain !important;
     margin: 16px 32px;
+    @include for-phone-only {
+      background: url('images/team-image_mob.png') no-repeat;
+    }
+    @include for-phone-only-retina {
+      background: url('images/team-image_mob_2x.png') no-repeat;
+    }
     @include for-tablet-portrait-up {
       max-height: 400px;
+      margin: 0;
+    }
+    @include for-desktop-up-retina {
+      background: url('images/team-image_2x.png') no-repeat;
     }
   }
 
