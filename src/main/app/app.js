@@ -4,6 +4,7 @@ import {Switch, Route} from 'react-router-dom'
 import {LearnPage} from './pages/learn/LearnPage';
 import {LearnArticlePage} from './pages/learn-article/LearnArticlePage';
 import './seo/sitemap.xml';
+import './seo/robots.txt';
 import {ConnectedTestPage} from './pages/test/TestPage';
 import {Provider} from 'react-redux';
 import {configureStore} from './store/configureStore';

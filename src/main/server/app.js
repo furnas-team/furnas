@@ -5,7 +5,7 @@ const {App} = require('../app/app');
 const {StaticRouter} = require('react-router-dom');
 const {renderToString, renderToStaticMarkup} = require('react-dom/server');
 const {Helmet} = require('react-helmet');
-const endsWith = require('lodash/endsWith')
+const endsWith = require('lodash/endsWith');
 
 const app = express();
 app.get('*.gz', function(req, res, next) {
