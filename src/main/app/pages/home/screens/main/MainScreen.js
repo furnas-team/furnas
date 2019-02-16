@@ -61,7 +61,7 @@ export class MainScreen extends React.Component {
         </div>
         <div className="main-screen__form-desktop">
           <SectionTitle className="main-screen__title">
-            Дизайн и вертска лендинга в 4 шага
+            Дизайн и верстка лендинга в 4 шага
           </SectionTitle>
           <div className="main-screen__desktop-contact-row">
             <Input className="main-screen__input"
