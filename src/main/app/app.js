@@ -9,6 +9,7 @@ import {ConnectedTestPage} from './pages/test/TestPage';
 import {Provider} from 'react-redux';
 import {configureStore} from './store/configureStore';
 import {Helmet} from 'react-helmet';
+import {PortfolioPage} from './pages/portfolio/PortfolioPage';
 
 
 export class App extends React.Component {
@@ -24,6 +25,7 @@ export class App extends React.Component {
           <Route exact path='/learn/:name' component={LearnArticlePage}/>
           <Route exact path='/test' component={ConnectedTestPage}/>
           <Route exact path='/test/:step' component={ConnectedTestPage}/>
+          <Route path='/portfolio' component={PortfolioPage}/>
           <Route path='/' component={HomePage}/>
         </Switch>
       </Provider>,
