@@ -2,6 +2,7 @@ import React from 'react';
 import {SectionTitle} from '../../../../components/screen-title/ScreenTitle';
 import {BlockText} from '../../../../components/block-text/BlockText';
 import './dislike-screen.scss';
+import {Picture} from '../../../../components/picture/Picture';
 
 export class DislikeScreen extends React.Component {
 
@@ -22,7 +23,13 @@ export class DislikeScreen extends React.Component {
             можно не платить.
           </BlockText>
         </div>
-        <div className="dislike-screen__image"></div>
+        <Picture className="dislike-screen__image"
+                 imgClassName="dislike-screen__image-img"
+                 forPhoneOnly={[require('./images/scrooge_mob.png'), require('./images/scrooge_mob.webp')]}
+                 forPhoneOnlyRetina={[require('./images/scrooge_mob_2x.png'), require('./images/scrooge_mob_2x.webp')]}
+                 forTabletPortraitUp={[require('./images/scrooge.png'), require('./images/scrooge.webp')]}
+                 forTabletPortraitUpRetina={[require('./images/scrooge_2x.png'), require('./images/scrooge_2x.webp')]}
+                 alt="Скрудж иллюстрация" />
       </div>
     );    
   }

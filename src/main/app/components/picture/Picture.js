@@ -7,6 +7,7 @@ import filter from 'lodash/filter';
 import endsWith from 'lodash/endsWith';
 import flatten from 'lodash/flatten';
 import last from 'lodash/last';
+import classNames from 'classnames';
 import './picture.scss';
 
 
@@ -32,7 +33,8 @@ export class Picture extends React.Component {
     forBigDesktopUp: array,
     forBigDesktopUpRetina: array,
     alt: string,
-    className: string
+    className: string,
+    imgClassName: string
   };
 
   renderGroup(urls, urlsRetina, mediaQuery) {
@@ -73,7 +75,8 @@ export class Picture extends React.Component {
       forBigDesktopUp,
       forBigDesktopUpRetina,
       alt,
-      className
+      className,
+      imgClassName
     } = this.props;
     const biggestImage = last(compact(filter(flatten([forPhoneOnly, forTabletPortraitUp, forTabletLandscapeUp, forDesktopUp, forBigDesktopUp]), url => !endsWith(url, 'jp2') && !endsWith(url, 'webp'))));
     return (
@@ -83,7 +86,7 @@ export class Picture extends React.Component {
         {this.renderGroup(forTabletLandscapeUp, forTabletLandscapeUpRetina, MediaQuery.FOR_TABLE_LANDSCAPE_UP)}
         {this.renderGroup(forDesktopUp, forDesktopUpRetina, MediaQuery.FOR_DESKTOP_UP)}
         {this.renderGroup(forBigDesktopUp, forBigDesktopUpRetina, MediaQuery.FOR_BIG_DESKTOP_UP)}
-        <img className="picture__img"
+        <img className={classNames(imgClassName, 'picture__img')}
              src={biggestImage}
              alt={alt}/>
       </picture>

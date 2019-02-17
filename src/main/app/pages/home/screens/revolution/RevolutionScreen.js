@@ -3,6 +3,7 @@ import './revolution-screen.scss';
 import {SectionTitle} from '../../../../components/screen-title/ScreenTitle';
 import {BlockText} from '../../../../components/block-text/BlockText';
 import {Link} from '../../../../components/link/Link';
+import {Picture} from '../../../../components/picture/Picture';
 
 export class RevolutionScreen extends React.Component {
 
@@ -23,7 +24,13 @@ export class RevolutionScreen extends React.Component {
             и составлению списка документов.
           </BlockText>
         </div>
-        <div className="revolution-screen__image"></div>
+        <Picture className="revolution-screen__image"
+                 imgClassName="revolution-screen__image-img"
+                 forPhoneOnly={[require('./images/revolution_mob.png'), require('./images/revolution_mob.webp')]}
+                 forPhoneOnlyRetina={[require('./images/revolution_mob_2x.png'), require('./images/revolution_mob_2x.webp')]}
+                 forTabletPortraitUp={[require('./images/revolution.png'), require('./images/revolution.webp')]}
+                 forTabletPortraitUpRetina={[require('./images/revolution_2x.png'), require('./images/revolution_2x.webp')]}
+                 alt="Революция иллюстрация" />
       </div>
     );    
   }

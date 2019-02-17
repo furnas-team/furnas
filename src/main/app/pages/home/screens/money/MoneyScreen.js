@@ -2,6 +2,7 @@ import React from 'react';
 import './money-screen.scss';
 import {SectionTitle} from '../../../../components/screen-title/ScreenTitle';
 import {BlockText} from '../../../../components/block-text/BlockText';
+import {Picture} from '../../../../components/picture/Picture';
 
 export class MoneyScreen extends React.Component {
 
@@ -25,7 +26,13 @@ export class MoneyScreen extends React.Component {
             50-60 тыс. руб.
           </BlockText>
         </div>
-        <div className="money-screen__image"></div>
+        <Picture className="money-screen__image"
+                 imgClassName="money-screen__image-img"
+                 forPhoneOnly={[require('./images/franklin_mob.png'), require('./images/franklin_mob.webp')]}
+                 forPhoneOnlyRetina={[require('./images/franklin_mob_2x.png'), require('./images/franklin_mob_2x.webp')]}
+                 forTabletPortraitUp={[require('./images/franklin.png'), require('./images/franklin.webp')]}
+                 forTabletPortraitUpRetina={[require('./images/franklin_2x.png'), require('./images/franklin_2x.webp')]}
+                 alt="Франклин иллюстрация" />
       </div>
     );    
   }
