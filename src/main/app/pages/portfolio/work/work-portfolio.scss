@@ -1,0 +1,74 @@
+@import "../../../common/vars";
+@import "../../../common/mixins";
+
+.work-portfolio {
+  height: 100%;
+  width: 100%;
+
+  &__title {
+    color: #fff;
+  }
+
+  &__main-screen {
+    background: #C0B3C4;
+  }
+
+  &__main-picture {
+    max-width: 832px;
+    align-self: center;
+    margin: auto;
+
+    @include for-phone-only {
+      width: 100%;
+      max-width: 274px;
+    }
+  }
+
+  &__idea-block {
+    color: #fff;
+    width: 50%;
+    margin-top: 165px;
+    margin-bottom: 260px;
+  }
+
+  &__structure-block {
+    color: #fff;
+    width: 50%;
+    margin-left: 50%;
+    padding-bottom: 170px;
+  }
+
+  &__design-block {
+    width: 50%;
+    color: #5F4A66;
+  }
+
+  &__colors-block {
+    width: 50%;
+    border-left: 1px solid rgba(95, 74, 102, 0.6);
+    padding-left: 160px;
+    box-sizing: border-box;
+    margin-left: 160px;
+  }
+
+  &__iphone-block {
+    background: #C0B3C4;
+  }
+
+  &__iphone-image-block {
+    width: 50%;
+  }
+
+  &__iphone-text-block {
+    width: 50%;
+    color: #5F4A66;
+  }
+
+  &__result-block {
+    background: #C0B3C4;
+    color: #fff;
+  }
+  &__design-block-container {
+    padding: 335px 0 300px;
+  }
+}

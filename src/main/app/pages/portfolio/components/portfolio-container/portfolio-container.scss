@@ -1,0 +1,13 @@
+@import "../../../../common/vars";
+@import "../../../../common/mixins";
+
+.portfolio-container {
+  margin: 0 24px;
+  display: flex;
+  flex-direction: column;
+  @include for-tablet-portrait-up {
+    max-width: 936px;
+    margin: auto;
+    flex-direction: row;
+  }
+}

@@ -9,7 +9,10 @@ import {ConnectedTestPage} from './pages/test/TestPage';
 import {Provider} from 'react-redux';
 import {configureStore} from './store/configureStore';
 import {Helmet} from 'react-helmet';
-import {PortfolioPage} from './pages/portfolio/PortfolioPage';
+import {WorkPortfolioPage} from './pages/portfolio/work/WorkPortfolioPage';
+import {SmikwellPortfolioPage} from './pages/portfolio/smikwell/SmikwellPortfolioPage';
+import {FurnasPortfolioPage} from './pages/portfolio/furnas/FurnasPortfolioPage';
+import {VisaPortfolioPage} from './pages/portfolio/visa/VisaPortfolioPage';
 
 
 export class App extends React.Component {
@@ -25,7 +28,11 @@ export class App extends React.Component {
           <Route exact path='/learn/:name' component={LearnArticlePage}/>
           <Route exact path='/test' component={ConnectedTestPage}/>
           <Route exact path='/test/:step' component={ConnectedTestPage}/>
-          <Route path='/portfolio' component={PortfolioPage}/>
+          <Route path='/portfolio/work' component={WorkPortfolioPage}/>
+          <Route path='/portfolio/smikwell' component={SmikwellPortfolioPage}/>
+          <Route path='/portfolio/furnas' component={FurnasPortfolioPage}/>
+          <Route path='/portfolio/visa' component={VisaPortfolioPage}/>
+          <Route path='/portfolio' component={WorkPortfolioPage}/>
           <Route path='/' component={HomePage}/>
         </Switch>
       </Provider>,

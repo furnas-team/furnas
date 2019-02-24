@@ -1,11 +1,11 @@
 import React from 'react';
-import {ThemeName, ThemeProvider} from '../../components/theme-context/ThemeContext';
+import {ThemeName, ThemeProvider} from '../../../components/theme-context/ThemeContext';
 import {Helmet} from 'react-helmet';
-import {Header} from '../../components/header/Header';
-import {ContactScreen} from '../home/screens/contact/ContactScreen';
-import {Popup} from '../../components/Popup/Popup';
+import {Header} from '../../../components/header/Header';
+import {ContactScreen} from '../../home/screens/contact/ContactScreen';
+import {Popup} from '../../../components/Popup/Popup';
 
-export class PortfolioPage extends React.Component {
+export class VisaPortfolioPage extends React.Component {
 
   state = {
     userContact: '',

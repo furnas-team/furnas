@@ -1,0 +1,45 @@
+@import "../../../../common/vars";
+@import "../../../../common/mixins";
+
+.portfolio-colors {
+  &__row {
+    display: flex;
+    flex-direction: row;
+    &:first-child {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__square {
+    width: 60px;
+    height: 42px;
+    box-sizing: border-box;
+    &:first-child {
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__label {
+    font-size: 16px;
+    font-family: $font-family;
+    margin-bottom: 24px;
+    font-weight: 300;
+    color: #5F4A66;
+  }
+
+  &__work {
+    .portfolio-colors__1 {
+      background: #684A72;
+    }
+    .portfolio-colors__2 {
+      background: #FF7373;
+    }
+    .portfolio-colors__3 {
+      background: #CC7B7B;
+    }
+    .portfolio-colors__4 {
+      border: 1px solid rgba(51, 51, 51, 0.4);
+    }
+  }
+}
