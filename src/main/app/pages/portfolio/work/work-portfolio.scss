@@ -29,6 +29,9 @@
     width: 50%;
     margin-top: 165px;
     margin-bottom: 260px;
+    @include for-phone-only {
+      width: auto;
+    }
   }
 
   &__structure-block {
@@ -36,11 +39,18 @@
     width: 50%;
     margin-left: 50%;
     padding-bottom: 170px;
+    @include for-phone-only {
+      width: auto;
+      margin-left: 0;
+    }
   }
 
   &__design-block {
     width: 50%;
     color: #5F4A66;
+    @include for-phone-only {
+      width: auto;
+    }
   }
 
   &__colors-block {
@@ -49,26 +59,71 @@
     padding-left: 160px;
     box-sizing: border-box;
     margin-left: 160px;
+    @include for-phone-only {
+      padding-left: 0;
+      border: 0;
+      margin: 0;
+      margin-top: 40px;
+    }
   }
 
   &__iphone-block {
     background: #C0B3C4;
+    padding: 66px 0;
   }
 
   &__iphone-image-block {
     width: 50%;
+    @include for-phone-only {
+      width: auto;
+      margin: auto;
+    }
+  }
+
+  &__iphone-img {
+    width: 302px;
+
+    @include for-phone-only {
+      width: 180px;
+    }
   }
 
   &__iphone-text-block {
     width: 50%;
-    color: #5F4A66;
+    margin-top: 145px;
+    color: #fff;
+    @include for-phone-only {
+      width: auto;
+    }
   }
 
   &__result-block {
     background: #C0B3C4;
     color: #fff;
+    padding: 179px 0 252px;
   }
   &__design-block-container {
     padding: 335px 0 300px;
+
+    @include for-phone-only {
+      padding: 64px 0;
+    }
+  }
+
+  &__mac-img {
+    width: 780px;
+    margin: 364px 0;
+    @include for-phone-only {
+      width: 274px;
+      margin: 246px 0;
+    }
+  }
+
+  &__mac-picture {
+    margin: auto;
+  }
+
+  &__result {
+    margin: auto;
   }
 }

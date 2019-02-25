@@ -58,9 +58,7 @@ export class WorkPortfolioPage extends React.Component {
             <PortfolioContainer>
               <Picture className="work-portfolio__main-picture"
                        forPhoneOnly={[require('./images/profession-main_mob.png')]}
-                       forPhoneOnlyRetina={[require('./images/profession-main_mob_2x.png')]}
-                       forTabletPortraitUp={[require('./images/profession-main.png')]}
-                       forTabletPortraitUpRetina={[require('./images/profession-main_2x.png')]}/>
+                       forTabletPortraitUp={[require('./images/profession-main.png')]}/>
             </PortfolioContainer>
             <PortfolioContainer>
               <div className="work-portfolio__idea-block">
@@ -105,10 +103,9 @@ export class WorkPortfolioPage extends React.Component {
             <PortfolioContainer>
               <div className="work-portfolio__iphone-image-block">
                 <Picture className="work-portfolio__iphone-picture"
+                         imgClassName="work-portfolio__iphone-img"
                          forPhoneOnly={[require('./images/profession-iphone_mob.png')]}
-                         forPhoneOnlyRetina={[require('./images/profession-iphone_mob_2x.png')]}
-                         forTabletPortraitUp={[require('./images/profession-iphone.png')]}
-                         forTabletPortraitUpRetina={[require('./images/profession-iphone_2x.png')]}/>
+                         forTabletPortraitUp={[require('./images/profession-iphone.png')]}/>
               </div>
               <div className="work-portfolio__iphone-text-block">
                 <PortfolioSubtitle>Реклама</PortfolioSubtitle>
@@ -123,14 +120,13 @@ export class WorkPortfolioPage extends React.Component {
           </div>
           <PortfolioContainer>
             <Picture className="work-portfolio__mac-picture"
-                     forPhoneOnly={[require('./images/profession-mac_mob.png')]}
-                     forPhoneOnlyRetina={[require('./images/profession-mac_mob_2x.png')]}
-                     forTabletPortraitUp={[require('./images/profession-mac.png')]}
-                     forTabletPortraitUpRetina={[require('./images/profession-mac_2x.png')]}/>
+                     imgClassName="work-portfolio__mac-img"
+                     forPhoneOnly={[require('./images/profession-macbook_mob.png')]}
+                     forTabletPortraitUp={[require('./images/profession-macbook.png')]}/>
           </PortfolioContainer>
           <div className="work-portfolio__result-block">
             <PortfolioContainer>
-              <div>
+              <div className="work-portfolio__result">
                 <PortfolioSubtitle>Результат эксперимента</PortfolioSubtitle>
                 <PortfolioText>
                   <p>Бюджет на рекламу: 30$</p>
