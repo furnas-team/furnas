@@ -1,0 +1,13 @@
+@import "../../../../common/vars";
+@import "../../../../common/mixins";
+
+.next-portfolio-screen {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__button {
+    margin: auto;
+    display: block;
+  }
+}

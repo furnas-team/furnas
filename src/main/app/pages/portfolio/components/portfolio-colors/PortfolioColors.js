@@ -4,11 +4,15 @@ import classNames from 'classnames';
 import './portfolio-colors.scss';
 
 export const PortfolioType = {
-  WORK: 'WORK'
+  WORK: 'WORK',
+  OLD_FURNAS: 'OLD_FURNAS',
+  FURNAS: 'FURNAS'
 };
 
 export const PortfolioClassNameByType = {
-  [PortfolioType.WORK]: 'portfolio-colors__work'
+  [PortfolioType.WORK]: 'portfolio-colors__work',
+  [PortfolioType.OLD_FURNAS]: 'portfolio-colors__old-furnas',
+  [PortfolioType.FURNAS]: 'portfolio-colors__furnas'
 };
 
 export class PortfolioColors extends React.Component {

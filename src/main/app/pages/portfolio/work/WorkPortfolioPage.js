@@ -10,6 +10,7 @@ import {PortfolioContainer} from '../components/portfolio-container/PortfolioCon
 import {PortfolioSubtitle} from '../components/portfolio-subtitle/PortfolioSubtitle';
 import {PortfolioText} from '../components/portfolio-text/PortfolioText';
 import {PortfolioColors, PortfolioType} from '../components/portfolio-colors/PortfolioColors';
+import {NextPortfolioScreen} from '../components/next-portfolio-screen/NextPortfolioScreen';
 
 export class WorkPortfolioPage extends React.Component {
 
@@ -18,6 +19,10 @@ export class WorkPortfolioPage extends React.Component {
     contactPopupShown: false,
     requestSent: false
   };
+
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
 
   handleContactClick = () => {
     window.mixpanel.track(
@@ -68,10 +73,10 @@ export class WorkPortfolioPage extends React.Component {
                     Идея состояла в проверке собственных сил в следующих областях:
                   </p>
                   <ul>
-                    <li>проверка теории «Сделать сайт, на который перейдут пользователи»;</li>
-                    <li>создать с нуля UX-структуру и UI-дизайн;</li>
-                    <li>получить отклик пользователей на баннеры;</li>
-                    <li>впервые настроить рекламу в инстаграме.</li>
+                    <li className="work-portfolio__paragraph">проверка теории «Сделать сайт, на который перейдут пользователи»;</li>
+                    <li className="work-portfolio__paragraph">создать с нуля UX-структуру и UI-дизайн;</li>
+                    <li className="work-portfolio__paragraph">получить отклик пользователей на баннеры;</li>
+                    <li className="work-portfolio__paragraph">впервые настроить рекламу в инстаграме.</li>
                   </ul>
                 </PortfolioText>
               </div>
@@ -80,9 +85,9 @@ export class WorkPortfolioPage extends React.Component {
               <div className="work-portfolio__structure-block">
                 <PortfolioSubtitle>Проработка структуры сайта</PortfolioSubtitle>
                 <PortfolioText>
-                  <p>Идея сайта простая, поэтому даем пользователю достичь цель максимально быстро.</p>
-                  <p>Путь пользователя:</p>
-                  <p>Баннер —> страница с одним вопросом —> страница с email.</p>
+                  <p className="work-portfolio__paragraph">Идея сайта простая, поэтому даем пользователю достичь цель максимально быстро.</p>
+                  <p className="work-portfolio__paragraph">Путь пользователя:</p>
+                  <p className="work-portfolio__paragraph">Баннер —> страница с одним вопросом —> страница с email.</p>
                 </PortfolioText>
               </div>
             </PortfolioContainer>
@@ -110,10 +115,10 @@ export class WorkPortfolioPage extends React.Component {
               <div className="work-portfolio__iphone-text-block">
                 <PortfolioSubtitle>Реклама</PortfolioSubtitle>
                 <PortfolioText>
-                  <p>Рекламу пустили только в инстаграме.</p>
-                  <p>Отрисовали баннеры и пустили первые показы.</p>
-                  <p>Два дня изменяли настройки, искали целевую группу. Отобрали самый результативный баннер и оставили только один.</p>
-                  <p>Рекламный период: 2 недели.</p>
+                  <p className="work-portfolio__paragraph">Рекламу пустили только в инстаграме.</p>
+                  <p className="work-portfolio__paragraph">Отрисовали баннеры и пустили первые показы.</p>
+                  <p className="work-portfolio__paragraph">Два дня изменяли настройки, искали целевую группу. Отобрали самый результативный баннер и оставили только один.</p>
+                  <p className="work-portfolio__paragraph">Рекламный период: 2 недели.</p>
                 </PortfolioText>
               </div>
             </PortfolioContainer>
@@ -129,19 +134,20 @@ export class WorkPortfolioPage extends React.Component {
               <div className="work-portfolio__result">
                 <PortfolioSubtitle>Результат эксперимента</PortfolioSubtitle>
                 <PortfolioText>
-                  <p>Бюджет на рекламу: 30$</p>
-                  <p>Переходов по банеру: 560 шт</p>
-                  <p>Прохождения теста: 490 шт</p>
-                  <p>Кол-во оставленных email: 240 шт</p>
+                  <p className="work-portfolio__paragraph">Бюджет на рекламу: 30$</p>
+                  <p className="work-portfolio__paragraph">Переходов по банеру: 560 шт</p>
+                  <p className="work-portfolio__paragraph">Прохождения теста: 490 шт</p>
+                  <p className="work-portfolio__paragraph">Кол-во оставленных email: 240 шт</p>
                 </PortfolioText>
               </div>
             </PortfolioContainer>
           </div>
-          <Popup shown={contactPopupShown}>
-            <ContactScreen requestSent={requestSent}
-                           onCloseButtonClick={this.handleCloseButtonClick}
-                           onSendContactClick={this.handleSendContactClick}/>
-          </Popup>
+          <NextPortfolioScreen nextPageHref="/portfolio/furnas"/>
+          {/*<Popup shown={contactPopupShown}>*/}
+            {/*<ContactScreen requestSent={requestSent}*/}
+                           {/*onCloseButtonClick={this.handleCloseButtonClick}*/}
+                           {/*onSendContactClick={this.handleSendContactClick}/>*/}
+          {/*</Popup>*/}
         </div>
       </ThemeProvider>
     );

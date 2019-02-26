@@ -25,7 +25,6 @@
     font-family: $font-family;
     margin-bottom: 24px;
     font-weight: 300;
-    color: #5F4A66;
   }
 
   &__work {
@@ -40,6 +39,36 @@
     }
     .portfolio-colors__4 {
       border: 1px solid rgba(51, 51, 51, 0.4);
+    }
+  }
+
+  &__old-furnas {
+    .portfolio-colors__1 {
+      background: #333333;
+    }
+    .portfolio-colors__2 {
+      background: #EB6073;
+    }
+    .portfolio-colors__3 {
+      background: #6DCBFF;
+    }
+    .portfolio-colors__4 {
+      border: 1px solid rgba(51, 51, 51, 0.4);
+    }
+  }
+
+  &__furnas {
+    .portfolio-colors__1 {
+      border: 1px solid rgba(51, 51, 51, 0.4);
+    }
+    .portfolio-colors__2 {
+      background: #E91FFF;
+    }
+    .portfolio-colors__3 {
+      background: #3AC7FF;
+    }
+    .portfolio-colors__4 {
+      background: #333333;
     }
   }
 }

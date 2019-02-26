@@ -31,6 +31,7 @@
     margin-bottom: 260px;
     @include for-phone-only {
       width: auto;
+      margin: 95px 0 64px;
     }
   }
 
@@ -59,6 +60,7 @@
     padding-left: 160px;
     box-sizing: border-box;
     margin-left: 160px;
+    color: #5F4A66;
     @include for-phone-only {
       padding-left: 0;
       border: 0;
@@ -70,6 +72,9 @@
   &__iphone-block {
     background: #C0B3C4;
     padding: 66px 0;
+    @include for-phone-only {
+      padding-top: 0;
+    }
   }
 
   &__iphone-image-block {
@@ -77,6 +82,7 @@
     @include for-phone-only {
       width: auto;
       margin: auto;
+      order: 2;
     }
   }
 
@@ -94,6 +100,7 @@
     color: #fff;
     @include for-phone-only {
       width: auto;
+      margin-top: 64px;
     }
   }
 
@@ -101,6 +108,9 @@
     background: #C0B3C4;
     color: #fff;
     padding: 179px 0 252px;
+    @include for-phone-only{
+      padding: 64px 0;
+    }
   }
   &__design-block-container {
     padding: 335px 0 300px;
@@ -125,5 +135,9 @@
 
   &__result {
     margin: auto;
+  }
+
+  &__paragraph {
+    margin-bottom: 16px;
   }
 }

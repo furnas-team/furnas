@@ -44,15 +44,15 @@ export class Picture extends React.Component {
 
     const webpImage = find(urls, url => endsWith(url, 'webp'));
     const webpImageRetina = find(urlsRetina, url => endsWith(url, 'webp'));
-    const webpSrcSet = compact([webpImage ? `${webpImage} 1x` : null, webpImageRetina ? `${webpImageRetina} 2x` : null]).join(',');
+    const webpSrcSet = compact([webpImage ? `/${webpImage} 1x` : null, webpImageRetina ? `/${webpImageRetina} 2x` : null]).join(',');
 
     const jp2Image = find(urls, url => endsWith(url, 'jp2'));
     const jp2ImageRetina = find(urlsRetina, url => endsWith(url, 'jp2'));
-    const jp2SrcSet = compact([jp2Image ? `${jp2Image} 1x` : null, jp2ImageRetina ? `${jp2ImageRetina} 2x` : null]).join(',');
+    const jp2SrcSet = compact([jp2Image ? `/${jp2Image} 1x` : null, jp2ImageRetina ? `/${jp2ImageRetina} 2x` : null]).join(',');
 
     const image = find(urls, url => !endsWith(url, 'jp2') && !endsWith(url, 'webp'));
     const imageRetina = find(urlsRetina, url => !endsWith(url, 'jp2') && !endsWith(url, 'webp'));
-    const imageSrcSet = compact([image ? `${image} 1x` : null, imageRetina ? `${imageRetina} 2x` : null]).join(',');
+    const imageSrcSet = compact([image ? `/${image} 1x` : null, imageRetina ? `/${imageRetina} 2x` : null]).join(',');
 
     const webpSource = webpSrcSet ? <source key="webp" srcSet={webpSrcSet} media={mediaQuery} type="image/webp"/> : null;
     const jp2Source = jp2SrcSet ? <source key="jp2" srcSet={jp2SrcSet} media={mediaQuery} type='image/jp2'/> : null;
@@ -87,7 +87,7 @@ export class Picture extends React.Component {
         {this.renderGroup(forDesktopUp, forDesktopUpRetina, MediaQuery.FOR_DESKTOP_UP)}
         {this.renderGroup(forBigDesktopUp, forBigDesktopUpRetina, MediaQuery.FOR_BIG_DESKTOP_UP)}
         <img className={classNames(imgClassName, 'picture__img')}
-             src={biggestImage}
+             src={`/${biggestImage}`}
              alt={alt}/>
       </picture>
     );
