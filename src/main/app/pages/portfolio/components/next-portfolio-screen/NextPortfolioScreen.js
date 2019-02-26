@@ -11,7 +11,7 @@ export class NextPortfolioScreenComponent extends React.Component {
   };
 
   handleScroll = event => {
-    if ((document.documentElement.scrollTop + window.innerHeight) === document.documentElement.offsetHeight) {
+    if ((window.scrollY + window.innerHeight) === document.documentElement.offsetHeight) {
       this.props.history.push(this.props.nextPageHref);
     }
   };
