@@ -4,6 +4,13 @@ import {Helmet} from 'react-helmet';
 import {Header} from '../../../components/header/Header';
 import {ContactScreen} from '../../home/screens/contact/ContactScreen';
 import {Popup} from '../../../components/Popup/Popup';
+import {NextPortfolioScreen} from '../components/next-portfolio-screen/NextPortfolioScreen';
+import './visa-portfolio.scss';
+import {PortfolioContainer} from '../components/portfolio-container/PortfolioContainer';
+import {PortfolioTitle} from '../components/portfolio-title/PortfolioTitle';
+import {PortfolioSubtitle} from '../components/portfolio-subtitle/PortfolioSubtitle';
+import {PortfolioText} from '../components/portfolio-text/PortfolioText';
+import {Picture} from '../../../components/picture/Picture';
 
 export class VisaPortfolioPage extends React.Component {
 
@@ -12,6 +19,10 @@ export class VisaPortfolioPage extends React.Component {
     contactPopupShown: false,
     requestSent: false
   };
+
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
 
   handleContactClick = () => {
     window.mixpanel.track(
@@ -42,14 +53,24 @@ export class VisaPortfolioPage extends React.Component {
           <title>Дизайн портфолио | Furnas</title>
           <meta name="description" content="Веб проекты, выполненные командой furnasteam"/>
         </Helmet>
-        <div className="home">
-          <Header onContactClick={this.handleContactClick}
-                  contactPopupShown={contactPopupShown}/>
-          <Popup shown={contactPopupShown}>
-            <ContactScreen requestSent={requestSent}
-                           onCloseButtonClick={this.handleCloseButtonClick}
-                           onSendContactClick={this.handleSendContactClick}/>
-          </Popup>
+        <div className="visa-portfolio">
+          <PortfolioContainer className="visa-portfolio__title-container">
+            <PortfolioTitle>Visa.Furnas</PortfolioTitle>
+          </PortfolioContainer>
+          <PortfolioContainer className="visa-portfolio__idea-container">
+            <div className="visa-portfolio__idea-text-block">
+              <PortfolioSubtitle>Идея</PortfolioSubtitle>
+              <PortfolioText>
+                <p>Visa.Furnas один из наших проектов в стадии разработки. Сервис, где пользователи могут заполнить анкету на визу в Испанию и получить необходимый список документов. </p>
+              </PortfolioText>
+            </div>
+            <div className="visa-portfolio__idea-image-block">
+              <Picture imgClassName="visa-portfolio__idea-image-img"
+                       forPhoneOnly={[require('./images/visa-main_mob.png')]}
+                       forTabletPortraitUp={[require('./images/visa-main.png')]}/>
+            </div>
+          </PortfolioContainer>
+          <NextPortfolioScreen nextPageHref="/portfolio"/>
         </div>
       </ThemeProvider>
     );

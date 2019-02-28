@@ -25,10 +25,9 @@ export class NextPortfolioScreenComponent extends React.Component {
   }
 
   render() {
-    const {nextPageHref} = this.props;
     return (
       <div className="next-portfolio-screen">
-        <PortfolioTitle>Следующая работа</PortfolioTitle>
+        <h2 className="next-portfolio-screen__label">Следующая работа</h2>
       </div>
     );
   }

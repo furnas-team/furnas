@@ -162,7 +162,7 @@ export class FurnasPortfolioPage extends React.Component {
                      forPhoneOnly={[require('./images/furnas-team-macbook-plan_mob.png')]}
                      forTabletPortraitUp={[require('./images/furnas-team-macbook-plan.png')]}/>
           </PortfolioContainer>
-          <NextPortfolioScreen nextPageHref="/portfolio"/>
+          <NextPortfolioScreen nextPageHref="/portfolio/smikwell"/>
         </div>
       </ThemeProvider>
     );
