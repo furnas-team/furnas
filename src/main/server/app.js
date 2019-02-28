@@ -43,7 +43,7 @@ app.get("*", (req, res) => {
     <div id="root" dangerouslySetInnerHTML={ {__html: appString} }>
     </div>
     <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
-    <script src="/furnas.client.js.gz"></script>
+    <script src="/furnas.client.js"></script>
     </body>
     </html>));
   res.end();

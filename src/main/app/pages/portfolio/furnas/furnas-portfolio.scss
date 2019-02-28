@@ -58,13 +58,13 @@
   }
 
   &__old-version-container {
-    margin-top: 270px;
-    margin-bottom: 187px;
+    padding-top: 270px;
+    padding-bottom: 187px;
     color: #333333;
 
     @include for-phone-only {
-      margin-top: 88px;
-      margin-bottom: 64px;
+      padding-top: 88px;
+      padding-bottom: 64px;
     }
   }
 

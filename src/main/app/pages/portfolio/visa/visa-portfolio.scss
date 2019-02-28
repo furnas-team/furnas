@@ -17,6 +17,7 @@
     color: #333333;
     margin: auto;
     margin-bottom: 124px;
+    max-width: 620px;
     @include for-phone-only {
       order: 2;
       margin-bottom: 88px;
@@ -35,6 +36,116 @@
   }
 
   &__idea-container {
-    flex-direction: column;
+    flex-direction: column !important;
+  }
+
+  &__prepare-block {
+    width: 50%;
+    margin-top: 323px;
+    @include for-phone-only {
+      width: auto;
+      margin: 0 auto 64px;
+    }
+    color: #333333;
+  }
+
+  &__prepare-image-block {
+    width: 50%;
+    @include for-phone-only {
+      width: auto;
+      order: 2;
+      margin: 0 auto 64px auto;
+    }
+  }
+
+  &__prepare-picture {
+
+  }
+
+  &__prepare-image-img {
+    width: 480px;
+    padding: 136px 0;
+    @include for-phone-only {
+      width: 256px;
+      padding: 0;
+    }
+  }
+
+  &__prepare-text {
+    max-width: 380px;
+  }
+
+  &__form-block {
+    background: #65E0BD;
+  }
+
+  &__form-image-block {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    @include for-phone-only {
+      width: auto;
+      margin: auto;
+    }
+  }
+
+  &__form-text-block {
+    width: 50%;
+    margin-top: 150px;
+    color: #fff;
+    @include for-phone-only {
+      width: auto;
+      margin-bottom: 64px;
+      margin-top: 0;
+    }
+  }
+
+  &__form-image {
+    width: 569px;
+    margin: 112px 0 -4px -200px;
+    @include for-phone-only {
+      width: 260px;
+      margin: 64px auto;
+    }
+  }
+
+  &__form-text {
+    max-width: 300px;
+  }
+
+  &__documents-block {
+    width: 50%;
+    margin-top: 323px;
+    @include for-phone-only {
+      width: auto;
+      margin: 64px auto;
+    }
+    color: #333333;
+  }
+
+  &__documents-image-block {
+    width: 50%;
+    @include for-phone-only {
+      width: auto;
+      order: 2;
+      margin: 0 auto 64px auto;
+    }
+  }
+
+  &__documents-picture {
+
+  }
+
+  &__documents-image-img {
+    width: 480px;
+    padding: 136px 0;
+    @include for-phone-only {
+      width: 256px;
+      padding: 0;
+    }
+  }
+
+  &__documents-text {
+    max-width: 380px;
   }
 }
