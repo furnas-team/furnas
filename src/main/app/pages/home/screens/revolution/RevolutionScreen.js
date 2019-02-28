@@ -23,6 +23,9 @@ export class RevolutionScreen extends React.Component {
           <BlockText>
             и составлению списка документов.
           </BlockText>
+          <BlockText>
+            Еще немного наших статей <Link href="/learn">тут</Link>
+          </BlockText>
         </div>
         <Picture className="revolution-screen__image"
                  imgClassName="revolution-screen__image-img"

@@ -11,6 +11,7 @@ import {DislikeScreen} from './screens/dislike/DislikeScreen';
 import {ContactScreen} from './screens/contact/ContactScreen';
 import {Popup} from '../../components/Popup/Popup';
 import {RevolutionScreen} from './screens/revolution/RevolutionScreen';
+import {PortfolioScreen} from './screens/portfolio/PortfolioScreen';
 
 export class HomePage extends React.Component {
 
@@ -58,6 +59,7 @@ export class HomePage extends React.Component {
           <MoneyScreen/>
           <DislikeScreen/>
           <RevolutionScreen/>
+          <PortfolioScreen/>
           <ContactScreen onSendContactClick={this.handleSendContactClick}/>
           <Popup shown={contactPopupShown}>
             <ContactScreen requestSent={requestSent}

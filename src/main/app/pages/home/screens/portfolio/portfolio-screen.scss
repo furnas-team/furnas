@@ -1,14 +1,15 @@
 @import "../../../../common/vars";
 @import "../../../../common/mixins";
 
-.revolution-screen {
+.portfolio-screen {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 650px;
+  height: 400px;
   @include for-tablet-portrait-up {
     max-width: 936px;
     margin: auto;
+    height: 600px;
   }
 
   &__title {
@@ -26,15 +27,16 @@
   }
 
   &__image-img {
+    margin-top: 50px;
     @include for-tablet-portrait-up {
-      max-height: 400px;
-      object-position: right;
+      max-height: 300px;
+      object-position: left;
     }
   }
 
   &__text {
     margin: 62px 16px 0;
-    text-align: right;
+    text-align: left;
     @include for-tablet-portrait-up {
       margin: 70px 0 0;
     }
