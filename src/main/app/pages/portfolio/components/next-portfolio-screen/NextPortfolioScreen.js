@@ -1,8 +1,8 @@
 import React from 'react';
 import {string} from 'prop-types';
 import './next-portfolio-screen.scss';
-import { withRouter } from 'react-router-dom'
-import {PortfolioTitle} from '../portfolio-title/PortfolioTitle';
+import {withRouter} from 'react-router-dom'
+import classNames from 'classnames';
 
 export class NextPortfolioScreenComponent extends React.Component {
 
@@ -10,9 +10,21 @@ export class NextPortfolioScreenComponent extends React.Component {
     nextPageHref: string
   };
 
+  state = {
+    fixed: false
+  };
+
   handleScroll = event => {
+    if (this.state.fixed) {
+      window.scrollTo(0, 0);
+    }
     if ((window.scrollY + window.innerHeight) === document.documentElement.offsetHeight) {
-      this.props.history.push(this.props.nextPageHref);
+      this.setState({fixed: true});
+      window.scrollTo(0, 0);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        this.props.history.push(this.props.nextPageHref);
+      }, 10);
     }
   };
 
@@ -25,8 +37,9 @@ export class NextPortfolioScreenComponent extends React.Component {
   }
 
   render() {
+    const {fixed} = this.state;
     return (
-      <div className="next-portfolio-screen">
+      <div className={classNames('next-portfolio-screen', {'next-portfolio-screen__fixed': fixed})}>
         <h2 className="next-portfolio-screen__label">Следующая работа</h2>
       </div>
     );

@@ -6,6 +6,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &__fixed {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background: white;
+  }
+
   &__button {
     margin: auto;
     display: block;

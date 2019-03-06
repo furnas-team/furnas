@@ -17,13 +17,6 @@ export class SmikwellPortfolioPage extends React.Component {
     requestSent: false
   };
 
-  componentDidMount() {
-    window.scrollTo(0, 0);
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 10);
-  }
-
   handleContactClick = () => {
     window.mixpanel.track(
       "Furnas | user clicked contact button"
