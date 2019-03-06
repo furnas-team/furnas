@@ -11,15 +11,28 @@ export class StepsExplanationScreen extends React.Component {
     return (
       <div className="steps-explanation-screen">
         <div className="steps-explanation-screen__text">
-          <SectionTitle className="steps-explanation-screen__title">
-            В 4 шага?
-          </SectionTitle>
-          <BlockText>
-            Это значит, что весь процесс делится
-          </BlockText>
-          <BlockText>
-            на следующие этапы:
-          </BlockText>
+          <div className="steps-explanation-screen__text-mobile">
+            <SectionTitle className="steps-explanation-screen__title">
+              В 4 шага?
+            </SectionTitle>
+            <BlockText>
+              Это значит, что весь процесс делится
+            </BlockText>
+            <BlockText>
+              на следующие этапы:
+            </BlockText>
+          </div>
+          <div className="steps-explanation-screen__text-desktop">
+            <SectionTitle className="steps-explanation-screen__title">
+              Как работаете?
+            </SectionTitle>
+            <BlockText>
+              Работаем в 4 шага. Это значит, что весь
+            </BlockText>
+            <BlockText>
+              процесс делится на следующие этапы:
+            </BlockText>
+          </div>
         </div>
         <div className="steps-explanation-screen__schema">
           <div className="steps-explanation-screen__schema-row">

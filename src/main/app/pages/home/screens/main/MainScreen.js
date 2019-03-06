@@ -9,6 +9,8 @@ import {firstScreenAnimation} from './animation/first-screen';
 import {init} from './animation/animation';
 import {func} from 'prop-types';
 import ReactDOM from 'react-dom';
+import {Picture} from '../../../../components/picture/Picture';
+import {Title} from '../../../../components/title/Title';
 
 export class MainScreen extends React.Component {
 
@@ -60,19 +62,27 @@ export class MainScreen extends React.Component {
           </Button>
         </div>
         <div className="main-screen__form-desktop">
-          <SectionTitle className="main-screen__title">
-            Дизайн и верстка лендинга в 4 шага
-          </SectionTitle>
-          <div className="main-screen__desktop-contact-row">
-            <Input className="main-screen__input"
-                   placeholder="Телефон, почта или скайп"
-                   ref={this.desktopInputRef}/>
-            <Button className="main-screen__button"
-                    buttonStyle={ButtonStyle.BIG_BLUE}
-                    onClick={() => onSendContactClick(ReactDOM.findDOMNode(this.desktopInputRef.current).value)}>
-              Связаться
-            </Button>
+          <div>
+            <Title className="main-screen__title">
+              Студия <br/> дизайна Furnas
+            </Title>
+            <BlockText>
+              Веб-дизайн, разработка, иллюстрации
+            </BlockText>
+            <div className="main-screen__desktop-contact-row">
+              <Input className="main-screen__input"
+                     placeholder="Телефон, почта или скайп"
+                     ref={this.desktopInputRef}/>
+              <Button className="main-screen__button"
+                      buttonStyle={ButtonStyle.BIG_BLUE}
+                      onClick={() => onSendContactClick(ReactDOM.findDOMNode(this.desktopInputRef.current).value)}>
+                Связаться
+              </Button>
+            </div>
           </div>
+          <Picture forTabletPortraitUp={[require('./images/main.svg')]}
+                   imgClassName="main-screen__img"
+                   alt="Дизайн-студия Furnas иллюстрация"/>
         </div>
       </div>
     );

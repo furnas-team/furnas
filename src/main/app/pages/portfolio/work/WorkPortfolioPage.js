@@ -50,7 +50,7 @@ export class WorkPortfolioPage extends React.Component {
     return (
       <ThemeProvider value={ThemeName.LIGHT}>
         <Helmet>
-          <title>Тест о профессиях | Furnas</title>
+          <title>Дизайн портфолио | Furnas</title>
           <meta name="description" content="Дизайн портфолио. Веб проекты, выполненные командой furnasteam"/>
         </Helmet>
         <div className="work-portfolio">

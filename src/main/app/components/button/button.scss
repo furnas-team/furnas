@@ -11,11 +11,16 @@
 
   @include for-tablet-portrait-up {
     font-family: $font-family-alternative;
+    opacity: 0.8;
+    transition: 0.1s ease-in;
+    &:hover {
+      opacity: 1;
+    }
   }
 
   &_default {
-    border: 1px solid #E91FFF;
-    color: #E91FFF;
+    border: 1px solid #F95AB9;
+    color: #F95AB9;
     padding: 8px 16px;
     line-height: 14px;
     background-color: #ffffff;
@@ -27,7 +32,7 @@
   }
 
   &_big-pink {
-    background-color: #E91FFF;
+    background-color: #F95AB9;
     color: #ffffff;
     min-width: 180px;
     padding: 12px 24px;

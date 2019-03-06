@@ -9,12 +9,13 @@
 
   @include for-tablet-portrait-up {
     font-family: $font-family-alternative;
+    line-height: 26px;
   }
 
   &_theme-dark {
     color: $font-color-gray;
   }
   &_theme-light {
-    color: #333333;
+    color: rgba(51, 51, 51, 0.8);
   }
 }

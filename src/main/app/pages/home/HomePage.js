@@ -54,12 +54,28 @@ export class HomePage extends React.Component {
           <Header onContactClick={this.handleContactClick}
                   contactPopupShown={contactPopupShown}/>
           <MainScreen onSendContactClick={this.handleSendContactClick}/>
+          <div className="home__pink-divider">
+          </div>
+          <div className="home__shadow">
+          </div>
           <StepsExplanationScreen/>
-          <TeamScreen/>
+          <div className="home__blue-divider">
+          </div>
+          <div className="home__team-screen">
+            <TeamScreen/>
+          </div>
           <MoneyScreen/>
-          <DislikeScreen/>
-          <RevolutionScreen/>
+          <div className="home__pink-divider">
+          </div>
+          <div className="home__dislike-screen">
+            <DislikeScreen/>
+          </div>
           <PortfolioScreen/>
+          <div className="home__blue-divider">
+          </div>
+          <div className="home__revolution-screen">
+            <RevolutionScreen/>
+          </div>
           <ContactScreen onSendContactClick={this.handleSendContactClick}/>
           <Popup shown={contactPopupShown}>
             <ContactScreen requestSent={requestSent}

@@ -46,6 +46,13 @@ export class App extends React.Component {
         <link rel="apple-touch-icon" sizes="120x120" href={require('./images/favicon-120x120.png')}/>
         <link rel="apple-touch-icon" sizes="152x152" href={require('./images/favicon-152x152.png')}/>
         <meta name="msapplication-square310x310logo" content={require('./images/favicon-310x310.png')}/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:site_name" content="Furnas"/>
+        <meta property="og:title" content="Студия дизайна Furnas"/>
+        <meta property="og:description" content="Веб-дизайн, разработка, иллюстрации"/>
+        <meta property="og:url" content="https://furnas.ru"/>
+        <meta property="og:locale" content="ru_RU"/>
+        <meta property="og:image" content={require('./images/share-facebook.png')}/>
       </Helmet>
     ]);
   }

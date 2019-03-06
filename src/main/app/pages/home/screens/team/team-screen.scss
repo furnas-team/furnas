@@ -6,16 +6,21 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-  max-height: 700px;
   min-height: 568px;
   @include for-tablet-portrait-up {
     max-width: 936px;
     margin: auto;
+    flex-direction: row;
+    height: 800px;
+    align-items: center;
   }
 
   &__title {
     margin-top: 24px;
     margin-bottom: 16px;
+    @include for-tablet-portrait-up {
+      margin-bottom: 24px;
+    }
   }
 
   &__image {
@@ -36,7 +41,7 @@
   &__image-img {
     @include for-tablet-portrait-up {
       max-height: 400px;
-      object-position: left;
+      object-position: right;
     }
   }
 
@@ -44,7 +49,7 @@
     margin: 62px 16px 0;
 
     @include for-tablet-portrait-up {
-      margin: 70px 0 0;
+      margin: 0;
     }
   }
 }

@@ -8,20 +8,37 @@
   height: 850px;
   @include for-tablet-portrait-up {
     max-width: 936px;
-    margin: auto;
-    height: 1000px;
+    margin: 100px auto 200px auto;
+    height: auto;
+  }
+
+  &__text-desktop {
+    @include for-phone-only {
+      display: none;
+    }
+  }
+
+  &__text-mobile {
+    display: none;
+    @include for-phone-only {
+      display: block;
+    }
   }
 
   &__title {
     margin-top: 24px;
     margin-bottom: 14px;
+
+    @include for-tablet-portrait-up {
+      margin-bottom: 24px;
+    }
   }
 
   &__text {
     margin: 62px 16px 0;
     text-align: right;
     @include for-tablet-portrait-up {
-      margin: 70px 0 0;
+      margin: 70px 0 150px;
     }
   }
 
@@ -85,7 +102,7 @@
     font-weight: 400;
     font-family: Roboto, sans-serif;
     font-size: 18px;
-    color: #E91FFF;
+    color: #F95AB9;
     opacity: 0.4;
     margin-right: 8px;
   }
@@ -108,7 +125,7 @@
 
   &__flower-top {
     position: absolute;
-    margin-left: 226px;
+    margin-left: 222px;
     margin-top: -75px;
     display: flex;
   }
@@ -122,21 +139,21 @@
   &__flower-left {
     position: absolute;
     margin-left: -145px;
-    margin-top: 205px;
+    margin-top: 194px;
   }
 
   &__flower-right {
     position: absolute;
-    margin-left: 480px;
-    margin-top: 203px;
+    margin-left: 472px;
+    margin-top: 194px;
   }
 
   &__flower-color {
-    color: #CF8ECF;
+    color: #F95AB9;
   }
 
   &__flower-top-border {
-    border: 1px solid #CF8ECF;
+    border: 1px solid #F95AB9;
     border-bottom-width: 0;
     border-right-width: 0;
     width: 120px;
@@ -144,7 +161,7 @@
   }
 
   &__flower-bottom-border {
-    border: 1px solid #CF8ECF;
+    border: 1px solid #F95AB9;
     border-bottom-width: 0;
     border-left-width: 0;
     width: 137px;
@@ -152,7 +169,7 @@
   }
 
   &__flower-left-border {
-    border: 1px solid #CF8ECF;
+    border: 1px solid #F95AB9;
     border-bottom-width: 0;
     border-right-width: 0;
     width: 120px;
@@ -160,7 +177,7 @@
   }
 
   &__flower-right-border {
-    border: 1px solid #CF8ECF;
+    border: 1px solid #F95AB9;
     border-bottom-width: 0;
     border-left-width: 0;
     width: 102px;
@@ -170,6 +187,7 @@
   &__flower-title {
     padding: 0 5px;
     font-size: 20px !important;
+    margin-bottom: 5px;
   }
 
   &__flower-top-text {
