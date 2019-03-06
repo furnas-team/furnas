@@ -22,6 +22,9 @@ export class VisaPortfolioPage extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0, 0)
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 10);
   }
 
   handleContactClick = () => {
