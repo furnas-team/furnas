@@ -19,6 +19,12 @@
     box-shadow: none;
   }
 
+  &_contact-popup-shown {
+    @include for-tablet-portrait-up {
+      position: fixed;
+    }
+  }
+
   &__container {
     display: flex;
     flex-direction: row;

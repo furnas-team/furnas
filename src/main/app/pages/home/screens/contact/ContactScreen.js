@@ -46,12 +46,14 @@ export class ContactScreen extends React.Component {
           </SectionTitle>}
           {!requestSent &&
           <div>
-            <BlockText>
-              Оставьте свои контактные данные и
-            </BlockText>
-            <BlockText>
-              мы свяжемся с вами в течение дня
-            </BlockText>
+            <div>
+              <BlockText className="contact-screen__text">
+                Оставьте свои контактные данные и
+              </BlockText>
+              <BlockText className="contact-screen__text">
+                мы свяжемся с вами в течение дня
+              </BlockText>
+            </div>
             <Input className="contact-screen__input"
                    placeholder="Телефон, почта или скайп"
                    ref={this.inputRef}/>

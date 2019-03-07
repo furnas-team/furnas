@@ -11,11 +11,6 @@
 
   @include for-tablet-portrait-up {
     font-family: $font-family-alternative;
-    opacity: 0.8;
-    transition: 0.1s ease-in;
-    &:hover {
-      opacity: 1;
-    }
   }
 
   &_default {
@@ -28,6 +23,11 @@
     @include for-tablet-portrait-up {
       padding: 10px 16px;
       font-size: 16px;
+      transition: 0.3s linear;
+      border: 1px solid rgba(249, 90, 185, 0.8);
+      &:hover {
+        border: 1px solid #F95AB9;
+      }
     }
   }
 
@@ -52,6 +52,11 @@
     font-size: 18px;
     @include for-tablet-portrait-up {
       padding: 19px 24px;
+      background-color: rgba(16, 187, 255, 0.8);
+      transition: 0.3s linear;
+      &:hover {
+        background-color: #10BBFF;
+      }
     }
   }
 

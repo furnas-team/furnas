@@ -35,15 +35,16 @@
     margin-top: 50px;
     @include for-tablet-portrait-up {
       max-height: 300px;
-      object-position: right;
+      object-position: left;
     }
   }
 
   &__text {
     margin: 62px 16px 0;
-    text-align: left;
+    text-align: right;
     @include for-tablet-portrait-up {
       margin: 0;
+      order: 2
     }
   }
 }

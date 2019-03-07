@@ -90,10 +90,10 @@ export class VisaPortfolioPage extends React.Component {
                          forTabletPortraitUp={[require('./images/visa-ipad.png')]}/>
               </div>
               <div className="visa-portfolio__form-text-block">
-                <PortfolioSubtitle>Дизайн</PortfolioSubtitle>
+                <PortfolioSubtitle>Анкета</PortfolioSubtitle>
                 <PortfolioText className="visa-portfolio__form-text">
                   <p>
-                    Дизайн делаем незаметным. Белый фон и фоторгафии кроватей. Весь акцент делаем на кровати, чтобы ничего не отвлекало
+                    Анкету создаем в виде поэтапного теста. Вопросы логически пересобраны, сгруппированы для пользователя.
                   </p>
                 </PortfolioText>
               </div>

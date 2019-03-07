@@ -12,6 +12,7 @@ import {ContactScreen} from './screens/contact/ContactScreen';
 import {Popup} from '../../components/Popup/Popup';
 import {RevolutionScreen} from './screens/revolution/RevolutionScreen';
 import {PortfolioScreen} from './screens/portfolio/PortfolioScreen';
+import {Footer} from '../../components/footer/Footer';
 
 export class HomePage extends React.Component {
 
@@ -77,6 +78,7 @@ export class HomePage extends React.Component {
             <RevolutionScreen/>
           </div>
           <ContactScreen onSendContactClick={this.handleSendContactClick}/>
+          <Footer/>
           <Popup shown={contactPopupShown}>
             <ContactScreen requestSent={requestSent}
                            onCloseButtonClick={this.handleCloseButtonClick}

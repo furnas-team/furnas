@@ -39,7 +39,7 @@ export class Header extends React.Component {
     const {scrollY} = this.state;
     const {className, onContactClick, contactPopupShown} = this.props;
     return (
-      <div className={classNames('header', {'header_header-without-shadow': scrollY === 0 || contactPopupShown}, className)}>
+      <div className={classNames('header', {'header_header-without-shadow': scrollY === 0 || contactPopupShown, 'header_contact-popup-shown': contactPopupShown}, className)}>
         <div className="header__container">
           <div className="header__title-with-logo">
             <div className="header__logo-image">
