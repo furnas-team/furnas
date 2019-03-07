@@ -6,6 +6,10 @@
   flex-direction: column;
   height: 100vh;
 
+  @include for-tablet-portrait-up {
+    height: 650px;
+  }
+
   &__title {
     margin-top: 24px;
     margin-bottom: 24px;
