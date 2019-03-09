@@ -10,7 +10,7 @@
   }
 
   &__main-screen {
-    background: #C0B3C4;
+    background: #5B4164;
   }
 
   &__main-picture {
@@ -70,7 +70,7 @@
   }
 
   &__iphone-block {
-    background: #C0B3C4;
+    background: #5B4164;
     padding: 66px 0;
     @include for-phone-only {
       padding-top: 0;
@@ -105,7 +105,7 @@
   }
 
   &__result-block {
-    background: #C0B3C4;
+    background: #5B4164;
     color: #fff;
     padding: 179px 0 252px;
     @include for-phone-only{
