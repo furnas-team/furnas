@@ -48,6 +48,7 @@ export class WorkPortfolioPage extends React.Component {
         <Helmet>
           <title>Дизайн портфолио | Furnas</title>
           <meta name="description" content="Дизайн портфолио. Веб проекты, выполненные командой furnasteam"/>
+          <link rel="canonical" href="https://furnas.ru/portfolio/work"/>
         </Helmet>
         <div className="work-portfolio">
           {/*<Header onContactClick={this.handleContactClick}*/}
@@ -81,7 +82,7 @@ export class WorkPortfolioPage extends React.Component {
               <div className="work-portfolio__structure-block">
                 <PortfolioSubtitle>Проработка структуры сайта</PortfolioSubtitle>
                 <PortfolioText>
-                  <p className="work-portfolio__paragraph">Идея сайта простая, поэтому даем пользователю достичь цель максимально быстро.</p>
+                  <p className="work-portfolio__paragraph">Идея сайта простая, поэтому даем пользователю возможность достичь цель максимально быстро.</p>
                   <p className="work-portfolio__paragraph">Путь пользователя:</p>
                   <p className="work-portfolio__paragraph">Баннер —> страница с одним вопросом —> страница с email.</p>
                 </PortfolioText>
@@ -92,7 +93,7 @@ export class WorkPortfolioPage extends React.Component {
             <div className="work-portfolio__design-block">
               <PortfolioSubtitle>Дизайн сайта</PortfolioSubtitle>
               <PortfolioText>
-                <p>Работа была эксперементная, поэтому просмотрев много дизайнов сайтов, взяли несколько разных тем с разными настроениями. Отрисовали все варианты и выбрали самый подходящий для
+                <p>Работа была экспериментальная, поэтому просмотрев много дизайнов сайтов, взяли несколько разных тем с разными настроениями. Отрисовали все варианты и выбрали самый подходящий для
                   данной тематики.</p>
               </PortfolioText>
             </div>

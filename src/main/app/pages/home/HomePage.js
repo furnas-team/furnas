@@ -50,6 +50,7 @@ export class HomePage extends React.Component {
         <Helmet>
           <title>Дизайн и верстка лендинга в 4 шага | Furnas</title>
           <meta name="description" content="Создаем Landing page поэтапно.  Показываем вам результат на каждом шаге и вы платите только в том случае, если он вам нравится."/>
+          <link rel="canonical" href="https://furnas.ru"/>
         </Helmet>
         <div className="home">
           <Header onContactClick={this.handleContactClick}

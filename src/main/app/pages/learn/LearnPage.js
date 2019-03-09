@@ -13,6 +13,7 @@ export function LearnPage() {
       <Helmet>
         <title>Полезные статьи по теме Landing page | Furnas</title>
         <meta name="description" content="Что такое Landing page? Зачем нужен лендинг? Нужен ли мне Landing page? Где купить рекламу для лендинга?" />
+        <link rel="canonical" href="https://furnas.ru/learn"/>
       </Helmet>
       <div className="learn">
         <div className="learn__container">

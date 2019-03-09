@@ -46,6 +46,7 @@ export class FurnasPortfolioPage extends React.Component {
         <Helmet>
           <title>Дизайн портфолио | Furnas</title>
           <meta name="description" content="Веб проекты, выполненные командой furnasteam"/>
+          <link rel="canonical" href="https://furnas.ru/portfolio/furnas"/>
         </Helmet>
         <div className="furnas-portfolio">
           <PortfolioContainer className="furnas-portfolio__title-container">
@@ -84,7 +85,7 @@ export class FurnasPortfolioPage extends React.Component {
                 <PortfolioSubtitle>Идея</PortfolioSubtitle>
                 <PortfolioText>
                   <p className="furnas-portfolio__paragraph">
-                    Решените проблемы — разрушить недоверее пользователя к маленькой студии без готовых работ в дизайне.
+                    Решение проблемы — разрушить недоверие пользователя к маленькой студии без готовых работ в дизайне.
                   </p>
                   <p className="furnas-portfolio__paragraph">
                     Для этого:

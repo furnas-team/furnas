@@ -48,6 +48,7 @@ export class VisaPortfolioPage extends React.Component {
         <Helmet>
           <title>Дизайн портфолио | Furnas</title>
           <meta name="description" content="Веб проекты, выполненные командой furnasteam"/>
+          <link rel="canonical" href="https://furnas.ru/portfolio/visa"/>
         </Helmet>
         <div className="visa-portfolio">
           <PortfolioContainer className="visa-portfolio__title-container">
@@ -70,7 +71,7 @@ export class VisaPortfolioPage extends React.Component {
             <div className="visa-portfolio__prepare-block">
               <PortfolioSubtitle>Подготовка</PortfolioSubtitle>
               <PortfolioText className="visa-portfolio__prepare-text">
-                <p className="visa-portfolio__paragraph">Делаем разбор анкеты на визу и списка документов. Анкету пересобираем в понятные вопросы. Для списка составляем роли пользователей.</p>
+                <p className="visa-portfolio__paragraph">Делаем разбор анкеты на визу и список документов. Анкету пересобираем в понятные вопросы. Для списка составляем роли пользователей.</p>
                 <p className="visa-portfolio__paragraph">Анализируем все сайты с информацией по визе, находим плюсы и минусы. </p>
                 <p>Придумываем несколько стилей и выбираем лучший. </p>
               </PortfolioText>

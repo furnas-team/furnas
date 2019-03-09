@@ -45,6 +45,7 @@ export class SmikwellPortfolioPage extends React.Component {
         <Helmet>
           <title>Дизайн портфолио | Furnas</title>
           <meta name="description" content="Веб проекты, выполненные командой furnasteam"/>
+          <link rel="canonical" href="https://furnas.ru/portfolio/smikwell"/>
         </Helmet>
         <div className="smikwell-portfolio">
           <PortfolioContainer className="smikwell-portfolio__title-container">
@@ -54,7 +55,7 @@ export class SmikwellPortfolioPage extends React.Component {
             <div className="smikwell-portfolio__task-text-block">
               <PortfolioSubtitle>Задача</PortfolioSubtitle>
               <PortfolioText>
-                <p className="furnas-portfolio__paragraph">Создать дизайн и разработать сайт для компании собирающая шкаф-кровать. </p>
+                <p className="furnas-portfolio__paragraph">Создать дизайн и разработать сайт для компании собирающей шкаф-кровать. </p>
                 <p>Компания новая, мало фотографий для сайта.</p>
               </PortfolioText>
             </div>

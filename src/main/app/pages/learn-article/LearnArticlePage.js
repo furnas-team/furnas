@@ -120,6 +120,7 @@ export function LearnArticlePage(props) {
       <Helmet>
         <title>{ArticleTitle[articleName]}</title>
         <meta name="description" content="Полезные статьи по теме Landing page" />
+        <link rel="canonical" href={`https://furnas.ru/learn/${articleName}`}/>
       </Helmet>
       <div className="learn-article">
         <div className="learn-article__container" itemScope itemType="http://schema.org/Article">
