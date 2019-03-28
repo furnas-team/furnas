@@ -23,6 +23,9 @@ export class HomePage extends React.Component {
   };
 
   handleContactClick = () => {
+    if (window.yaCounter) {
+      window.yaCounter.reachGoal('ClickedContactButton');
+    }
     window.mixpanel.track(
       "Furnas | user clicked contact button"
     );
@@ -31,6 +34,9 @@ export class HomePage extends React.Component {
 
   handleSendContactClick = contact => {
     if (contact) {
+      if (window.yaCounter) {
+        window.yaCounter.reachGoal('AddedContact', {contact});
+      }
       window.mixpanel.track(
         "Furnas | added user contact",
         {contact}
