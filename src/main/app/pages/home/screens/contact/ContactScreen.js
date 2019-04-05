@@ -6,7 +6,7 @@ import {BlockText} from '../../../../components/block-text/BlockText';
 import {Link} from '../../../../components/link/Link';
 import {Button, ButtonStyle} from '../../../../components/button/Button';
 import {bool, func} from 'prop-types';
-import ReactDOM from 'react-dom';
+import trim from 'lodash/trim';
 
 export class ContactScreen extends React.Component {
 
@@ -14,6 +14,11 @@ export class ContactScreen extends React.Component {
     requestSent: bool,
     onSendContactClick: func,
     onCloseButtonClick: func
+  };
+
+  state = {
+    inputValue: '',
+    inputIsValid: true
   };
 
   handlePhoneClick = () => {
@@ -28,10 +33,23 @@ export class ContactScreen extends React.Component {
     );
   };
 
-  inputRef = React.createRef();
+  handleInputChange = (event) => {
+    this.setState({inputValue: event.target.value, inputIsValid: true})
+  };
+
+  handleSendContactClick = () => {
+    const {onSendContactClick} = this.props;
+    const {inputValue} = this.state;
+    if (!trim(inputValue)) {
+      this.setState({inputIsValid: false});
+    } else {
+      onSendContactClick(inputValue);
+    }
+  };
 
   render() {
-    const {requestSent, onSendContactClick, onCloseButtonClick} = this.props;
+    const {requestSent, onCloseButtonClick} = this.props;
+    const {inputValue, inputIsValid} = this.state;
 
     return (
       <div className="contact-screen">
@@ -56,10 +74,12 @@ export class ContactScreen extends React.Component {
             </div>
             <Input className="contact-screen__input"
                    placeholder="Телефон, почта или скайп"
-                   ref={this.inputRef}/>
+                   value={inputValue}
+                   isValid={inputIsValid}
+                   onChange={this.handleInputChange}/>
             <Button className="contact-screen__button"
                     buttonStyle={ButtonStyle.BIG_BLUE}
-                    onClick={() => onSendContactClick(ReactDOM.findDOMNode(this.inputRef.current).value)}>
+                    onClick={this.handleSendContactClick}>
               Связаться
             </Button>
           </div>}

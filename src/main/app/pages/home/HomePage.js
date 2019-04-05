@@ -34,6 +34,14 @@ export class HomePage extends React.Component {
 
   handleSendContactClick = contact => {
     if (contact) {
+      window.fetch('https://api.furnas.ru/requests', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({contact})
+      });
       if (window.yaCounter) {
         window.yaCounter.reachGoal('AddedContact', {contact});
       }

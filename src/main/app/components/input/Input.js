@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import './input.scss';
-import {string, func} from 'prop-types';
+import {string, func, bool} from 'prop-types';
 
 export class Input extends React.Component {
 
@@ -9,19 +9,21 @@ export class Input extends React.Component {
     className: string,
     value: string,
     onChange: func,
-    placeholder: string
+    placeholder: string,
+    isValid: bool
   };
 
   static defaultProps = {
     onChange(){
-    }
+    },
+    isValid: true
   };
 
   render() {
-    const {className, value, onChange, placeholder} = this.props;
+    const {className, value, onChange, placeholder, isValid} = this.props;
 
     return (
-      <input className={classNames('input',  className)}
+      <input className={classNames('input',  className, isValid ? '' : 'input_invalid')}
              value={value}
              onChange={onChange}
              placeholder={placeholder}/>

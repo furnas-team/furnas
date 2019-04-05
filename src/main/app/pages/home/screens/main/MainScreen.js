@@ -8,9 +8,9 @@ import classNames from 'classnames';
 import {firstScreenAnimation} from './animation/first-screen';
 import {init} from './animation/animation';
 import {func} from 'prop-types';
-import ReactDOM from 'react-dom';
 import {Picture} from '../../../../components/picture/Picture';
 import {Title} from '../../../../components/title/Title';
+import trim from 'lodash/trim';
 
 export class MainScreen extends React.Component {
 
@@ -20,10 +20,9 @@ export class MainScreen extends React.Component {
 
   state = {
     animationFinished: false,
+    inputValue: '',
+    inputIsValid: true
   };
-
-  inputRef = React.createRef();
-  desktopInputRef = React.createRef();
 
   componentDidMount() {
     const AdobeAn = window.AdobeAn = {};
@@ -32,9 +31,24 @@ export class MainScreen extends React.Component {
     setTimeout(() => this.setState({animationFinished: true}), 2000)
   }
 
+  handleSendContactClick = () => {
+    const {onSendContactClick} = this.props;
+    const {inputValue} = this.state;
+    if (!trim(inputValue)) {
+      this.setState({inputIsValid: false});
+    } else {
+      onSendContactClick(inputValue);
+    }
+  };
+
+
+  handleInputChange = (event) => {
+    this.setState({inputValue: event.target.value, inputIsValid: true});
+  };
+
   render() {
     const {onSendContactClick} = this.props;
-    const {animationFinished} = this.state;
+    const {animationFinished, inputValue, inputIsValid} = this.state;
     return (
       <div className={classNames("main-screen", {"main-screen_animation-finished": animationFinished})}>
         <div id="animation_container">
@@ -54,10 +68,12 @@ export class MainScreen extends React.Component {
           </BlockText>
           <Input className="main-screen__input"
                  placeholder="Телефон, почта или скайп"
-                 ref={this.inputRef}/>
+                 onChange={this.handleInputChange}
+                 isValid={inputIsValid}
+                 value={inputValue}/>
           <Button className="main-screen__button"
                   buttonStyle={ButtonStyle.BIG_BLUE}
-                  onClick={() => onSendContactClick(ReactDOM.findDOMNode(this.inputRef.current).value)}>
+                  onClick={this.handleSendContactClick}>
             Связаться
           </Button>
         </div>
@@ -71,11 +87,13 @@ export class MainScreen extends React.Component {
             </BlockText>
             <div className="main-screen__desktop-contact-row">
               <Input className="main-screen__input"
-                     placeholder="Телефон, почта или скайп"
-                     ref={this.desktopInputRef}/>
+                     onChange={this.handleInputChange}
+                     isValid={inputIsValid}
+                     value={inputValue}
+                     placeholder="Телефон, почта или скайп"/>
               <Button className="main-screen__button"
                       buttonStyle={ButtonStyle.BIG_BLUE}
-                      onClick={() => onSendContactClick(ReactDOM.findDOMNode(this.desktopInputRef.current).value)}>
+                      onClick={this.handleSendContactClick}>
                 Связаться
               </Button>
             </div>
