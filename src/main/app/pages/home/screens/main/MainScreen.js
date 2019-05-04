@@ -98,8 +98,17 @@ export class MainScreen extends React.Component {
               </Button>
             </div>
           </div>
-          <Picture forTabletPortraitUp={[require('./images/main.svg')]}
-                   imgClassName="main-screen__img"
+          {/*<Picture forTabletPortraitUp={[require('./images/main.svg')]}*/}
+                   {/*imgClassName="main-screen__img"*/}
+                   {/*alt="Дизайн-студия Furnas иллюстрация"/>*/}
+          <Picture forTabletPortraitUp={[require('./images/background.svg')]}
+                   imgClassName="main-screen__background-img"
+                   alt="Дизайн-студия Furnas иллюстрация"/>
+          <Picture forTabletPortraitUp={[require('./images/girl.svg')]}
+                   imgClassName="main-screen__girl-img main-screen__girl-img_movement"
+                   alt="Дизайн-студия Furnas иллюстрация"/>
+          <Picture forTabletPortraitUp={[require('./images/boy.svg')]}
+                   imgClassName="main-screen__boy-img main-screen__boy-img_movement"
                    alt="Дизайн-студия Furnas иллюстрация"/>
         </div>
       </div>

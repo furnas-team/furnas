@@ -24,7 +24,7 @@ export class RevolutionScreen extends React.Component {
             и составлению списка документов.
           </BlockText>
           <BlockText>
-            Еще немного наших статей <Link href="/learn">тут</Link>
+            Еще немного наших статей <Link href="https://spark.ru/startup/furnas" target="_blank">тут</Link>
           </BlockText>
         </div>
         <Picture className="revolution-screen__image"

@@ -106,12 +106,41 @@
     width: 376px;
   }
 
-  &__img {
+  &__background-img {
     width: 621px !important;
     position: relative;
     right: -74px;
     margin-top: -65px;
     margin-bottom: 200px;
+  }
+
+  &__girl-img {
+    width: 80px !important;
+    position: absolute;
+    margin-top: 77px;
+    margin-left: -362px;
+  }
+
+  &__girl-img_movement {
+    animation: girl-movement 10s infinite;
+    -webkit-animation: girl-movement 10s infinite;
+    -moz-animation: girl-movement 10s infinite;
+    -o-animation: girl-movement 10s infinite;
+  }
+
+  &__boy-img {
+    width: 83px !important;
+    position: absolute;
+    margin-top: 69px;
+    margin-left: -179px;
+  }
+
+  &__boy-img_movement {
+    animation: boy-movement 12s infinite;
+    -webkit-animation: boy-movement 12s infinite;
+    -moz-animation: boy-movement 12s infinite;
+    -o-animation: boy-movement 12s infinite;
+    animation-delay: 1s;
   }
 }
 
@@ -141,3 +170,93 @@
   display: block;
 }
 
+
+@-webkit-keyframes girl-movement {
+  0%, 20%, 50%, 90%, 100% {
+    -webkit-transform: translateY(0);
+  }
+  30% {
+    -webkit-transform: translateY(-25px);
+  }
+  70% {
+    -webkit-transform: translateY(-15px);
+  }
+}
+@-moz-keyframes girl-movement {
+  0%, 20%, 50%, 90%, 100% {
+    -moz-transform: translateY(0);
+  }
+  30% {
+    -moz-transform: translateY(-25px);
+  }
+  70% {
+    -moz-transform: translateY(-15px);
+  }
+}
+@-o-keyframes girl-movement {
+  0%, 20%, 50%, 90%, 100% {
+    -o-transform: translateY(0);
+  }
+  30% {
+    -o-transform: translateY(-25px);
+  }
+  70% {
+    -o-transform: translateY(-15px);
+  }
+}
+@keyframes girl-movement {
+  0%, 20%, 50%, 90%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-25px);
+  }
+  70% {
+    transform: translateY(-15px);
+  }
+}
+
+@-webkit-keyframes boy-movement {
+  0%, 20%, 50%, 90%, 100% {
+    -webkit-transform: translate(0);
+  }
+  30% {
+    -webkit-transform: translate(20px, -13px);
+  }
+  70% {
+    -webkit-transform: translate(-20px, 10px);
+  }
+}
+@-moz-keyframes boy-movement {
+  0%, 20%, 50%, 90%, 100% {
+    -moz-transform: translate(0);
+  }
+  30% {
+    -moz-transform: translate(20px, -13px);
+  }
+  70% {
+    -moz-transform: translate(-20px, 10px);
+  }
+}
+@-o-keyframes boy-movement {
+  0%, 20%, 50%, 90%, 100% {
+    -o-transform: translate(0);
+  }
+  30% {
+    -o-transform: translate(20px, -13px);
+  }
+  70% {
+    -o-transform: translate(-20px, 10px);
+  }
+}
+@keyframes boy-movement {
+  0%, 20%, 50%, 90%, 100% {
+    transform: translate(0);
+  }
+  30% {
+    transform: translate(20px, -13px);
+  }
+  70% {
+    transform: translate(-20px, 10px);
+  }
+}
