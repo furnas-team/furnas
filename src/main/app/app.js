@@ -13,6 +13,7 @@ import {WorkPortfolioPage} from './pages/portfolio/work/WorkPortfolioPage';
 import {SmikwellPortfolioPage} from './pages/portfolio/smikwell/SmikwellPortfolioPage';
 import {FurnasPortfolioPage} from './pages/portfolio/furnas/FurnasPortfolioPage';
 import {VisaPortfolioPage} from './pages/portfolio/visa/VisaPortfolioPage';
+import {TestCanvasPage} from './pages/test-canvas/TestCanvasPage';
 
 
 export class App extends React.Component {
@@ -33,6 +34,7 @@ export class App extends React.Component {
           <Route path='/portfolio/furnas' component={FurnasPortfolioPage}/>
           <Route path='/portfolio/visa' component={VisaPortfolioPage}/>
           <Route path='/portfolio' component={WorkPortfolioPage}/>
+          <Route path='/test-canvas' component={TestCanvasPage}/>
           <Route path='/' component={HomePage}/>
         </Switch>
       </Provider>,

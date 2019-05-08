@@ -4,8 +4,24 @@ import {BlockText} from '../../../../components/block-text/BlockText';
 import './steps-explanations-screen.scss';
 import {BlockTitle} from '../../../../components/block-title/BlockTitle';
 import {TextUnderline} from '../../../../components/text-underline/TextUnderline';
+import {Picture} from '../../../../components/picture/Picture';
+import anime from 'animejs/lib/anime.es';
+
+
+let turnsCount = 1;
 
 export class StepsExplanationScreen extends React.Component {
+
+  handleBigFlowerMouseOver = () => {
+    anime({
+      targets: '.steps-explanation-screen__big-flower-img',
+      rotate: `${turnsCount}turn`,
+      easing: 'easeInOutCubic',
+      duration: 1000
+    });
+
+    turnsCount++;
+  };
 
   render() {
     return (
@@ -106,6 +122,10 @@ export class StepsExplanationScreen extends React.Component {
         </div>
         <div className="steps-explanation-screen__schema-desktop">
           <div className="steps-explanation-screen__big-flower">
+            <Picture forTabletPortraitUp={[require('./images/big-flower.svg')]}
+                     onMouseOver={this.handleBigFlowerMouseOver}
+                     imgClassName="steps-explanation-screen__big-flower-img"
+                     alt="Дизайн-студия Furnas цветок"/>
             <div className="steps-explanation-screen__flower-top">
               <div>
                 <BlockTitle className="steps-explanation-screen__flower-title">

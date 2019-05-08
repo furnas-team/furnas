@@ -1,5 +1,5 @@
 import React from 'react';
-import {array, string} from 'prop-types';
+import {array, string, func} from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import find from 'lodash/find';
 import compact from 'lodash/filter';
@@ -34,7 +34,8 @@ export class Picture extends React.Component {
     forBigDesktopUpRetina: array,
     alt: string,
     className: string,
-    imgClassName: string
+    imgClassName: string,
+    onMouseOver: func
   };
 
   renderGroup(urls, urlsRetina, mediaQuery) {
@@ -76,11 +77,13 @@ export class Picture extends React.Component {
       forBigDesktopUpRetina,
       alt,
       className,
-      imgClassName
+      imgClassName,
+      onMouseOver
     } = this.props;
     const biggestImage = last(compact(filter(flatten([forPhoneOnly, forTabletPortraitUp, forTabletLandscapeUp, forDesktopUp, forBigDesktopUp]), url => !endsWith(url, 'jp2') && !endsWith(url, 'webp'))));
     return (
-      <picture className={className}>
+      <picture className={className}
+               onMouseOver={onMouseOver}>
         {this.renderGroup(forPhoneOnly, forPhoneOnlyRetina, MediaQuery.FOR_PHONE_ONLY)}
         {this.renderGroup(forTabletPortraitUp, forTabletPortraitUpRetina, MediaQuery.FOR_TABLET_PORTRAIT_UP)}
         {this.renderGroup(forTabletLandscapeUp, forTabletLandscapeUpRetina, MediaQuery.FOR_TABLE_LANDSCAPE_UP)}

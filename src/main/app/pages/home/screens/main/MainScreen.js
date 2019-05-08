@@ -60,40 +60,43 @@ export class MainScreen extends React.Component {
     init();
     setTimeout(() => this.setState({animationFinished: true}), 2000)
 
-    // const canvasCount = 35;
-    // const imageDataArray = [];
-    // html2canvas(window.document.getElementsByClassName('main-screen__desktop-title')[0]).then(canvas => {
-    //   //capture all div data as image
-    //   var ctx = canvas.getContext("2d");
-    //   var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    //   var pixelArr = imageData.data;
-    //   //create all layours
-    //   for (let i = 0; i < canvasCount; i++) {
-    //     let arr = new Uint8ClampedArray(imageData.data);
-    //     for (let j = 0; j < arr.length; j++) {
-    //       arr[j] = 0;
-    //     }
-    //     imageDataArray.push(arr);
-    //   }
-    //   for (let i = 0; i < pixelArr.length; i += 4) {
-    //     //find the highest probability canvas the pixel should be in
-    //     let p = Math.floor((i / pixelArr.length) * canvasCount);
-    //     let a = imageDataArray[weightedRandomDistrib(p, canvasCount)];
-    //     a[i] = pixelArr[i];
-    //     a[i + 1] = pixelArr[i + 1];
-    //     a[i + 2] = pixelArr[i + 2];
-    //     a[i + 3] = pixelArr[i + 3];
-    //   }
-    //   for (let i = 0; i < canvasCount; i++) {
-    //     let c = newCanvasFromImageData(imageDataArray[i], canvas.width, canvas.height);
-    //     c.classList.add("dust");
-    //     document.getElementsByClassName('main-screen__desktop-title')[0].appendChild(c);
-    //   }
-    //   for (let el of document.querySelectorAll('.main-screen__desktop-title *:not(.dust)')) {
-    //     el.style.visibility = 'hidden';
-    //   }
-    //   this.setState({canTitleBeDestroyed: true});
-    // });
+    const canvasCount = 35;
+    const imageDataArray = [];
+    html2canvas(window.document.getElementsByClassName('main-screen__desktop-title')[0], {
+      ignoreElements: (element) => element.tagName === 'SOURCE',
+      backgroundColor: null
+    }).then(canvas => {
+      //capture all div data as image
+      var ctx = canvas.getContext("2d");
+      var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      var pixelArr = imageData.data;
+      //create all layours
+      for (let i = 0; i < canvasCount; i++) {
+        let arr = new Uint8ClampedArray(imageData.data);
+        for (let j = 0; j < arr.length; j++) {
+          arr[j] = 0;
+        }
+        imageDataArray.push(arr);
+      }
+      for (let i = 0; i < pixelArr.length; i += 4) {
+        //find the highest probability canvas the pixel should be in
+        let p = Math.floor((i / pixelArr.length) * canvasCount);
+        let a = imageDataArray[weightedRandomDistrib(p, canvasCount)];
+        a[i] = pixelArr[i];
+        a[i + 1] = pixelArr[i + 1];
+        a[i + 2] = pixelArr[i + 2];
+        a[i + 3] = pixelArr[i + 3];
+      }
+      for (let i = 0; i < canvasCount; i++) {
+        let c = newCanvasFromImageData(imageDataArray[i], canvas.width, canvas.height);
+        c.classList.add("dust");
+        document.getElementsByClassName('main-screen__desktop-title')[0].appendChild(c);
+      }
+      for (let el of document.querySelectorAll('.main-screen__desktop-title *:not(.dust)')) {
+        el.style.visibility = 'hidden';
+      }
+      this.setState({canTitleBeDestroyed: true});
+    });
   }
 
   handleSendContactClick = () => {
@@ -175,7 +178,8 @@ export class MainScreen extends React.Component {
           <div>
             <Title className={classNames('main-screen__title main-screen__desktop-title', {'main-screen__desktop-title_cursor': canTitleBeDestroyed})}
                    onClick={this.handleDesktopTitleClick}>
-              <span>Студия</span> <br/> <span>дизайна Furnas</span>
+              <div>Студия</div>
+              <div>дизайна Furnas</div>
             </Title>
             <BlockText>
               Веб-дизайн, разработка, иллюстрации
