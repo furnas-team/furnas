@@ -57,6 +57,9 @@ const clientConfig = {
     new ExtractTextPlugin("styles.css"),
     new CompressionPlugin({
       test: /\.js(\?.*)?$/i
+    }),
+    new webpack.DefinePlugin({
+      SERVER: false
     })
   ]
 };
@@ -110,7 +113,12 @@ const serverConfig = {
         use: 'base64-inline-loader?limit=1000&name=[name].[ext]'
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      SERVER: true
+    })
+  ]
 };
 
 module.exports = [clientConfig, serverConfig];

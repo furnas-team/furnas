@@ -43,6 +43,10 @@
     }
   }
 
+  &__desktop-title_cursor {
+    cursor: url("./images/thanos.png"), auto;
+  }
+
   &__form {
     margin: 102px 16px 0;
     text-align: center;
@@ -170,7 +174,6 @@
   display: block;
 }
 
-
 @-webkit-keyframes girl-movement {
   0%, 20%, 50%, 90%, 100% {
     -webkit-transform: translateY(0);
@@ -182,6 +185,7 @@
     -webkit-transform: translateY(-15px);
   }
 }
+
 @-moz-keyframes girl-movement {
   0%, 20%, 50%, 90%, 100% {
     -moz-transform: translateY(0);
@@ -193,6 +197,7 @@
     -moz-transform: translateY(-15px);
   }
 }
+
 @-o-keyframes girl-movement {
   0%, 20%, 50%, 90%, 100% {
     -o-transform: translateY(0);
@@ -204,6 +209,7 @@
     -o-transform: translateY(-15px);
   }
 }
+
 @keyframes girl-movement {
   0%, 20%, 50%, 90%, 100% {
     transform: translateY(0);
@@ -227,6 +233,7 @@
     -webkit-transform: translate(-20px, 10px);
   }
 }
+
 @-moz-keyframes boy-movement {
   0%, 20%, 50%, 90%, 100% {
     -moz-transform: translate(0);
@@ -238,6 +245,7 @@
     -moz-transform: translate(-20px, 10px);
   }
 }
+
 @-o-keyframes boy-movement {
   0%, 20%, 50%, 90%, 100% {
     -o-transform: translate(0);
@@ -249,6 +257,7 @@
     -o-transform: translate(-20px, 10px);
   }
 }
+
 @keyframes boy-movement {
   0%, 20%, 50%, 90%, 100% {
     transform: translate(0);
@@ -259,4 +268,16 @@
   70% {
     transform: translate(-20px, 10px);
   }
+}
+
+.dust {
+  position: absolute;
+  margin-left: -327px;
+  margin-top: -52px;
+  z-index: 1000;
+  transition: 0.8s;
+}
+
+.dust_fade {
+  opacity: 0;
 }
