@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="176px" height="115px" viewBox="0 0 176 115" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-8" transform="translate(2.000000, 2.000000)" fill-rule="nonzero" stroke="#152228" stroke-width="4">
+            <path d="M0,111 L140,17.8785047" id="Path-26"></path>
+            <path d="M56,80 L145,21" id="Path-26"></path>
+            <path d="M91,66 L149,26" id="Path-26"></path>
+            <path d="M117,53 L146,34" id="Path-26"></path>
+            <circle id="Oval-16" fill="#EEFAFF" cx="154.5" cy="17.5" r="17.5"></circle>
+        </g>
+    </g>
+</svg>
