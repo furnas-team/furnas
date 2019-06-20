@@ -5,7 +5,7 @@ import './steps-explanations-screen.scss';
 import {BlockTitle} from '../../../../components/block-title/BlockTitle';
 import {TextUnderline} from '../../../../components/text-underline/TextUnderline';
 import {Picture} from '../../../../components/picture/Picture';
-import anime from 'animejs/lib/anime.es';
+// import anime from 'animejs/lib/anime.es';
 
 
 let turnsCount = 1;

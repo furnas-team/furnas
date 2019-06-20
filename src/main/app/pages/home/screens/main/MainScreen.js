@@ -12,7 +12,7 @@ import {Picture} from '../../../../components/picture/Picture';
 import {Title} from '../../../../components/title/Title';
 import trim from 'lodash/trim';
 import chance from 'chance';
-import anime from 'animejs/lib/anime.es';
+// import anime from 'animejs/lib/anime.es';
 
 let html2canvas;
 
