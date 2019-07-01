@@ -1098,6 +1098,7 @@ div {
   -ms-transform       : rotate(0deg); /* IE 9 */
   -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
   transform           : rotate(0deg);
+  cursor              : pointer;
 }
 .bp5-furnastablet .bp5-group17 .bp5-group14 .bp5-group2 .bp5-u041eu0442u043fu0440u0430u0432u0438u0442u044c {
   background-color    : rgba(255,255,255,0.0);
@@ -1117,6 +1118,7 @@ div {
   color               : rgba(255, 255, 255, 1.0);
   text-align          : left;
   line-height         : 24.0px;
+  cursor              : pointer;
 }
 .bp5-furnastablet .bp5-group16 {
   background-color    : rgba(255,255,255,0.0);
@@ -5045,6 +5047,7 @@ div {
   -ms-transform       : rotate(0deg); /* IE 9 */
   -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
   transform           : rotate(0deg);
+  cursor              : pointer;
 }
 .bp2-furnasdesktop .bp2-group19 .bp2-group14 .bp2-group2 .bp2-u041eu0442u043fu0440u0430u0432u0438u0442u044c {
   background-color    : rgba(255,255,255,0.0);
@@ -5064,6 +5067,7 @@ div {
   color               : rgba(255, 255, 255, 1.0);
   text-align          : left;
   line-height         : 24.0px;
+  cursor              : pointer;
 }
 .bp2-furnasdesktop .bp2-group18 {
   background-color    : rgba(255,255,255,0.0);
@@ -9667,6 +9671,7 @@ div {
   color               : rgba(255, 255, 255, 1.0);
   text-align          : left;
   line-height         : 24.0px;
+  cursor              : pointer;
 }
 .bp1-furnasdesctophd .bp1-group24 .bp1-group23 .bp1-u041au043eu043du0442u0430u043au0442u044b {
   background-color    : rgba(255,255,255,0.0);
@@ -12360,6 +12365,7 @@ div {
   -ms-transform       : rotate(0deg); /* IE 9 */
   -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
   transform           : rotate(0deg);
+  cursor              : pointer;
 }
 .bp3-furnasmobilehorizont .bp3-group28 .bp3-group2 .bp3-u041eu0442u043fu0440u0430u0432u0438u0442u044c {
   background-color    : rgba(255,255,255,0.0);
@@ -12379,6 +12385,7 @@ div {
   color               : rgba(255, 255, 255, 1.0);
   text-align          : right;
   line-height         : 24.0px;
+  cursor              : pointer;
 }
 .bp3-furnasmobilehorizont .bp3-rectangle1 {
   background-color    : rgba(21, 34, 40, 1.0);
@@ -14855,5 +14862,238 @@ div {
     padding-top: 50px;
     padding-bottom: 5px;
     border-radius: 0;
+  }
+
+  &__phone-input-desktop {
+    top: 377px;
+    height: auto;
+    width: 155px;
+    position: absolute;
+    margin: 0;
+    left: 61px;
+    padding: 0;
+    border: none;
+    padding-top: 36px;
+    padding-bottom: 5px;
+    border-radius: 0;
+  }
+
+  &__email-input-desktop {
+    top: 377px;
+    height: auto;
+    width: 208px;
+    position: absolute;
+    margin: 0;
+    left: 288px;
+    padding: 0;
+    border: none;
+    padding-top: 36px;
+    padding-bottom: 5px;
+    border-radius: 0;
+  }
+
+  &__skype-input-desktop {
+    top: 381px;
+    height: auto;
+    width: 156px;
+    position: absolute;
+    margin: 0;
+    left: 547px;
+    padding: 0;
+    border: none;
+    padding-top: 31px;
+    padding-bottom: 5px;
+    border-radius: 0;
+  }
+
+  &__message-input-desktop {
+    top: 508px;
+    height: auto;
+    width: 621px;
+    position: absolute;
+    margin: 0;
+    left: 60px;
+    padding: 0;
+    border: none;
+    padding-top: 50px;
+    padding-bottom: 5px;
+    border-radius: 0;
+  }
+
+  &__phone-input-tablet {
+    top: 330px;
+    height: auto;
+    width: 134px;
+    position: absolute;
+    margin: 0;
+    left: 52px;
+    padding: 0;
+    border: none;
+    padding-top: 22px;
+    padding-bottom: 5px;
+    border-radius: 0;
+  }
+
+  &__email-input-tablet {
+    top: 330px;
+    height: auto;
+    width: 180px;
+    position: absolute;
+    margin: 0;
+    left: 248px;
+    padding: 0;
+    border: none;
+    padding-top: 22px;
+    padding-bottom: 5px;
+    border-radius: 0;
+  }
+
+  &__skype-input-tablet {
+    top: 331px;
+    height: auto;
+    width: 135px;
+    position: absolute;
+    margin: 0;
+    left: 472px;
+    padding: 0;
+    border: none;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    border-radius: 0;
+  }
+
+  &__message-input-tablet {
+    top: 438px;
+    height: auto;
+    width: 536px;
+    position: absolute;
+    margin: 0;
+    left: 52px;
+    padding: 0;
+    border: none;
+    padding-top: 40px;
+    padding-bottom: 5px;
+    border-radius: 0;
+  }
+
+  &__phone-input-mobileland {
+    top: 267px;
+    height: auto;
+    width: 371px;
+    position: absolute;
+    margin: 0;
+    left: 36px;
+    padding: 0;
+    border: none;
+    padding-top: 22px;
+    padding-bottom: 5px;
+    border-radius: 0;
+  }
+
+  &__email-input-mobileland {
+    top: 387px;
+    height: auto;
+    width: 371px;
+    position: absolute;
+    margin: 0;
+    left: 36px;
+    padding: 0;
+    border: none;
+    padding-top: 22px;
+    padding-bottom: 5px;
+    border-radius: 0;
+  }
+
+  &__skype-input-mobileland {
+    top: 508px;
+    height: auto;
+    width: 371px;
+    position: absolute;
+    margin: 0;
+    left: 36px;
+    padding: 0;
+    border: none;
+    padding-top: 22px;
+    padding-bottom: 5px;
+    border-radius: 0;
+  }
+
+  &__message-input-mobileland {
+    top: 638px;
+    height: auto;
+    width: 380px;
+    position: absolute;
+    margin: 0;
+    left: 37px;
+    padding: 0;
+    border: none;
+    padding-top: 40px;
+    padding-bottom: 5px;
+    border-radius: 0;
+    outline: none;
+    border-bottom: 1px solid;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 18px;
+  }
+
+
+  &__phone-input-mobile {
+    top: 171px;
+    height: auto;
+    width: 240px;
+    position: absolute;
+    margin: 0;
+    left: 25px;
+    padding: 0;
+    border: none;
+    padding-top: 9px;
+    padding-bottom: 5px;
+    border-radius: 0;
+  }
+
+  &__email-input-mobile {
+    top: 248px;
+    height: auto;
+    width: 240px;
+    position: absolute;
+    margin: 0;
+    left: 25px;
+    padding: 0;
+    border: none;
+    padding-top: 9px;
+    padding-bottom: 5px;
+    border-radius: 0;
+  }
+
+  &__skype-input-mobile {
+    top: 326px;
+    height: auto;
+    width: 242px;
+    position: absolute;
+    margin: 0;
+    left: 24px;
+    padding: 0;
+    border: none;
+    padding-top: 9px;
+    padding-bottom: 5px;
+    border-radius: 0;
+  }
+
+  &__message-input-mobile {
+    top: 423px;
+    height: auto;
+    width: 248px;
+    position: absolute;
+    margin: 0;
+    left: 23px;
+    padding: 0;
+    border: none;
+    padding-top: 40px;
+    padding-bottom: 5px;
+    border-radius: 0;
+    outline: none;
+    border-bottom: 1px solid;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 18px;
   }
 }

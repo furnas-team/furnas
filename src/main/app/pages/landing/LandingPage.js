@@ -310,23 +310,35 @@ export class LandingPage extends React.Component {
                 <div className="bp5-u0422u0435u043bu0435u0444u043eu043d">
                   Телефон
                 </div>
+                <Input value={this.state.phone}
+                       onChange={this.handlePhoneChange}
+                       className="landing__phone-input-tablet"/>
                 <div className="bp5-email">
                   Email
                 </div>
+                <Input value={this.state.email}
+                       onChange={this.handleEmailChange}
+                       className="landing__email-input-tablet"/>
                 <div className="bp5-skype">
                   Skype
                 </div>
+                <Input value={this.state.skype}
+                       onChange={this.handleSkypeChange}
+                       className="landing__skype-input-tablet"/>
                 <div className="bp5-u0421u043eu043eu0431u0449u0435u043du0438u0435">
                   Сообщение
                 </div>
+                <Input value={this.state.message}
+                       onChange={this.handleMessageChange}
+                       className="landing__message-input-tablet"/>
                 <div className="bp5-u0421u0432u044fu0437u0430u0442u044cu0441u044f">
                   Связаться
                 </div>
-                <div className="bp5-group2">
+                <div className="bp5-group2" onClick={this.handleSendDataClick}>
                   <div className="bp5-rectangle17">
                   </div>
                   <div className="bp5-u041eu0442u043fu0440u0430u0432u0438u0442u044c">
-                    Отправить
+                    {this.state.sent ? 'Отправлено' : 'Отправить'}
                   </div>
                 </div>
               </div>
@@ -943,23 +955,35 @@ export class LandingPage extends React.Component {
                 <div className="bp2-u0422u0435u043bu0435u0444u043eu043d">
                   Телефон
                 </div>
+                <Input value={this.state.phone}
+                       onChange={this.handlePhoneChange}
+                       className="landing__phone-input-desktop"/>
                 <div className="bp2-email">
                   Email
                 </div>
+                <Input value={this.state.email}
+                       onChange={this.handleEmailChange}
+                       className="landing__email-input-desktop"/>
                 <div className="bp2-skype">
                   Skype
                 </div>
+                <Input value={this.state.skype}
+                       onChange={this.handleSkypeChange}
+                       className="landing__skype-input-desktop"/>
                 <div className="bp2-u0421u043eu043eu0431u0449u0435u043du0438u0435">
                   Сообщение
                 </div>
+                <Input value={this.state.message}
+                       onChange={this.handleMessageChange}
+                       className="landing__message-input-desktop"/>
                 <div className="bp2-u0421u0432u044fu0437u0430u0442u044cu0441u044f">
                   Связаться
                 </div>
-                <div className="bp2-group2">
+                <div className="bp2-group2" onClick={this.handleSendDataClick}>
                   <div className="bp2-rectangle17">
                   </div>
                   <div className="bp2-u041eu0442u043fu0440u0430u0432u0438u0442u044c">
-                    Отправить
+                    {this.state.sent ? 'Отправлено' : 'Отправить'}
                   </div>
                 </div>
               </div>
@@ -1231,24 +1255,37 @@ export class LandingPage extends React.Component {
                 <div className="bp4-u0422u0435u043bu0435u0444u043eu043d">
                   Телефон
                 </div>
+                <Input value={this.state.phone}
+                       onChange={this.handlePhoneChange}
+                       className="landing__phone-input-mobile"/>
                 <div className="bp4-u0421u043eu043eu0431u0449u0435u043du0438u0435">
                   Сообщение
                 </div>
+                <textarea value={this.state.message}
+                       onChange={this.handleMessageChange}
+                       className="landing__message-input-mobile"/>
                 <div className="bp4-u0421u0432u044fu0437u0430u0442u044cu0441u044f">
                   Связаться
                 </div>
                 <div className="bp4-email">
                   Email
                 </div>
+                <Input value={this.state.email}
+                       onChange={this.handleEmailChange}
+                       className="landing__email-input-mobile"/>
                 <div className="bp4-skype">
                   Skype
                 </div>
+                <Input value={this.state.skype}
+                       onChange={this.handleSkypeChange}
+                       className="landing__skype-input-mobile"/>
               </div>
-              <div className="bp4-group2">
+              <div className="bp4-group2"
+                   onClick={this.handleSendDataClick}>
                 <div className="bp4-rectangle17">
                 </div>
                 <div className="bp4-u041eu0442u043fu0440u0430u0432u0438u0442u044c">
-                  Отправить
+                  {this.state.sent ? 'Отправлено' : 'Отправить'}
                 </div>
               </div>
             </div>
@@ -2163,24 +2200,37 @@ export class LandingPage extends React.Component {
                 <div className="bp3-u0422u0435u043bu0435u0444u043eu043d">
                   Телефон
                 </div>
+                <Input value={this.state.phone}
+                       onChange={this.handlePhoneChange}
+                       className="landing__phone-input-mobileland"/>
                 <div className="bp3-u0421u043eu043eu0431u0449u0435u043du0438u0435">
                   Сообщение
                 </div>
+                <textarea value={this.state.message}
+                          onChange={this.handleMessageChange}
+                          className="landing__message-input-mobileland"/>
                 <div className="bp3-u0421u0432u044fu0437u0430u0442u044cu0441u044f">
                   Связаться
                 </div>
                 <div className="bp3-email">
                   Email
                 </div>
+                <Input value={this.state.email}
+                       onChange={this.handleEmailChange}
+                       className="landing__email-input-mobileland"/>
                 <div className="bp3-skype">
                   Skype
                 </div>
+                <Input value={this.state.skype}
+                       onChange={this.handleSkypeChange}
+                       className="landing__skype-input-mobileland"/>
               </div>
-              <div className="bp3-group2">
+              <div className="bp3-group2"
+                   onClick={this.handleSendDataClick}>
                 <div className="bp3-rectangle17">
                 </div>
                 <div className="bp3-u041eu0442u043fu0440u0430u0432u0438u0442u044c">
-                  Отправить
+                  {this.state.sent ? 'Отправлено' : 'Отправить'}
                 </div>
               </div>
             </div>
