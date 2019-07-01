@@ -2,16 +2,64 @@ import React from 'react';
 import {ThemeName, ThemeProvider} from '../../components/theme-context/ThemeContext';
 import {Helmet} from 'react-helmet';
 import './landing.scss';
+import {UniversalLink} from '../../components/universal-link/UniversalLink';
+import {Input} from '../../components/input/Input';
 
 export class LandingPage extends React.Component {
 
+  state = {
+    sent: false,
+    phone: '',
+    email: '',
+    skype: '',
+    message: ''
+  };
+
+  handlePhoneChange = (event) => {
+    this.setState({phone: event.target.value})
+  };
+
+  handleEmailChange = (event) => {
+    this.setState({email: event.target.value})
+  };
+
+  handleSkypeChange = (event) => {
+    this.setState({skype: event.target.value})
+  };
+
+  handleMessageChange = (event) => {
+    this.setState({message: event.target.value})
+  };
+
+  handleSendDataClick = () => {
+    const {phone, email, skype, message, sent} = this.state;
+    if (!sent) {
+      window.fetch('https://api.furnas.ru/requests', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({phone, email, skype, message})
+      });
+      if (window.yaCounter) {
+        window.yaCounter.reachGoal('AddedContact', {phone, email, skype, message});
+      }
+      window.mixpanel.track(
+        "Furnas | added user contact",
+        {phone, email, skype, message}
+      );
+      this.setState({sent: true});
+    }
+  };
+
   componentDidMount() {
-    window.anima_isHidden = function(e) {
+    window.anima_isHidden = function (e) {
       if (!(e instanceof HTMLElement)) return !1;
       if (getComputedStyle(e).display == "none") return !0; else if (e.parentNode && anima_isHidden(e.parentNode)) return !0;
       return !1;
     };
-    window.anima_loadAsyncSrcForTag = function(tag) {
+    window.anima_loadAsyncSrcForTag = function (tag) {
       var elements = document.getElementsByTagName(tag);
       var toLoad = [];
       for (var i = 0; i < elements.length; i++) {
@@ -24,7 +72,7 @@ export class LandingPage extends React.Component {
         if (anima_isHidden(e)) continue;
         toLoad.push(e);
       }
-      toLoad.sort(function(a, b) {
+      toLoad.sort(function (a, b) {
         return anima_getTop(a) - anima_getTop(b);
       });
       for (var i = 0; i < toLoad.length; i++) {
@@ -33,7 +81,7 @@ export class LandingPage extends React.Component {
         e.setAttribute("src", asyncSrc);
       }
     };
-    window.anima_pauseHiddenVideos = function(tag) {
+    window.anima_pauseHiddenVideos = function (tag) {
       var elements = document.getElementsByTagName("video");
       for (var i = 0; i < elements.length; i++) {
         var e = elements[i];
@@ -46,13 +94,13 @@ export class LandingPage extends React.Component {
         }
       }
     };
-    window.anima_loadAsyncSrc = function(tag) {
+    window.anima_loadAsyncSrc = function (tag) {
       anima_loadAsyncSrcForTag("img");
       anima_loadAsyncSrcForTag("iframe");
       anima_loadAsyncSrcForTag("video");
       anima_pauseHiddenVideos();
     };
-    var anima_getTop = function(e) {
+    var anima_getTop = function (e) {
       var top = 0;
       do {
         top += e.offsetTop || 0;
@@ -63,20 +111,20 @@ export class LandingPage extends React.Component {
     window.anima_loadAsyncSrc();
     window.anima_old_onResize = window.onresize;
     window.anima_new_onResize = undefined;
-    window.anima_updateOnResize = function() {
+    window.anima_updateOnResize = function () {
       if (window.anima_new_onResize == undefined || window.onresize != window.anima_new_onResize) {
-        window.anima_new_onResize = function(x) {
+        window.anima_new_onResize = function (x) {
           if (window.anima_old_onResize != undefined) window.anima_old_onResize(x);
           anima_loadAsyncSrc();
         };
         window.onresize = window.anima_new_onResize;
-        setTimeout(function() {
+        setTimeout(function () {
           anima_updateOnResize();
         }, 3000);
       }
     };
     window.anima_updateOnResize();
-    setTimeout(function() {
+    setTimeout(function () {
       window.anima_loadAsyncSrc();
     }, 200);
   }
@@ -91,14 +139,14 @@ export class LandingPage extends React.Component {
         </Helmet>
         <div className="bp5-furnastablet">
           <img anima-src={require('./images/furnastablet-bitmap.png')} className="bp5-bitmap" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-          <div className="bp5-rectangle9">
+          <div className="bp5-rectangle9" id="whatfurnastablet">
           </div>
           <img anima-src={require('./images/furnasdesktop-rectangle-9.png')} className="bp5-rectangle91" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
           <div className="bp5-group13-layout-container">
             <img anima-src={require('./images/furnasdesktop-group-13.png')} className="bp5-group13" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
           </div>
           <img anima-src={require('./images/furnastablet-bitmap-1.png')} className="bp5-bitmap1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-          <div className="bp5-u041au0442u043eu043cu044b">
+          <div className="bp5-u041au0442u043eu043cu044b" id="whofurnastablet">
             Кто мы
           </div>
           <div className="bp5-furnasu2014u044du0442u043eu043bu044eu0434u0438u043a">
@@ -163,18 +211,26 @@ export class LandingPage extends React.Component {
           <div className="bp5-furnas">
             Furnas
           </div>
-          <div className="bp5-u0427u0442u043e">
-            Что
-          </div>
-          <div className="bp5-u041au0442u043e">
-            Кто
-          </div>
-          <div className="bp5-u041fu043eu0447u0435u043cu0443">
-            Почему
-          </div>
-          <div className="bp5-u0413u0434u0435">
-            Где
-          </div>
+          <UniversalLink noStyle={true} href="#whatfurnastablet">
+            <div className="bp5-u0427u0442u043e">
+              Что
+            </div>
+          </UniversalLink>
+          <UniversalLink noStyle={true} href="#whofurnastablet">
+            <div className="bp5-u041au0442u043e">
+              Кто
+            </div>
+          </UniversalLink>
+          <UniversalLink noStyle={true} href="#whyfurnastablet">
+            <div className="bp5-u041fu043eu0447u0435u043cu0443">
+              Почему
+            </div>
+          </UniversalLink>
+          <UniversalLink noStyle={true} href="#wherefurnastablet">
+            <div className="bp5-u0413u0434u0435">
+              Где
+            </div>
+          </UniversalLink>
           <div className="bp5-ru">
             RU
           </div>
@@ -193,7 +249,7 @@ export class LandingPage extends React.Component {
           <div className="bp5-u0421u0442u0430u0440u0442u0430u043fu044b">
             Стартапы
           </div>
-          <div className="bp5-rectangle">
+          <div className="bp5-rectangle" id="whyfurnastablet">
           </div>
           <div className="bp5-rectangle92">
           </div>
@@ -204,26 +260,46 @@ export class LandingPage extends React.Component {
             Ссылки
           </div>
           <div className="bp5-a79999999999">
-            +7(999) 999-99-99
+            <UniversalLink href="tel:+7(915)682-19-55"
+                           noStyle={true}
+                           target="_blank">
+              +7(915)682-19-55
+            </UniversalLink>
           </div>
           <div className="bp5-mailmailmailcom">
-            mailmail@mail.com
+            furnasteam@gmail.com
           </div>
           <div className="bp5-u041du0430u0448u0438u0441u0442u0430u0442u044cu0438">
-            Наши статьи
+            <UniversalLink href="https://spark.ru/startup/furnas"
+                           noStyle={true}
+                           target="_blank">
+              Наши статьи
+            </UniversalLink>
           </div>
           <div className="bp5-u041du0430u0448u043fu0440u043eu0435u043au0442">
-            Наш проект
+            <UniversalLink href="https://visa.furnas.ru/"
+                           noStyle={true}
+                           target="_blank">
+              Наш проект
+            </UniversalLink>
           </div>
           <div className="bp5-social">
             Social
           </div>
           <div className="bp5-rectangle12">
           </div>
-          <img anima-src={require('./images/furnasdesktop-shape-20@2x.png')} className="bp5-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+          <UniversalLink href="https://vk.com/furnas"
+                         noStyle={true}
+                         target="_blank">
+            <img anima-src={require('./images/furnasdesktop-shape-20@2x.png')} className="bp5-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+          </UniversalLink>
           <div className="bp5-rectangle121">
           </div>
-          <img anima-src={require('./images/furnasmobile-rectangle-12.png')} className="bp5-rectangle122" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+          <UniversalLink href="https://www.facebook.com/furnasteam/"
+                         noStyle={true}
+                         target="_blank">
+            <img anima-src={require('./images/furnasmobile-rectangle-12.png')} className="bp5-rectangle122" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+          </UniversalLink>
           <div className="bp5-a2019251furnas">
             2019 © FURNAS
           </div>
@@ -258,7 +334,7 @@ export class LandingPage extends React.Component {
           </div>
           <div className="bp5-group16-layout-container">
             <div className="bp5-group16">
-              <div className="bp5-u0413u0434u04351">
+              <div className="bp5-u0413u0434u04351" id="wherefurnastablet">
                 Где?
               </div>
               <div className="bp5-u043du0430u0448u0414u0438u0437u0430u0439u043d">
@@ -274,16 +350,32 @@ export class LandingPage extends React.Component {
                 ВИЗА В ИСПАНИЮ <br/>(НАШ ПРОЕКТ)
               </div>
               <div className="bp5-dribbblecom">
-                DRIBBBLE.COM
+                <UniversalLink href="https://dribbble.com/sanmary"
+                               noStyle={true}
+                               target="_blank">
+                  DRIBBBLE.COM
+                </UniversalLink>
               </div>
               <div className="bp5-githubcom">
-                GITHUB.COM
+                <UniversalLink href="https://github.com/furnasteam"
+                               noStyle={true}
+                               target="_blank">
+                  GITHUB.COM
+                </UniversalLink>
               </div>
               <div className="bp5-sparkru">
-                SPARK.RU
+                <UniversalLink href="https://spark.ru/startup/furnas"
+                               noStyle={true}
+                               target="_blank">
+                  SPARK.RU
+                </UniversalLink>
               </div>
               <div className="bp5-visafurnasru">
-                VISA.FURNAS.RU
+                <UniversalLink href="https://visa.furnas.ru/"
+                               noStyle={true}
+                               target="_blank">
+                  VISA.FURNAS.RU
+                </UniversalLink>
               </div>
               <img anima-src={require('./images/furnastablet-oval-18-2@2x.png')} className="bp5-oval18" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
               <img anima-src={require('./images/furnastablet-oval-18-2@2x.png')} className="bp5-oval181" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
@@ -292,7 +384,11 @@ export class LandingPage extends React.Component {
                 ТЕЛЕФОН
               </div>
               <div className="bp5-a79156821955">
-                +7(915)682-19-55
+                <UniversalLink href="tel:+7(915)682-19-55"
+                               noStyle={true}
+                               target="_blank">
+                  +7(915)682-19-55
+                </UniversalLink>
               </div>
               <img anima-src={require('./images/furnastablet-oval-18-2@2x.png')} className="bp5-oval183" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
               <div className="bp5-email">
@@ -368,14 +464,17 @@ export class LandingPage extends React.Component {
                   Мария
                 </div>
                 <img anima-src={require('./images/furnasdesktop-suitcase.svg')} className="bp5-suitcase3" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                <img anima-src={require('./images/furnastablet-placeholder-2.svg')} className="bp5-placeholder23" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                <img anima-src={require('./images/furnastablet-placeholder-2.svg')} className="bp5-placeholder23"
+                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
               </div>
               <div className="bp5-suitcase">
                 <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp5-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
               </div>
               <div className="bp5-placeholder2">
-                <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp5-shape3" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp5-shape11" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp5-shape3"
+                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp5-shape11"
+                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp5-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
               </div>
               <div className="bp5-u0421u0435u0440u0433u0435u04391">
@@ -395,8 +494,10 @@ export class LandingPage extends React.Component {
                 <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp5-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
               </div>
               <div className="bp5-placeholder21">
-                <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp5-shape3" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp5-shape11" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp5-shape3"
+                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp5-shape11"
+                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp5-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
               </div>
               <img anima-src={require('./images/furnasdesctophd-group-7@2x.png')} className="bp5-group71" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
@@ -417,8 +518,10 @@ export class LandingPage extends React.Component {
                   <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp5-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
                 <div className="bp5-placeholder23">
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp5-shape3" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp5-shape11" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp5-shape3"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp5-shape11"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp5-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
               </div>
@@ -439,8 +542,10 @@ export class LandingPage extends React.Component {
                 <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp5-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
               </div>
               <div className="bp5-placeholder22">
-                <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp5-shape3" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp5-shape11" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp5-shape3"
+                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp5-shape11"
+                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp5-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
               </div>
               <img anima-src={require('./images/furnasmobile-group-6-1@2x.png')} className="bp5-group61" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
@@ -461,23 +566,42 @@ export class LandingPage extends React.Component {
                   <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp5-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
                 <div className="bp5-placeholder23">
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp5-shape3" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp5-shape11" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp5-shape3"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp5-shape11"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp5-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
               </div>
             </div>
           </div>
-          <div className="bp5-rectangle1">
-          </div>
-          <img anima-src={require('./images/furnasmobile-combined-shape@2x.png')} className="bp5-combinedshape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-          <img anima-src={require('./images/furnasmobile-shape-1@2x.png')} className="bp5-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-          <div className="bp5-rectangle123">
-          </div>
-          <img anima-src={require('./images/furnasdesktop-m@2x.png')} className="bp5-m" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-          <div className="bp5-rectangle124">
-          </div>
-          <img anima-src={require('./images/furnasdesktop-s@2x.png')} className="bp5-s" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+          <UniversalLink href="https://www.instagram.com/furnasteam/"
+                         noStyle={true}
+                         target="_blank">
+            <div className="bp5-rectangle1">
+            </div>
+            <img anima-src={require('./images/furnasmobile-combined-shape@2x.png')} className="bp5-combinedshape"
+                 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+          </UniversalLink>
+          <UniversalLink href="https://www.facebook.com/furnasteam/"
+                         noStyle={true}
+                         target="_blank">
+            <img anima-src={require('./images/furnasmobile-shape-1@2x.png')} className="bp5-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+          </UniversalLink>
+          <UniversalLink href="https://medium.com/@furnasteam/"
+                         noStyle={true}
+                         target="_blank">
+            <div className="bp5-rectangle123">
+            </div>
+            <img anima-src={require('./images/furnasdesktop-m@2x.png')} className="bp5-m" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+          </UniversalLink>
+          <UniversalLink href="https://spark.ru/startup/furnas"
+                         noStyle={true}
+                         target="_blank">
+            <div className="bp5-rectangle124">
+            </div>
+            <img anima-src={require('./images/furnasdesktop-s@2x.png')} className="bp5-s" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+          </UniversalLink>
         </div>
         <div className="bp2-furnasdesktop">
           <img anima-src={require('./images/furnasdesktop-bitmap.png')} className="bp2-bitmap" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
@@ -490,25 +614,33 @@ export class LandingPage extends React.Component {
           <div className="bp2-furnas">
             Furnas
           </div>
-          <div className="bp2-u0427u0442u043e">
-            Что
-          </div>
-          <div className="bp2-u041au0442u043e">
-            Кто
-          </div>
-          <div className="bp2-u041fu043eu0447u0435u043cu0443">
-            Почему
-          </div>
-          <div className="bp2-u0413u0434u0435">
-            Где
-          </div>
+          <UniversalLink noStyle={true} href="#whatfurnasdesktop">
+            <div className="bp2-u0427u0442u043e">
+              Что
+            </div>
+          </UniversalLink>
+          <UniversalLink noStyle={true} href="#whofurnasdesktop">
+            <div className="bp2-u041au0442u043e">
+              Кто
+            </div>
+          </UniversalLink>
+          <UniversalLink noStyle={true} href="#whyfurnasdesktop">
+            <div className="bp2-u041fu043eu0447u0435u043cu0443">
+              Почему
+            </div>
+          </UniversalLink>
+          <UniversalLink noStyle={true} href="#wherefurnasdesktop">
+            <div className="bp2-u0413u0434u0435">
+              Где
+            </div>
+          </UniversalLink>
           <div className="bp2-ru">
             RU
           </div>
           <div className="bp2-en">
             EN
           </div>
-          <div className="bp2-rectangle9">
+          <div className="bp2-rectangle9" id="whatfurnasdesktop">
           </div>
           <div className="bp2-u0427u0442u043eu043cu044bu0434u0435u043bu0430u0435u043c">
             Что мы делаем
@@ -576,7 +708,10 @@ export class LandingPage extends React.Component {
           <div className="bp2-u0421u0442u0430u0440u0442u0430u043fu044b">
             Стартапы
           </div>
-          <img anima-src={require('./images/furnasdesktop-bitmap-1.png')} className="bp2-bitmap1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+          <img anima-src={require('./images/furnasdesktop-bitmap-1.png')}
+               className="bp2-bitmap1"
+               id="whofurnasdesktop"
+               src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
           <div className="bp2-group15-layout-container">
             <div className="bp2-group15">
               <div className="bp2-u041au043eu043cu0430u043du0434u0430">
@@ -600,7 +735,8 @@ export class LandingPage extends React.Component {
                   Мария
                 </div>
                 <img anima-src={require('./images/furnasdesktop-suitcase.svg')} className="bp2-suitcase" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                <img anima-src={require('./images/furnastablet-placeholder-2.svg')} className="bp2-placeholder2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                <img anima-src={require('./images/furnastablet-placeholder-2.svg')} className="bp2-placeholder2"
+                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
               </div>
               <div className="bp2-group21">
                 <div className="bp2-u042eu0440u0438u0439">
@@ -619,8 +755,10 @@ export class LandingPage extends React.Component {
                   <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp2-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
                 <div className="bp2-placeholder2">
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp2-shape3" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp2-shape11" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp2-shape3"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp2-shape11"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp2-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
               </div>
@@ -641,8 +779,10 @@ export class LandingPage extends React.Component {
                   <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp2-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
                 <div className="bp2-placeholder2">
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp2-shape3" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp2-shape11" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp2-shape3"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp2-shape11"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp2-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
               </div>
@@ -665,8 +805,10 @@ export class LandingPage extends React.Component {
                   <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp2-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
                 <div className="bp2-placeholder2">
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp2-shape3" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp2-shape11" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp2-shape3"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp2-shape11"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp2-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
               </div>
@@ -687,8 +829,10 @@ export class LandingPage extends React.Component {
                   <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp2-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
                 <div className="bp2-placeholder2">
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp2-shape3" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp2-shape11" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp2-shape3"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp2-shape11"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp2-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
               </div>
@@ -709,8 +853,10 @@ export class LandingPage extends React.Component {
                   <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp2-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
                 <div className="bp2-placeholder2">
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp2-shape3" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp2-shape11" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp2-shape3"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp2-shape11"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp2-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
               </div>
@@ -722,7 +868,7 @@ export class LandingPage extends React.Component {
           <div className="bp2-furnasu2014u044du0442u043eu043bu044eu0434u0438u043a">
             <span className="bp2-span1">Furnas </span><span className="bp2-span2">— это люди, которые раньше работали в одной компании, а потом разъехались по разным городам. <br/>Мы продолжаем дружить, ездить друг к другу в гости и круто проводить время. Теперь мы снова работаем вместе и занимаемся тем, что любим и умеем делать.</span>
           </div>
-          <div className="bp2-rectangle">
+          <div className="bp2-rectangle" id="whyfurnasdesktop">
           </div>
           <div className="bp2-rectangle92">
           </div>
@@ -733,31 +879,60 @@ export class LandingPage extends React.Component {
             Ссылки
           </div>
           <div className="bp2-a79999999999">
-            +7(999) 999-99-99
+            <UniversalLink href="tel:+7(915)682-19-55"
+                           noStyle={true}
+                           target="_blank">
+              +7(915)682-19-55
+            </UniversalLink>
           </div>
           <div className="bp2-mailmailmailcom">
-            mailmail@mail.com
+            furnasteam@gmail.com
           </div>
           <div className="bp2-u041du0430u0448u0438u0441u0442u0430u0442u044cu0438">
-            Наши статьи
+            <UniversalLink href="https://spark.ru/startup/furnas"
+                           noStyle={true}
+                           target="_blank">
+              Наши статьи
+            </UniversalLink>
           </div>
           <div className="bp2-u041du0430u0448u043fu0440u043eu0435u043au0442">
-            Наш проект
+            <UniversalLink href="https://visa.furnas.ru/"
+                           noStyle={true}
+                           target="_blank">
+              Наш проект
+            </UniversalLink>
           </div>
           <div className="bp2-social">
             Social
           </div>
           <div className="bp2-rectangle12">
           </div>
-          <img anima-src={require('./images/furnasdesktop-shape-20@2x.png')} className="bp2-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-          <div className="bp2-rectangle121">
-          </div>
-          <img anima-src={require('./images/furnasmobile-combined-shape@2x.png')} className="bp2-combinedshape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-          <img anima-src={require('./images/furnasmobile-rectangle-12.png')} className="bp2-rectangle122" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-          <img anima-src={require('./images/furnasmobile-shape-1@2x.png')} className="bp2-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-          <div className="bp2-rectangle123">
-          </div>
-          <img anima-src={require('./images/furnasdesktop-m@2x.png')} className="bp2-m" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+          <UniversalLink href="https://vk.com/furnas"
+                         noStyle={true}
+                         target="_blank">
+            <img anima-src={require('./images/furnasdesktop-shape-20@2x.png')} className="bp2-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+          </UniversalLink>
+          <UniversalLink href="https://www.instagram.com/furnasteam/"
+                         noStyle={true}
+                         target="_blank">
+            <div className="bp2-rectangle121">
+            </div>
+            <img anima-src={require('./images/furnasmobile-combined-shape@2x.png')} className="bp2-combinedshape"
+                 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+          </UniversalLink>
+          <UniversalLink href="https://www.facebook.com/furnasteam/"
+                         noStyle={true}
+                         target="_blank">
+            <img anima-src={require('./images/furnasmobile-rectangle-12.png')} className="bp2-rectangle122" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+            <img anima-src={require('./images/furnasmobile-shape-1@2x.png')} className="bp2-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+          </UniversalLink>
+          <UniversalLink href="https://medium.com/@furnasteam/"
+                         noStyle={true}
+                         target="_blank">
+            <div className="bp2-rectangle123">
+            </div>
+            <img anima-src={require('./images/furnasdesktop-m@2x.png')} className="bp2-m" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+          </UniversalLink>
           <div className="bp2-a2019251furnas">
             2019 © FURNAS
           </div>
@@ -792,7 +967,7 @@ export class LandingPage extends React.Component {
           </div>
           <div className="bp2-group18-layout-container">
             <div className="bp2-group18">
-              <div className="bp2-u0413u0434u04351">
+              <div className="bp2-u0413u0434u04351" id="wherefurnasdesktop">
                 Где?
               </div>
               <div className="bp2-u043du0430u0448u0414u0438u0437u0430u0439u043d">
@@ -808,16 +983,32 @@ export class LandingPage extends React.Component {
                 ВИЗА В ИСПАНИЮ <br/>(НАШ ПРОЕКТ)
               </div>
               <div className="bp2-dribbblecom">
-                DRIBBBLE.COM
+                <UniversalLink href="https://dribbble.com/sanmary"
+                               noStyle={true}
+                               target="_blank">
+                  DRIBBBLE.COM
+                </UniversalLink>
               </div>
               <div className="bp2-githubcom">
-                GITHUB.COM
+                <UniversalLink href="https://github.com/furnasteam"
+                               noStyle={true}
+                               target="_blank">
+                  GITHUB.COM
+                </UniversalLink>
               </div>
               <div className="bp2-sparkru">
-                SPARK.RU
+                <UniversalLink href="https://spark.ru/startup/furnas"
+                               noStyle={true}
+                               target="_blank">
+                  SPARK.RU
+                </UniversalLink>
               </div>
               <div className="bp2-visafurnasru">
-                VISA.FURNAS.RU
+                <UniversalLink href="https://visa.furnas.ru/"
+                               noStyle={true}
+                               target="_blank">
+                  VISA.FURNAS.RU
+                </UniversalLink>
               </div>
               <img anima-src={require('./images/furnasdesktop-oval-18-4@2x.png')} className="bp2-oval18" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
               <img anima-src={require('./images/furnasdesktop-oval-18-4@2x.png')} className="bp2-oval181" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
@@ -826,7 +1017,11 @@ export class LandingPage extends React.Component {
                 ТЕЛЕФОН
               </div>
               <div className="bp2-a79156821955">
-                +7(915)682-19-55
+                <UniversalLink href="tel:+7(915)682-19-55"
+                               noStyle={true}
+                               target="_blank">
+                  +7(915)682-19-55
+                </UniversalLink>
               </div>
               <img anima-src={require('./images/furnasdesktop-oval-18-4@2x.png')} className="bp2-oval183" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
               <div className="bp2-email">
@@ -871,9 +1066,13 @@ export class LandingPage extends React.Component {
           </div>
           <div className="bp2-rectangle1">
           </div>
-          <div className="bp2-rectangle124">
-          </div>
-          <img anima-src={require('./images/furnasdesktop-s@2x.png')} className="bp2-s" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+          <UniversalLink href="https://spark.ru/startup/furnas"
+                         noStyle={true}
+                         target="_blank">
+            <div className="bp2-rectangle124">
+            </div>
+            <img anima-src={require('./images/furnasdesktop-s@2x.png')} className="bp2-s" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+          </UniversalLink>
         </div>
         <div className="bp4-furnasmobile">
           <div className="bp4-group25-layout-container">
@@ -1063,12 +1262,20 @@ export class LandingPage extends React.Component {
           </div>
           <div className="bp4-u041du0430u0448u0438u0441u0442u0430u0442u044cu0438-layout-container">
             <div className="bp4-u041du0430u0448u0438u0441u0442u0430u0442u044cu0438">
-              Наши статьи
+              <UniversalLink href="https://spark.ru/startup/furnas"
+                             noStyle={true}
+                             target="_blank">
+                Наши статьи
+              </UniversalLink>
             </div>
           </div>
           <div className="bp4-u041du0430u0448u043fu0440u043eu0435u043au0442-layout-container">
             <div className="bp4-u041du0430u0448u043fu0440u043eu0435u043au0442">
-              Наш проект
+              <UniversalLink href="https://visa.furnas.ru/"
+                             noStyle={true}
+                             target="_blank">
+                Наш проект
+              </UniversalLink>
             </div>
           </div>
           <div className="bp4-group24-layout-container">
@@ -1078,28 +1285,54 @@ export class LandingPage extends React.Component {
               </div>
               <div className="bp4-rectangle12">
               </div>
-              <img anima-src={require('./images/furnasdesktop-shape-20@2x.png')} className="bp4-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-              <div className="bp4-rectangle121">
-              </div>
-              <img anima-src={require('./images/furnasmobile-combined-shape@2x.png')} className="bp4-combinedshape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-              <img anima-src={require('./images/furnasmobile-rectangle-12.png')} className="bp4-rectangle122" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-              <img anima-src={require('./images/furnasmobile-shape-1@2x.png')} className="bp4-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-              <div className="bp4-rectangle123">
-              </div>
-              <img anima-src={require('./images/furnasdesktop-m@2x.png')} className="bp4-m" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-              <div className="bp4-rectangle124">
-              </div>
-              <img anima-src={require('./images/furnasdesktop-s@2x.png')} className="bp4-s" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+              <UniversalLink href="https://vk.com/furnas"
+                             noStyle={true}
+                             target="_blank">
+                <img anima-src={require('./images/furnasdesktop-shape-20@2x.png')} className="bp4-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+              </UniversalLink>
+              <UniversalLink href="https://www.instagram.com/furnasteam/"
+                             noStyle={true}
+                             target="_blank">
+                <div className="bp4-rectangle121">
+                </div>
+                <img anima-src={require('./images/furnasmobile-combined-shape@2x.png')} className="bp4-combinedshape"
+                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+              </UniversalLink>
+              <UniversalLink href="https://www.facebook.com/furnasteam/"
+                             noStyle={true}
+                             target="_blank">
+                <img anima-src={require('./images/furnasmobile-rectangle-12.png')} className="bp4-rectangle122"
+                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                <img anima-src={require('./images/furnasmobile-shape-1@2x.png')} className="bp4-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+              </UniversalLink>
+              <UniversalLink href="https://medium.com/@furnasteam/"
+                             noStyle={true}
+                             target="_blank">
+                <div className="bp4-rectangle123">
+                </div>
+                <img anima-src={require('./images/furnasdesktop-m@2x.png')} className="bp4-m" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+              </UniversalLink>
+              <UniversalLink href="https://spark.ru/startup/furnas"
+                             noStyle={true}
+                             target="_blank">
+                <div className="bp4-rectangle124">
+                </div>
+                <img anima-src={require('./images/furnasdesktop-s@2x.png')} className="bp4-s" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+              </UniversalLink>
             </div>
           </div>
           <div className="bp4-a79999999999-layout-container">
             <div className="bp4-a79999999999">
-              +7(999) 999-99-99
+              <UniversalLink href="tel:+7(915)682-19-55"
+                             noStyle={true}
+                             target="_blank">
+                +7(915)682-19-55
+              </UniversalLink>
             </div>
           </div>
           <div className="bp4-mailmailmailcom-layout-container">
             <div className="bp4-mailmailmailcom">
-              mailmail@mail.com
+              furnasteam@gmail.com
             </div>
           </div>
           <div className="bp4-a2019251furnas-layout-container">
@@ -1129,22 +1362,42 @@ export class LandingPage extends React.Component {
                 ВИЗА В ИСПАНИЮ <br/>(НАШ ПРОЕКТ)
               </div>
               <div className="bp4-dribbblecom">
-                DRIBBBLE.COM
+                <UniversalLink href="https://dribbble.com/sanmary"
+                               noStyle={true}
+                               target="_blank">
+                  DRIBBBLE.COM
+                </UniversalLink>
               </div>
               <div className="bp4-githubcom">
-                GITHUB.COM
+                <UniversalLink href="https://github.com/furnasteam"
+                               noStyle={true}
+                               target="_blank">
+                  GITHUB.COM
+                </UniversalLink>
               </div>
               <div className="bp4-sparkru">
-                SPARK.RU
+                <UniversalLink href="https://spark.ru/startup/furnas"
+                               noStyle={true}
+                               target="_blank">
+                  SPARK.RU
+                </UniversalLink>
               </div>
               <div className="bp4-visafurnasru">
-                VISA.FURNAS.RU
+                <UniversalLink href="https://visa.furnas.ru/"
+                               noStyle={true}
+                               target="_blank">
+                  VISA.FURNAS.RU
+                </UniversalLink>
               </div>
               <div className="bp4-u0442u0435u043bu0435u0444u043eu043d">
                 ТЕЛЕФОН
               </div>
               <div className="bp4-a79156821955">
-                +7(915)682-19-55
+                <UniversalLink href="tel:+7(915)682-19-55"
+                               noStyle={true}
+                               target="_blank">
+                  +7(915)682-19-55
+                </UniversalLink>
               </div>
               <div className="bp4-email">
                 EMAIL
@@ -1197,8 +1450,10 @@ export class LandingPage extends React.Component {
                   <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp4-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
                 <div className="bp4-placeholder2">
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp4-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp4-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp4-shape"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp4-shape1"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp4-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
               </div>
@@ -1219,8 +1474,10 @@ export class LandingPage extends React.Component {
                   <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp4-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
                 <div className="bp4-placeholder2">
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp4-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp4-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp4-shape"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp4-shape1"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp4-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
               </div>
@@ -1241,8 +1498,10 @@ export class LandingPage extends React.Component {
                   <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp4-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
                 <div className="bp4-placeholder2">
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp4-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp4-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp4-shape"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp4-shape1"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp4-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
               </div>
@@ -1263,8 +1522,10 @@ export class LandingPage extends React.Component {
                   <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp4-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
                 <div className="bp4-placeholder2">
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp4-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp4-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp4-shape"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp4-shape1"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp4-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
               </div>
@@ -1282,7 +1543,8 @@ export class LandingPage extends React.Component {
                   Мария
                 </div>
                 <img anima-src={require('./images/furnasdesktop-suitcase.svg')} className="bp4-suitcase" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                <img anima-src={require('./images/furnastablet-placeholder-2.svg')} className="bp4-placeholder2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                <img anima-src={require('./images/furnastablet-placeholder-2.svg')} className="bp4-placeholder2"
+                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
               </div>
               <div className="bp4-group14">
                 <div className="bp4-u0421u0435u0440u0433u0435u0439">
@@ -1301,8 +1563,10 @@ export class LandingPage extends React.Component {
                   <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp4-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
                 <div className="bp4-placeholder2">
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp4-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp4-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp4-shape"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp4-shape1"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp4-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
               </div>
@@ -1312,10 +1576,13 @@ export class LandingPage extends React.Component {
         <div className="bp1-furnasdesctophd">
           <img anima-src={require('./images/furnasdesctophd-bitmap.png')} className="bp1-bitmap" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
           <div className="bp1-pictreeman1440-layout-container">
-            <img anima-src={require('./images/furnasdesctophd-pictreeman1440.png')} className="bp1-pictreeman1440" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+            <img anima-src={require('./images/furnasdesctophd-pictreeman1440.png')}
+                 id="whofurnasdesctophd"
+                 className="bp1-pictreeman1440"
+                 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
           </div>
           <img anima-src={require('./images/furnasdesktop-rectangle-9.png')} className="bp1-rectangle9" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-          <div className="bp1-rectangle91">
+          <div className="bp1-rectangle91" id="whatfurnasdesctophd">
           </div>
           <div className="bp1-group13-layout-container">
             <img anima-src={require('./images/furnasdesctophd-group-13.png')} className="bp1-group13" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
@@ -1324,7 +1591,7 @@ export class LandingPage extends React.Component {
           </div>
           <img anima-src={require('./images/furnasdesctophd-group.png')} className="bp1-group" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
           <img anima-src={require('./images/furnasdesctophd-line-2@2x.png')} className="bp1-line2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-          <div className="bp1-rectangle">
+          <div className="bp1-rectangle" id="whyfurnasdesctophd">
           </div>
           <div className="bp1-rectangle1">
           </div>
@@ -1413,23 +1680,35 @@ export class LandingPage extends React.Component {
                   <div className="bp1-u0422u0435u043bu0435u0444u043eu043d">
                     Телефон
                   </div>
+                  <Input value={this.state.phone}
+                         onChange={this.handlePhoneChange}
+                         className="landing__phone-input-desktophd"/>
                   <div className="bp1-email">
                     Email
                   </div>
+                  <Input value={this.state.email}
+                         onChange={this.handleEmailChange}
+                         className="landing__email-input-desktophd"/>
                   <div className="bp1-skype">
                     Skype
                   </div>
+                  <Input className="landing__skype-input-desktophd"
+                         value={this.state.skype}
+                         onChange={this.handleSkypeChange}/>
                   <div className="bp1-u0421u043eu043eu0431u0449u0435u043du0438u0435">
                     Сообщение
                   </div>
+                  <Input className="landing__message-input-desktophd"
+                         value={this.state.message}
+                         onChange={this.handleMessageChange}/>
                   <div className="bp1-u0421u0432u044fu0437u0430u0442u044cu0441u044f">
                     Связаться
                   </div>
-                  <div className="bp1-group2">
+                  <div className="bp1-group2" onClick={this.handleSendDataClick}>
                     <div className="bp1-rectangle17">
                     </div>
                     <div className="bp1-u041eu0442u043fu0440u0430u0432u0438u0442u044c">
-                      Отправить
+                      {this.state.sent ? 'Отправлено' : 'Отправить'}
                     </div>
                   </div>
                 </div>
@@ -1440,25 +1719,58 @@ export class LandingPage extends React.Component {
                   Ссылки
                 </div>
                 <div className="bp1-a79999999999">
-                  +7(999) 999-99-99
+                  <UniversalLink href="tel:+7(915)682-19-55"
+                                 noStyle={true}
+                                 target="_blank">
+                    +7(915)682-19-55
+                  </UniversalLink>
                 </div>
                 <div className="bp1-mailmailmailcom">
-                  mailmail@mail.com
+                  furnasteam@gmail.com
                 </div>
                 <div className="bp1-u041du0430u0448u0438u0441u0442u0430u0442u044cu0438">
-                  Наши статьи
+                  <UniversalLink href="https://spark.ru/startup/furnas"
+                                 noStyle={true}
+                                 target="_blank">
+                    Наши статьи
+                  </UniversalLink>
                 </div>
                 <div className="bp1-u041du0430u0448u043fu0440u043eu0435u043au0442">
-                  Наш проект
+                  <UniversalLink href="https://visa.furnas.ru/"
+                                 noStyle={true}
+                                 target="_blank">
+                    Наш проект
+                  </UniversalLink>
                 </div>
                 <div className="bp1-social">
                   Social
                 </div>
-                <img anima-src={require('./images/furnasdesctophd-vk.svg')} className="bp1-vk" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                <img anima-src={require('./images/furnasdesctophd-instagram.svg')} className="bp1-instagram" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                <img anima-src={require('./images/furnasdesctophd-facebook.svg')} className="bp1-facebook" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                <img anima-src={require('./images/furnasdesctophd-media.svg')} className="bp1-media" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                <img anima-src={require('./images/furnasdesctophd-spark.svg')} className="bp1-spark" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                <UniversalLink href="https://vk.com/furnas"
+                               noStyle={true}
+                               target="_blank">
+                  <img anima-src={require('./images/furnasdesctophd-vk.svg')} className="bp1-vk" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                </UniversalLink>
+                <UniversalLink href="https://www.instagram.com/furnasteam/"
+                               noStyle={true}
+                               target="_blank">
+                  <img anima-src={require('./images/furnasdesctophd-instagram.svg')} className="bp1-instagram"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                </UniversalLink>
+                <UniversalLink href="https://www.instagram.com/furnasteam/"
+                               noStyle={true}
+                               target="_blank">
+                  <img anima-src={require('./images/furnasdesctophd-facebook.svg')} className="bp1-facebook" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                </UniversalLink>
+                <UniversalLink href="https://medium.com/@furnasteam/"
+                               noStyle={true}
+                               target="_blank">
+                  <img anima-src={require('./images/furnasdesctophd-media.svg')} className="bp1-media" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                </UniversalLink>
+                <UniversalLink href="https://spark.ru/startup/furnas"
+                               noStyle={true}
+                               target="_blank">
+                  <img anima-src={require('./images/furnasdesctophd-spark.svg')} className="bp1-spark" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                </UniversalLink>
                 <div className="bp1-a2019251furnas">
                   2019 © FURNAS
                 </div>
@@ -1471,18 +1783,26 @@ export class LandingPage extends React.Component {
                 <div className="bp1-furnas">
                   Furnas
                 </div>
-                <div className="bp1-u0427u0442u043e">
-                  Что
-                </div>
-                <div className="bp1-u041au0442u043e">
-                  Кто
-                </div>
-                <div className="bp1-u041fu043eu0447u0435u043cu0443">
-                  Почему
-                </div>
-                <div className="bp1-u0413u0434u0435">
-                  Где
-                </div>
+                <UniversalLink href="#whatfurnasdesctophd">
+                  <div className="bp1-u0427u0442u043e">
+                    Что
+                  </div>
+                </UniversalLink>
+                <UniversalLink href="#whofurnasdesctophd">
+                  <div className="bp1-u041au0442u043e">
+                    Кто
+                  </div>
+                </UniversalLink>
+                <UniversalLink href="#whyfurnasdesctophd">
+                  <div className="bp1-u041fu043eu0447u0435u043cu0443">
+                    Почему
+                  </div>
+                </UniversalLink>
+                <UniversalLink href="#wherefurnasdesctophd">
+                  <div className="bp1-u0413u0434u0435">
+                    Где
+                  </div>
+                </UniversalLink>
                 <div className="bp1-ru">
                   RU
                 </div>
@@ -1490,7 +1810,7 @@ export class LandingPage extends React.Component {
                   EN
                 </div>
                 <div className="bp1-group15">
-                  <div className="bp1-u0413u0434u04351">
+                  <div className="bp1-u0413u0434u04351" id="wherefurnasdesctophd">
                     Где?
                   </div>
                   <div className="bp1-u043du0430u0448u0414u0438u0437u0430u0439u043d">
@@ -1506,16 +1826,32 @@ export class LandingPage extends React.Component {
                     ВИЗА В ИСПАНИЮ <br/>(НАШ ПРОЕКТ)
                   </div>
                   <div className="bp1-dribbblecom">
-                    DRIBBBLE.COM
+                    <UniversalLink href="https://dribbble.com/sanmary"
+                                   noStyle={true}
+                                   target="_blank">
+                      DRIBBBLE.COM
+                    </UniversalLink>
                   </div>
                   <div className="bp1-githubcom">
-                    GITHUB.COM
+                    <UniversalLink href="https://github.com/furnasteam"
+                                   noStyle={true}
+                                   target="_blank">
+                      GITHUB.COM
+                    </UniversalLink>
                   </div>
                   <div className="bp1-sparkru">
-                    SPARK.RU
+                    <UniversalLink href="https://spark.ru/startup/furnas"
+                                   noStyle={true}
+                                   target="_blank">
+                      SPARK.RU
+                    </UniversalLink>
                   </div>
                   <div className="bp1-visafurnasru">
-                    VISA.FURNAS.RU
+                    <UniversalLink href="https://visa.furnas.ru/"
+                                   noStyle={true}
+                                   target="_blank">
+                      VISA.FURNAS.RU
+                    </UniversalLink>
                   </div>
                   <img anima-src={require('./images/furnasdesktop-oval-18-4@2x.png')} className="bp1-oval18" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <img anima-src={require('./images/furnasdesktop-oval-18-4@2x.png')} className="bp1-oval181" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
@@ -1524,7 +1860,11 @@ export class LandingPage extends React.Component {
                     ТЕЛЕФОН
                   </div>
                   <div className="bp1-a79156821955">
-                    +7(915)682-19-55
+                    <UniversalLink href="tel:+7(915)682-19-55"
+                                   noStyle={true}
+                                   target="_blank">
+                      +7(915)682-19-55
+                    </UniversalLink>
                   </div>
                   <img anima-src={require('./images/furnasdesktop-oval-18-4@2x.png')} className="bp1-oval183" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <div className="bp1-email">
@@ -1572,7 +1912,8 @@ export class LandingPage extends React.Component {
                     Команда
                   </div>
                   <img anima-src={require('./images/furnastablet-group-4@2x.png')} className="bp1-group4" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                  <img anima-src={require('./images/furnasmobilehorizont-group-6@2x.png')} className="bp1-group6" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-group-6@2x.png')} className="bp1-group6"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <img anima-src={require('./images/furnasdesctophd-group-7@2x.png')} className="bp1-group7" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <img anima-src={require('./images/furnasmobile-group-5@2x.png')} className="bp1-group5" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <div className="bp1-group25">
@@ -1589,7 +1930,8 @@ export class LandingPage extends React.Component {
                       Мария
                     </div>
                     <img anima-src={require('./images/furnasdesktop-suitcase.svg')} className="bp1-suitcase" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                    <img anima-src={require('./images/furnastablet-placeholder-2.svg')} className="bp1-placeholder2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                    <img anima-src={require('./images/furnastablet-placeholder-2.svg')} className="bp1-placeholder2"
+                         src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   </div>
                   <div className="bp1-group26">
                     <div className="bp1-u042eu0440u0438u0439">
@@ -1605,11 +1947,14 @@ export class LandingPage extends React.Component {
                       Работал в IIG, Ingate
                     </div>
                     <div className="bp1-suitcase">
-                      <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp1-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                      <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp1-shape"
+                           src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                     </div>
                     <div className="bp1-placeholder2">
-                      <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp1-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                      <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp1-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                      <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp1-shape"
+                           src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                      <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp1-shape1"
+                           src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                       <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp1-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                     </div>
                   </div>
@@ -1627,11 +1972,14 @@ export class LandingPage extends React.Component {
                       Аналитик
                     </div>
                     <div className="bp1-suitcase">
-                      <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp1-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                      <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp1-shape"
+                           src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                     </div>
                     <div className="bp1-placeholder2">
-                      <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp1-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                      <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp1-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                      <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp1-shape"
+                           src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                      <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp1-shape1"
+                           src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                       <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp1-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                     </div>
                   </div>
@@ -1651,11 +1999,14 @@ export class LandingPage extends React.Component {
                       Работала в IIG, Ingate
                     </div>
                     <div className="bp1-suitcase">
-                      <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp1-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                      <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp1-shape"
+                           src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                     </div>
                     <div className="bp1-placeholder2">
-                      <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp1-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                      <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp1-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                      <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp1-shape"
+                           src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                      <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp1-shape1"
+                           src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                       <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp1-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                     </div>
                   </div>
@@ -1673,11 +2024,14 @@ export class LandingPage extends React.Component {
                       Разработчик
                     </div>
                     <div className="bp1-suitcase">
-                      <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp1-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                      <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp1-shape"
+                           src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                     </div>
                     <div className="bp1-placeholder2">
-                      <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp1-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                      <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp1-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                      <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp1-shape"
+                           src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                      <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp1-shape1"
+                           src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                       <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp1-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                     </div>
                   </div>
@@ -1695,11 +2049,14 @@ export class LandingPage extends React.Component {
                       Разработчик
                     </div>
                     <div className="bp1-suitcase">
-                      <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp1-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                      <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp1-shape"
+                           src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                     </div>
                     <div className="bp1-placeholder2">
-                      <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp1-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                      <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp1-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                      <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp1-shape"
+                           src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                      <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp1-shape1"
+                           src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                       <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp1-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                     </div>
                   </div>
@@ -1713,18 +2070,18 @@ export class LandingPage extends React.Component {
         </div>
         <div className="bp3-furnasmobilehorizont">
           <img anima-src={require('./images/furnasmobilehorizont-bitmap.png')} className="bp3-bitmap" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-          <div className="bp3-rectangle9">
+          <div className="bp3-rectangle9" id="whatfurnasmobile">
           </div>
           <img anima-src={require('./images/furnasmobile-rectangle-9.png')} className="bp3-rectangle91" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
           <div className="bp3-group13-layout-container">
             <img anima-src={require('./images/furnasdesktop-group-13.png')} className="bp3-group13" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
           </div>
           <img anima-src={require('./images/furnasmobilehorizont-bitmap-1.png')} className="bp3-bitmap1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-          <div className="bp3-rectangle">
+          <div className="bp3-rectangle" id="whyfurnasmobile">
           </div>
           <div className="bp3-group27-layout-container">
             <div className="bp3-group27">
-              <div className="bp3-u0413u0434u04351">
+              <div className="bp3-u0413u0434u04351" id="wherefurnasmobile">
                 Где?
               </div>
               <div className="bp3-group23">
@@ -1741,22 +2098,42 @@ export class LandingPage extends React.Component {
                   ВИЗА В ИСПАНИЮ <br/>(НАШ ПРОЕКТ)
                 </div>
                 <div className="bp3-dribbblecom">
-                  DRIBBBLE.COM
+                  <UniversalLink href="https://dribbble.com/sanmary"
+                                 noStyle={true}
+                                 target="_blank">
+                    DRIBBBLE.COM
+                  </UniversalLink>
                 </div>
                 <div className="bp3-githubcom">
-                  GITHUB.COM
+                  <UniversalLink href="https://github.com/furnasteam"
+                                 noStyle={true}
+                                 target="_blank">
+                    GITHUB.COM
+                  </UniversalLink>
                 </div>
                 <div className="bp3-sparkru">
-                  SPARK.RU
+                  <UniversalLink href="https://spark.ru/startup/furnas"
+                                 noStyle={true}
+                                 target="_blank">
+                    SPARK.RU
+                  </UniversalLink>
                 </div>
                 <div className="bp3-visafurnasru">
-                  VISA.FURNAS.RU
+                  <UniversalLink href="https://visa.furnas.ru/"
+                                 noStyle={true}
+                                 target="_blank">
+                    VISA.FURNAS.RU
+                  </UniversalLink>
                 </div>
                 <div className="bp3-u0442u0435u043bu0435u0444u043eu043d">
                   ТЕЛЕФОН
                 </div>
                 <div className="bp3-a79156821955">
-                  +7(915)682-19-55
+                  <UniversalLink href="tel:+7(915)682-19-55"
+                                 noStyle={true}
+                                 target="_blank">
+                    +7(915)682-19-55
+                  </UniversalLink>
                 </div>
                 <div className="bp3-email">
                   EMAIL
@@ -1765,18 +2142,24 @@ export class LandingPage extends React.Component {
                   FURNASTEAM@GMAIL.COM
                 </div>
                 <img anima-src={require('./images/furnasmobilehorizont-line-4@2x.png')} className="bp3-line4" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                <img anima-src={require('./images/furnasmobilehorizont-line-4-1@2x.png')} className="bp3-line41" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                <img anima-src={require('./images/furnasmobilehorizont-line-4-2@2x.png')} className="bp3-line42" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                <img anima-src={require('./images/furnasmobilehorizont-line-4-3@2x.png')} className="bp3-line43" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                <img anima-src={require('./images/furnasmobilehorizont-line-4-4@2x.png')} className="bp3-line44" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                <img anima-src={require('./images/furnasmobilehorizont-line-4-5@2x.png')} className="bp3-line45" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                <img anima-src={require('./images/furnasmobilehorizont-line-4-1@2x.png')} className="bp3-line41"
+                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                <img anima-src={require('./images/furnasmobilehorizont-line-4-2@2x.png')} className="bp3-line42"
+                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                <img anima-src={require('./images/furnasmobilehorizont-line-4-3@2x.png')} className="bp3-line43"
+                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                <img anima-src={require('./images/furnasmobilehorizont-line-4-4@2x.png')} className="bp3-line44"
+                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                <img anima-src={require('./images/furnasmobilehorizont-line-4-5@2x.png')} className="bp3-line45"
+                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
               </div>
             </div>
           </div>
           <div className="bp3-group28-layout-container">
             <div className="bp3-group28">
               <div className="bp3-group26">
-                <img anima-src={require('./images/furnasmobilehorizont-group-12.png')} className="bp3-group12" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                <img anima-src={require('./images/furnasmobilehorizont-group-12.png')} className="bp3-group12"
+                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 <div className="bp3-u0422u0435u043bu0435u0444u043eu043d">
                   Телефон
                 </div>
@@ -1868,8 +2251,10 @@ export class LandingPage extends React.Component {
                   <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp3-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
                 <div className="bp3-placeholder2">
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp3-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp3-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp3-shape"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp3-shape1"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp3-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
               </div>
@@ -1890,8 +2275,10 @@ export class LandingPage extends React.Component {
                   <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp3-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
                 <div className="bp3-placeholder2">
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp3-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp3-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp3-shape"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp3-shape1"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp3-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
               </div>
@@ -1912,8 +2299,10 @@ export class LandingPage extends React.Component {
                   <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp3-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
                 <div className="bp3-placeholder2">
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp3-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp3-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp3-shape"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp3-shape1"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp3-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
               </div>
@@ -1934,8 +2323,10 @@ export class LandingPage extends React.Component {
                   <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp3-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
                 <div className="bp3-placeholder2">
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp3-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp3-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp3-shape"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp3-shape1"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp3-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
               </div>
@@ -1953,7 +2344,8 @@ export class LandingPage extends React.Component {
                   Мария
                 </div>
                 <img anima-src={require('./images/furnasdesktop-suitcase.svg')} className="bp3-suitcase" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                <img anima-src={require('./images/furnastablet-placeholder-2.svg')} className="bp3-placeholder2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                <img anima-src={require('./images/furnastablet-placeholder-2.svg')} className="bp3-placeholder2"
+                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
               </div>
               <div className="bp3-group14">
                 <div className="bp3-u0421u0435u0440u0433u0435u0439">
@@ -1972,14 +2364,16 @@ export class LandingPage extends React.Component {
                   <img anima-src={require('./images/furnasdesctophd-shape-16@2x.png')} className="bp3-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
                 <div className="bp3-placeholder2">
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp3-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp3-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-13@2x.png')} className="bp3-shape"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                  <img anima-src={require('./images/furnasmobilehorizont-shape-6@2x.png')} className="bp3-shape1"
+                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                   <img anima-src={require('./images/furnastablet-shape-4@2x.png')} className="bp3-shape2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
               </div>
             </div>
           </div>
-          <div className="bp3-u041au0442u043eu043cu044b">
+          <div className="bp3-u041au0442u043eu043cu044b" id="whofurnasmobile">
             Кто мы
           </div>
           <div className="bp3-furnasu2014u044du0442u043eu043bu044eu0434u0438u043a">
@@ -2065,28 +2459,44 @@ export class LandingPage extends React.Component {
           <div className="bp3-en">
             EN
           </div>
-          <div className="bp3-u0427u0442u043e">
-            Что
-          </div>
-          <div className="bp3-u041au0442u043e">
-            Кто
-          </div>
-          <div className="bp3-u041fu043eu0447u0435u043cu0443">
-            Почему
-          </div>
-          <div className="bp3-u0413u0434u0435">
-            Где
-          </div>
+          <UniversalLink noStyle={true} href="#whatfurnasmobile">
+            <div className="bp3-u0427u0442u043e">
+              Что
+            </div>
+          </UniversalLink>
+          <UniversalLink noStyle={true} href="#whofurnasmobile">
+            <div className="bp3-u041au0442u043e">
+              Кто
+            </div>
+          </UniversalLink>
+          <UniversalLink noStyle={true} href="#whyfurnasmobile">
+            <div className="bp3-u041fu043eu0447u0435u043cu0443">
+              Почему
+            </div>
+          </UniversalLink>
+          <UniversalLink noStyle={true} href="#wherefurnasmobile">
+            <div className="bp3-u0413u0434u0435">
+              Где
+            </div>
+          </UniversalLink>
           <div className="bp3-rectangle92">
           </div>
           <div className="bp3-u0421u0441u044bu043bu043au0438">
             Ссылки
           </div>
           <div className="bp3-u041du0430u0448u0438u0441u0442u0430u0442u044cu0438">
-            Наши статьи
+            <UniversalLink href="https://spark.ru/startup/furnas"
+                           noStyle={true}
+                           target="_blank">
+              Наши статьи
+            </UniversalLink>
           </div>
           <div className="bp3-u041du0430u0448u043fu0440u043eu0435u043au0442">
-            Наш проект
+            <UniversalLink href="https://visa.furnas.ru/"
+                           noStyle={true}
+                           target="_blank">
+              Наш проект
+            </UniversalLink>
           </div>
           <div className="bp3-group24">
             <div className="bp3-social">
@@ -2094,24 +2504,49 @@ export class LandingPage extends React.Component {
             </div>
             <div className="bp3-rectangle12">
             </div>
-            <img anima-src={require('./images/furnasdesktop-shape-20@2x.png')} className="bp3-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-            <div className="bp3-rectangle121">
-            </div>
-            <img anima-src={require('./images/furnasmobile-combined-shape@2x.png')} className="bp3-combinedshape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-            <img anima-src={require('./images/furnasmobile-rectangle-12.png')} className="bp3-rectangle122" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-            <img anima-src={require('./images/furnasmobile-shape-1@2x.png')} className="bp3-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-            <div className="bp3-rectangle123">
-            </div>
-            <img anima-src={require('./images/furnasdesktop-m@2x.png')} className="bp3-m" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-            <div className="bp3-rectangle124">
-            </div>
-            <img anima-src={require('./images/furnasdesktop-s@2x.png')} className="bp3-s" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+            <UniversalLink href="https://vk.com/furnas"
+                           noStyle={true}
+                           target="_blank">
+              <img anima-src={require('./images/furnasdesktop-shape-20@2x.png')} className="bp3-shape" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+            </UniversalLink>
+            <UniversalLink href="https://www.instagram.com/furnasteam/"
+                           noStyle={true}
+                           target="_blank">
+              <div className="bp3-rectangle121">
+              </div>
+              <img anima-src={require('./images/furnasmobile-combined-shape@2x.png')} className="bp3-combinedshape"
+                   src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+            </UniversalLink>
+            <UniversalLink href="https://www.facebook.com/furnasteam/"
+                           noStyle={true}
+                           target="_blank">
+              <img anima-src={require('./images/furnasmobile-rectangle-12.png')} className="bp3-rectangle122" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+              <img anima-src={require('./images/furnasmobile-shape-1@2x.png')} className="bp3-shape1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+            </UniversalLink>
+            <UniversalLink href="https://medium.com/@furnasteam/"
+                           noStyle={true}
+                           target="_blank">
+              <div className="bp3-rectangle123">
+              </div>
+              <img anima-src={require('./images/furnasdesktop-m@2x.png')} className="bp3-m" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+            </UniversalLink>
+            <UniversalLink href="https://spark.ru/startup/furnas"
+                           noStyle={true}
+                           target="_blank">
+              <div className="bp3-rectangle124">
+              </div>
+              <img anima-src={require('./images/furnasdesktop-s@2x.png')} className="bp3-s" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+            </UniversalLink>
           </div>
           <div className="bp3-a79999999999">
-            +7(999) 999-99-99
+            <UniversalLink href="tel:+7(915)682-19-55"
+                           noStyle={true}
+                           target="_blank">
+              +7(915)682-19-55
+            </UniversalLink>
           </div>
           <div className="bp3-mailmailmailcom">
-            mailmail@mail.com
+            furnasteam@gmail.com
           </div>
           <div className="bp3-a2019251furnas">
             2019 © FURNAS
