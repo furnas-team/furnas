@@ -51,7 +51,7 @@ export class App extends React.Component {
         <meta name="msapplication-square310x310logo" content={require('./images/favicon-310x310.png')}/>
         <meta property="og:type" content="website"/>
         <meta property="og:site_name" content="Furnas"/>
-        <meta property="og:title" content="Студия дизайна Furnas"/>
+        <meta property="og:title" content="Furnas"/>
         <meta property="og:description" content="Веб-дизайн, разработка, иллюстрации"/>
         <meta property="og:url" content="https://furnas.ru"/>
         <meta property="og:locale" content="ru_RU"/>

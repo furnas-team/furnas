@@ -134,7 +134,7 @@ export class LandingPage extends React.Component {
       <ThemeProvider value={ThemeName.LIGHT}>
         <Helmet>
           <title>Furnas</title>
-          <meta name="description" content=""/>
+          <meta name="description" content="Разработка сайтов, ux/ui дизайн, отрисовка рекламных баннеров, иллюстрации, настройка рекламы"/>
           <link rel="canonical" href="https://furnas.ru"/>
         </Helmet>
         <div className="bp5-furnastablet">
