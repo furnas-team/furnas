@@ -33,24 +33,22 @@ export class LandingPage extends React.Component {
 
   handleSendDataClick = () => {
     const {phone, email, skype, message, sent} = this.state;
-    if (!sent) {
-      window.fetch('https://api.furnas.ru/requests', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({phone, email, skype, message})
-      });
-      if (window.yaCounter) {
-        window.yaCounter.reachGoal('AddedContact', {phone, email, skype, message});
-      }
-      window.mixpanel.track(
-        "Furnas | added user contact",
-        {phone, email, skype, message}
-      );
-      this.setState({sent: true});
+    window.fetch('https://api.furnas.ru/requests', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({phone, email, skype, message})
+    });
+    if (window.yaCounter) {
+      window.yaCounter.reachGoal('AddedContact', {phone, email, skype, message});
     }
+    window.mixpanel.track(
+      "Furnas | added user contact",
+      {phone, email, skype, message}
+    );
+    this.setState({sent: true});
   };
 
   componentDidMount() {
@@ -1262,8 +1260,8 @@ export class LandingPage extends React.Component {
                   Сообщение
                 </div>
                 <textarea value={this.state.message}
-                       onChange={this.handleMessageChange}
-                       className="landing__message-input-mobile"/>
+                          onChange={this.handleMessageChange}
+                          className="landing__message-input-mobile"/>
                 <div className="bp4-u0421u0432u044fu0437u0430u0442u044cu0441u044f">
                   Связаться
                 </div>
