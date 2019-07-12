@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="297px" height="137px" viewBox="0 0 297 137" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-10" transform="translate(2.000000, 1.000000)" fill-rule="nonzero" stroke="#152228" stroke-width="4">
+            <g id="Group-9">
+                <ellipse id="Oval-16" cx="60.4972376" cy="60.6160714" rx="32.320442" ry="32.3839286"></ellipse>
+                <path d="M33.9779006,78.8839286 L87.8453039,42.3482143" id="Path-26"></path>
+                <path d="M18.2320442,88.8482143 L150,0.830357143" id="Path-26"></path>
+                <ellipse id="Oval-16" cx="129.281768" cy="14.9464286" rx="9.1160221" ry="9.13392857"></ellipse>
+                <path d="M121.823204,19.9285714 L136.740331,9.96428571" id="Path-26"></path>
+                <path d="M105.248619,44.8392857 L120.165746,34.875" id="Path-26"></path>
+                <path d="M0,88.8482143 L14.9171271,78.8839286" id="Path-26"></path>
+            </g>
+            <g id="Group-9" transform="translate(218.000000, 88.500000) rotate(-180.000000) translate(-218.000000, -88.500000) translate(143.000000, 42.000000)">
+                <ellipse id="Oval-16" cx="60.4972376" cy="60.6160714" rx="32.320442" ry="32.3839286"></ellipse>
+                <path d="M33.9779006,78.8839286 L87.8453039,42.3482143" id="Path-26"></path>
+                <path d="M18.2320442,88.8482143 L150,0.830357143" id="Path-26"></path>
+                <ellipse id="Oval-16" cx="129.281768" cy="14.9464286" rx="9.1160221" ry="9.13392857"></ellipse>
+                <path d="M121.823204,19.9285714 L136.740331,9.96428571" id="Path-26"></path>
+                <path d="M105.248619,44.8392857 L120.165746,34.875" id="Path-26"></path>
+                <path d="M0,88.8482143 L14.9171271,78.8839286" id="Path-26"></path>
+            </g>
+        </g>
+    </g>
+</svg>

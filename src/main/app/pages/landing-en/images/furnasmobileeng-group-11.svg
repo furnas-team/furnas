@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="152px" height="167px" viewBox="0 0 152 167" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M30.9622279,13.4273182 L121.382741,13.4273182 L121.382741,153.205653 L121.382741,153.205653 C71.4448704,153.205653 30.9622279,112.723011 30.9622279,62.7851405 L30.9622279,13.4273182 Z" id="path-1"></path>
+    </defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-11">
+            <g id="Oval-16">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Mask" fill-rule="nonzero" transform="translate(76.172484, 83.316486) rotate(148.000000) translate(-76.172484, -83.316486) "></g>
+                <ellipse stroke="#152228" stroke-width="4" fill-rule="nonzero" mask="url(#mask-2)" cx="18.3068132" cy="123.642831" rx="63.9402198" ry="64.0650703"></ellipse>
+            </g>
+            <path d="M45,106 L146,38.4583034" id="Path-26" stroke="#152228" stroke-width="4" fill-rule="nonzero"></path>
+            <circle id="Oval-16" stroke="#152228" stroke-width="4" fill-rule="nonzero" cx="119" cy="56" r="12"></circle>
+            <path d="M87,97 L107,84" id="Path-26" stroke="#152228" stroke-width="4" fill-rule="nonzero"></path>
+            <path d="M46,85 L66,72" id="Path-26" stroke="#152228" stroke-width="4" fill-rule="nonzero"></path>
+            <path d="M45,106 L146,38.4583034" id="Path-26" stroke="#152228" stroke-width="4" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>
