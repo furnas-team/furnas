@@ -1086,28 +1086,28 @@ export class LandingPageEn extends React.Component {
             <span className="bp3-span1">Furnas </span><span className="bp3-span2">— it means people who used to work together and now live in different cities.<br/>We are still friends, keep visiting each other and have fun. Now we are working together again and doing what we love.</span>
           </div>
           <div className="bp3-u0421u0430u0439u0442u044b">
-            Сайты
+            Website
           </div>
           <div className="bp3-u041au0430u043au0438u0435u0441u0430u0439u0442u044b">
-            Какие сайты
+            What kind of
           </div>
           <div className="bp3-u041au0430u043au0440u0430u0431u043eu0442u0430u0435u043c">
-            Как работаем
+            How we work
           </div>
           <div className="bp3-u0427u0442u043eu0438u0441u043fu043eu043bu044cu0437u0443u0435u043c">
-            Что используем
+            What we use
           </div>
           <div className="bp3-u041eu0442u0440u0438u0441u043eu0432u043au0430u043fu043eu0434u043bu044eu0431u044bu0435">
-            Отрисовка под любые платформы
+            Creating for any platform
           </div>
           <div className="bp3-u041au0430u043au0440u0430u0431u043eu0442u0430u0435u043c1">
-            Как работаем
+            How we work
           </div>
           <div className="bp3-u0414u0438u0437u0430u0439u043du0412u0435u0440u0441u0442u043au0430u0421u043eu0437u0434u0430">
-            Дизайн <br/>Верстка<br/>Создание контента<br/>Настройка Яндекс.Метрики и Гугл аналитики<br/>Настройка рекламы<br/>Отрисовка рекламных баннеров
+            Design <br/>Website Layout<br/>Content Creation<br/>Set Up Google Analytics and Yandex.Metrica<br/>Set Up Ads<br/>Web banner design
           </div>
           <div className="bp3-u041bu0435u043du0434u0438u043du0433u0438u041fu0440u043eu0434u0430u044eu0449u0438u0435u0441">
-            Лендинги <br/>Продающие сайты <br/>Сайты-визитки <br/>Корпоративные сайты<br/>Сайты-мероприятий <br/>Сайты для кофеен / ресторанов / отелей
+            Landing Page <br/>Business Card Website <br/>Corporate Website<br/>Events Website <br/>Cafe / Coffee Shop / Hotel Website
           </div>
           <div className="bp3-u0422u0438u043bu044cu0434u0430reactjsno">
             Тильда, react js, node js, C#.
@@ -1116,17 +1116,17 @@ export class LandingPageEn extends React.Component {
             facebook, <br/>instagram, <br/>vk, <br/>баннеры на сайтах, <br/>рекламная сеть яндекса, <br/>google ads, <br/>наружная реклама.
           </div>
           <div className="bp3-u041eu0442u0440u0438u0441u043eu0432u043au0430u0443u043du0438u043au0430u043bu044cu043du044bu0445">
-            Отрисовка уникальных иллюстраций в Adobe Illustrator — от идеи до финальной версии.<br/>Обработка фото.
+            Create a unique illustration in Adobe Illustrator — from idea to final  print.<br/>Image editing.
           </div>
           <div className="bp3-u0421u043eu0437u0434u0430u043du0438u0435u043fu0435u0440u0432u043eu0439u0436u0438u0437u043d">
-            Создание первой жизнеспособной версии продукта<br/>Разработка архитектуры веб-приложений<br/>Проверка гипотез<br/>Настройка рекламы<br/>Отрисовка рекламных баннеров<br/>Сбор и анализ
-            данных<br/>Консультация при найме сотрудников
+            Сreating  MVP<br/>Web Application Architecture Development<br/>Hypothesis Testing<br/>Set Up Ads<br/>Design advertising banner<br/>Data Сollection & Analysis
+          <br/>HR consultation
           </div>
           <div className="bp3-reactjscjava">
             React js, C#, Java, Python.
           </div>
           <div className="bp3-u041fu0440u0438u0434u0443u043cu044bu0432u0430u0435u043cu0438u0440u0438u0441u0443u0435u043c">
-            Придумываем и рисуем уникальные иллюстрации для презентаций, рекламы, статей, сайтов, баннеров, флаеров.
+            Create a unique illustration for presentation,  ad, article,  website, banner, flyer.
           </div>
           <div className="bp3-u0420u0435u043au043bu0430u043cu043du044bu0435u0431u0430u043du043du0435u0440u044b">
             Рекламные <br/>баннеры
@@ -1171,16 +1171,16 @@ export class LandingPageEn extends React.Component {
             EN
           </div>
           <div className="bp3-u0421u0447u0435u043cu043fu043eu043cu043eu0436u0435u043c">
-            С чем поможем
+            We can help you with
           </div>
           <div className="bp3-u0427u0442u043eu0438u0441u043fu043eu043bu044cu0437u0443u0435u043c1">
-            Что используем
+            What we use
           </div>
           <div className="bp3-u0418u043bu043bu044eu0441u0442u0440u0430u0446u0438u0438">
-            Иллюстрации
+            Illustration
           </div>
           <div className="bp3-u0421u0442u0430u0440u0442u0430u043fu044b">
-            Стартапы
+            Startup
           </div>
           <div className="bp3-rectangle" id="rectangle1">
           </div>
@@ -1815,62 +1815,62 @@ export class LandingPageEn extends React.Component {
           </div>
           <img anima-src={require('./images/furnasmobilehorizonteng-group.png')} className="bp4-group" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
           <div className="bp4-u0421u0430u0439u0442u044b">
-            Сайты
+            Website
           </div>
           <div className="bp4-u041au0430u043au0438u0435u0441u0430u0439u0442u044b">
-            Какие сайты
+            What kind of
           </div>
           <div className="bp4-u041au0430u043au0440u0430u0431u043eu0442u0430u0435u043c">
-            Как работаем
+            How we work
           </div>
           <div className="bp4-u0427u0442u043eu0438u0441u043fu043eu043bu044cu0437u0443u0435u043c">
-            Что используем
+            What we use
           </div>
           <div className="bp4-u0414u0438u0437u0430u0439u043du0412u0435u0440u0441u0442u043au0430u0421u043eu0437u0434u0430">
-            Дизайн <br/>Верстка<br/>Создание контента<br/>Настройка Яндекс.Метрики и Гугл аналитики<br/>Настройка рекламы<br/>Отрисовка рекламных баннеров
+            Design <br/>Website Layout<br/>Content Creation<br/>Set Up Google Analytics and Yandex.Metrica<br/>Set Up Ads<br/>Web banner design
           </div>
           <div className="bp4-u041bu0435u043du0434u0438u043du0433u0438u041fu0440u043eu0434u0430u044eu0449u0438u0435u0441">
-            Лендинги <br/>Продающие сайты <br/>Сайты-визитки <br/>Корпоративные сайты<br/>Сайты-мероприятий <br/>Сайты для кофеен/ресторанов/отелей
+            Landing Page <br/>Business Card Website <br/>Corporate Website<br/>Events Website <br/>Cafe / Coffee Shop / Hotel Website
           </div>
           <div className="bp4-u0422u0438u043bu044cu0434u0430reactjsno">
             Тильда, react js, node js, C#.
           </div>
           <div className="bp4-u0421u043eu0437u0434u0430u043du0438u0435u043fu0435u0440u0432u043eu0439u0436u0438u0437u043d">
-            Создание первой жизнеспособной версии продукта<br/>Разработка архитектуры веб-приложений<br/>Проверка гипотез<br/>Настройка рекламы<br/>Отрисовка рекламных баннеров<br/>Сбор и анализ
-            данных<br/>Консультация при найме сотрудников
+            Сreating  MVP <br/>Web Application Architecture Development<br/>Hypothesis Testing<br/>Set Up Ads<br/>Design advertising banner<br/>Data Сollection & Analysis
+          <br/>HR consultation
           </div>
           <div className="bp4-reactjscjava">
             React js, C#, Java, Python.
           </div>
           <div className="bp4-u041eu0442u0440u0438u0441u043eu0432u043au0430u043fu043eu0434u043bu044eu0431u044bu0435">
-            Отрисовка под любые платформы
+            Creating for any platform
           </div>
           <div className="bp4-u041au0430u043au0440u0430u0431u043eu0442u0430u0435u043c1">
             Как работаем
           </div>
           <div className="bp4-facebookinstagram">
-            facebook, <br/>instagram, <br/>vk, <br/>баннеры на сайтах, <br/>рекламная сеть яндекса, <br/>google ads, <br/>наружная реклама.
+            facebook, <br/>instagram, <br/>vk, <br/>Web Banner, <br/>google ads, <br/>Outdoor Advertising.
           </div>
           <div className="bp4-u041eu0442u0440u0438u0441u043eu0432u043au0430u0443u043du0438u043au0430u043bu044cu043du044bu0445">
-            Отрисовка уникальных иллюстраций в Adobe Illustrator — от идеи до финальной версии.<br/>Обработка фото.
+            Create a unique illustration in Adobe Illustrator — from idea to final  print.<br/>Image editing.
           </div>
           <div className="bp4-u041fu0440u0438u0434u0443u043cu044bu0432u0430u0435u043cu0438u0440u0438u0441u0443u0435u043c">
-            Придумываем и рисуем уникальные иллюстрации для презентаций, рекламы, статей, сайтов, баннеров, флаеров.
+            Create a unique illustration for presentation,  ad, article,  website, banner, flyer.
           </div>
           <div className="bp4-u0418u043bu043bu044eu0441u0442u0440u0430u0446u0438u0438">
-            Иллюстрации
+            Illustration
           </div>
           <div className="bp4-u0420u0435u043au043bu0430u043cu043du044bu0435u0431u0430u043du043du0435u0440u044b">
-            Рекламные <br/>баннеры
+            Ad banner design
           </div>
           <div className="bp4-u0421u0447u0435u043cu043fu043eu043cu043eu0436u0435u043c">
-            С чем поможем
+            We can help you with
           </div>
           <div className="bp4-u0427u0442u043eu0438u0441u043fu043eu043bu044cu0437u0443u0435u043c1">
-            Что используем
+            What we use
           </div>
           <div className="bp4-u0421u0442u0430u0440u0442u0430u043fu044b">
-            Стартапы
+            Startup
           </div>
           <div className="bp4-whatwedo">
             What we do
