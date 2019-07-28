@@ -360,10 +360,10 @@ export class LandingPage extends React.Component {
                 ВИЗА В ИСПАНИЮ <br/>(НАШ ПРОЕКТ)
               </div>
               <div className="bp5-dribbblecom">
-                <UniversalLink href="https://dribbble.com/sanmary"
+                <UniversalLink href="https://www.behance.net/sankinamaria"
                                noStyle={true}
                                target="_blank">
-                  DRIBBBLE.COM
+                  BEHANCE.NET
                 </UniversalLink>
               </div>
               <div className="bp5-githubcom">
@@ -1005,10 +1005,10 @@ export class LandingPage extends React.Component {
                 ВИЗА В ИСПАНИЮ <br/>(НАШ ПРОЕКТ)
               </div>
               <div className="bp2-dribbblecom">
-                <UniversalLink href="https://dribbble.com/sanmary"
+                <UniversalLink href="https://www.behance.net/sankinamaria"
                                noStyle={true}
                                target="_blank">
-                  DRIBBBLE.COM
+                  BEHANCE.NET
                 </UniversalLink>
               </div>
               <div className="bp2-githubcom">
@@ -1397,10 +1397,10 @@ export class LandingPage extends React.Component {
                 ВИЗА В ИСПАНИЮ <br/>(НАШ ПРОЕКТ)
               </div>
               <div className="bp4-dribbblecom">
-                <UniversalLink href="https://dribbble.com/sanmary"
+                <UniversalLink href="https://www.behance.net/sankinamaria"
                                noStyle={true}
                                target="_blank">
-                  DRIBBBLE.COM
+                  BEHANCE.NET
                 </UniversalLink>
               </div>
               <div className="bp4-githubcom">
@@ -1861,10 +1861,10 @@ export class LandingPage extends React.Component {
                     ВИЗА В ИСПАНИЮ <br/>(НАШ ПРОЕКТ)
                   </div>
                   <div className="bp1-dribbblecom">
-                    <UniversalLink href="https://dribbble.com/sanmary"
+                    <UniversalLink href="https://www.behance.net/sankinamaria"
                                    noStyle={true}
                                    target="_blank">
-                      DRIBBBLE.COM
+                      BEHANCE.NET
                     </UniversalLink>
                   </div>
                   <div className="bp1-githubcom">
@@ -2133,10 +2133,10 @@ export class LandingPage extends React.Component {
                   ВИЗА В ИСПАНИЮ <br/>(НАШ ПРОЕКТ)
                 </div>
                 <div className="bp3-dribbblecom">
-                  <UniversalLink href="https://dribbble.com/sanmary"
+                  <UniversalLink href="https://www.behance.net/sankinamaria"
                                  noStyle={true}
                                  target="_blank">
-                    DRIBBBLE.COM
+                    BEHANCE.NET
                   </UniversalLink>
                 </div>
                 <div className="bp3-githubcom">

@@ -385,9 +385,9 @@ export class LandingPageEn extends React.Component {
               <div className="bp5-spainvisaourproj">
                 SPAIN VISA <br/>(OUR PROJECT)
               </div>
-              <a href="https://dribbble.com/sanmary" target="_blank">
+              <a href="https://www.behance.net/sankinamaria" target="_blank">
                 <div className="bp5-dribbblecom">
-                  DRIBBBLE.COM
+                  BEHANCE.NET
                 </div>
               </a>
               <a href="https://github.com/furnasteam" target="_blank">
@@ -962,9 +962,9 @@ export class LandingPageEn extends React.Component {
               <div className="bp2-spainvisaourproj">
                 SPAIN VISA <br/>(OUR PROJECT)
               </div>
-              <a href="https://dribbble.com/sanmary" target="_blank">
+              <a href="https://www.behance.net/sankinamaria" target="_blank">
                 <div className="bp2-dribbblecom">
-                  DRIBBBLE.COM
+                  BEHANCE.NET
                 </div>
               </a>
               <a href="https://github.com/furnasteam" target="_blank">
@@ -1287,9 +1287,9 @@ export class LandingPageEn extends React.Component {
               <div className="bp3-spainvisaourproj">
                 SPAIN VISA <br/>(OUR PROJECT)
               </div>
-              <a href="https://dribbble.com/sanmary" target="_blank">
+              <a href="https://www.behance.net/sankinamaria" target="_blank">
                 <div className="bp3-dribbblecom">
-                  DRIBBBLE.COM
+                  BEHANCE.NET
                 </div>
               </a>
               <a href="https://github.com/furnasteam" target="_blank">
@@ -1545,9 +1545,9 @@ export class LandingPageEn extends React.Component {
                 <div className="bp4-spainvisaourproj">
                   SPAIN VISA <br/>(OUR PROJECT)
                 </div>
-                <a href="https://dribbble.com/sanmary" target="_blank">
+                <a href="https://www.behance.net/sankinamaria" target="_blank">
                   <div className="bp4-dribbblecom">
-                    DRIBBBLE.COM
+                    BEHANCE.NET
                   </div>
                 </a>
                 <a href="https://github.com/furnasteam" target="_blank">
@@ -2216,9 +2216,9 @@ export class LandingPageEn extends React.Component {
             <div className="bp1-spainvisaourproj">
               SPAIN VISA <br/>(OUR PROJECT)
             </div>
-            <a href="https://dribbble.com/sanmary" target="_blank">
+            <a href="https://www.behance.net/sankinamaria" target="_blank">
               <div className="bp1-dribbblecom">
-                DRIBBBLE.COM
+                BEHANCE.NET
               </div>
             </a>
             <a href="https://github.com/furnasteam" target="_blank">

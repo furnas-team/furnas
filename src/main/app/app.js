@@ -58,6 +58,7 @@ export class App extends React.Component {
         <meta property="og:url" content="https://furnas.ru"/>
         <meta property="og:locale" content="ru_RU"/>
         <meta property="og:image" content={require('./images/share-facebook.png')}/>
+        <meta name="google-site-verification" content="jcszVKPGF4s_QT9tuuCFGrkgq7boU9PI-8zfTrFAY-Q" />
       </Helmet>
     ]);
   }
