@@ -52,7 +52,7 @@ try {
     'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '921776094824729');
   fbq('track', 'PageView');
-} catch {
+} catch (e) {
   
 }
 
