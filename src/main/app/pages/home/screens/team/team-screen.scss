@@ -7,6 +7,10 @@
   justify-content: space-between;
   height: 100vh;
   min-height: 568px;
+  @include for-phone-only {
+    height: 700px;
+    justify-content: flex-start;
+  }
   @include for-tablet-portrait-up {
     max-width: 936px;
     margin: auto;
@@ -46,10 +50,17 @@
   }
 
   &__text {
-    margin: 62px 16px 0;
+    margin: 62px 16px 32px;
 
     @include for-tablet-portrait-up {
       margin: 0;
+      margin-top: -180px;
+    }
+  }
+
+  &__carousel {
+    @include for-phone-only {
+      align-self: center;
     }
   }
 }

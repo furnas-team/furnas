@@ -5,14 +5,12 @@ import {Button, ButtonStyle} from '../../../../components/button/Button';
 import {Input} from '../../../../components/input/Input';
 import './main-screen.scss';
 import classNames from 'classnames';
-import {firstScreenAnimation} from './animation/first-screen';
-import {init} from './animation/animation';
 import {func} from 'prop-types';
 import {Picture} from '../../../../components/picture/Picture';
 import {Title} from '../../../../components/title/Title';
 import trim from 'lodash/trim';
 import chance from 'chance';
-// import anime from 'animejs/lib/anime.es';
+import anime from 'animejs';
 
 let html2canvas;
 
@@ -48,17 +46,17 @@ export class MainScreen extends React.Component {
   };
 
   state = {
-    animationFinished: false,
+    animationFinished: true,//animation switched of
     inputValue: '',
     inputIsValid: true,
     canTitleBeDestroyed: false
   };
 
   componentDidMount() {
-    const AdobeAn = window.AdobeAn = {};
-    firstScreenAnimation(window.createjs, AdobeAn);
-    init();
-    setTimeout(() => this.setState({animationFinished: true}), 2000)
+    // const AdobeAn = window.AdobeAn = {};
+    // firstScreenAnimation(window.createjs, AdobeAn);
+    // init();
+    // setTimeout(() => this.setState({animationFinished: true}), 2000);
 
     const canvasCount = 35;
     const imageDataArray = [];
@@ -66,36 +64,40 @@ export class MainScreen extends React.Component {
       ignoreElements: (element) => element.tagName === 'SOURCE',
       backgroundColor: null
     }).then(canvas => {
-      //capture all div data as image
-      var ctx = canvas.getContext("2d");
-      var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      var pixelArr = imageData.data;
-      //create all layours
-      for (let i = 0; i < canvasCount; i++) {
-        let arr = new Uint8ClampedArray(imageData.data);
-        for (let j = 0; j < arr.length; j++) {
-          arr[j] = 0;
+      try {
+        //capture all div data as image
+        var ctx = canvas.getContext("2d");
+        var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var pixelArr = imageData.data;
+        //create all layours
+        for (let i = 0; i < canvasCount; i++) {
+          let arr = new Uint8ClampedArray(imageData.data);
+          for (let j = 0; j < arr.length; j++) {
+            arr[j] = 0;
+          }
+          imageDataArray.push(arr);
         }
-        imageDataArray.push(arr);
+        for (let i = 0; i < pixelArr.length; i += 4) {
+          //find the highest probability canvas the pixel should be in
+          let p = Math.floor((i / pixelArr.length) * canvasCount);
+          let a = imageDataArray[weightedRandomDistrib(p, canvasCount)];
+          a[i] = pixelArr[i];
+          a[i + 1] = pixelArr[i + 1];
+          a[i + 2] = pixelArr[i + 2];
+          a[i + 3] = pixelArr[i + 3];
+        }
+        for (let i = 0; i < canvasCount; i++) {
+          let c = newCanvasFromImageData(imageDataArray[i], canvas.width, canvas.height);
+          c.classList.add("dust");
+          document.getElementsByClassName('main-screen__desktop-title')[0].appendChild(c);
+        }
+        for (let el of document.querySelectorAll('.main-screen__desktop-title *:not(.dust)')) {
+          el.style.visibility = 'hidden';
+        }
+        this.setState({canTitleBeDestroyed: true});
+      } catch (e) {
+
       }
-      for (let i = 0; i < pixelArr.length; i += 4) {
-        //find the highest probability canvas the pixel should be in
-        let p = Math.floor((i / pixelArr.length) * canvasCount);
-        let a = imageDataArray[weightedRandomDistrib(p, canvasCount)];
-        a[i] = pixelArr[i];
-        a[i + 1] = pixelArr[i + 1];
-        a[i + 2] = pixelArr[i + 2];
-        a[i + 3] = pixelArr[i + 3];
-      }
-      for (let i = 0; i < canvasCount; i++) {
-        let c = newCanvasFromImageData(imageDataArray[i], canvas.width, canvas.height);
-        c.classList.add("dust");
-        document.getElementsByClassName('main-screen__desktop-title')[0].appendChild(c);
-      }
-      for (let el of document.querySelectorAll('.main-screen__desktop-title *:not(.dust)')) {
-        el.style.visibility = 'hidden';
-      }
-      this.setState({canTitleBeDestroyed: true});
     });
   }
 
@@ -124,16 +126,16 @@ export class MainScreen extends React.Component {
     for (let el of document.querySelectorAll('.dust')) {
       const animation = anime({
         targets: el,
-        duration: 1000 + 110*index,
+        duration: 1000 + 110 * index,
         easing: 'easeInOutSine',
         filter: ["blur(0px)", "blur(0.8px)"],
         translateX: 40,
         translateY: -40,
-        rotate: (new chance()).integer({ min: -10, max: 10 })
+        rotate: (new chance()).integer({min: -10, max: 10})
       });
       setTimeout(() => {
         el.classList.add("dust_fade");
-      }, 200 + 110*index);
+      }, 200 + 110 * index);
       index++;
     }
 
@@ -144,7 +146,6 @@ export class MainScreen extends React.Component {
   };
 
   render() {
-    const {onSendContactClick} = this.props;
     const {animationFinished, inputValue, inputIsValid, canTitleBeDestroyed} = this.state;
     return (
       <div className={classNames("main-screen", {"main-screen_animation-finished": animationFinished})}>
@@ -155,13 +156,13 @@ export class MainScreen extends React.Component {
         </div>
         <div className="main-screen__form">
           <SectionTitle className="main-screen__title">
-            <span className="main-screen__pink-word">Дизайн</span> и <span className="main-screen__blue-word">вёрстка</span> лендинга в 4 шага
+            Студия <span className="main-screen__pink-word">дизайна</span> и&nbsp;<span className="main-screen__blue-word">веб-разработки</span>
           </SectionTitle>
           <BlockText>
-            Красивые лендинги,
+            UX/UI дизайн,
           </BlockText>
           <BlockText>
-            оригинальные идеи, чистый код.
+            разработка, иллюстрации
           </BlockText>
           <Input className="main-screen__input"
                  placeholder="Телефон, почта или скайп"
@@ -197,11 +198,8 @@ export class MainScreen extends React.Component {
               </Button>
             </div>
           </div>
-          {/*<Picture forTabletPortraitUp={[require('./images/main.svg')]}*/}
-          {/*imgClassName="main-screen__img"*/}
-          {/*alt="Дизайн-студия Furnas иллюстрация"/>*/}
           <Picture forTabletPortraitUp={[require('./images/background.svg')]}
-                   imgClassName="main-screen__background-img"
+                   imgClassName="main-screen__background-img main-screen__background-img_movement"
                    alt="Дизайн-студия Furnas иллюстрация"/>
           <Picture forTabletPortraitUp={[require('./images/girl.svg')]}
                    imgClassName="main-screen__girl-img main-screen__girl-img_movement"

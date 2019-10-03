@@ -1,5 +1,6 @@
 import React from 'react';
 import './home.scss';
+import classNames from 'classnames';
 import {ThemeName, ThemeProvider} from '../../components/theme-context/ThemeContext';
 import {Helmet} from 'react-helmet';
 import {Header} from '../../components/header/Header';
@@ -22,6 +23,7 @@ export class HomePage extends React.Component {
     requestSent: false
   };
 
+
   handleContactClick = () => {
     if (window.yaCounter) {
       window.yaCounter.reachGoal('ClickedContactButton');
@@ -40,14 +42,14 @@ export class HomePage extends React.Component {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({contact})
+        body: JSON.stringify({email: contact})
       });
       if (window.yaCounter) {
-        window.yaCounter.reachGoal('AddedContact', {contact});
+        window.yaCounter.reachGoal('AddedContact', {email: contact});
       }
       window.mixpanel.track(
         "Furnas | added user contact",
-        {contact}
+        {email: contact}
       );
       this.setState({contactPopupShown: true, requestSent: true});
     }

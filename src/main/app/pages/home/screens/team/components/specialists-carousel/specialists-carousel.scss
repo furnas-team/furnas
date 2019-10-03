@@ -1,0 +1,44 @@
+@import "../../../../../../common/vars";
+@import "../../../../../../common/mixins";
+
+.specialists-carousel {
+
+  display: flex;
+  flex-direction: row;
+
+  &__left-arrow {
+    background: url('./images/left-arrow.svg') no-repeat;
+    width: 18px;
+    height: 32px;
+    margin-top: 190px;
+    position: relative;
+    left: -23px;
+    cursor: pointer;
+    @include for-phone-only {
+      margin-top: 92px;
+      left: -32px;
+    }
+    @include for-desktop-up {
+      left: -56px;
+    }
+  }
+
+  &__right-arrow {
+    background: url('./images/left-arrow.svg') no-repeat;
+    width: 18px;
+    height: 32px;
+    margin-top: 190px;
+    position: relative;
+    right: -23px;
+    transform: rotate(180deg);
+    cursor: pointer;
+    @include for-phone-only {
+      margin-top: 92px;
+      right: -32px;
+    }
+    @include for-desktop-up {
+      right: -56px;
+    }
+  }
+
+}

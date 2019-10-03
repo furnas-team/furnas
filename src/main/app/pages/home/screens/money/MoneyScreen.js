@@ -14,16 +14,13 @@ export class MoneyScreen extends React.Component {
             А сколько стоит?
           </SectionTitle>
           <BlockText>
-            Каждый этап оплачивается отдельно.
+            В среднем, час стоит ~ 1500₽
           </BlockText>
           <BlockText>
-            Всё зависит от сложности лендинга,
+            Цена проекта зависит от его сложности
           </BlockText>
           <BlockText>
-            но в среднем один лендинг стоит
-          </BlockText>
-          <BlockText>
-            50-60 тыс. руб.
+            и обговаривается индивидуально.
           </BlockText>
         </div>
         <Picture className="money-screen__image"

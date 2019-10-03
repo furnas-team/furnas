@@ -5,7 +5,7 @@ import './steps-explanations-screen.scss';
 import {BlockTitle} from '../../../../components/block-title/BlockTitle';
 import {TextUnderline} from '../../../../components/text-underline/TextUnderline';
 import {Picture} from '../../../../components/picture/Picture';
-// import anime from 'animejs/lib/anime.es';
+import anime from 'animejs';
 
 
 let turnsCount = 1;
@@ -29,39 +29,36 @@ export class StepsExplanationScreen extends React.Component {
         <div className="steps-explanation-screen__text">
           <div className="steps-explanation-screen__text-mobile">
             <SectionTitle className="steps-explanation-screen__title">
-              В 4 шага?
+              Что делаете?
             </SectionTitle>
             <BlockText>
-              Это значит, что весь процесс делится
+              Занимаемся веб-разработкой
             </BlockText>
             <BlockText>
-              на следующие этапы:
+              и дизайном на заказ
             </BlockText>
           </div>
           <div className="steps-explanation-screen__text-desktop">
             <SectionTitle className="steps-explanation-screen__title">
-              Как работаете?
+              Что делаете?
             </SectionTitle>
             <BlockText>
-              Работаем в 4 шага. Это значит, что весь
+              Занимаемся веб-разработкой
             </BlockText>
             <BlockText>
-              процесс делится на следующие этапы:
+              и дизайном на заказ
             </BlockText>
           </div>
         </div>
         <div className="steps-explanation-screen__schema">
           <div className="steps-explanation-screen__schema-row">
             <div className="steps-explanation-screen__schema-block">
-              <div className="steps-explanation-screen__schema-block-number">
-                1
-              </div>
               <div className="steps-explanation-screen__schema-block-text">
                 <BlockTitle className="steps-explanation-screen__schema-block-title">
-                  <TextUnderline>Интервью</TextUnderline>
+                  <TextUnderline>Сайты</TextUnderline>
                 </BlockTitle>
                 <BlockText>
-                  Знакомимся, определяем цели лендинга, обсуждаем экраны.
+                  веб-приложения, лендинги, корпоративные сайты
                 </BlockText>
               </div>
             </div>
@@ -72,30 +69,24 @@ export class StepsExplanationScreen extends React.Component {
             <div className="steps-explanation-screen__left-arrow">
             </div>
             <div className="steps-explanation-screen__schema-block">
-              <div className="steps-explanation-screen__schema-block-number">
-                2
-              </div>
               <div className="steps-explanation-screen__schema-block-text">
                 <BlockTitle className="steps-explanation-screen__schema-block-title">
-                  <TextUnderline>Прототип</TextUnderline>
+                  <TextUnderline>Дизайн</TextUnderline>
                 </BlockTitle>
                 <BlockText>
-                  Рисуем наброски лендинга, обсуждаем.
+                  ui/ux дизайн, иллюстрации, инфорграфика
                 </BlockText>
               </div>
             </div>
           </div>
           <div className="steps-explanation-screen__schema-row">
             <div className="steps-explanation-screen__schema-block">
-              <div className="steps-explanation-screen__schema-block-number">
-                3
-              </div>
               <div className="steps-explanation-screen__schema-block-text">
                 <BlockTitle className="steps-explanation-screen__schema-block-title">
-                  <TextUnderline>Дизайн</TextUnderline>
+                  <TextUnderline>MVP</TextUnderline>
                 </BlockTitle>
                 <BlockText>
-                  Рисуем&nbsp;лендинг в чистовом варианте, обсуждаем.
+                  разработка MVP для стартапов
                 </BlockText>
               </div>
             </div>
@@ -106,15 +97,12 @@ export class StepsExplanationScreen extends React.Component {
             <div>
             </div>
             <div className="steps-explanation-screen__schema-block">
-              <div className="steps-explanation-screen__schema-block-number">
-                4
-              </div>
               <div className="steps-explanation-screen__schema-block-text">
                 <BlockTitle className="steps-explanation-screen__schema-block-title">
                   <TextUnderline>Разработка</TextUnderline>
                 </BlockTitle>
                 <BlockText>
-                  Реализуем лендинг, размещаем на&nbsp;хостинге.
+                  react&nbsp;js, node&nbsp;js, c#, asp.net, java, php
                 </BlockText>
               </div>
             </div>
@@ -129,46 +117,46 @@ export class StepsExplanationScreen extends React.Component {
             <div className="steps-explanation-screen__flower-top">
               <div>
                 <BlockTitle className="steps-explanation-screen__flower-title">
-                  <span className="steps-explanation-screen__flower-color">2</span> Прототип
+                  Дизайн
                 </BlockTitle>
                 <div className="steps-explanation-screen__flower-top-border">
 
                 </div>
               </div>
-              <BlockText className="steps-explanation-screen__flower-top-text">Рисуем наброски лендинга, обсуждаем.</BlockText>
+              <BlockText className="steps-explanation-screen__flower-top-text">ui/ux дизайн, иллюстрации, инфорграфика</BlockText>
             </div>
             <div className="steps-explanation-screen__flower-bottom">
               <div>
                 <BlockTitle className="steps-explanation-screen__flower-title">
-                  <span className="steps-explanation-screen__flower-color">4</span> Разработка
+                  Разработка
                 </BlockTitle>
                 <div className="steps-explanation-screen__flower-bottom-border">
 
                 </div>
               </div>
-              <BlockText className="steps-explanation-screen__flower-bottom-text">Реализуем лендинг, размещаем на&nbsp;хостинге.</BlockText>
+              <BlockText className="steps-explanation-screen__flower-bottom-text">react&nbsp;js, node&nbsp;js, c#, asp.net, java, php</BlockText>
             </div>
             <div className="steps-explanation-screen__flower-left">
               <div>
                 <BlockTitle className="steps-explanation-screen__flower-title">
-                  <span className="steps-explanation-screen__flower-color">1</span> Интервью
+                  Сайты
                 </BlockTitle>
                 <div className="steps-explanation-screen__flower-left-border">
 
                 </div>
               </div>
-              <BlockText className="steps-explanation-screen__flower-left-text">Знакомимся, определяем цели лендинга, обсуждаем экраны.</BlockText>
+              <BlockText className="steps-explanation-screen__flower-left-text">веб-приложения, лендинги, корпоративные сайты</BlockText>
             </div>
             <div className="steps-explanation-screen__flower-right">
               <div>
                 <BlockTitle className="steps-explanation-screen__flower-title">
-                  <span className="steps-explanation-screen__flower-color">3</span> Дизайн
+                  MVP
                 </BlockTitle>
                 <div className="steps-explanation-screen__flower-right-border">
 
                 </div>
               </div>
-              <BlockText className="steps-explanation-screen__flower-right-text">Рисуем&nbsp;лендинг в чистовом варианте, обсуждаем.</BlockText>
+              <BlockText className="steps-explanation-screen__flower-right-text">разработка MVP для&nbsp;стартапов</BlockText>
             </div>
           </div>
         </div>

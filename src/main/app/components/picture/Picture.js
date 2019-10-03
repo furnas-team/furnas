@@ -35,7 +35,8 @@ export class Picture extends React.Component {
     alt: string,
     className: string,
     imgClassName: string,
-    onMouseOver: func
+    onMouseOver: func,
+    onClick: func
   };
 
   renderGroup(urls, urlsRetina, mediaQuery) {
@@ -78,11 +79,13 @@ export class Picture extends React.Component {
       alt,
       className,
       imgClassName,
-      onMouseOver
+      onMouseOver,
+      onClick
     } = this.props;
     const biggestImage = last(compact(filter(flatten([forPhoneOnly, forTabletPortraitUp, forTabletLandscapeUp, forDesktopUp, forBigDesktopUp]), url => !endsWith(url, 'jp2') && !endsWith(url, 'webp'))));
     return (
       <picture className={className}
+               onClick={onClick}
                onMouseOver={onMouseOver}>
         {this.renderGroup(forPhoneOnly, forPhoneOnlyRetina, MediaQuery.FOR_PHONE_ONLY)}
         {this.renderGroup(forTabletPortraitUp, forTabletPortraitUpRetina, MediaQuery.FOR_TABLET_PORTRAIT_UP)}

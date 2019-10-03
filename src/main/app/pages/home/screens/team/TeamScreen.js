@@ -5,6 +5,7 @@ import './team-screen.scss';
 import {TextUnderline, UnderlineColor} from '../../../../components/text-underline/TextUnderline';
 import {RegularText} from '../../../../components/regular-text/RegularText';
 import {Picture} from '../../../../components/picture/Picture';
+import {SpecialistsCarousel} from './components/specialists-carousel/SpecialistsCarousel';
 
 export class TeamScreen extends React.Component {
 
@@ -16,22 +17,19 @@ export class TeamScreen extends React.Component {
             А кто делает?
           </SectionTitle>
           <BlockText>
-            Команда из двух человек:
+            Команда дизайнеров, разработчиков и аналитиков.
           </BlockText>
           <BlockText>
-            <RegularText><TextUnderline underlineColor={UnderlineColor.BLUE}>Frontend Developer</TextUnderline></RegularText> — отвечает за разработку и тексты;
+            У нас нет менеджеров, продажников и бухгалтеров.
           </BlockText>
           <BlockText>
-            <RegularText><TextUnderline underlineColor={UnderlineColor.PINK}>UX/UI Designer</TextUnderline></RegularText> — отвечает за внешний вид лендинга.
+            Вы общаетесь напрямую с тему, кто делает ваш заказ.
+          </BlockText>
+          <BlockText>
+            Опыт работы всех сотрудников более 7 лет.
           </BlockText>
         </div>
-        <Picture className="team-screen__image"
-                 imgClassName="team-screen__image-img"
-                 forPhoneOnly={[require('./images/team-image_mob.png'), require('./images/team-image_mob.webp')]}
-                 forPhoneOnlyRetina={[require('./images/team-image_mob_2x.png'), require('./images/team-image_mob_2x.webp')]}
-                 forTabletPortraitUp={[require('./images/team-image.png')]}
-                 forTabletPortraitUpRetina={[require('./images/team-image_2x.png')]}
-                 alt="furnasteam иллюстрация" />
+        <SpecialistsCarousel className="team-screen__carousel"/>
       </div>
     );
   }
