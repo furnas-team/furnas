@@ -42,7 +42,9 @@ app.get("*", (req, res) => {
     <body>
     <div id="root" dangerouslySetInnerHTML={ {__html: appString} }>
     </div>
+    <div id="vk_community_messages"></div>
     <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?162"></script>
     <script src="/furnas.client.js.gz"></script>
     </body>
     </html>));
