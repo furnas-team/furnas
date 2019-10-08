@@ -41,4 +41,14 @@
     }
   }
 
+  &__specialist-card {
+    position: absolute;
+    opacity: 0;
+  }
+
+  &__specialist-card_active {
+    position: relative;
+    opacity: 1;
+  }
+
 }

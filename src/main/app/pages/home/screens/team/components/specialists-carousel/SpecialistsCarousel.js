@@ -3,6 +3,7 @@ import {string} from 'prop-types';
 import './specialists-carousel.scss';
 import {SpecialistCard} from '../specialist-card/SpecialistCard';
 import classNames from 'classnames';
+import map from 'lodash/map';
 
 export class SpecialistsCarousel extends React.Component {
 
@@ -24,15 +25,20 @@ export class SpecialistsCarousel extends React.Component {
     this.setState({activeIndex: Math.abs((6 + activeIndex + 1) % 6)});
   };
 
-  getActiveSpecialistCard() {
+  getSpecialistClassName = (index) => {
     const {activeIndex} = this.state;
-    switch (activeIndex) {
+    return activeIndex === index ? 'specialists-carousel__specialist-card specialists-carousel__specialist-card_active' : 'specialists-carousel__specialist-card';
+  };
+
+  renderSpecialistCard(index) {
+    switch (index) {
       case 0:
         return (
           <SpecialistCard name="Maрия"
                           imageUrl={require('./images/masha-2.png')}
                           previousWorks={['Ingate', 'Rembot']}
                           onImageClick={this.handleRightClick}
+                          className={this.getSpecialistClassName(index)}
                           experienceYears={7}
                           profession="UX/UI дизайнер"/>
         );
@@ -43,6 +49,7 @@ export class SpecialistsCarousel extends React.Component {
                           profession="разработчик"
                           onImageClick={this.handleRightClick}
                           experienceYears={8}
+                          className={this.getSpecialistClassName(index)}
                           previousWorks={['IIG', 'Ingate', 'Grabr']}/>
         );
       case 2:
@@ -52,6 +59,7 @@ export class SpecialistsCarousel extends React.Component {
                           profession="Мобильный дизайнер"
                           onImageClick={this.handleRightClick}
                           experienceYears={7}
+                          className={this.getSpecialistClassName(index)}
                           previousWorks={['IIG', 'Ingate']}/>
         );
       case 3:
@@ -61,6 +69,7 @@ export class SpecialistsCarousel extends React.Component {
                           profession="разработчик"
                           onImageClick={this.handleRightClick}
                           experienceYears={8}
+                          className={this.getSpecialistClassName(index)}
                           previousWorks={['IIG', 'Ingate']}/>
         );
       case 4:
@@ -70,6 +79,7 @@ export class SpecialistsCarousel extends React.Component {
                           profession="аналитик"
                           onImageClick={this.handleRightClick}
                           experienceYears={12}
+                          className={this.getSpecialistClassName(index)}
                           previousWorks={['Ingate', 'Rambler Group']}/>
         );
       case 5:
@@ -79,6 +89,7 @@ export class SpecialistsCarousel extends React.Component {
                           profession="разработчик"
                           onImageClick={this.handleRightClick}
                           experienceYears={8}
+                          className={this.getSpecialistClassName(index)}
                           previousWorks={['IIG', 'DevExpress']}/>
         );
     }
@@ -91,7 +102,7 @@ export class SpecialistsCarousel extends React.Component {
         <div className="specialists-carousel__left-arrow"
              onClick={this.handleLeftClick}>
         </div>
-        {this.getActiveSpecialistCard()}
+        {map([0,1,2,3,4,5], index => this.renderSpecialistCard(index))}
         <div className="specialists-carousel__right-arrow"
              onClick={this.handleRightClick}>
         </div>
