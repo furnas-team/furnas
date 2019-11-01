@@ -1,9 +1,10 @@
 import React from 'react';
 import './header.scss';
 import classNames from 'classnames';
-import {string, func, bool} from 'prop-types';
+import {bool, func, string} from 'prop-types';
 import {Button} from '../button/Button';
 import {MediumText} from '../medium-text/MediumText';
+import {UniversalLink} from '../universal-link/UniversalLink';
 
 export class Header extends React.Component {
 
@@ -14,7 +15,7 @@ export class Header extends React.Component {
   };
 
   static defaultProps = {
-    onContactClick(){
+    onContactClick() {
     }
   };
 
@@ -41,13 +42,15 @@ export class Header extends React.Component {
     return (
       <div className={classNames('header', {'header_header-without-shadow': scrollY === 0 || contactPopupShown, 'header_contact-popup-shown': contactPopupShown}, className)}>
         <div className="header__container">
-          <div className="header__title-with-logo">
-            <div className="header__logo-image">
+          <UniversalLink noStyle={true} href="/">
+            <div className="header__title-with-logo">
+              <div className="header__logo-image">
+              </div>
+              <MediumText className="header__title">
+                Furnas
+              </MediumText>
             </div>
-            <MediumText className="header__title">
-              Furnas
-            </MediumText>
-          </div>
+          </UniversalLink>
           <div>
             {contactPopupShown &&
             <div className="header__close-contact-popup-button"

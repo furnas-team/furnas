@@ -11,6 +11,8 @@ import {PortfolioSubtitle} from '../components/portfolio-subtitle/PortfolioSubti
 import {PortfolioText} from '../components/portfolio-text/PortfolioText';
 import {PortfolioColors, PortfolioType} from '../components/portfolio-colors/PortfolioColors';
 import {NextPortfolioScreen} from '../components/next-portfolio-screen/NextPortfolioScreen';
+import {Header} from '../../../components/header/Header';
+import {Footer} from '../../../components/footer/Footer';
 
 export class WorkPortfolioPage extends React.Component {
 
@@ -21,6 +23,9 @@ export class WorkPortfolioPage extends React.Component {
   };
 
   handleContactClick = () => {
+    if (window.yaCounter) {
+      window.yaCounter.reachGoal('ClickedContactButton');
+    }
     window.mixpanel.track(
       "Furnas | user clicked contact button"
     );
@@ -29,9 +34,20 @@ export class WorkPortfolioPage extends React.Component {
 
   handleSendContactClick = contact => {
     if (contact) {
+      window.fetch('https://api.furnas.ru/requests', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({email: contact})
+      });
+      if (window.yaCounter) {
+        window.yaCounter.reachGoal('AddedContact', {email: contact});
+      }
       window.mixpanel.track(
         "Furnas | added user contact",
-        {contact}
+        {email: contact}
       );
       this.setState({contactPopupShown: true, requestSent: true});
     }
@@ -51,8 +67,7 @@ export class WorkPortfolioPage extends React.Component {
           <link rel="canonical" href="https://furnas.ru/portfolio/work"/>
         </Helmet>
         <div className="work-portfolio">
-          {/*<Header onContactClick={this.handleContactClick}*/}
-          {/*contactPopupShown={contactPopupShown}/>*/}
+          <Header onContactClick={this.handleContactClick} contactPopupShown={contactPopupShown}/>
           <div className="work-portfolio__main-screen">
             <PortfolioContainer>
               <PortfolioTitle className="work-portfolio__title">Тест о профессиях</PortfolioTitle>
@@ -140,11 +155,12 @@ export class WorkPortfolioPage extends React.Component {
             </PortfolioContainer>
           </div>
           <NextPortfolioScreen nextPageHref="/portfolio/furnas"/>
-          {/*<Popup shown={contactPopupShown}>*/}
-            {/*<ContactScreen requestSent={requestSent}*/}
-                           {/*onCloseButtonClick={this.handleCloseButtonClick}*/}
-                           {/*onSendContactClick={this.handleSendContactClick}/>*/}
-          {/*</Popup>*/}
+          <Footer/>
+          <Popup shown={contactPopupShown}>
+            <ContactScreen requestSent={requestSent}
+                           onCloseButtonClick={this.handleCloseButtonClick}
+                           onSendContactClick={this.handleSendContactClick}/>
+          </Popup>
         </div>
       </ThemeProvider>
     );

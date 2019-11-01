@@ -44,7 +44,6 @@ app.get("*", (req, res) => {
     </div>
     <div id="vk_community_messages"></div>
     <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
-    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?162"></script>
     <script src="/furnas.client.js.gz"></script>
     </body>
     </html>));

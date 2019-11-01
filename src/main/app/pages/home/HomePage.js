@@ -64,8 +64,8 @@ export class HomePage extends React.Component {
     return (
       <ThemeProvider value={ThemeName.LIGHT}>
         <Helmet>
-          <title>Дизайн и верстка лендинга в 4 шага | Furnas</title>
-          <meta name="description" content="Создаем Landing page поэтапно.  Показываем вам результат на каждом шаге и вы платите только в том случае, если он вам нравится."/>
+          <title>Студия дизайна и веб-разработки | Furnas | Furnas</title>
+          <meta name="description" content="Разработка сайтов, ux/ui дизайн, отрисовка рекламных баннеров, иллюстрации, настройка рекламы"/>
           <link rel="canonical" href="https://furnas.ru"/>
         </Helmet>
         <div className="home">

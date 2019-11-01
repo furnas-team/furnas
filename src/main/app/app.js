@@ -17,6 +17,8 @@ import {TestCanvasPage} from './pages/test-canvas/TestCanvasPage';
 import {LandingPage} from './pages/landing/LandingPage';
 import {LandingPageEn} from './pages/landing-en/LandingPageEn';
 import {MainPage} from './pages/main/MainPage';
+import {FinansistPortfolioPage} from './pages/portfolio/finansist/FinansistPortfolioPage';
+import {PolicyPage} from './pages/policy/PolicyPage';
 
 
 export class App extends React.Component {
@@ -36,12 +38,14 @@ export class App extends React.Component {
           <Route path='/portfolio/smikwell' component={SmikwellPortfolioPage}/>
           <Route path='/portfolio/furnas' component={FurnasPortfolioPage}/>
           <Route path='/portfolio/visa' component={VisaPortfolioPage}/>
+          <Route path='/portfolio/finansist' component={FinansistPortfolioPage}/>
           <Route path='/portfolio' component={WorkPortfolioPage}/>
+          <Route path='/policy' component={PolicyPage}/>
           {/*<Route path='/test-canvas' component={TestCanvasPage}/>*/}
           {/*<Route path='/about' component={LandingPage}/>*/}
           {/*<Route path='/2018' component={HomePage}/>*/}
           <Route path='/en' component={LandingPageEn}/>
-          {/*<Route path='/2019' component={LandingPage}/>*/}
+          <Route path='/2019' component={LandingPage}/>
           <Route path='/' component={HomePage}/>
         </Switch>
       </Provider>,

@@ -7,6 +7,9 @@
 
   &__title-container {
     color: #333333;
+    @include for-phone-only{
+      margin-top: 70px;
+    }
   }
 
   &__paragraph {

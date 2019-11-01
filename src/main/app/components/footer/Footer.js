@@ -1,7 +1,7 @@
 import React from 'react';
 import './footer.scss';
 import classNames from 'classnames';
-import {bool, func, string} from 'prop-types';
+import {string} from 'prop-types';
 import {Link} from '../link/Link';
 
 export class Footer extends React.Component {
@@ -34,14 +34,20 @@ export class Footer extends React.Component {
             <div className="footer__title">
               Ссылки
             </div>
-            <Link href="https://visa.furnas.ru/"
+            <div>
+              <Link href="https://visa.furnas.ru/"
+                    className="footer__link">
+                visa.furnas.ru
+              </Link>
+            </div>
+            <Link href="/policy"
                   className="footer__link">
-              visa.furnas.ru
+              Политика конфиденциальности
             </Link>
           </div>
           <div className="footer__social-block">
             {/*<div className="footer__title">*/}
-              {/*Social*/}
+            {/*Social*/}
             {/*</div>*/}
           </div>
         </div>

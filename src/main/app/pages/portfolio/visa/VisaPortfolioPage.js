@@ -11,6 +11,7 @@ import {PortfolioTitle} from '../components/portfolio-title/PortfolioTitle';
 import {PortfolioSubtitle} from '../components/portfolio-subtitle/PortfolioSubtitle';
 import {PortfolioText} from '../components/portfolio-text/PortfolioText';
 import {Picture} from '../../../components/picture/Picture';
+import {Footer} from '../../../components/footer/Footer';
 
 export class VisaPortfolioPage extends React.Component {
 
@@ -21,6 +22,9 @@ export class VisaPortfolioPage extends React.Component {
   };
 
   handleContactClick = () => {
+    if (window.yaCounter) {
+      window.yaCounter.reachGoal('ClickedContactButton');
+    }
     window.mixpanel.track(
       "Furnas | user clicked contact button"
     );
@@ -29,9 +33,20 @@ export class VisaPortfolioPage extends React.Component {
 
   handleSendContactClick = contact => {
     if (contact) {
+      window.fetch('https://api.furnas.ru/requests', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({email: contact})
+      });
+      if (window.yaCounter) {
+        window.yaCounter.reachGoal('AddedContact', {email: contact});
+      }
       window.mixpanel.track(
         "Furnas | added user contact",
-        {contact}
+        {email: contact}
       );
       this.setState({contactPopupShown: true, requestSent: true});
     }
@@ -51,6 +66,7 @@ export class VisaPortfolioPage extends React.Component {
           <link rel="canonical" href="https://furnas.ru/portfolio/visa"/>
         </Helmet>
         <div className="visa-portfolio">
+          <Header onContactClick={this.handleContactClick} contactPopupShown={contactPopupShown}/>
           <PortfolioContainer className="visa-portfolio__title-container">
             <PortfolioTitle>Visa.Furnas</PortfolioTitle>
           </PortfolioContainer>
@@ -114,7 +130,13 @@ export class VisaPortfolioPage extends React.Component {
                        forTabletPortraitUp={[require('./images/visa-iphone.png')]}/>
             </div>
           </PortfolioContainer>
-          <NextPortfolioScreen nextPageHref="/portfolio"/>
+          {/*<NextPortfolioScreen nextPageHref="/portfolio"/>*/}
+          <Footer/>
+          <Popup shown={contactPopupShown}>
+            <ContactScreen requestSent={requestSent}
+                           onCloseButtonClick={this.handleCloseButtonClick}
+                           onSendContactClick={this.handleSendContactClick}/>
+          </Popup>
         </div>
       </ThemeProvider>
     );

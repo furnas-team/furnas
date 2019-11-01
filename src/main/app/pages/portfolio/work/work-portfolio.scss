@@ -7,6 +7,9 @@
 
   &__title {
     color: #fff;
+    @include for-phone-only{
+      margin-top: 70px;
+    }
   }
 
   &__main-screen {

@@ -1,7 +1,7 @@
 @import "../../../common/vars";
 @import "../../../common/mixins";
 
-.furnas-portfolio {
+.finansist-portfolio {
   height: 100%;
   width: 100%;
 
@@ -14,6 +14,7 @@
 
   &__task-block {
     width: 50%;
+    margin-top: 150px;
     @include for-phone-only {
       width: auto;
       order: 2;
@@ -34,7 +35,7 @@
   }
 
   &__task-image-img {
-    width: 569px;
+    width: 831px;
     @include for-phone-only {
       width: 228px;
     }
@@ -104,8 +105,22 @@
   }
 
 
-  &__idea-block {
-    background: #3AC7FF;
+  &__goal-block {
+    background: #E5F4FF;
+    display: flex;
+  }
+
+  &__goal-img {
+    width: 780px;
+    margin: 50px 0;
+    @include for-phone-only {
+      width: 274px;
+      margin: 246px 0;
+    }
+  }
+
+  &__goal-picture {
+    margin: auto;
   }
 
   &__idea-image-block {
@@ -137,7 +152,11 @@
     }
   }
 
-  &__structure-block {
+  &__tablet-block {
+    background: #F5F5F7;
+  }
+
+  &__tablet-text-block {
     width: 50%;
     margin-top: 323px;
     @include for-phone-only {
@@ -147,7 +166,7 @@
     color: #333333;
   }
 
-  &__structure-image-block {
+  &__tablet-image-block {
     width: 50%;
     @include for-phone-only {
       width: auto;
@@ -156,11 +175,11 @@
     }
   }
 
-  &__structure-picture {
+  &__tablet-picture {
 
   }
 
-  &__structure-image-img {
+  &__tablet-image-img {
     width: 336px;
     padding: 136px 0;
     @include for-phone-only {
@@ -200,16 +219,16 @@
     }
   }
 
-  &__mac-img {
+  &__main-img {
     width: 780px;
-    margin: 364px 0;
+    margin: 0px 0 128px;
     @include for-phone-only {
       width: 274px;
       margin: 246px 0;
     }
   }
 
-  &__mac-picture {
+  &__main-picture {
     margin: auto;
   }
 

@@ -8,6 +8,10 @@ import {PortfolioSubtitle} from '../components/portfolio-subtitle/PortfolioSubti
 import {Picture} from '../../../components/picture/Picture';
 import {PortfolioText} from '../components/portfolio-text/PortfolioText';
 import {NextPortfolioScreen} from '../components/next-portfolio-screen/NextPortfolioScreen';
+import {Header} from '../../../components/header/Header';
+import {Footer} from '../../../components/footer/Footer';
+import {Popup} from '../../../components/Popup/Popup';
+import {ContactScreen} from '../../home/screens/contact/ContactScreen';
 
 export class SmikwellPortfolioPage extends React.Component {
 
@@ -18,6 +22,9 @@ export class SmikwellPortfolioPage extends React.Component {
   };
 
   handleContactClick = () => {
+    if (window.yaCounter) {
+      window.yaCounter.reachGoal('ClickedContactButton');
+    }
     window.mixpanel.track(
       "Furnas | user clicked contact button"
     );
@@ -26,9 +33,20 @@ export class SmikwellPortfolioPage extends React.Component {
 
   handleSendContactClick = contact => {
     if (contact) {
+      window.fetch('https://api.furnas.ru/requests', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({email: contact})
+      });
+      if (window.yaCounter) {
+        window.yaCounter.reachGoal('AddedContact', {email: contact});
+      }
       window.mixpanel.track(
         "Furnas | added user contact",
-        {contact}
+        {email: contact}
       );
       this.setState({contactPopupShown: true, requestSent: true});
     }
@@ -48,6 +66,7 @@ export class SmikwellPortfolioPage extends React.Component {
           <link rel="canonical" href="https://furnas.ru/portfolio/smikwell"/>
         </Helmet>
         <div className="smikwell-portfolio">
+          <Header onContactClick={this.handleContactClick} contactPopupShown={contactPopupShown}/>
           <PortfolioContainer className="smikwell-portfolio__title-container">
             <PortfolioTitle>Шкаф-кровати Smikwell</PortfolioTitle>
           </PortfolioContainer>
@@ -112,6 +131,12 @@ export class SmikwellPortfolioPage extends React.Component {
             </div>
           </PortfolioContainer>
           <NextPortfolioScreen nextPageHref="/portfolio/visa"/>
+          <Footer/>
+          <Popup shown={contactPopupShown}>
+            <ContactScreen requestSent={requestSent}
+                           onCloseButtonClick={this.handleCloseButtonClick}
+                           onSendContactClick={this.handleSendContactClick}/>
+          </Popup>
         </div>
       </ThemeProvider>
     );

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="894px" height="804px" viewBox="0 0 894 804" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Portfolio_Desktop_11" transform="translate(-318.000000, -1076.000000)">
+            <g id="Group-2" transform="translate(320.000000, 1078.000000)">
+                <circle id="Oval-7" stroke="#FFFFFF" stroke-width="3" fill-rule="nonzero" cx="400" cy="400" r="400"></circle>
+                <circle id="Oval-7" stroke="#FFFFFF" stroke-width="3" fill-rule="nonzero" cx="400" cy="400" r="240"></circle>
+                <circle id="Oval-7" stroke="#FFFFFF" stroke-width="3" fill-rule="nonzero" cx="400" cy="400" r="130"></circle>
+                <circle id="Oval-7" fill="#263354" fill-rule="nonzero" cx="400.5" cy="266.5" r="12.5"></circle>
+                <circle id="Oval-7" fill="#263354" fill-rule="nonzero" cx="181" cy="302" r="20"></circle>
+                <circle id="Oval-7" fill="#263354" fill-rule="nonzero" cx="779" cy="540" r="25"></circle>
+                <text id="Структурировать-данн" font-family="Rubik-Light, Rubik" font-size="16" font-weight="300" fill="#333333">
+                    <tspan x="85.26" y="264">Структурировать данные</tspan>
+                </text>
+                <text id="Рассказать-о-продукт" font-family="Rubik-Light, Rubik" font-size="16" font-weight="300" fill="#333333">
+                    <tspan x="314.724" y="226">Рассказать о продукте</tspan>
+                </text>
+                <text id="Цель-проекта" font-family="Rubik-Light, Rubik" font-size="24" font-weight="300" fill="#333333">
+                    <tspan x="324.348" y="408">Цель проекта</tspan>
+                </text>
+                <text id="Упростить-понятия-и" font-family="Rubik-Light, Rubik" font-size="16" font-weight="300" fill="#333333">
+                    <tspan x="665.312" y="487">Упростить понятия и термины</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -11,7 +11,7 @@
   height: 200px;
 
   @include for-phone-only {
-    display: none;
+    height: auto;
   }
 
   &__container {
@@ -21,6 +21,9 @@
     width: 100%;
     max-width: 936px;
     padding-top: 48px;
+    @include for-phone-only {
+      flex-direction: column;
+    }
   }
 
   &__title {
@@ -32,14 +35,24 @@
 
   &__contacts-block {
     width: 30%;
+    @include for-phone-only {
+      width: auto;
+    }
   }
 
   &__links-block {
     width: 30%;
+    @include for-phone-only {
+      width: auto;
+      margin-top: 32px;
+    }
   }
 
   &__social-block {
     width: 30%;
+    @include for-phone-only {
+      width: auto;
+    }
   }
 
   &__link {

@@ -72,4 +72,10 @@
       display: inline;
     }
   }
+
+  &__text + &__text {
+    @include for-tablet-portrait-up {
+      margin-left: 6px;
+    }
+  }
 }

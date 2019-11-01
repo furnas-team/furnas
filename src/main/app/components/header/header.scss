@@ -69,6 +69,7 @@
   &__title-with-logo {
     display: flex;
     flex-direction: row;
+    cursor: pointer;
   }
 
   &__close-contact-popup-button {

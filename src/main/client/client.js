@@ -67,12 +67,6 @@ try {
 
 }
 
-try {
-  VK.Widgets.CommunityMessages("vk_community_messages", 173976095, {disableExpandChatSound: "1", tooltipButtonText: "Обсудить проект?"});
-} catch (e) {
-
-}
-
 hydrate((
   <BrowserRouter>
     <App/>

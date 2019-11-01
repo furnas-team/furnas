@@ -1,7 +1,7 @@
 import React from 'react';
 import {string} from 'prop-types';
 import './specialists-carousel.scss';
-import {SpecialistCard} from '../specialist-card/SpecialistCard';
+import {SpecialistCard, SpecialistSex} from '../specialist-card/SpecialistCard';
 import classNames from 'classnames';
 import map from 'lodash/map';
 
@@ -40,6 +40,7 @@ export class SpecialistsCarousel extends React.Component {
                           onImageClick={this.handleRightClick}
                           className={this.getSpecialistClassName(index)}
                           experienceYears={7}
+                          sex={SpecialistSex.FEMALE}
                           profession="UX/UI дизайнер"/>
         );
       case 1:
@@ -49,6 +50,7 @@ export class SpecialistsCarousel extends React.Component {
                           profession="разработчик"
                           onImageClick={this.handleRightClick}
                           experienceYears={8}
+                          sex={SpecialistSex.MALE}
                           className={this.getSpecialistClassName(index)}
                           previousWorks={['IIG', 'Ingate', 'Grabr']}/>
         );
@@ -59,6 +61,7 @@ export class SpecialistsCarousel extends React.Component {
                           profession="Мобильный дизайнер"
                           onImageClick={this.handleRightClick}
                           experienceYears={7}
+                          sex={SpecialistSex.FEMALE}
                           className={this.getSpecialistClassName(index)}
                           previousWorks={['IIG', 'Ingate']}/>
         );
@@ -69,6 +72,7 @@ export class SpecialistsCarousel extends React.Component {
                           profession="разработчик"
                           onImageClick={this.handleRightClick}
                           experienceYears={8}
+                          sex={SpecialistSex.MALE}
                           className={this.getSpecialistClassName(index)}
                           previousWorks={['IIG', 'Ingate']}/>
         );
@@ -79,6 +83,7 @@ export class SpecialistsCarousel extends React.Component {
                           profession="аналитик"
                           onImageClick={this.handleRightClick}
                           experienceYears={12}
+                          sex={SpecialistSex.FEMALE}
                           className={this.getSpecialistClassName(index)}
                           previousWorks={['Ingate', 'Rambler Group']}/>
         );
@@ -89,6 +94,7 @@ export class SpecialistsCarousel extends React.Component {
                           profession="разработчик"
                           onImageClick={this.handleRightClick}
                           experienceYears={8}
+                          sex={SpecialistSex.MALE}
                           className={this.getSpecialistClassName(index)}
                           previousWorks={['IIG', 'DevExpress']}/>
         );

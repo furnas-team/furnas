@@ -1,7 +1,7 @@
 import React from 'react';
 import {ThemeName, ThemeProvider} from '../../../components/theme-context/ThemeContext';
 import {Helmet} from 'react-helmet';
-import './furnas-portfolio.scss';
+import './finansist-portfolio.scss';
 import {PortfolioContainer} from '../components/portfolio-container/PortfolioContainer';
 import {PortfolioSubtitle} from '../components/portfolio-subtitle/PortfolioSubtitle';
 import {PortfolioTitle} from '../components/portfolio-title/PortfolioTitle';
@@ -10,11 +10,8 @@ import {PortfolioText} from '../components/portfolio-text/PortfolioText';
 import {PortfolioColors, PortfolioType} from '../components/portfolio-colors/PortfolioColors';
 import {NextPortfolioScreen} from '../components/next-portfolio-screen/NextPortfolioScreen';
 import {Header} from '../../../components/header/Header';
-import {Footer} from '../../../components/footer/Footer';
-import {Popup} from '../../../components/Popup/Popup';
-import {ContactScreen} from '../../home/screens/contact/ContactScreen';
 
-export class FurnasPortfolioPage extends React.Component {
+export class FinansistPortfolioPage extends React.Component {
 
   state = {
     userContact: '',
@@ -68,48 +65,89 @@ export class FurnasPortfolioPage extends React.Component {
         </Helmet>
         <div className="furnas-portfolio">
           <Header onContactClick={this.handleContactClick} contactPopupShown={contactPopupShown}/>
-          <PortfolioContainer className="furnas-portfolio__title-container">
-            <PortfolioTitle>Furnas team</PortfolioTitle>
+          <PortfolioContainer className="finansist-portfolio__title-container">
+            <PortfolioTitle additionalText="проект">Финансист</PortfolioTitle>
           </PortfolioContainer>
           <PortfolioContainer>
-            <div className="furnas-portfolio__task-block">
+            <Picture className="finansist-portfolio__main-picture"
+                     imgClassName="finansist-portfolio__main-img"
+                     forPhoneOnly={[require('./images/finansist-main_mob.png')]}
+                     forTabletPortraitUp={[require('./images/finansist-main.png')]}/>
+          </PortfolioContainer>
+          <div className="finansist-portfolio__goal-block">
+            <Picture className="finansist-portfolio__goal-picture"
+                     imgClassName="finansist-portfolio__goal-img"
+                     forPhoneOnly={[require('./images/finansist-goal.svg')]}
+                     forTabletPortraitUp={[require('./images/finansist-goal.svg')]}/>
+          </div>
+          <PortfolioContainer>
+            <div className="finansist-portfolio__task-block">
               <PortfolioSubtitle>Задача</PortfolioSubtitle>
               <PortfolioText>
-                <p className="furnas-portfolio__paragraph">Под редизайн попал одностраничный сайт дизайна лендингов и вёрстки.</p>
-                <p className="furnas-portfolio__paragraph">Поставлена задача найти и решить причину низкого посещения сайта.</p>
-                <p className="furnas-portfolio__paragraph">У студии мало ярких задизайненых работ, поэтому надо выкручиваться на одном лендинге сайта. </p>
+                <p className="finansist-portfolio__paragraph">У заказчика был сайт, который не работал.</p>
+                <p className="finansist-portfolio__paragraph">Заказчик нанял маркетолога, который </p>
+                <p className="finansist-portfolio__paragraph">построил структуру, а нам доверил UI дизайн.</p>
               </PortfolioText>
             </div>
-            <div className="furnas-portfolio__task-image-block">
-              <Picture className="furnas-portfolio__task-picture"
-                       imgClassName="furnas-portfolio__task-image-img"
-                       forPhoneOnly={[require('./images/furnas-team-ipad_mob.png')]}
-                       forTabletPortraitUp={[require('./images/furnas-team-ipad.png')]}/>
+            <div className="finansist-portfolio__task-image-block">
+              <Picture className="finansist-portfolio__task-picture"
+                       imgClassName="finansist-portfolio__task-image-img"
+                       forPhoneOnly={[require('./images/finansist-task_mob.png')]}
+                       forTabletPortraitUp={[require('./images/finansist-task.png')]}/>
             </div>
           </PortfolioContainer>
-          <PortfolioContainer className="furnas-portfolio__old-version-container">
-            <div className="furnas-portfolio__old-colors-block">
+          <div className="finansist-portfolio__tablet-block">
+            <PortfolioContainer>
+              <div className="finansist-portfolio__tablet-image-block">
+                <Picture className="finansist-portfolio__tablet-picture"
+                         imgClassName="finansist-portfolio__tablet-image-img"
+                         forPhoneOnly={[require('./images/finansist-tablet_mob.png')]}
+                         forTabletPortraitUp={[require('./images/finansist-tablet.png')]}/>
+              </div>
+              <div className="finansist-portfolio__tablet-text-block">
+                <PortfolioSubtitle>Задача</PortfolioSubtitle>
+                <PortfolioText>
+                  <p className="finansist-portfolio__paragraph">У заказчика был сайт, который не работал.</p>
+                  <p className="finansist-portfolio__paragraph">Заказчик нанял маркетолога, который </p>
+                  <p className="finansist-portfolio__paragraph">построил структуру, а нам доверил UI дизайн.</p>
+                </PortfolioText>
+              </div>
+            </PortfolioContainer>
+          </div>
+          <PortfolioContainer className="finansist-portfolio__mood-block-container">
+            <div className="finansist-portfolio__mood-block">
+              <PortfolioSubtitle>Дизайн сайта</PortfolioSubtitle>
+              <PortfolioText>
+                <p>Работа была эксперементная, поэтому просмотрев много дизайнов сайтов, взяли несколько разных тем с разными настроениями. Отрисовали все варианты и выбрали самый подходящий для данной тематики.</p>
+              </PortfolioText>
+            </div>
+            <div className="finansist-portfolio__colors-block">
+              <PortfolioColors portfolioType={PortfolioType.FINANSIST}/>
+            </div>
+          </PortfolioContainer>
+          <PortfolioContainer className="finansist-portfolio__old-version-container">
+            <div className="finansist-portfolio__old-colors-block">
               <PortfolioColors portfolioType={PortfolioType.OLD_FURNAS}/>
             </div>
-            <div className="furnas-portfolio__old-version-block">
+            <div className="finansist-portfolio__old-version-block">
               <PortfolioSubtitle>Предыдущая версия сайта</PortfolioSubtitle>
               <PortfolioText>
                 <p>Стиль сайта: тёмный дизайн, дополнительные цвета небесно-голубой и приглушенно-коралловый. Их мало, из-за чего экран матово-тёмный, но с яркими акцентами.</p>
               </PortfolioText>
             </div>
           </PortfolioContainer>
-          <div className="furnas-portfolio__idea-block">
+          <div className="finansist-portfolio__idea-block">
             <PortfolioContainer>
-              <div className="furnas-portfolio__idea-text-block">
+              <div className="finansist-portfolio__idea-text-block">
                 <PortfolioSubtitle>Идея</PortfolioSubtitle>
                 <PortfolioText>
-                  <p className="furnas-portfolio__paragraph">
+                  <p className="finansist-portfolio__paragraph">
                     Решение проблемы — разрушить недоверие пользователя к маленькой студии без готовых работ в дизайне.
                   </p>
-                  <p className="furnas-portfolio__paragraph">
+                  <p className="finansist-portfolio__paragraph">
                     Для этого:
                   </p>
-                  <p className="furnas-portfolio__paragraph">
+                  <p className="finansist-portfolio__paragraph">
                     1) Ответить на все вопросы и проговорить неудобные ситуации;
                   </p>
                   <p>
@@ -117,46 +155,21 @@ export class FurnasPortfolioPage extends React.Component {
                   </p>
                 </PortfolioText>
               </div>
-              <div className="furnas-portfolio__idea-image-block">
-                <Picture imgClassName="furnas-portfolio__idea-image"
+              <div className="finansist-portfolio__idea-image-block">
+                <Picture imgClassName="finansist-portfolio__idea-image"
                          forPhoneOnly={[require('./images/furnas-team-franklin_mob.png')]}
                          forTabletPortraitUp={[require('./images/furnas-team-franklin.png')]}/>
               </div>
             </PortfolioContainer>
           </div>
-          <PortfolioContainer>
-            <div className="furnas-portfolio__structure-image-block">
-              <Picture className="furnas-portfolio__structure-picture"
-                       imgClassName="furnas-portfolio__structure-image-img"
-                       forPhoneOnly={[require('./images/furnas-team-4-steps_mob.png')]}
-                       forTabletPortraitUp={[require('./images/furnas-team-4-steps.png')]}/>
-            </div>
-            <div className="furnas-portfolio__structure-block">
-              <PortfolioSubtitle>Структура сайта</PortfolioSubtitle>
-              <PortfolioText>
-                <p>Легкая структура «Вопрос — ответ» для быстрого чтения во время пролистывания сайта. Не требует сильного погружения в текст, чтобы понять куда попал пользователь. </p>
-              </PortfolioText>
-            </div>
-          </PortfolioContainer>
-          <PortfolioContainer className="furnas-portfolio__mood-block-container">
-            <div className="furnas-portfolio__mood-block">
-              <PortfolioSubtitle>Настроение</PortfolioSubtitle>
-              <PortfolioText>
-                <p>Студия маленькая, новаторская и амбициозная. Светлыми и яркими цветами передаем чистоту и юность. Создаем игривое настроение, что позволяет пользователю не стесняясь задать вопрос.</p>
-              </PortfolioText>
-            </div>
-            <div className="furnas-portfolio__colors-block">
-              <PortfolioColors portfolioType={PortfolioType.FURNAS}/>
-            </div>
-          </PortfolioContainer>
-          <div className="furnas-portfolio__design-block">
+          <div className="finansist-portfolio__design-block">
             <PortfolioContainer>
-              <div className="furnas-portfolio__design-image-block">
-                <Picture imgClassName="furnas-portfolio__design-image"
+              <div className="finansist-portfolio__design-image-block">
+                <Picture imgClassName="finansist-portfolio__design-image"
                          forPhoneOnly={[require('./images/furnas-team-iphone_mob.png')]}
                          forTabletPortraitUp={[require('./images/furnas-team-iphone.png')]}/>
               </div>
-              <div className="furnas-portfolio__design-text-block">
+              <div className="finansist-portfolio__design-text-block">
                 <PortfolioSubtitle>Дизайн сайта</PortfolioSubtitle>
                 <PortfolioText>
                   <p>
@@ -167,24 +180,12 @@ export class FurnasPortfolioPage extends React.Component {
             </PortfolioContainer>
           </div>
           <PortfolioContainer>
-            <Picture className="furnas-portfolio__mac-picture"
-                     imgClassName="furnas-portfolio__mac-img"
+            <Picture className="finansist-portfolio__mac-picture"
+                     imgClassName="finansist-portfolio__mac-img"
                      forPhoneOnly={[require('./images/furnas-team-macbook_mob.png')]}
                      forTabletPortraitUp={[require('./images/furnas-team-macbook.png')]}/>
           </PortfolioContainer>
-          <PortfolioContainer>
-            <Picture className="furnas-portfolio__plan-picture"
-                     imgClassName="furnas-portfolio__plan-img"
-                     forPhoneOnly={[require('./images/furnas-team-macbook-plan_mob.png')]}
-                     forTabletPortraitUp={[require('./images/furnas-team-macbook-plan.png')]}/>
-          </PortfolioContainer>
-          <NextPortfolioScreen nextPageHref="/portfolio/smikwell"/>
-          <Footer/>
-          <Popup shown={contactPopupShown}>
-            <ContactScreen requestSent={requestSent}
-                           onCloseButtonClick={this.handleCloseButtonClick}
-                           onSendContactClick={this.handleSendContactClick}/>
-          </Popup>
+          <NextPortfolioScreen nextPageHref="/portfolio/furnas"/>
         </div>
       </ThemeProvider>
     );
