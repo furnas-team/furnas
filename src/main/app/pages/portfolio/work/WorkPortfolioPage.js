@@ -155,7 +155,6 @@ export class WorkPortfolioPage extends React.Component {
             </PortfolioContainer>
           </div>
           <NextPortfolioScreen nextPageHref="/portfolio/furnas"/>
-          <Footer/>
           <Popup shown={contactPopupShown}>
             <ContactScreen requestSent={requestSent}
                            onCloseButtonClick={this.handleCloseButtonClick}

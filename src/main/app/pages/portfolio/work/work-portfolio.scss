@@ -8,7 +8,7 @@
   &__title {
     color: #fff;
     @include for-phone-only{
-      margin-top: 70px;
+      margin-top: 70px !important;
     }
   }
 

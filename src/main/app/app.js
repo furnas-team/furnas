@@ -39,7 +39,7 @@ export class App extends React.Component {
           <Route path='/portfolio/furnas' component={FurnasPortfolioPage}/>
           <Route path='/portfolio/visa' component={VisaPortfolioPage}/>
           <Route path='/portfolio/finansist' component={FinansistPortfolioPage}/>
-          <Route path='/portfolio' component={WorkPortfolioPage}/>
+          <Route path='/portfolio' component={FinansistPortfolioPage}/>
           <Route path='/policy' component={PolicyPage}/>
           {/*<Route path='/test-canvas' component={TestCanvasPage}/>*/}
           {/*<Route path='/about' component={LandingPage}/>*/}

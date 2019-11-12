@@ -2,7 +2,6 @@
 @import "../../common/mixins";
 
 .link {
-  font-family: Roboto, sans-serif;
   font-size: 16px;
   line-height: 18px;
   color: #10BBFF;
@@ -11,7 +10,4 @@
   cursor: pointer;
   padding: 2px 0;
   font-weight: 400;
-  @include for-tablet-portrait-up {
-    font-family: $font-family-alternative;
-  }
 }

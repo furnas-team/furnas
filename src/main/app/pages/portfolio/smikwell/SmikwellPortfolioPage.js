@@ -131,7 +131,6 @@ export class SmikwellPortfolioPage extends React.Component {
             </div>
           </PortfolioContainer>
           <NextPortfolioScreen nextPageHref="/portfolio/visa"/>
-          <Footer/>
           <Popup shown={contactPopupShown}>
             <ContactScreen requestSent={requestSent}
                            onCloseButtonClick={this.handleCloseButtonClick}

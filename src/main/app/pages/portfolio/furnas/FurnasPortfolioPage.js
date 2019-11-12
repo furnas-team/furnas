@@ -179,7 +179,6 @@ export class FurnasPortfolioPage extends React.Component {
                      forTabletPortraitUp={[require('./images/furnas-team-macbook-plan.png')]}/>
           </PortfolioContainer>
           <NextPortfolioScreen nextPageHref="/portfolio/smikwell"/>
-          <Footer/>
           <Popup shown={contactPopupShown}>
             <ContactScreen requestSent={requestSent}
                            onCloseButtonClick={this.handleCloseButtonClick}

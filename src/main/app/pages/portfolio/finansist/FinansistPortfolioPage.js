@@ -125,67 +125,119 @@ export class FinansistPortfolioPage extends React.Component {
               <PortfolioColors portfolioType={PortfolioType.FINANSIST}/>
             </div>
           </PortfolioContainer>
-          <PortfolioContainer className="finansist-portfolio__old-version-container">
-            <div className="finansist-portfolio__old-colors-block">
-              <PortfolioColors portfolioType={PortfolioType.OLD_FURNAS}/>
-            </div>
-            <div className="finansist-portfolio__old-version-block">
-              <PortfolioSubtitle>Предыдущая версия сайта</PortfolioSubtitle>
-              <PortfolioText>
-                <p>Стиль сайта: тёмный дизайн, дополнительные цвета небесно-голубой и приглушенно-коралловый. Их мало, из-за чего экран матово-тёмный, но с яркими акцентами.</p>
-              </PortfolioText>
-            </div>
+          <PortfolioContainer>
+            <Picture className="finansist-portfolio__mac-picture"
+                     imgClassName="finansist-portfolio__mac-img"
+                     forPhoneOnly={[require('./images/finansist-mac_mob.png')]}
+                     forTabletPortraitUp={[require('./images/finansist-mac.png')]}/>
           </PortfolioContainer>
-          <div className="finansist-portfolio__idea-block">
+          <div className="finansist-portfolio__laptop-block">
             <PortfolioContainer>
-              <div className="finansist-portfolio__idea-text-block">
-                <PortfolioSubtitle>Идея</PortfolioSubtitle>
+              <div className="finansist-portfolio__laptop-text-block">
+                <PortfolioSubtitle>Задача</PortfolioSubtitle>
                 <PortfolioText>
-                  <p className="finansist-portfolio__paragraph">
-                    Решение проблемы — разрушить недоверие пользователя к маленькой студии без готовых работ в дизайне.
-                  </p>
-                  <p className="finansist-portfolio__paragraph">
-                    Для этого:
-                  </p>
-                  <p className="finansist-portfolio__paragraph">
-                    1) Ответить на все вопросы и проговорить неудобные ситуации;
-                  </p>
-                  <p>
-                    2) Сделать дизайн лёгким и дерзким, соответствуя возрасту студии;
-                  </p>
+                  <p className="finansist-portfolio__paragraph">У заказчика был сайт, который не работал.</p>
+                  <p className="finansist-portfolio__paragraph">Заказчик нанял маркетолога, который </p>
+                  <p className="finansist-portfolio__paragraph">построил структуру, а нам доверил UI дизайн.</p>
                 </PortfolioText>
               </div>
-              <div className="finansist-portfolio__idea-image-block">
-                <Picture imgClassName="finansist-portfolio__idea-image"
-                         forPhoneOnly={[require('./images/furnas-team-franklin_mob.png')]}
-                         forTabletPortraitUp={[require('./images/furnas-team-franklin.png')]}/>
-              </div>
-            </PortfolioContainer>
-          </div>
-          <div className="finansist-portfolio__design-block">
-            <PortfolioContainer>
-              <div className="finansist-portfolio__design-image-block">
-                <Picture imgClassName="finansist-portfolio__design-image"
-                         forPhoneOnly={[require('./images/furnas-team-iphone_mob.png')]}
-                         forTabletPortraitUp={[require('./images/furnas-team-iphone.png')]}/>
-              </div>
-              <div className="finansist-portfolio__design-text-block">
-                <PortfolioSubtitle>Дизайн сайта</PortfolioSubtitle>
-                <PortfolioText>
-                  <p>
-                    Фон делаем белым, с аналогией на лист бумаги. Рисуем тематические картинки к каждому вопросу и разукрашиваем вспомогательными цветами.
-                  </p>
-                </PortfolioText>
+              <div className="finansist-portfolio__laptop-image-block">
+                <Picture className="finansist-portfolio__laptop-picture"
+                         imgClassName="finansist-portfolio__laptop-image-img"
+                         forPhoneOnly={[require('./images/finansist-laptop_mob.png')]}
+                         forTabletPortraitUp={[require('./images/finansist-laptop.png')]}/>
               </div>
             </PortfolioContainer>
           </div>
           <PortfolioContainer>
-            <Picture className="finansist-portfolio__mac-picture"
-                     imgClassName="finansist-portfolio__mac-img"
-                     forPhoneOnly={[require('./images/furnas-team-macbook_mob.png')]}
-                     forTabletPortraitUp={[require('./images/furnas-team-macbook.png')]}/>
+            <div className="finansist-portfolio__arrows-image-block">
+              <Picture className="finansist-portfolio__arrows-picture"
+                       imgClassName="finansist-portfolio__arrows-image-img"
+                       forPhoneOnly={[require('./images/finansist-arrows_mob.png')]}
+                       forTabletPortraitUp={[require('./images/finansist-arrows.png')]}/>
+            </div>
+            <div className="finansist-portfolio__arrows-text-block">
+              <PortfolioSubtitle>Задача</PortfolioSubtitle>
+              <PortfolioText>
+                <p className="finansist-portfolio__paragraph">У заказчика был сайт, который не работал.</p>
+                <p className="finansist-portfolio__paragraph">Заказчик нанял маркетолога, который </p>
+                <p className="finansist-portfolio__paragraph">построил структуру, а нам доверил UI дизайн.</p>
+              </PortfolioText>
+            </div>
           </PortfolioContainer>
-          <NextPortfolioScreen nextPageHref="/portfolio/furnas"/>
+          <PortfolioContainer>
+            <Picture className="finansist-portfolio__big-tablet-picture"
+                     imgClassName="finansist-portfolio__big-tablet-img"
+                     forPhoneOnly={[require('./images/finansist-big-tablet_mob.png')]}
+                     forTabletPortraitUp={[require('./images/finansist-big-tablet.png')]}/>
+          </PortfolioContainer>
+          <PortfolioContainer>
+            <Picture className="finansist-portfolio__team-picture"
+                     imgClassName="finansist-portfolio__team-img"
+                     forPhoneOnly={[require('./images/finansist-team_mob.png')]}
+                     forTabletPortraitUp={[require('./images/finansist-team.png')]}/>
+          </PortfolioContainer>
+          {/*<PortfolioContainer className="finansist-portfolio__old-version-container">*/}
+          {/*  <div className="finansist-portfolio__old-colors-block">*/}
+          {/*    <PortfolioColors portfolioType={PortfolioType.OLD_FURNAS}/>*/}
+          {/*  </div>*/}
+          {/*  <div className="finansist-portfolio__old-version-block">*/}
+          {/*    <PortfolioSubtitle>Предыдущая версия сайта</PortfolioSubtitle>*/}
+          {/*    <PortfolioText>*/}
+          {/*      <p>Стиль сайта: тёмный дизайн, дополнительные цвета небесно-голубой и приглушенно-коралловый. Их мало, из-за чего экран матово-тёмный, но с яркими акцентами.</p>*/}
+          {/*    </PortfolioText>*/}
+          {/*  </div>*/}
+          {/*</PortfolioContainer>*/}
+          {/*<div className="finansist-portfolio__idea-block">*/}
+          {/*  <PortfolioContainer>*/}
+          {/*    <div className="finansist-portfolio__idea-text-block">*/}
+          {/*      <PortfolioSubtitle>Идея</PortfolioSubtitle>*/}
+          {/*      <PortfolioText>*/}
+          {/*        <p className="finansist-portfolio__paragraph">*/}
+          {/*          Решение проблемы — разрушить недоверие пользователя к маленькой студии без готовых работ в дизайне.*/}
+          {/*        </p>*/}
+          {/*        <p className="finansist-portfolio__paragraph">*/}
+          {/*          Для этого:*/}
+          {/*        </p>*/}
+          {/*        <p className="finansist-portfolio__paragraph">*/}
+          {/*          1) Ответить на все вопросы и проговорить неудобные ситуации;*/}
+          {/*        </p>*/}
+          {/*        <p>*/}
+          {/*          2) Сделать дизайн лёгким и дерзким, соответствуя возрасту студии;*/}
+          {/*        </p>*/}
+          {/*      </PortfolioText>*/}
+          {/*    </div>*/}
+          {/*    <div className="finansist-portfolio__idea-image-block">*/}
+          {/*      <Picture imgClassName="finansist-portfolio__idea-image"*/}
+          {/*               forPhoneOnly={[require('./images/furnas-team-franklin_mob.png')]}*/}
+          {/*               forTabletPortraitUp={[require('./images/furnas-team-franklin.png')]}/>*/}
+          {/*    </div>*/}
+          {/*  </PortfolioContainer>*/}
+          {/*</div>*/}
+          {/*<div className="finansist-portfolio__design-block">*/}
+          {/*  <PortfolioContainer>*/}
+          {/*    <div className="finansist-portfolio__design-image-block">*/}
+          {/*      <Picture imgClassName="finansist-portfolio__design-image"*/}
+          {/*               forPhoneOnly={[require('./images/furnas-team-iphone_mob.png')]}*/}
+          {/*               forTabletPortraitUp={[require('./images/furnas-team-iphone.png')]}/>*/}
+          {/*    </div>*/}
+          {/*    <div className="finansist-portfolio__design-text-block">*/}
+          {/*      <PortfolioSubtitle>Дизайн сайта</PortfolioSubtitle>*/}
+          {/*      <PortfolioText>*/}
+          {/*        <p>*/}
+          {/*          Фон делаем белым, с аналогией на лист бумаги. Рисуем тематические картинки к каждому вопросу и разукрашиваем вспомогательными цветами.*/}
+          {/*        </p>*/}
+          {/*      </PortfolioText>*/}
+          {/*    </div>*/}
+          {/*  </PortfolioContainer>*/}
+          {/*</div>*/}
+          {/*<PortfolioContainer>*/}
+          {/*  <Picture className="finansist-portfolio__mac-picture"*/}
+          {/*           imgClassName="finansist-portfolio__mac-img"*/}
+          {/*           forPhoneOnly={[require('./images/furnas-team-macbook_mob.png')]}*/}
+          {/*           forTabletPortraitUp={[require('./images/furnas-team-macbook.png')]}/>*/}
+          {/*</PortfolioContainer>*/}
+          <NextPortfolioScreen nextPageHref="/portfolio/work"/>
         </div>
       </ThemeProvider>
     );

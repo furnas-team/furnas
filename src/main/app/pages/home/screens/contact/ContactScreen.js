@@ -78,7 +78,7 @@ export class ContactScreen extends React.Component {
                    isValid={inputIsValid}
                    onChange={this.handleInputChange}/>
             <Button className="contact-screen__button"
-                    buttonStyle={ButtonStyle.BIG_BLUE}
+                    buttonStyle={ButtonStyle.BIG_PINK_FULL}
                     onClick={this.handleSendContactClick}>
               Связаться
             </Button>

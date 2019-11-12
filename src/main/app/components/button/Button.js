@@ -6,7 +6,7 @@ import {string, any, func} from 'prop-types';
 export const ButtonStyle = {
   DEFAULT: 'default',
   BIG_PINK: 'big-pink',
-  BIG_BLUE: 'big-blue'
+  BIG_PINK_FULL: 'big-pink-full'
 };
 
 export class Button extends React.Component {

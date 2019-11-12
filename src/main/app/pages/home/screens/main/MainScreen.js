@@ -10,7 +10,6 @@ import {Picture} from '../../../../components/picture/Picture';
 import {Title} from '../../../../components/title/Title';
 import trim from 'lodash/trim';
 import chance from 'chance';
-import anime from 'animejs';
 
 let html2canvas;
 
@@ -58,47 +57,47 @@ export class MainScreen extends React.Component {
     // init();
     // setTimeout(() => this.setState({animationFinished: true}), 2000);
 
-    const canvasCount = 35;
-    const imageDataArray = [];
-    html2canvas(window.document.getElementsByClassName('main-screen__desktop-title')[0], {
-      ignoreElements: (element) => element.tagName === 'SOURCE',
-      backgroundColor: null
-    }).then(canvas => {
-      try {
-        //capture all div data as image
-        var ctx = canvas.getContext("2d");
-        var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        var pixelArr = imageData.data;
-        //create all layours
-        for (let i = 0; i < canvasCount; i++) {
-          let arr = new Uint8ClampedArray(imageData.data);
-          for (let j = 0; j < arr.length; j++) {
-            arr[j] = 0;
-          }
-          imageDataArray.push(arr);
-        }
-        for (let i = 0; i < pixelArr.length; i += 4) {
-          //find the highest probability canvas the pixel should be in
-          let p = Math.floor((i / pixelArr.length) * canvasCount);
-          let a = imageDataArray[weightedRandomDistrib(p, canvasCount)];
-          a[i] = pixelArr[i];
-          a[i + 1] = pixelArr[i + 1];
-          a[i + 2] = pixelArr[i + 2];
-          a[i + 3] = pixelArr[i + 3];
-        }
-        for (let i = 0; i < canvasCount; i++) {
-          let c = newCanvasFromImageData(imageDataArray[i], canvas.width, canvas.height);
-          c.classList.add("dust");
-          document.getElementsByClassName('main-screen__desktop-title')[0].appendChild(c);
-        }
-        for (let el of document.querySelectorAll('.main-screen__desktop-title *:not(.dust)')) {
-          el.style.visibility = 'hidden';
-        }
-        this.setState({canTitleBeDestroyed: true});
-      } catch (e) {
-
-      }
-    });
+    // const canvasCount = 35;
+    // const imageDataArray = [];
+    // html2canvas(window.document.getElementsByClassName('main-screen__desktop-title')[0], {
+    //   ignoreElements: (element) => element.tagName === 'SOURCE',
+    //   backgroundColor: null
+    // }).then(canvas => {
+    //   try {
+    //     //capture all div data as image
+    //     var ctx = canvas.getContext("2d");
+    //     var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    //     var pixelArr = imageData.data;
+    //     //create all layours
+    //     for (let i = 0; i < canvasCount; i++) {
+    //       let arr = new Uint8ClampedArray(imageData.data);
+    //       for (let j = 0; j < arr.length; j++) {
+    //         arr[j] = 0;
+    //       }
+    //       imageDataArray.push(arr);
+    //     }
+    //     for (let i = 0; i < pixelArr.length; i += 4) {
+    //       //find the highest probability canvas the pixel should be in
+    //       let p = Math.floor((i / pixelArr.length) * canvasCount);
+    //       let a = imageDataArray[weightedRandomDistrib(p, canvasCount)];
+    //       a[i] = pixelArr[i];
+    //       a[i + 1] = pixelArr[i + 1];
+    //       a[i + 2] = pixelArr[i + 2];
+    //       a[i + 3] = pixelArr[i + 3];
+    //     }
+    //     for (let i = 0; i < canvasCount; i++) {
+    //       let c = newCanvasFromImageData(imageDataArray[i], canvas.width, canvas.height);
+    //       c.classList.add("dust");
+    //       document.getElementsByClassName('main-screen__desktop-title')[0].appendChild(c);
+    //     }
+    //     for (let el of document.querySelectorAll('.main-screen__desktop-title *:not(.dust)')) {
+    //       el.style.visibility = 'hidden';
+    //     }
+    //     this.setState({canTitleBeDestroyed: true});
+    //   } catch (e) {
+    //
+    //   }
+    // });
   }
 
   handleSendContactClick = () => {
@@ -117,31 +116,31 @@ export class MainScreen extends React.Component {
   };
 
   handleDesktopTitleClick = () => {
-    const {canTitleBeDestroyed} = this.state;
-    if (!canTitleBeDestroyed || dustedClicked) {
-      return;
-    }
-    dustedClicked = false;
-    let index = 0;
-    for (let el of document.querySelectorAll('.dust')) {
-      const animation = anime({
-        targets: el,
-        duration: 1000 + 110 * index,
-        easing: 'easeInOutSine',
-        filter: ["blur(0px)", "blur(0.8px)"],
-        translateX: 40,
-        translateY: -40,
-        rotate: (new chance()).integer({min: -10, max: 10})
-      });
-      setTimeout(() => {
-        el.classList.add("dust_fade");
-      }, 200 + 110 * index);
-      index++;
-    }
-
-    setTimeout(() => {
-      this.setState({canTitleBeDestroyed: false})
-    }, 4000)
+    // const {canTitleBeDestroyed} = this.state;
+    // if (!canTitleBeDestroyed || dustedClicked) {
+    //   return;
+    // }
+    // dustedClicked = false;
+    // let index = 0;
+    // for (let el of document.querySelectorAll('.dust')) {
+    //   const animation = anime({
+    //     targets: el,
+    //     duration: 1000 + 110 * index,
+    //     easing: 'easeInOutSine',
+    //     filter: ["blur(0px)", "blur(0.8px)"],
+    //     translateX: 40,
+    //     translateY: -40,
+    //     rotate: (new chance()).integer({min: -10, max: 10})
+    //   });
+    //   setTimeout(() => {
+    //     el.classList.add("dust_fade");
+    //   }, 200 + 110 * index);
+    //   index++;
+    // }
+    //
+    // setTimeout(() => {
+    //   this.setState({canTitleBeDestroyed: false})
+    // }, 4000)
 
   };
 
@@ -170,7 +169,7 @@ export class MainScreen extends React.Component {
                  isValid={inputIsValid}
                  value={inputValue}/>
           <Button className="main-screen__button"
-                  buttonStyle={ButtonStyle.BIG_BLUE}
+                  buttonStyle={ButtonStyle.BIG_PINK_FULL}
                   onClick={this.handleSendContactClick}>
             Связаться
           </Button>
@@ -179,34 +178,30 @@ export class MainScreen extends React.Component {
           <div>
             <Title className={classNames('main-screen__title main-screen__desktop-title', {'main-screen__desktop-title_cursor': canTitleBeDestroyed})}
                    onClick={this.handleDesktopTitleClick}>
-              <div>Студия</div>
-              <div>дизайна Furnas</div>
+              Студия дизайна Furnas
             </Title>
-            <BlockText>
-              Веб-дизайн, разработка, иллюстрации
+            <BlockText className="main-screen__additional-text">
+              У нас в команде нет менеджеров. Общайтесь с теми, кто работает.
             </BlockText>
             <div className="main-screen__desktop-contact-row">
-              <Input className="main-screen__input"
-                     onChange={this.handleInputChange}
-                     isValid={inputIsValid}
-                     value={inputValue}
-                     placeholder="Телефон, почта или скайп"/>
               <Button className="main-screen__button"
-                      buttonStyle={ButtonStyle.BIG_BLUE}
+                      buttonStyle={ButtonStyle.BIG_PINK_FULL}
                       onClick={this.handleSendContactClick}>
                 Связаться
               </Button>
             </div>
           </div>
-          <Picture forTabletPortraitUp={[require('./images/background.svg')]}
-                   imgClassName="main-screen__background-img main-screen__background-img_movement"
-                   alt="Дизайн-студия Furnas иллюстрация"/>
-          <Picture forTabletPortraitUp={[require('./images/girl.svg')]}
-                   imgClassName="main-screen__girl-img main-screen__girl-img_movement"
-                   alt="Дизайн-студия Furnas иллюстрация"/>
-          <Picture forTabletPortraitUp={[require('./images/boy.svg')]}
-                   imgClassName="main-screen__boy-img main-screen__boy-img_movement"
-                   alt="Дизайн-студия Furnas иллюстрация"/>
+          <div>
+            <Picture forTabletPortraitUp={[require('./images/background.svg')]}
+                     imgClassName="main-screen__background-img main-screen__background-img_movement"
+                     alt="Дизайн-студия Furnas иллюстрация"/>
+            <Picture forTabletPortraitUp={[require('./images/girl.svg')]}
+                     imgClassName="main-screen__girl-img main-screen__girl-img_movement"
+                     alt="Дизайн-студия Furnas иллюстрация"/>
+            <Picture forTabletPortraitUp={[require('./images/boy.svg')]}
+                     imgClassName="main-screen__boy-img main-screen__boy-img_movement"
+                     alt="Дизайн-студия Furnas иллюстрация"/>
+          </div>
         </div>
       </div>
     );

@@ -7,6 +7,7 @@
   height: 100vh;
   transition: 0.5s ease-out;
   align-items: center;
+  background: #E0EFF5;
   @include for-tablet-portrait-up {
     height: auto;
   }
@@ -16,9 +17,11 @@
     @include for-tablet-portrait-up {
       height: auto;
     }
+
     #animation_container {
       display: none;
     }
+
     .main-screen__form {
       display: flex;
       @include for-tablet-portrait-up {
@@ -33,13 +36,13 @@
     line-height: 40px;
     max-width: 300px;
     @include for-tablet-portrait-up {
-      max-width: none;
+      max-width: 336px;
       margin-top: 0;
       text-transform: none !important;
       font-size: 42px !important;
       font-weight: bold !important;
       text-align: left;
-      line-height: 50px !important;
+      line-height: 52px !important;
     }
   }
 
@@ -75,8 +78,8 @@
   &__button {
     margin-top: 24px;
     @include for-tablet-portrait-up {
-      margin-top: 16px;
-      width: 216px;
+      margin-top: 40px;
+      width: 224px;
     }
   }
 
@@ -100,10 +103,13 @@
     @include for-tablet-portrait-up {
       display: flex;
       flex-direction: row;
-      margin-top: 28vh;
-      width: 936px;
+      justify-content: space-between;
+      margin-top: 29.55vh;
+      width: 944px;
+      padding: 0 16px;
     }
   }
+
   &__desktop-contact-row {
     display: flex;
     flex-direction: column;
@@ -112,18 +118,17 @@
   }
 
   &__background-img {
-    width: 621px !important;
-    position: relative;
-    right: -74px;
-    margin-top: -65px;
-    margin-bottom: 200px;
+    width: 538px !important;
+    margin-top: -63px;
+    margin-bottom: 169px;
+    margin-right: -23px;
   }
 
   &__girl-img {
-    width: 80px !important;
+    width: 71px !important;
     position: absolute;
-    margin-top: 77px;
-    margin-left: -362px;
+    margin-top: 63px;
+    margin-left: -355px;
   }
 
   &__girl-img_movement {
@@ -134,10 +139,10 @@
   }
 
   &__boy-img {
-    width: 83px !important;
+    width: 71px !important;
     position: absolute;
-    margin-top: 69px;
-    margin-left: -179px;
+    margin-top: 57px;
+    margin-left: -201px;
   }
 
   &__boy-img_movement {
@@ -147,12 +152,17 @@
     -o-animation: boy-movement 12s infinite;
     animation-delay: 1s;
   }
+
   &__background-img_movement {
     animation: background-movement 15s infinite;
     -webkit-animation: background-movement 15s infinite;
     -moz-animation: background-movement 15s infinite;
     -o-animation: background-movement 15s infinite;
     animation-delay: 1s;
+  }
+
+  &__additional-text {
+    width: 350px;
   }
 }
 
@@ -279,169 +289,169 @@
 }
 
 @-webkit-keyframes background-movement {
-  0%{
+  0% {
     filter: hue-rotate(0deg);
   }
-  8.3%{
+  8.3% {
     filter: hue-rotate(30deg);
   }
-  16.6%{
+  16.6% {
     filter: hue-rotate(60deg);
   }
-  25%{
+  25% {
     filter: hue-rotate(90deg);
   }
-  33.3%{
+  33.3% {
     filter: hue-rotate(120deg);
   }
-  41.6%{
+  41.6% {
     filter: hue-rotate(150deg);
   }
-  50%{
+  50% {
     filter: hue-rotate(180deg);
   }
-  58.3%{
+  58.3% {
     filter: hue-rotate(210deg);
   }
-  66.6%{
+  66.6% {
     filter: hue-rotate(240deg);
   }
-  75%{
+  75% {
     filter: hue-rotate(270deg);
   }
-  83.3%{
+  83.3% {
     filter: hue-rotate(300deg);
   }
-  91.6%{
+  91.6% {
     filter: hue-rotate(330deg);
   }
-  100%{
+  100% {
     filter: hue-rotate(360deg);
   }
 }
 
 @-moz-keyframes background-movement {
-  0%{
+  0% {
     filter: hue-rotate(0deg);
   }
-  8.3%{
+  8.3% {
     filter: hue-rotate(30deg);
   }
-  16.6%{
+  16.6% {
     filter: hue-rotate(60deg);
   }
-  25%{
+  25% {
     filter: hue-rotate(90deg);
   }
-  33.3%{
+  33.3% {
     filter: hue-rotate(120deg);
   }
-  41.6%{
+  41.6% {
     filter: hue-rotate(150deg);
   }
-  50%{
+  50% {
     filter: hue-rotate(180deg);
   }
-  58.3%{
+  58.3% {
     filter: hue-rotate(210deg);
   }
-  66.6%{
+  66.6% {
     filter: hue-rotate(240deg);
   }
-  75%{
+  75% {
     filter: hue-rotate(270deg);
   }
-  83.3%{
+  83.3% {
     filter: hue-rotate(300deg);
   }
-  91.6%{
+  91.6% {
     filter: hue-rotate(330deg);
   }
-  100%{
+  100% {
     filter: hue-rotate(360deg);
   }
 }
 
 @-o-keyframes background-movement {
-  0%{
+  0% {
     filter: hue-rotate(0deg);
   }
-  8.3%{
+  8.3% {
     filter: hue-rotate(30deg);
   }
-  16.6%{
+  16.6% {
     filter: hue-rotate(60deg);
   }
-  25%{
+  25% {
     filter: hue-rotate(90deg);
   }
-  33.3%{
+  33.3% {
     filter: hue-rotate(120deg);
   }
-  41.6%{
+  41.6% {
     filter: hue-rotate(150deg);
   }
-  50%{
+  50% {
     filter: hue-rotate(180deg);
   }
-  58.3%{
+  58.3% {
     filter: hue-rotate(210deg);
   }
-  66.6%{
+  66.6% {
     filter: hue-rotate(240deg);
   }
-  75%{
+  75% {
     filter: hue-rotate(270deg);
   }
-  83.3%{
+  83.3% {
     filter: hue-rotate(300deg);
   }
-  91.6%{
+  91.6% {
     filter: hue-rotate(330deg);
   }
-  100%{
+  100% {
     filter: hue-rotate(360deg);
   }
 }
 
 @keyframes background-movement {
-  0%{
+  0% {
     filter: hue-rotate(0deg);
   }
-  8.3%{
+  8.3% {
     filter: hue-rotate(30deg);
   }
-  16.6%{
+  16.6% {
     filter: hue-rotate(60deg);
   }
-  25%{
+  25% {
     filter: hue-rotate(90deg);
   }
-  33.3%{
+  33.3% {
     filter: hue-rotate(120deg);
   }
-  41.6%{
+  41.6% {
     filter: hue-rotate(150deg);
   }
-  50%{
+  50% {
     filter: hue-rotate(180deg);
   }
-  58.3%{
+  58.3% {
     filter: hue-rotate(210deg);
   }
-  66.6%{
+  66.6% {
     filter: hue-rotate(240deg);
   }
-  75%{
+  75% {
     filter: hue-rotate(270deg);
   }
-  83.3%{
+  83.3% {
     filter: hue-rotate(300deg);
   }
-  91.6%{
+  91.6% {
     filter: hue-rotate(330deg);
   }
-  100%{
+  100% {
     filter: hue-rotate(360deg);
   }
 }

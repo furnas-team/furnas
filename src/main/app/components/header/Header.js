@@ -42,15 +42,32 @@ export class Header extends React.Component {
     return (
       <div className={classNames('header', {'header_header-without-shadow': scrollY === 0 || contactPopupShown, 'header_contact-popup-shown': contactPopupShown}, className)}>
         <div className="header__container">
-          <UniversalLink noStyle={true} href="/">
-            <div className="header__title-with-logo">
-              <div className="header__logo-image">
+          <div className="header__menu-container">
+            <UniversalLink noStyle={true} href="/">
+              <div className="header__title-with-logo">
+                <div className="header__logo-image">
+                </div>
+                <MediumText className="header__title">
+                  Furnas
+                </MediumText>
               </div>
-              <MediumText className="header__title">
-                Furnas
+            </UniversalLink>
+            <UniversalLink noStyle={true} href="/">
+              <MediumText className="header__title header__menu-title">
+                Что делаем
               </MediumText>
-            </div>
-          </UniversalLink>
+            </UniversalLink>
+            <UniversalLink noStyle={true} href="/">
+              <MediumText className="header__title header__menu-title">
+                Как работаем
+              </MediumText>
+            </UniversalLink>
+            <UniversalLink noStyle={true} href="/">
+              <MediumText className="header__title header__menu-title">
+                Портфолио
+              </MediumText>
+            </UniversalLink>
+          </div>
           <div>
             {contactPopupShown &&
             <div className="header__close-contact-popup-button"
@@ -58,7 +75,7 @@ export class Header extends React.Component {
             </div>}
             {!contactPopupShown &&
             <Button onClick={onContactClick}>
-              Связаться
+              Узнать подробнее
             </Button>}
           </div>
         </div>
