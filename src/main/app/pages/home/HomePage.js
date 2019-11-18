@@ -1,11 +1,9 @@
 import React from 'react';
 import './home.scss';
-import classNames from 'classnames';
 import {ThemeName, ThemeProvider} from '../../components/theme-context/ThemeContext';
 import {Helmet} from 'react-helmet';
 import {Header} from '../../components/header/Header';
 import {MainScreen} from './screens/main/MainScreen';
-import {StepsExplanationScreen} from './screens/steps-explanation/StepsExplanationScreen';
 import {TeamScreen} from './screens/team/TeamScreen';
 import {MoneyScreen} from './screens/money/MoneyScreen';
 import {DislikeScreen} from './screens/dislike/DislikeScreen';
@@ -14,6 +12,8 @@ import {Popup} from '../../components/Popup/Popup';
 import {RevolutionScreen} from './screens/revolution/RevolutionScreen';
 import {PortfolioScreen} from './screens/portfolio/PortfolioScreen';
 import {Footer} from '../../components/footer/Footer';
+import {DoScreen} from './screens/do/DoScreen';
+import {OptionsScreen} from './screens/options/OptionsScreen';
 
 export class HomePage extends React.Component {
 
@@ -31,7 +31,12 @@ export class HomePage extends React.Component {
     window.mixpanel.track(
       "Furnas | user clicked contact button"
     );
-    this.setState({contactPopupShown: !this.state.contactPopupShown, requestSent: false});
+    // this.setState({contactPopupShown: !this.state.contactPopupShown, requestSent: false});
+    this.setState({requestSent: false});
+    location.hash = 'contact';
+    setTimeout(() => {
+      location.hash = 'contacts';
+    })
   };
 
   handleSendContactClick = contact => {
@@ -51,7 +56,8 @@ export class HomePage extends React.Component {
         "Furnas | added user contact",
         {email: contact}
       );
-      this.setState({contactPopupShown: true, requestSent: true});
+      //this.setState({contactPopupShown: true, requestSent: true});
+      this.setState({requestSent: true});
     }
   };
 
@@ -72,25 +78,25 @@ export class HomePage extends React.Component {
           <Header onContactClick={this.handleContactClick}
                   contactPopupShown={contactPopupShown}/>
           <MainScreen onSendContactClick={this.handleSendContactClick}/>
-          <StepsExplanationScreen/>
-          <div className="home__blue-divider">
+          <DoScreen id="do"/>
+          <div className="home__options-screen">
+            <OptionsScreen id="how"/>
           </div>
-          <div className="home__team-screen">
-            <TeamScreen/>
+          <TeamScreen/>
+          <div className="home__portfolio-screen">
+            <PortfolioScreen id="portfolio"/>
           </div>
-          <MoneyScreen/>
-          <div className="home__pink-divider">
+          <RevolutionScreen/>
+          <div className="home__money-screen">
+            <MoneyScreen/>
           </div>
           <div className="home__dislike-screen">
             <DislikeScreen/>
           </div>
-          <PortfolioScreen/>
-          <div className="home__blue-divider">
-          </div>
-          <div className="home__revolution-screen">
-            <RevolutionScreen/>
-          </div>
-          <ContactScreen onSendContactClick={this.handleSendContactClick}/>
+          <ContactScreen id="contact"
+                         onSendContactClick={this.handleSendContactClick}
+                         onCloseButtonClick={this.handleCloseButtonClick}
+                         requestSent={requestSent}/>
           <Footer/>
           <Popup shown={contactPopupShown}>
             <ContactScreen requestSent={requestSent}

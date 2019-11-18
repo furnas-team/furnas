@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="29px" height="16px" viewBox="0 0 29 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop_rez_new_2" transform="translate(-250.000000, -1173.000000)" fill="#2B7A9E" fill-rule="nonzero">
+            <path d="M270.311897,1194.71034 C270.504823,1194.90345 270.745981,1195 271.011254,1195 C271.276527,1195 271.517685,1194.90345 271.710611,1194.71034 C272.096463,1194.32414 272.096463,1193.69655 271.710611,1193.31034 L259.411576,1181 L271.710611,1168.68966 C272.096463,1168.30345 272.096463,1167.67586 271.710611,1167.28966 C271.324759,1166.90345 270.697749,1166.90345 270.311897,1167.28966 L257.289389,1180.3 C256.903537,1180.68621 256.903537,1181.31379 257.289389,1181.7 L270.311897,1194.71034 Z" id="Shape" transform="translate(264.500000, 1181.000000) rotate(90.000000) translate(-264.500000, -1181.000000) "></path>
+        </g>
+    </g>
+</svg>

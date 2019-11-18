@@ -1,0 +1,68 @@
+@import "../../../../common/vars";
+@import "../../../../common/mixins";
+
+.options-screen {
+  width: 944px;
+  margin: auto;
+
+  @include for-phone-only {
+    width: auto;
+    margin: auto 16px;
+  }
+
+  &__title {
+    padding-top: 64px;
+    margin-bottom: 64px;
+    @include for-tablet-portrait-up {
+      margin-bottom: 80px;
+      padding-top: 120px;
+    }
+  }
+
+  &__subtitle {
+    width: 464px;
+    @include for-phone-only {
+      width: auto;
+    }
+  }
+
+  &__accordion {
+    margin-top: 32px;
+    width: 464px;
+  }
+
+  &__image {
+    @include for-tablet-portrait-up {
+    }
+  }
+
+  &__image-img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 24px;
+  }
+
+  &__option-title {
+    margin-bottom: 24px;
+    @include for-phone-only {
+      word-break: break-word;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 70px;
+  }
+
+  &__option {
+    width: 384px;
+    margin-bottom: 80px;
+    @include for-phone-only {
+      width: auto;
+      margin-bottom: 64px;
+    }
+  }
+
+}

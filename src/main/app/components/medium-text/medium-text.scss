@@ -2,7 +2,7 @@
 @import "../../common/mixins";
 
 .medium-text {
-  font-weight: 500;
+  font-weight: 400;
   @include for-tablet-portrait-up {
     font-weight: 400;
   }

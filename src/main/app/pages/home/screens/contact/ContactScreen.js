@@ -5,15 +5,18 @@ import {SectionTitle} from '../../../../components/screen-title/ScreenTitle';
 import {BlockText} from '../../../../components/block-text/BlockText';
 import {Link} from '../../../../components/link/Link';
 import {Button, ButtonStyle} from '../../../../components/button/Button';
-import {bool, func} from 'prop-types';
+import {bool, func, string} from 'prop-types';
 import trim from 'lodash/trim';
+import {Picture} from '../../../../components/picture/Picture';
+import classNames from 'classnames';
 
 export class ContactScreen extends React.Component {
 
   static propTypes = {
     requestSent: bool,
     onSendContactClick: func,
-    onCloseButtonClick: func
+    onCloseButtonClick: func,
+    id: string
   };
 
   state = {
@@ -48,11 +51,11 @@ export class ContactScreen extends React.Component {
   };
 
   render() {
-    const {requestSent, onCloseButtonClick} = this.props;
+    const {requestSent, onCloseButtonClick, id} = this.props;
     const {inputValue, inputIsValid} = this.state;
 
     return (
-      <div className="contact-screen">
+      <div className={classNames('contact-screen', requestSent ? 'contact-screen_sent' : '')} id={id}>
         <div className="contact-screen__form">
           {!requestSent &&
           <SectionTitle className="contact-screen__title">
@@ -66,12 +69,14 @@ export class ContactScreen extends React.Component {
           <div>
             <div>
               <BlockText className="contact-screen__text">
-                Оставьте свои контактные данные и
-              </BlockText>
-              <BlockText className="contact-screen__text">
-                мы свяжемся с вами в течение дня
+                Оставьте свои контактные данные и мы свяжемся с вами в течение дня
               </BlockText>
             </div>
+            <Picture className="contact-screen__input-arrow"
+                     imgClassName="contact-screen__input-arrow-img"
+                     forPhoneOnly={[require('./images/input-arrow.svg')]}
+                     forTabletPortraitUp={[require('./images/input-arrow.svg')]}
+                     alt="Стрелка" />
             <Input className="contact-screen__input"
                    placeholder="Телефон, почта или скайп"
                    value={inputValue}
@@ -94,29 +99,29 @@ export class ContactScreen extends React.Component {
               ближайшее время.
             </BlockText>
             <Button className="contact-screen__button-back"
-                    buttonStyle={ButtonStyle.BIG_PINK}
+                    buttonStyle={ButtonStyle.BIG_PINK_FULL}
                     onClick={onCloseButtonClick}>
-              Вернуться
+              Еще отправить
             </Button>
           </div>}
         </div>
-        {!requestSent &&
-        <div className="contact-screen__links">
-          <SectionTitle className="contact-screen__title">
-            Контакты
-          </SectionTitle>
-          <div className="contact-screen__link">
-            <Link href="tel:+7(915)682-19-55"
-                  onClick={this.handlePhoneClick}>
-              +7(915) 682-19-55
-            </Link>
-          </div>
-          <div className="contact-screen__link">
-            <Link onClick={this.handleEmailClick}>
-              furnasteam@gmail.com
-            </Link>
-          </div>
-        </div>}
+        {/*{!requestSent &&*/}
+        {/*<div className="contact-screen__links">*/}
+        {/*  <SectionTitle className="contact-screen__title">*/}
+        {/*    Контакты*/}
+        {/*  </SectionTitle>*/}
+        {/*  <div className="contact-screen__link">*/}
+        {/*    <Link href="tel:+7(915)682-19-55"*/}
+        {/*          onClick={this.handlePhoneClick}>*/}
+        {/*      +7(915) 682-19-55*/}
+        {/*    </Link>*/}
+        {/*  </div>*/}
+        {/*  <div className="contact-screen__link">*/}
+        {/*    <Link onClick={this.handleEmailClick}>*/}
+        {/*      furnasteam@gmail.com*/}
+        {/*    </Link>*/}
+        {/*  </div>*/}
+        {/*</div>}*/}
       </div>
     );
   }

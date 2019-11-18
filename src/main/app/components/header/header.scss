@@ -3,7 +3,7 @@
 
 .header {
   position: fixed;
-  height: 62px;
+  height: 59px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -43,12 +43,12 @@
   }
 
   &__title {
-    font-family: $font-family;
+    font-family: $font-family-title;
     font-size: 18px;
-    line-height: 22px;
+    line-height: 16px;
     @include for-tablet-portrait-up {
-      font-family: $font-family-title;
       font-size: 18px;
+      line-height: 22px;
     }
   }
 
@@ -61,7 +61,7 @@
     @include for-phone-only {
       background: url('images/logo_mob.png') no-repeat;
       width: 18px;
-      height: 28px;
+      height: 18px;
     }
     @include for-phone-only-retina {
       background: url('images/logo_mob_2x.png') no-repeat;
@@ -84,6 +84,28 @@
 
   &__menu-title {
     margin-left: 48px;
+    display: none;
+    @include for-tablet-portrait-up {
+      display: block;
+    }
+  }
+
+  &__button {
+    display: none;
+    @include for-tablet-portrait-up{
+      display: block;
+    }
+  }
+
+  &__hamburger {
+    display: block;
+    background: url('images/hamburger_2x.png') no-repeat;
+    width: 24px;
+    height: 17px;
+    background-size: contain;
+    @include for-tablet-portrait-up{
+      display: none;
+    }
   }
 
 }

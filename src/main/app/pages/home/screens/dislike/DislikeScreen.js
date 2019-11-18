@@ -13,14 +13,15 @@ export class DislikeScreen extends React.Component {
           <SectionTitle className="dislike-screen__title">
             А если не понравится?
           </SectionTitle>
-          <BlockText>
-            Результат каждого этапа обсуждаем.
-          </BlockText>
-          <BlockText>
-            Если работа не нравится, то за неё
-          </BlockText>
-          <BlockText>
-            можно не платить.
+          <Picture className="dislike-screen__image-mob"
+                   imgClassName="dislike-screen__image-mob-img"
+                   forPhoneOnly={[require('./images/scrooge_mob.png'), require('./images/scrooge_mob.webp')]}
+                   forPhoneOnlyRetina={[require('./images/scrooge_mob_2x.png'), require('./images/scrooge_mob_2x.webp')]}
+                   forTabletPortraitUp={[require('./images/scrooge.png'), require('./images/scrooge.webp')]}
+                   forTabletPortraitUpRetina={[require('./images/scrooge_2x.png'), require('./images/scrooge_2x.webp')]}
+                   alt="Скрудж иллюстрация" />
+          <BlockText className="dislike-screen__block-text">
+            Результат каждого этапа обсуждаем. Если работа не нравится, то за неё можно не платить.
           </BlockText>
         </div>
         <Picture className="dislike-screen__image"

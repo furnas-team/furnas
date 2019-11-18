@@ -13,7 +13,7 @@
   }
 
   &_animation-finished {
-    height: 420px;
+    height: 600px;
     @include for-tablet-portrait-up {
       height: auto;
     }
@@ -31,18 +31,18 @@
   }
 
   &__title {
-    margin-top: 24px;
-    margin-bottom: 24px;
-    line-height: 40px;
+    margin-bottom: 19px;
     max-width: 300px;
+    font-size: 32px !important;
+    line-height: 50px;
+    font-weight: bold !important;
     @include for-tablet-portrait-up {
       max-width: 336px;
-      margin-top: 0;
       text-transform: none !important;
       font-size: 42px !important;
-      font-weight: bold !important;
       text-align: left;
       line-height: 52px !important;
+      margin-bottom: 24px;
     }
   }
 
@@ -51,7 +51,7 @@
   }
 
   &__form {
-    margin: 102px 16px 0;
+    margin: 89px 16px 0;
     text-align: center;
     display: none;
     flex-direction: column;
@@ -120,8 +120,13 @@
   &__background-img {
     width: 538px !important;
     margin-top: -63px;
-    margin-bottom: 169px;
+    margin-bottom: 21.5vh;
     margin-right: -23px;
+  }
+
+  &__monitor-img {
+    width: 214px !important;
+    height: 156px;
   }
 
   &__girl-img {
@@ -163,6 +168,11 @@
 
   &__additional-text {
     width: 350px;
+  }
+
+  &__additional-text-mob {
+    width: auto;
+    margin-top: 24px;
   }
 }
 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="336px" height="344px" viewBox="0 0 336 344" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop_rez_new_2" transform="translate(-860.000000, -1171.000000)" fill-rule="nonzero" stroke="#333333">
+            <g id="Group" transform="translate(860.000000, 1175.000000)">
+                <ellipse id="Oval-13" stroke-width="7" cx="197.5" cy="129.5" rx="134.5" ry="129.5"></ellipse>
+                <path d="M3.5,31.5 L3.5,336.5 L318.5,336.5 L318.5,31.5 L3.5,31.5 Z" id="Rectangle-35" stroke-width="7"></path>
+                <path d="M84.8950243,112.381724 L5.55080578,244.987899 L143.104976,321.618276 L222.449194,189.012101 L84.8950243,112.381724 Z" id="Rectangle-36" stroke-width="8"></path>
+            </g>
+        </g>
+    </g>
+</svg>

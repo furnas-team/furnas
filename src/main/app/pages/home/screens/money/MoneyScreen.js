@@ -13,14 +13,16 @@ export class MoneyScreen extends React.Component {
           <SectionTitle className="money-screen__title">
             А сколько стоит?
           </SectionTitle>
-          <BlockText>
-            В среднем, час стоит ~ 1500₽
-          </BlockText>
-          <BlockText>
-            Цена проекта зависит от его сложности
-          </BlockText>
-          <BlockText>
-            и обговаривается индивидуально.
+          <Picture className="money-screen__image-mob"
+                   imgClassName="money-screen__image-mob-img"
+                   forPhoneOnly={[require('./images/franklin_mob.png'), require('./images/franklin_mob.webp')]}
+                   forPhoneOnlyRetina={[require('./images/franklin_mob_2x.png'), require('./images/franklin_mob_2x.webp')]}
+                   forTabletPortraitUp={[require('./images/franklin.png'), require('./images/franklin.webp')]}
+                   forTabletPortraitUpRetina={[require('./images/franklin_2x.png'), require('./images/franklin_2x.webp')]}
+                   alt="Франклин иллюстрация" />
+          <BlockText className="money-screen__block-text">
+            В среднем, час работы стоит&nbsp;~&nbsp;1500&nbsp;руб.
+            Цена проекта зависит от его сложности и обговаривается индивидуально.
           </BlockText>
         </div>
         <Picture className="money-screen__image"

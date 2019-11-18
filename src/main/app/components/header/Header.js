@@ -47,22 +47,22 @@ export class Header extends React.Component {
               <div className="header__title-with-logo">
                 <div className="header__logo-image">
                 </div>
-                <MediumText className="header__title">
+                <div className="header__title">
                   Furnas
-                </MediumText>
+                </div>
               </div>
             </UniversalLink>
-            <UniversalLink noStyle={true} href="/">
+            <UniversalLink noStyle={true} href="#do">
               <MediumText className="header__title header__menu-title">
                 Что делаем
               </MediumText>
             </UniversalLink>
-            <UniversalLink noStyle={true} href="/">
+            <UniversalLink noStyle={true} href="#how">
               <MediumText className="header__title header__menu-title">
                 Как работаем
               </MediumText>
             </UniversalLink>
-            <UniversalLink noStyle={true} href="/">
+            <UniversalLink noStyle={true} href="#portfolio">
               <MediumText className="header__title header__menu-title">
                 Портфолио
               </MediumText>
@@ -74,9 +74,13 @@ export class Header extends React.Component {
                  onClick={onContactClick}>
             </div>}
             {!contactPopupShown &&
-            <Button onClick={onContactClick}>
+            <Button onClick={onContactClick} className="header__button">
               Узнать подробнее
             </Button>}
+            {!contactPopupShown &&
+            <div className="header__hamburger"
+                 onClick={onContactClick}>
+            </div>}
           </div>
         </div>
       </div>

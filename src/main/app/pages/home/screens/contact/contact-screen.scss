@@ -4,15 +4,20 @@
 .contact-screen {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-
+  height: 558px;
   @include for-tablet-portrait-up {
     height: 650px;
   }
 
+  &_sent {
+    @include for-tablet-portrait-up {
+      height: 750px;
+    }
+  }
+
   &__title {
     margin-top: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
   }
 
   &__form {
@@ -67,6 +72,7 @@
     margin-top: 32px;
     margin-bottom: 56px;
   }
+
   &__text {
     @include for-tablet-portrait-up {
       display: inline;
@@ -77,5 +83,19 @@
     @include for-tablet-portrait-up {
       margin-left: 6px;
     }
+  }
+
+  &__input-arrow {
+    position: absolute;
+    margin-left: -90px;
+    margin-top: -3px;
+    @include for-phone-only {
+      display: none;
+    }
+  }
+
+  &__input-arrow-img {
+    width: 64px;
+    height: 64px;
   }
 }

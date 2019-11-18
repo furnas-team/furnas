@@ -101,13 +101,17 @@ export class MainScreen extends React.Component {
   }
 
   handleSendContactClick = () => {
-    const {onSendContactClick} = this.props;
-    const {inputValue} = this.state;
-    if (!trim(inputValue)) {
-      this.setState({inputIsValid: false});
-    } else {
-      onSendContactClick(inputValue);
-    }
+    location.hash = 'contact';
+    setTimeout(() => {
+      location.hash = 'contacts';
+    })
+    // const {onSendContactClick} = this.props;
+    // const {inputValue} = this.state;
+    // if (!trim(inputValue)) {
+    //   this.setState({inputIsValid: false});
+    // } else {
+    //   onSendContactClick(inputValue);
+    // }
   };
 
 
@@ -155,19 +159,15 @@ export class MainScreen extends React.Component {
         </div>
         <div className="main-screen__form">
           <SectionTitle className="main-screen__title">
-            Студия <span className="main-screen__pink-word">дизайна</span> и&nbsp;<span className="main-screen__blue-word">веб-разработки</span>
+            Студия дизайна и веб-разработки
           </SectionTitle>
-          <BlockText>
-            UX/UI дизайн,
+          <Picture forPhoneOnly={[require('./images/monitor.png')]}
+                   forPhoneOnlyRetina={[require('./images/monitor_2x.png')]}
+                   imgClassName="main-screen__monitor-img"
+                   alt="Дизайн-студия Furnas иллюстрация"/>
+          <BlockText className="main-screen__additional-text-mob">
+            UX/UI дизайн, разработка, иллюстрации
           </BlockText>
-          <BlockText>
-            разработка, иллюстрации
-          </BlockText>
-          <Input className="main-screen__input"
-                 placeholder="Телефон, почта или скайп"
-                 onChange={this.handleInputChange}
-                 isValid={inputIsValid}
-                 value={inputValue}/>
           <Button className="main-screen__button"
                   buttonStyle={ButtonStyle.BIG_PINK_FULL}
                   onClick={this.handleSendContactClick}>
@@ -178,7 +178,7 @@ export class MainScreen extends React.Component {
           <div>
             <Title className={classNames('main-screen__title main-screen__desktop-title', {'main-screen__desktop-title_cursor': canTitleBeDestroyed})}
                    onClick={this.handleDesktopTitleClick}>
-              Студия дизайна Furnas
+              Разработка web&#8209;приложений Furnas
             </Title>
             <BlockText className="main-screen__additional-text">
               У нас в команде нет менеджеров. Общайтесь с теми, кто работает.

@@ -11,10 +11,20 @@
     }
   }
 
+  &__options-screen {
+    background: #E0EFF5;
+  }
+
+  &__portfolio-screen {
+    background: #E0EFF5;
+  }
+
+  &__money-screen {
+    background: #E0EFF5;
+  }
+
   &__dislike-screen {
-    @include for-tablet-portrait-up {
-      background-image: linear-gradient(-180deg, rgba(253, 180, 229, 0.11) 0%, rgba(249, 125, 199, 0.1) 100%);
-    }
+    background: #F5FAFC;
   }
 
   &__revolution-screen {

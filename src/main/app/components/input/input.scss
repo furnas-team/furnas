@@ -2,7 +2,7 @@
 @import "../../common/mixins";
 
 .input {
-  font-family: "Montserrat", Helvetica, Arial, serif;
+  font-family: $font-family;
   font-size: 18px;
   font-weight: 300;
   background: #FFFFFF;
