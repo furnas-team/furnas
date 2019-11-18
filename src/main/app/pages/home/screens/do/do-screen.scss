@@ -56,7 +56,9 @@
   }
 
   &__text {
-    width: 464px;
+    @include for-tablet-portrait-up {
+      width: 464px;
+    }
   }
 
 }
