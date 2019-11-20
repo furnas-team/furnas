@@ -3,7 +3,6 @@ import './contact-screen.scss';
 import {Input} from '../../../../components/input/Input';
 import {SectionTitle} from '../../../../components/screen-title/ScreenTitle';
 import {BlockText} from '../../../../components/block-text/BlockText';
-import {Link} from '../../../../components/link/Link';
 import {Button, ButtonStyle} from '../../../../components/button/Button';
 import {bool, func, string} from 'prop-types';
 import trim from 'lodash/trim';
@@ -72,21 +71,23 @@ export class ContactScreen extends React.Component {
                 Оставьте свои контактные данные и мы свяжемся с вами в течение дня
               </BlockText>
             </div>
-            <Picture className="contact-screen__input-arrow"
-                     imgClassName="contact-screen__input-arrow-img"
-                     forPhoneOnly={[require('./images/input-arrow.svg')]}
-                     forTabletPortraitUp={[require('./images/input-arrow.svg')]}
-                     alt="Стрелка" />
-            <Input className="contact-screen__input"
-                   placeholder="Телефон, почта или скайп"
-                   value={inputValue}
-                   isValid={inputIsValid}
-                   onChange={this.handleInputChange}/>
-            <Button className="contact-screen__button"
-                    buttonStyle={ButtonStyle.BIG_PINK_FULL}
-                    onClick={this.handleSendContactClick}>
-              Связаться
-            </Button>
+            <div className="contact-screen__group">
+              <Picture className="contact-screen__input-arrow"
+                       imgClassName="contact-screen__input-arrow-img"
+                       forPhoneOnly={[require('./images/input-arrow.svg')]}
+                       forTabletPortraitUp={[require('./images/input-arrow.svg')]}
+                       alt="Стрелка"/>
+              <Input className="contact-screen__input"
+                     placeholder="Телефон, почта или скайп"
+                     value={inputValue}
+                     isValid={inputIsValid}
+                     onChange={this.handleInputChange}/>
+              <Button className="contact-screen__button"
+                      buttonStyle={ButtonStyle.BIG_PINK_FULL}
+                      onClick={this.handleSendContactClick}>
+                Связаться
+              </Button>
+            </div>
           </div>}
           {requestSent &&
           <div>

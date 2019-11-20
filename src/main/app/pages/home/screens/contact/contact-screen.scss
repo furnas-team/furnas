@@ -86,8 +86,7 @@
   }
 
   &__input-arrow {
-    position: absolute;
-    margin-left: -90px;
+    margin-right: 29px;
     margin-top: -3px;
     @include for-phone-only {
       display: none;
@@ -97,5 +96,14 @@
   &__input-arrow-img {
     width: 64px;
     height: 64px;
+  }
+
+  &__group {
+    @include for-tablet-portrait-up {
+      display: flex;
+      flex-direction: row;
+      width: 717px;
+      margin: auto;
+    }
   }
 }

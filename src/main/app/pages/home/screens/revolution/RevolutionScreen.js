@@ -17,10 +17,8 @@ export class RevolutionScreen extends React.Component {
           </SectionTitle>
           <Picture className="revolution-screen__image-mob"
                    imgClassName="revolution-screen__image-mob-img"
-                   forPhoneOnly={[require('./images/revolution_mob.png'), require('./images/revolution_mob.webp')]}
-                   forPhoneOnlyRetina={[require('./images/revolution_mob_2x.png'), require('./images/revolution_mob_2x.webp')]}
-                   forTabletPortraitUp={[require('./images/revolution.png'), require('./images/revolution.webp')]}
-                   forTabletPortraitUpRetina={[require('./images/revolution_2x.png'), require('./images/revolution_2x.webp')]}
+                   forPhoneOnly={[require('./images/revolution.svg')]}
+                   forTabletPortraitUp={[require('./images/revolution.svg')]}
                    alt="Революция иллюстрация"/>
           <div className="revolution-screen__link-row">
             <Picture className="revolution-screen__icon"
@@ -51,10 +49,8 @@ export class RevolutionScreen extends React.Component {
         </div>
         <Picture className="revolution-screen__image"
                  imgClassName="revolution-screen__image-img"
-                 forPhoneOnly={[require('./images/revolution_mob.png'), require('./images/revolution_mob.webp')]}
-                 forPhoneOnlyRetina={[require('./images/revolution_mob_2x.png'), require('./images/revolution_mob_2x.webp')]}
-                 forTabletPortraitUp={[require('./images/revolution.png'), require('./images/revolution.webp')]}
-                 forTabletPortraitUpRetina={[require('./images/revolution_2x.png'), require('./images/revolution_2x.webp')]}
+                 forPhoneOnly={[require('./images/revolution.svg')]}
+                 forTabletPortraitUp={[require('./images/revolution.svg')]}
                  alt="Революция иллюстрация"/>
       </div>
     );

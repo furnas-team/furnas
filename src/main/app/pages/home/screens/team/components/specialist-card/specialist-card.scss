@@ -68,7 +68,7 @@
   }
 
   &__name {
-    font-family: $font-family;
+    font-family: $font-family-title;
     margin-bottom: 16px;
     margin-top: 96px;
     @include for-phone-only {

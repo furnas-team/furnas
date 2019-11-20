@@ -15,10 +15,8 @@ export class DislikeScreen extends React.Component {
           </SectionTitle>
           <Picture className="dislike-screen__image-mob"
                    imgClassName="dislike-screen__image-mob-img"
-                   forPhoneOnly={[require('./images/scrooge_mob.png'), require('./images/scrooge_mob.webp')]}
-                   forPhoneOnlyRetina={[require('./images/scrooge_mob_2x.png'), require('./images/scrooge_mob_2x.webp')]}
-                   forTabletPortraitUp={[require('./images/scrooge.png'), require('./images/scrooge.webp')]}
-                   forTabletPortraitUpRetina={[require('./images/scrooge_2x.png'), require('./images/scrooge_2x.webp')]}
+                   forPhoneOnly={[require('./images/scrooge.svg')]}
+                   forTabletPortraitUp={[require('./images/scrooge.svg')]}
                    alt="Скрудж иллюстрация" />
           <BlockText className="dislike-screen__block-text">
             Результат каждого этапа обсуждаем. Если работа не нравится, то за неё можно не платить.
@@ -26,10 +24,8 @@ export class DislikeScreen extends React.Component {
         </div>
         <Picture className="dislike-screen__image"
                  imgClassName="dislike-screen__image-img"
-                 forPhoneOnly={[require('./images/scrooge_mob.png'), require('./images/scrooge_mob.webp')]}
-                 forPhoneOnlyRetina={[require('./images/scrooge_mob_2x.png'), require('./images/scrooge_mob_2x.webp')]}
-                 forTabletPortraitUp={[require('./images/scrooge.png'), require('./images/scrooge.webp')]}
-                 forTabletPortraitUpRetina={[require('./images/scrooge_2x.png'), require('./images/scrooge_2x.webp')]}
+                 forPhoneOnly={[require('./images/scrooge.svg')]}
+                 forTabletPortraitUp={[require('./images/scrooge.svg')]}
                  alt="Скрудж иллюстрация" />
       </div>
     );    

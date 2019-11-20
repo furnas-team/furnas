@@ -15,10 +15,8 @@ export class MoneyScreen extends React.Component {
           </SectionTitle>
           <Picture className="money-screen__image-mob"
                    imgClassName="money-screen__image-mob-img"
-                   forPhoneOnly={[require('./images/franklin_mob.png'), require('./images/franklin_mob.webp')]}
-                   forPhoneOnlyRetina={[require('./images/franklin_mob_2x.png'), require('./images/franklin_mob_2x.webp')]}
-                   forTabletPortraitUp={[require('./images/franklin.png'), require('./images/franklin.webp')]}
-                   forTabletPortraitUpRetina={[require('./images/franklin_2x.png'), require('./images/franklin_2x.webp')]}
+                   forPhoneOnly={[require('./images/franklin.svg')]}
+                   forTabletPortraitUp={[require('./images/franklin.svg')]}
                    alt="Франклин иллюстрация" />
           <BlockText className="money-screen__block-text">
             В среднем, час работы стоит&nbsp;~&nbsp;1500&nbsp;руб.
@@ -27,10 +25,8 @@ export class MoneyScreen extends React.Component {
         </div>
         <Picture className="money-screen__image"
                  imgClassName="money-screen__image-img"
-                 forPhoneOnly={[require('./images/franklin_mob.png'), require('./images/franklin_mob.webp')]}
-                 forPhoneOnlyRetina={[require('./images/franklin_mob_2x.png'), require('./images/franklin_mob_2x.webp')]}
-                 forTabletPortraitUp={[require('./images/franklin.png'), require('./images/franklin.webp')]}
-                 forTabletPortraitUpRetina={[require('./images/franklin_2x.png'), require('./images/franklin_2x.webp')]}
+                 forPhoneOnly={[require('./images/franklin.svg')]}
+                 forTabletPortraitUp={[require('./images/franklin.svg')]}
                  alt="Франклин иллюстрация" />
       </div>
     );    
