@@ -39,8 +39,8 @@ export class PortfolioScreen extends React.Component {
             <div className="portfolio-screen__structure-item">
               <Picture className="portfolio-screen__image"
                        imgClassName="portfolio-screen__image-img"
-                       forPhoneOnly={[require('./images/frontend.png')]}
-                       forTabletPortraitUp={[require('./images/frontend.png')]}
+                       forPhoneOnly={[require('./images/paint-palette-and-brush.svg')]}
+                       forTabletPortraitUp={[require('./images/paint-palette-and-brush.svg')]}
                        alt="Фигура"/>
               <BlockText className="portfolio-screen__structure-text">Иллюстрации</BlockText>
             </div>
@@ -49,8 +49,8 @@ export class PortfolioScreen extends React.Component {
             <div className="portfolio-screen__structure-item">
               <Picture className="portfolio-screen__image"
                        imgClassName="portfolio-screen__image-img"
-                       forPhoneOnly={[require('./images/backend.png')]}
-                       forTabletPortraitUp={[require('./images/backend.png')]}
+                       forPhoneOnly={[require('./images/web-programming.svg')]}
+                       forTabletPortraitUp={[require('./images/web-programming.svg')]}
                        alt="Фигура"/>
               <BlockText className="portfolio-screen__structure-text">Код</BlockText>
             </div>
@@ -59,8 +59,8 @@ export class PortfolioScreen extends React.Component {
             <div className="portfolio-screen__structure-item">
               <Picture className="portfolio-screen__image"
                        imgClassName="portfolio-screen__image-img"
-                       forPhoneOnly={[require('./images/analytics.png')]}
-                       forTabletPortraitUp={[require('./images/analytics.png')]}
+                       forPhoneOnly={[require('./images/gazette.svg')]}
+                       forTabletPortraitUp={[require('./images/gazette.svg')]}
                        alt="Фигура"/>
               <BlockText className="portfolio-screen__structure-text">Статьи</BlockText>
             </div>

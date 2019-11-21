@@ -10,6 +10,12 @@
     justify-content: flex-start;
   }
   @include for-tablet-portrait-up {
+    width: auto;
+    margin: auto;
+    align-items: center;
+  }
+
+  @include for-tablet-landscape-up {
     width: 944px;
     margin: auto;
     align-items: center;
@@ -35,6 +41,14 @@
       margin-left: 16px;
       margin-right: 16px;
       text-align: left;
+    }
+
+    @include for-tablet-portrait-up {
+      width: 589px;
+    }
+
+    @include for-tablet-landscape-up {
+      width: auto;
     }
   }
 
@@ -66,6 +80,17 @@
       margin: 48px auto 80px;
       max-width: 87%;
     }
+
+    @include for-tablet-portrait-up {
+      width: 400px;
+      margin: 69px auto 90px;
+    }
+
+    @include for-tablet-landscape-up {
+      width: auto;
+      margin: 69px auto 236px;
+    }
+
   }
 
   &__structure-item {
@@ -77,9 +102,22 @@
       width: 128px;
       margin-bottom: 48px;
     }
+
+    @include for-tablet-portrait-up {
+      width: 157px;
+      margin-bottom: 80px;
+      text-align: center;
+    }
+
+    @include for-tablet-landscape-up {
+      width: 217px;
+      margin-bottom: auto;
+    }
   }
 
   &__structure-text {
+    font-weight: 600;
+    max-width: 157px;
     @include for-phone-only {
       text-align: center;
     }

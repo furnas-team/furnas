@@ -19,33 +19,33 @@ export class TeamScreen extends React.Component {
         <div className="team-screen__structure-row">
           <div className="team-screen__structure-item">
             <Picture className="team-screen__image"
-                     imgClassName="team-screen__image-img"
-                     forPhoneOnly={[require('./images/designer.png')]}
-                     forTabletPortraitUp={[require('./images/designer.png')]}
+                     imgClassName="team-screen__image-img team-screen__image-img-designer"
+                     forPhoneOnly={[require('./images/designer.svg')]}
+                     forTabletPortraitUp={[require('./images/designer.svg')]}
                      alt="Фигура"/>
             <BlockText className="team-screen__structure-text"> 2 дизайнера</BlockText>
           </div>
           <div className="team-screen__structure-item">
             <Picture className="team-screen__image"
-                     imgClassName="team-screen__image-img"
-                     forPhoneOnly={[require('./images/frontend.png')]}
-                     forTabletPortraitUp={[require('./images/frontend.png')]}
+                     imgClassName="team-screen__image-img team-screen__image-img-frontend"
+                     forPhoneOnly={[require('./images/frontend.svg')]}
+                     forTabletPortraitUp={[require('./images/frontend.svg')]}
                      alt="Фигура"/>
             <BlockText className="team-screen__structure-text"> 2 фронтенд разработчика</BlockText>
           </div>
           <div className="team-screen__structure-item">
             <Picture className="team-screen__image"
-                     imgClassName="team-screen__image-img"
-                     forPhoneOnly={[require('./images/backend.png')]}
-                     forTabletPortraitUp={[require('./images/backend.png')]}
+                     imgClassName="team-screen__image-img team-screen__image-img-backend"
+                     forPhoneOnly={[require('./images/backend.svg')]}
+                     forTabletPortraitUp={[require('./images/backend.svg')]}
                      alt="Фигура"/>
             <BlockText className="team-screen__structure-text"> 1 бекенд разработчик</BlockText>
           </div>
           <div className="team-screen__structure-item">
             <Picture className="team-screen__image"
-                     imgClassName="team-screen__image-img"
-                     forPhoneOnly={[require('./images/analytics.png')]}
-                     forTabletPortraitUp={[require('./images/analytics.png')]}
+                     imgClassName="team-screen__image-img team-screen__image-img-analytics"
+                     forPhoneOnly={[require('./images/analytics.svg')]}
+                     forTabletPortraitUp={[require('./images/analytics.svg')]}
                      alt="Фигура"/>
             <BlockText className="team-screen__structure-text"> 1 аналитик</BlockText>
           </div>

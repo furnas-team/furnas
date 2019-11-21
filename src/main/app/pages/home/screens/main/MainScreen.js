@@ -202,6 +202,11 @@ export class MainScreen extends React.Component {
                      imgClassName="main-screen__boy-img main-screen__boy-img_movement"
                      alt="Дизайн-студия Furnas иллюстрация"/>
           </div>
+          <Button className="main-screen__button-tablet"
+                  buttonStyle={ButtonStyle.BIG_PINK_FULL}
+                  onClick={this.handleSendContactClick}>
+            Связаться
+          </Button>
         </div>
       </div>
     );

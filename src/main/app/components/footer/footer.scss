@@ -14,6 +14,14 @@
     height: auto;
   }
 
+  @include for-tablet-portrait-up {
+    padding: 0 32px;
+  }
+
+  @include for-tablet-landscape-up {
+    padding: 0 16px;
+  }
+
   &__container {
     display: flex;
     flex-direction: row;
@@ -45,6 +53,14 @@
     @include for-phone-only {
       width: auto;
       margin-top: 32px;
+    }
+
+    @include for-tablet-portrait-up {
+      width: 36%;
+    }
+
+    @include for-tablet-landscape-up {
+      width: 30%;
     }
   }
 

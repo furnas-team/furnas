@@ -13,6 +13,14 @@
     flex-direction: column-reverse;
   }
 
+  @include for-tablet-portrait-up {
+    width: 624px;
+  }
+
+  @include for-tablet-landscape-up {
+    width: 944px;
+  }
+
   &__image {
     width: 460px;
     height: 590px;
@@ -28,6 +36,14 @@
     @include for-phone-only {
       width: 100%;
       height: auto;
+    }
+    @include for-tablet-portrait-up {
+      width: 315px;
+      height: 400px;
+    }
+    @include for-tablet-landscape-up {
+      width: 460px;
+      height: 590px;
     }
   }
 
@@ -76,6 +92,14 @@
       margin-top: 8px;
       margin-bottom: 4px;
     }
+
+    @include for-tablet-portrait-up {
+      margin-top: 0;
+    }
+
+    @include for-tablet-landscape-up {
+      margin-top: 96px;
+    }
   }
 
   &__profession {
@@ -123,6 +147,14 @@
       margin: auto 16px;
       display: flex;
       flex-direction: column;
+    }
+
+    @include for-tablet-portrait-up {
+      margin-left: 0;
+    }
+
+    @include for-tablet-landscape-up {
+      margin-left: 80px;
     }
   }
 

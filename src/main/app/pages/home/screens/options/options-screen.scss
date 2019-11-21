@@ -10,6 +10,16 @@
     margin: auto 16px;
   }
 
+  @include for-tablet-portrait-up {
+    width: auto;
+    margin: auto 32px;
+  }
+
+  @include for-tablet-landscape-up {
+    width: 944px;
+    margin: auto;
+  }
+
   &__title {
     padding-top: 64px;
     margin-bottom: 64px;
@@ -63,6 +73,30 @@
       width: auto;
       margin-bottom: 64px;
     }
+
+    @include for-tablet-portrait-up {
+      width: 336px;
+    }
+
+    @include for-tablet-landscape-up {
+      width: 384px;
+    }
+  }
+
+  &__image-img-studio {
+    width: 105px;
+  }
+
+  &__image-img-team {
+    width: 176px;
+  }
+
+  &__image-img-startup {
+    width: 53px;
+  }
+
+  &__image-img-one {
+    width: 198px;
   }
 
 }
