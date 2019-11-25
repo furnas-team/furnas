@@ -48,6 +48,8 @@ export class RevolutionScreen extends React.Component {
           </BlockText>
         </div>
         <Picture className="revolution-screen__image"
+                 dataAos="fade-up"
+                 dataAosDuration="2000"
                  imgClassName="revolution-screen__image-img"
                  forPhoneOnly={[require('./images/revolution.svg')]}
                  forTabletPortraitUp={[require('./images/revolution.svg')]}

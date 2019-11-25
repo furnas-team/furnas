@@ -85,7 +85,7 @@ export class ContactScreen extends React.Component {
               <Button className="contact-screen__button"
                       buttonStyle={ButtonStyle.BIG_PINK_FULL}
                       onClick={this.handleSendContactClick}>
-                Связаться
+                Отправить
               </Button>
             </div>
           </div>}

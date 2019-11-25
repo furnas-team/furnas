@@ -23,6 +23,8 @@ export class DislikeScreen extends React.Component {
           </BlockText>
         </div>
         <Picture className="dislike-screen__image"
+                 dataAos="fade-up"
+                 dataAosDuration="2000"
                  imgClassName="dislike-screen__image-img"
                  forPhoneOnly={[require('./images/scrooge.svg')]}
                  forTabletPortraitUp={[require('./images/scrooge.svg')]}

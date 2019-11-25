@@ -19,9 +19,16 @@ import {LandingPageEn} from './pages/landing-en/LandingPageEn';
 import {MainPage} from './pages/main/MainPage';
 import {FinansistPortfolioPage} from './pages/portfolio/finansist/FinansistPortfolioPage';
 import {PolicyPage} from './pages/policy/PolicyPage';
-
+import AOS from 'aos';
+import '../../3rd-part/aos.scss';
 
 export class App extends React.Component {
+
+  componentDidMount(){
+    AOS.init({
+      duration : 2000
+    })
+  }
 
   render() {
 

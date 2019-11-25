@@ -32,7 +32,14 @@ export class PortfolioScreen extends React.Component {
                        forPhoneOnly={[require('./images/designer.png')]}
                        forTabletPortraitUp={[require('./images/designer.png')]}
                        alt="Фигура"/>
-              <BlockText className="portfolio-screen__structure-text">Дизайн</BlockText>
+              <div className="portfolio-screen__text-row">
+                <Picture className="portfolio-screen__image-foreign"
+                         imgClassName="portfolio-screen__image-foreign-img"
+                         forPhoneOnly={[require('./images/foreign.svg')]}
+                         forTabletPortraitUp={[require('./images/foreign.svg')]}
+                         alt="Фигура"/>
+                <BlockText className="portfolio-screen__structure-text">Дизайн</BlockText>
+              </div>
             </div>
           </UniversalLink>
           <UniversalLink noStyle={true} href="https://dribbble.com/sanmary" target="_blank">
@@ -42,7 +49,14 @@ export class PortfolioScreen extends React.Component {
                        forPhoneOnly={[require('./images/paint-palette-and-brush.svg')]}
                        forTabletPortraitUp={[require('./images/paint-palette-and-brush.svg')]}
                        alt="Фигура"/>
-              <BlockText className="portfolio-screen__structure-text">Иллюстрации</BlockText>
+              <div className="portfolio-screen__text-row">
+                <Picture className="portfolio-screen__image-foreign"
+                         imgClassName="portfolio-screen__image-foreign-img"
+                         forPhoneOnly={[require('./images/foreign.svg')]}
+                         forTabletPortraitUp={[require('./images/foreign.svg')]}
+                         alt="Фигура"/>
+                <BlockText className="portfolio-screen__structure-text">Иллюстрации</BlockText>
+              </div>
             </div>
           </UniversalLink>
           <UniversalLink noStyle={true} href="https://github.com/furnasteam" target="_blank">
@@ -52,7 +66,14 @@ export class PortfolioScreen extends React.Component {
                        forPhoneOnly={[require('./images/web-programming.svg')]}
                        forTabletPortraitUp={[require('./images/web-programming.svg')]}
                        alt="Фигура"/>
-              <BlockText className="portfolio-screen__structure-text">Код</BlockText>
+              <div className="portfolio-screen__text-row">
+                <Picture className="portfolio-screen__image-foreign"
+                         imgClassName="portfolio-screen__image-foreign-img"
+                         forPhoneOnly={[require('./images/foreign.svg')]}
+                         forTabletPortraitUp={[require('./images/foreign.svg')]}
+                         alt="Фигура"/>
+                <BlockText className="portfolio-screen__structure-text">Код</BlockText>
+              </div>
             </div>
           </UniversalLink>
           <UniversalLink noStyle={true} href="https://spark.ru/startup/furnas" target="_blank">
@@ -62,7 +83,14 @@ export class PortfolioScreen extends React.Component {
                        forPhoneOnly={[require('./images/gazette.svg')]}
                        forTabletPortraitUp={[require('./images/gazette.svg')]}
                        alt="Фигура"/>
-              <BlockText className="portfolio-screen__structure-text">Статьи</BlockText>
+              <div className="portfolio-screen__text-row">
+                <Picture className="portfolio-screen__image-foreign"
+                         imgClassName="portfolio-screen__image-foreign-img"
+                         forPhoneOnly={[require('./images/foreign.svg')]}
+                         forTabletPortraitUp={[require('./images/foreign.svg')]}
+                         alt="Фигура"/>
+                <BlockText className="portfolio-screen__structure-text">Статьи</BlockText>
+              </div>
             </div>
           </UniversalLink>
         </div>

@@ -41,7 +41,9 @@ export class Header extends React.Component {
     const {className, onContactClick, contactPopupShown} = this.props;
     return (
       <div className={classNames('header', {'header_header-without-shadow': scrollY === 0 || contactPopupShown, 'header_contact-popup-shown': contactPopupShown}, className)}>
-        <div className="header__container">
+        <div className="header__container"
+             data-aos="fade-down"
+             data-aos-duration="1000">
           <div className="header__menu-container">
             <UniversalLink noStyle={true} href="/">
               <div className="header__title-with-logo">
@@ -75,7 +77,7 @@ export class Header extends React.Component {
             </div>}
             {!contactPopupShown &&
             <Button onClick={onContactClick} className="header__button">
-              Узнать подробнее
+              Связаться
             </Button>}
             {!contactPopupShown &&
             <div className="header__hamburger"

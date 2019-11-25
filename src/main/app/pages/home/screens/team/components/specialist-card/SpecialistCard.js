@@ -48,6 +48,8 @@ export class SpecialistCard extends React.Component {
           <BlockText className="specialist-card__story">«{story}»</BlockText>
         </div>
         <Picture className="specialist-card__image"
+                 dataAos="fade-up"
+                 dataAosDuration="3000"
                  onClick={onImageClick}
                  imgClassName="specialist-card__image-img"
                  forPhoneOnly={[imageUrl]}

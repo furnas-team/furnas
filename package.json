@@ -5,6 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "animejs": "^3.0.1",
+    "aos": "^2.3.4",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-async-to-generator": "^6.24.1",

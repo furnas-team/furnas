@@ -21,7 +21,9 @@ export class OptionsScreen extends React.Component {
           </SectionTitle>
         </div>
         <div className="options-screen__list">
-          <div className="options-screen__option">
+          <div className="options-screen__option"
+               data-aos="fade-up"
+               data-aos-duration="1000">
             <Picture className="options-screen__image"
                      imgClassName="options-screen__image-img options-screen__image-img-studio"
                      forPhoneOnly={[require('./images/studio.svg')]}
@@ -30,7 +32,9 @@ export class OptionsScreen extends React.Component {
             <SectionTitle className="options-screen__option-title">Студия</SectionTitle>
             <BlockText>Обсуждаем задачу, составляем ТЗ, подписываем договор и выполняем работу.</BlockText>
           </div>
-          <div className="options-screen__option">
+          <div className="options-screen__option"
+               data-aos="fade-up"
+               data-aos-duration="1500">
             <Picture className="options-screen__image"
                      imgClassName="options-screen__image-img options-screen__image-img-team"
                      forPhoneOnly={[require('./images/team.svg')]}
@@ -39,7 +43,9 @@ export class OptionsScreen extends React.Component {
             <SectionTitle className="options-screen__option-title">Команда на проект</SectionTitle>
             <BlockText>Если у вас уже есть проект - мы можем влиться в работу и помочь вам быстрее достичь результатов</BlockText>
           </div>
-          <div className="options-screen__option">
+          <div className="options-screen__option"
+               data-aos="fade-up"
+               data-aos-duration="1500">
             <Picture className="options-screen__image"
                      imgClassName="options-screen__image-img options-screen__image-img-startup"
                      forPhoneOnly={[require('./images/startup.svg')]}
@@ -48,7 +54,9 @@ export class OptionsScreen extends React.Component {
             <SectionTitle className="options-screen__option-title">Проект с нуля</SectionTitle>
             <BlockText>Вы можете нанять нас как команду и мы будем работать над задачей, пока не достигнем запланированных результатов</BlockText>
           </div>
-          <div className="options-screen__option">
+          <div className="options-screen__option"
+               data-aos="fade-up"
+               data-aos-duration="1000">
             <Picture className="options-screen__image"
                      imgClassName="options-screen__image-img options-screen__image-img-one"
                      forPhoneOnly={[require('./images/one.svg')]}

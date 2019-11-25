@@ -84,9 +84,9 @@ export class SpecialistsCarousel extends React.Component {
                           experienceYears={8}
                           sex={SpecialistSex.MALE}
                           location="Тула"
-                          story={`В свободное время пишу нейронные сети и читаю научные работы по астрофизике`}
+                          story={`В свободное время пишу нейронные сети и пишу научные работы по высшей математике`}
                           className={this.getSpecialistClassName(index)}
-                          previousWorks={['IIG', 'Ingate']}/>
+                          previousWorks={['IIG', 'Ingate', 'DD Planet']}/>
         );
       case 4:
         return (

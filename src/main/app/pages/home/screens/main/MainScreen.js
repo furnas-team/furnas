@@ -114,6 +114,20 @@ export class MainScreen extends React.Component {
     // }
   };
 
+  handleDoClick = () => {
+    location.hash = 'do';
+    setTimeout(() => {
+      location.hash = 'does';
+    })
+    // const {onSendContactClick} = this.props;
+    // const {inputValue} = this.state;
+    // if (!trim(inputValue)) {
+    //   this.setState({inputIsValid: false});
+    // } else {
+    //   onSendContactClick(inputValue);
+    // }
+  };
+
 
   handleInputChange = (event) => {
     this.setState({inputValue: event.target.value, inputIsValid: true});
@@ -175,7 +189,8 @@ export class MainScreen extends React.Component {
           </Button>
         </div>
         <div className="main-screen__form-desktop">
-          <div>
+          <div data-aos="fade-right"
+               data-aos-duration="1000">
             <Title className={classNames('main-screen__title main-screen__desktop-title', {'main-screen__desktop-title_cursor': canTitleBeDestroyed})}
                    onClick={this.handleDesktopTitleClick}>
               Разработка web&#8209;приложений Furnas
@@ -185,12 +200,14 @@ export class MainScreen extends React.Component {
             </BlockText>
             <div className="main-screen__desktop-contact-row">
               <Button className="main-screen__button"
-                      buttonStyle={ButtonStyle.BIG_PINK_FULL}
-                      onClick={this.handleSendContactClick}>
-                Связаться
+                      buttonStyle={ButtonStyle.BIG_PINK}
+                      onClick={this.handleDoClick}>
+                Подробнее
               </Button>
             </div>
           </div>
+          <div data-aos="fade-left"
+               data-aos-duration="1000">
           <div>
             <Picture forTabletPortraitUp={[require('./images/background.svg')]}
                      imgClassName="main-screen__background-img main-screen__background-img_movement"
@@ -202,10 +219,11 @@ export class MainScreen extends React.Component {
                      imgClassName="main-screen__boy-img main-screen__boy-img_movement"
                      alt="Дизайн-студия Furnas иллюстрация"/>
           </div>
+          </div>
           <Button className="main-screen__button-tablet"
-                  buttonStyle={ButtonStyle.BIG_PINK_FULL}
-                  onClick={this.handleSendContactClick}>
-            Связаться
+                  buttonStyle={ButtonStyle.BIG_PINK}
+                  onClick={this.handleDoClick}>
+            Подробнее
           </Button>
         </div>
       </div>

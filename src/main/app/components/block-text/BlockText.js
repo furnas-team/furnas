@@ -8,15 +8,17 @@ const BASE_CLASS_NAME = 'block-text';
 
 BlockText.propTypes = {
   className: string,
-  children: any
+  children: any,
+  dataAos: string,
+  dataAosDuration: string
 };
 
-export function BlockText({className, children}) {
+export function BlockText({className, children, dataAos, dataAosDuration}) {
 
   return (
     <ThemeConsumer>
       {theme => (
-        <p className={classNames(BASE_CLASS_NAME, createThemeClassName(BASE_CLASS_NAME, theme), className)}>
+        <p className={classNames(BASE_CLASS_NAME, createThemeClassName(BASE_CLASS_NAME, theme), className)} data-aos={dataAos} data-aos-duration={dataAosDuration}>
           {children}
         </p>)}
     </ThemeConsumer>

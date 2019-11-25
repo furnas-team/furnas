@@ -24,6 +24,8 @@ export class MoneyScreen extends React.Component {
           </BlockText>
         </div>
         <Picture className="money-screen__image"
+                 dataAos="fade-up"
+                 dataAosDuration="2000"
                  imgClassName="money-screen__image-img"
                  forPhoneOnly={[require('./images/franklin.svg')]}
                  forTabletPortraitUp={[require('./images/franklin.svg')]}

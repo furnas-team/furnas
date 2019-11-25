@@ -10,38 +10,41 @@
   border: none;
 
   &_default {
-    border: 1px solid #2B7A9E;
-    color: #2B7A9E;
+    border: 1px solid #FF78A0;
+    color: #ffffff;
     padding: 9px 44px;
-    background-color: transparent;
+    background-color: #FF78A0;
     font-size: 15px;
     line-height: 21px;
     height: 43px;
+    font-weight: 600;
   }
 
   &_big-pink {
-    background-color: #F95AB9;
-    color: #ffffff;
+    border: 1px solid #2B7A9E;
+    background-color: transparent;
+    color: #2B7A9E;
     min-width: 180px;
     padding: 12px 24px;
     line-height: 16px;
-    font-size: 18px;
+    font-size: 17px;
     @include for-tablet-portrait-up {
       padding: 19px 24px;
     }
   }
 
   &_big-pink-full {
-    background-color: #FF78A0;
-    color: #ffffff;
+    border: 1px solid #2B7A9E;
+    color: #FFFFFF;
     min-width: 180px;
     padding: 14px 24px;
     line-height: 16px;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
+    background-color: #2B7A9E;
     @include for-tablet-portrait-up {
       padding: 19px 24px;
-      background-color: #FF78A0;
+      background-color: #2B7A9E;
     }
   }
 

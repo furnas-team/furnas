@@ -146,10 +146,18 @@
   }
 
   &__girl-img {
-    width: 71px !important;
-    position: absolute;
-    margin-top: 63px;
-    margin-left: -355px;
+    @include for-tablet-portrait-up {
+      width: 71px !important;
+      position: absolute;
+      margin-top: 160px;
+      margin-left: -317px;
+    }
+    @include for-tablet-landscape-up {
+      width: 71px !important;
+      position: absolute;
+      margin-top: 63px;
+      margin-left: -355px;
+    }
   }
 
   &__girl-img_movement {
@@ -160,10 +168,18 @@
   }
 
   &__boy-img {
-    width: 71px !important;
-    position: absolute;
-    margin-top: 57px;
-    margin-left: -201px;
+    @include for-tablet-portrait-up {
+      width: 71px !important;
+      position: absolute;
+      margin-top: 150px;
+      margin-left: -173px;
+    }
+    @include for-tablet-landscape-up {
+      width: 71px !important;
+      position: absolute;
+      margin-top: 57px;
+      margin-left: -201px;
+    }
   }
 
   &__boy-img_movement {
