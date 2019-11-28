@@ -34,17 +34,17 @@ export class SpecialistsCarousel extends React.Component {
     switch (index) {
       case 0:
         return (
-          <SpecialistCard name="Maрия"
+          <SpecialistCard name="Елена"
                           key={index}
-                          imageUrl={require('./images/masha-2.png')}
-                          previousWorks={['Ingate', 'Rembot']}
+                          imageUrl={require('./images/elena.png')}
+                          profession="Аналитик"
                           onImageClick={this.handleRightClick}
-                          className={this.getSpecialistClassName(index)}
-                          experienceYears={7}
+                          experienceYears={12}
                           sex={SpecialistSex.FEMALE}
-                          story={`Люблю работать из кофеен, заниматься йогой и приглашать друзей в гости.`}
-                          location="Санкт-Петербург"
-                          profession="UX/UI дизайнер"/>
+                          location="Москва"
+                          story={`Отпуска провожу на улицах красивых городов Европы, а свободное время посвещаю фотографии. Люблю фотографировать рок-концерты, за их энергию и мощь.`}
+                          className={this.getSpecialistClassName(index)}
+                          previousWorks={['Ingate', 'Rambler Group']}/>
         );
       case 1:
         return (
@@ -62,17 +62,17 @@ export class SpecialistsCarousel extends React.Component {
         );
       case 2:
         return (
-          <SpecialistCard name="Мария"
+          <SpecialistCard name="Maрия"
                           key={index}
-                          imageUrl={require('./images/masha-1.png')}
-                          profession="Мобильный дизайнер"
+                          imageUrl={require('./images/masha-2.png')}
+                          previousWorks={['Ingate', 'Rembot']}
                           onImageClick={this.handleRightClick}
+                          className={this.getSpecialistClassName(index)}
                           experienceYears={7}
                           sex={SpecialistSex.FEMALE}
-                          location="Москва"
-                          story={`Много путешествую, встречаюсь с друзьями и не пропускаю конференции по дизайну.`}
-                          className={this.getSpecialistClassName(index)}
-                          previousWorks={['IIG', 'Ingate']}/>
+                          story={`Люблю работать из кофеен, заниматься йогой и приглашать друзей в гости.`}
+                          location="Санкт-Петербург"
+                          profession="UX/UI дизайнер"/>
         );
       case 3:
         return (
@@ -90,17 +90,17 @@ export class SpecialistsCarousel extends React.Component {
         );
       case 4:
         return (
-          <SpecialistCard name="Елена"
+          <SpecialistCard name="Мария"
                           key={index}
-                          imageUrl={require('./images/elena.png')}
-                          profession="Аналитик"
+                          imageUrl={require('./images/masha-1.png')}
+                          profession="Мобильный дизайнер"
                           onImageClick={this.handleRightClick}
-                          experienceYears={12}
+                          experienceYears={7}
                           sex={SpecialistSex.FEMALE}
                           location="Москва"
-                          story={`Отпуска провожу на улицах красивых городов Европы, а свободное время посвещаю фотографии. Люблю фотографировать рок-концерты, за их энергию и мощь.`}
+                          story={`Много путешествую, встречаюсь с друзьями и не пропускаю конференции по дизайну.`}
                           className={this.getSpecialistClassName(index)}
-                          previousWorks={['Ingate', 'Rambler Group']}/>
+                          previousWorks={['IIG', 'Ingate']}/>
         );
       case 5:
         return (

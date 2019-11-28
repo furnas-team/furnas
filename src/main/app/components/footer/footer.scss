@@ -16,9 +16,11 @@
 
   @include for-tablet-portrait-up {
     padding: 0 32px;
+    width: calc(100% - 64px);
   }
 
   @include for-tablet-landscape-up {
+    width: calc(100% - 32px);
     padding: 0 16px;
   }
 

@@ -14,6 +14,7 @@ import {PortfolioScreen} from './screens/portfolio/PortfolioScreen';
 import {Footer} from '../../components/footer/Footer';
 import {DoScreen} from './screens/do/DoScreen';
 import {OptionsScreen} from './screens/options/OptionsScreen';
+import {PriceScreen} from './screens/price/PriceScreen';
 
 export class HomePage extends React.Component {
 
@@ -79,6 +80,9 @@ export class HomePage extends React.Component {
                   contactPopupShown={contactPopupShown}/>
           <MainScreen onSendContactClick={this.handleSendContactClick}/>
           <DoScreen id="do"/>
+          <div className="home__price-screen">
+            <PriceScreen/>
+          </div>
           <div className="home__options-screen">
             <OptionsScreen id="how"/>
           </div>

@@ -1,0 +1,97 @@
+@import "../../../../common/vars";
+@import "../../../../common/mixins";
+
+.price-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @include for-tablet-portrait-up {
+    max-width: none;
+    margin: auto 32px;
+    flex-direction: row;
+  }
+
+  @include for-tablet-landscape-up {
+    max-width: 944px;
+    margin: auto;
+    flex-direction: row;
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 32px;
+    @include for-tablet-portrait-up {
+      margin-bottom: 32px;
+      margin-top: 133px;
+    }
+  }
+
+  &__image {
+    margin: 16px 32px;
+    @include for-phone-only {
+      display: none;
+    }
+    @include for-tablet-portrait-up {
+      margin: 189px 0 172px;
+    }
+  }
+
+  &__image-img {
+    @include for-tablet-portrait-up {
+      width: 250px;
+    }
+
+    @include for-tablet-landscape-up {
+      width: 384px;
+    }
+  }
+
+  &__text {
+    margin: 88px 16px;
+    @include for-phone-only{
+      display: flex;
+      flex-direction: column;
+    }
+    @include for-tablet-portrait-up {
+      margin: 0;
+    }
+  }
+
+  &__block-text {
+    max-width: 470px;
+  }
+
+
+  &__image-mob {
+    margin: 0 32px 32px;
+    align-self: center;
+    @include for-tablet-portrait-up {
+      display: none;
+    }
+  }
+
+  &__image-mob-img {
+    width: 175px;
+  }
+
+  &__image-price {
+    align-self: center;
+    @include for-tablet-portrait-up {
+      width: 216px;
+      height: 101px;
+      margin: 73px 0 0 144px;
+    }
+  }
+
+  &__image-price-img {
+    width: 216px;
+    height: 101px;
+    margin-top: 32px;
+    @include for-tablet-portrait-up {
+      margin-top: 32px;
+    }
+    @include for-tablet-landscape-up {
+      margin-top: 73px;
+    }
+  }
+}
