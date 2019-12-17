@@ -2,12 +2,12 @@
 @import "../../../common/mixins";
 
 .finansist-portfolio {
-  height: 100%;
+  //height: 100%;
   width: 100%;
 
   &__title-container {
     color: #333333;
-    @include for-phone-only{
+    @include for-phone-only {
       margin-top: 70px !important;
     }
   }
@@ -17,7 +17,7 @@
     margin-top: 150px;
     @include for-phone-only {
       width: auto;
-      order: 2;
+      margin: 64px 0;
     }
     color: #333333;
   }
@@ -27,6 +27,7 @@
     @include for-phone-only {
       width: auto;
       margin: 0 auto 64px auto;
+      order: 2;
     }
   }
 
@@ -37,7 +38,8 @@
   &__task-image-img {
     width: 831px;
     @include for-phone-only {
-      width: 228px;
+      width: 100vw;
+      margin-left: -24px;
     }
   }
 
@@ -99,7 +101,7 @@
 
   &__design-image-block {
     width: 50%;
-    @include for-phone-only{
+    @include for-phone-only {
       width: auto;
       order: 2;
       margin: auto;
@@ -110,7 +112,7 @@
     width: 50%;
     margin-top: 290px;
     color: #fff;
-    @include for-phone-only{
+    @include for-phone-only {
       width: auto;
       margin-top: 64px;
     }
@@ -119,7 +121,7 @@
   &__design-image {
     width: 302px;
     margin: 112px 0;
-    @include for-phone-only{
+    @include for-phone-only {
       width: 180px;
       margin: 64px auto;
     }
@@ -129,6 +131,14 @@
   &__goal-block {
     background: #E5F4FF;
     display: flex;
+  }
+
+  &__goal-mob {
+    background: #E5F4FF;
+    padding: 64px 0;
+    @include for-tablet-portrait-up {
+      display: none;
+    }
   }
 
   &__goal-img {
@@ -142,13 +152,16 @@
 
   &__goal-picture {
     margin: auto;
+    @include for-phone-only {
+      display: none;
+    }
   }
 
   &__idea-image-block {
     width: 50%;
     display: flex;
     justify-content: center;
-    @include for-phone-only{
+    @include for-phone-only {
       width: auto;
       margin: auto;
     }
@@ -158,7 +171,7 @@
     width: 50%;
     margin-top: 150px;
     color: #fff;
-    @include for-phone-only{
+    @include for-phone-only {
       width: auto;
       margin-top: 64px;
     }
@@ -167,7 +180,7 @@
   &__idea-image {
     width: 313px;
     margin: 112px 0;
-    @include for-phone-only{
+    @include for-phone-only {
       width: 270px;
       margin: 64px auto;
     }
@@ -272,7 +285,7 @@
     margin: 0px 0 128px;
     @include for-phone-only {
       width: 274px;
-      margin: 246px 0;
+      margin: 0 0 64px;
     }
   }
 
@@ -285,7 +298,7 @@
     margin: 0px 0 128px;
     @include for-phone-only {
       width: 274px;
-      margin: 246px 0;
+      margin: 110px 0;
     }
   }
 
@@ -298,7 +311,7 @@
     margin: 0px 0 128px;
     @include for-phone-only {
       width: 274px;
-      margin: 246px 0;
+      margin: 110px 0;
     }
   }
 

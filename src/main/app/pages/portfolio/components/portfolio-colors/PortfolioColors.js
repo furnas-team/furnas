@@ -7,14 +7,18 @@ export const PortfolioType = {
   WORK: 'WORK',
   OLD_FURNAS: 'OLD_FURNAS',
   FURNAS: 'FURNAS',
-  FINANSIST: 'FINANSIST'
+  FINANSIST: 'FINANSIST',
+  CODE_FIGHTER: 'CODE_FIGHTER',
+  TEA: 'TEA',
 };
 
 export const PortfolioClassNameByType = {
   [PortfolioType.WORK]: 'portfolio-colors__work',
   [PortfolioType.OLD_FURNAS]: 'portfolio-colors__old-furnas',
   [PortfolioType.FURNAS]: 'portfolio-colors__furnas',
-  [PortfolioType.FINANSIST]: 'portfolio-colors__finansist'
+  [PortfolioType.FINANSIST]: 'portfolio-colors__finansist',
+  [PortfolioType.CODE_FIGHTER]: 'portfolio-colors__code-fighter',
+  [PortfolioType.TEA]: 'portfolio-colors__tea'
 };
 
 export class PortfolioColors extends React.Component {

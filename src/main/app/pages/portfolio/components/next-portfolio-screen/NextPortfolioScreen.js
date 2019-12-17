@@ -14,27 +14,27 @@ export class NextPortfolioScreenComponent extends React.Component {
     fixed: false
   };
 
-  handleScroll = event => {
-    if (this.state.fixed) {
-      window.scrollTo(0, 0);
-    }
-    if ((window.scrollY + window.innerHeight) === document.documentElement.offsetHeight) {
-      this.setState({fixed: true});
-      window.scrollTo(0, 0);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        this.props.history.push(this.props.nextPageHref);
-      }, 10);
-    }
-  };
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
+  // handleScroll = event => {
+  //   if (this.state.fixed) {
+  //     window.scrollTo(0, 0);
+  //   }
+  //   if ((window.scrollY + window.innerHeight) === document.documentElement.offsetHeight) {
+  //     this.setState({fixed: true});
+  //     window.scrollTo(0, 0);
+  //     setTimeout(() => {
+  //       window.scrollTo(0, 0);
+  //       this.props.history.push(this.props.nextPageHref);
+  //     }, 10);
+  //   }
+  // };
+  //
+  // componentDidMount() {
+  //   window.addEventListener('scroll', this.handleScroll);
+  // }
+  //
+  // componentWillUnmount() {
+  //   window.removeEventListener('scroll', this.handleScroll);
+  // }
 
   render() {
     const {fixed} = this.state;

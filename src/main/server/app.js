@@ -35,7 +35,7 @@ app.get("*", (req, res) => {
       {helmet.title.toComponent()}
       {helmet.meta.toComponent()}
       {helmet.link.toComponent()}
-      <link href="https://fonts.googleapis.com/css?family=Literata:400,400i,500,500i,600,600i,700,700i|Open+Sans:400,400i,600,600i,700,700i&display=block&subset=cyrillic" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css?family=Literata:400,400i,500,500i,600,600i,700,700i|Open+Sans:400,400i,600,600i,700,700i|Rubik:300,300i,400,400i,500,500i,700&display=block&subset=cyrillic" rel="stylesheet"/>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css"/>
       <link rel="stylesheet" type="text/css" href="/styles.css"/>
     </head>

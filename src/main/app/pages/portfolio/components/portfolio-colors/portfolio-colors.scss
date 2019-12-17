@@ -86,4 +86,34 @@
       background: #F5F5F7;
     }
   }
+
+  &__code-fighter {
+    .portfolio-colors__1 {
+      border: 1px solid rgba(51, 51, 51, 0.1);
+    }
+    .portfolio-colors__2 {
+      background: #343638;
+    }
+    .portfolio-colors__3 {
+      background: #C54341;
+    }
+    .portfolio-colors__4 {
+      background: #F5F5F5;
+    }
+  }
+
+  &__tea {
+    .portfolio-colors__1 {
+      background: #52A3C9;
+    }
+    .portfolio-colors__2 {
+      background: #C25681;
+    }
+    .portfolio-colors__3 {
+      border: 1px solid rgba(51, 51, 51, 0.1);
+    }
+    .portfolio-colors__4 {
+      background: #E7F2F6;
+    }
+  }
 }

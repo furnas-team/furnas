@@ -1,19 +1,20 @@
 import React from 'react';
 import './footer.scss';
 import classNames from 'classnames';
-import {string} from 'prop-types';
+import {string, bool} from 'prop-types';
 import {Link} from '../link/Link';
 
 export class Footer extends React.Component {
 
   static propTypes = {
     className: string,
+    portfolioMode: bool
   };
 
   render() {
-    const {className} = this.props;
+    const {className, portfolioMode} = this.props;
     return (
-      <div className={classNames('footer', className)}>
+      <div className={classNames('footer', portfolioMode ? 'footer_portfolio-mode' : '', className)}>
         <div className="footer__container">
           <div className="footer__contacts-block">
             <div className="footer__title">

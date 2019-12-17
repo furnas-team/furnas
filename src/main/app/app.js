@@ -21,6 +21,7 @@ import {FinansistPortfolioPage} from './pages/portfolio/finansist/FinansistPortf
 import {PolicyPage} from './pages/policy/PolicyPage';
 import AOS from 'aos';
 import '../../3rd-part/aos.scss';
+import {PortfolioPage} from './pages/portfolio/PortfolioPage';
 
 export class App extends React.Component {
 
@@ -46,7 +47,7 @@ export class App extends React.Component {
           <Route path='/portfolio/furnas' component={FurnasPortfolioPage}/>
           <Route path='/portfolio/visa' component={VisaPortfolioPage}/>
           <Route path='/portfolio/finansist' component={FinansistPortfolioPage}/>
-          <Route path='/portfolio' component={FinansistPortfolioPage}/>
+          <Route path='/portfolio' component={PortfolioPage}/>
           <Route path='/policy' component={PolicyPage}/>
           {/*<Route path='/test-canvas' component={TestCanvasPage}/>*/}
           {/*<Route path='/about' component={LandingPage}/>*/}

@@ -40,8 +40,9 @@ export class HomePage extends React.Component {
     })
   };
 
-  handleSendContactClick = contact => {
+  handleSendContactClick = (contact, contactOption) => {
     if (contact) {
+      contact = contact + ' ' + contactOption.value;
       window.fetch('https://api.furnas.ru/requests', {
         method: 'POST',
         headers: {
@@ -77,9 +78,12 @@ export class HomePage extends React.Component {
         </Helmet>
         <div className="home">
           <Header onContactClick={this.handleContactClick}
+                  portfolioMode={true}
                   contactPopupShown={contactPopupShown}/>
           <MainScreen onSendContactClick={this.handleSendContactClick}/>
-          <DoScreen id="do"/>
+          <div className="home__do-screen">
+            <DoScreen id="do"/>
+          </div>
           <div className="home__price-screen">
             <PriceScreen/>
           </div>

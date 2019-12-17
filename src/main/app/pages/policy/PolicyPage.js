@@ -26,8 +26,9 @@ export class PolicyPage extends React.Component {
     this.setState({contactPopupShown: !this.state.contactPopupShown, requestSent: false});
   };
 
-  handleSendContactClick = contact => {
+  handleSendContactClick = (contact, contactOption) => {
     if (contact) {
+      contact = contact + ' ' + contactOption.value;
       window.fetch('https://api.furnas.ru/requests', {
         method: 'POST',
         headers: {

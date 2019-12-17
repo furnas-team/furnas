@@ -11,7 +11,8 @@ export class Header extends React.Component {
   static propTypes = {
     className: string,
     onContactClick: func,
-    contactPopupShown: bool
+    contactPopupShown: bool,
+    portfolioMode: bool
   };
 
   static defaultProps = {
@@ -38,9 +39,9 @@ export class Header extends React.Component {
 
   render() {
     const {scrollY} = this.state;
-    const {className, onContactClick, contactPopupShown} = this.props;
+    const {className, onContactClick, contactPopupShown, portfolioMode} = this.props;
     return (
-      <div className={classNames('header', {'header_header-without-shadow': scrollY === 0 || contactPopupShown, 'header_contact-popup-shown': contactPopupShown}, className)}>
+      <div className={classNames('header', {'header_header-without-shadow': scrollY === 0 || contactPopupShown, 'header_contact-popup-shown': contactPopupShown, 'header_portfolio-mode': portfolioMode}, className)}>
         <div className="header__container"
              data-aos="fade-down"
              data-aos-duration="1000">

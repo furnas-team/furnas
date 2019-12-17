@@ -1,0 +1,50 @@
+@import "../../../../common/vars";
+@import "../../../../common/mixins";
+
+.navigation {
+  position: fixed;
+  top: 277px;
+  margin: 0;
+  padding: 0;
+  margin-left: 16px;
+  cursor: pointer;
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 12px;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__item-active {
+    opacity: 1;
+  }
+
+  &__point {
+    background: #333333;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+  }
+
+  &__text {
+    font-family: "Rubik";
+    font-size: 17px;
+    font-weight: 300;
+    margin-left: 8px;
+    line-height: 22px;
+    opacity: 0;
+    transition: 0.7s;
+  }
+
+  &_with-text {
+    .navigation__text {
+      opacity: 1;
+    }
+  }
+}

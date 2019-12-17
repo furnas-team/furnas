@@ -8,6 +8,22 @@ import {bool, func, string} from 'prop-types';
 import trim from 'lodash/trim';
 import {Picture} from '../../../../components/picture/Picture';
 import classNames from 'classnames';
+import {Radio} from '../../../../components/radio/Radio';
+
+const CONTACT_OPTIONS = [
+  {
+    name: 'Позвонить',
+    value: 'phone'
+  },
+  {
+    name: 'WhatsApp',
+    value: 'whatsapp'
+  },
+  {
+    name: 'Telegram',
+    value: 'telegram'
+  }
+];
 
 export class ContactScreen extends React.Component {
 
@@ -20,7 +36,8 @@ export class ContactScreen extends React.Component {
 
   state = {
     inputValue: '',
-    inputIsValid: true
+    inputIsValid: true,
+    contactOption: CONTACT_OPTIONS[0]
   };
 
   handlePhoneClick = () => {
@@ -41,17 +58,21 @@ export class ContactScreen extends React.Component {
 
   handleSendContactClick = () => {
     const {onSendContactClick} = this.props;
-    const {inputValue} = this.state;
+    const {inputValue, contactOption} = this.state;
     if (!trim(inputValue)) {
       this.setState({inputIsValid: false});
     } else {
-      onSendContactClick(inputValue);
+      onSendContactClick(inputValue, contactOption);
     }
+  };
+
+  handleContactOptionChange = (option) => {
+    this.setState({contactOption: option});
   };
 
   render() {
     const {requestSent, onCloseButtonClick, id} = this.props;
-    const {inputValue, inputIsValid} = this.state;
+    const {inputValue, inputIsValid, contactOption} = this.state;
 
     return (
       <div className={classNames('contact-screen', requestSent ? 'contact-screen_sent' : '')} id={id}>
@@ -68,8 +89,14 @@ export class ContactScreen extends React.Component {
           <div>
             <div>
               <BlockText className="contact-screen__text">
-                Оставьте свои контактные данные и мы свяжемся с вами в течение дня
+                Оставьте номер телефона и укажите способ связи:
               </BlockText>
+            </div>
+            <div className="contact-screen__radio">
+              <Radio options={CONTACT_OPTIONS}
+                     className="contact-screen__radio-component"
+                     selectedObject={contactOption}
+                     onChange={this.handleContactOptionChange}/>
             </div>
             <div className="contact-screen__group">
               <Picture className="contact-screen__input-arrow"
@@ -78,7 +105,7 @@ export class ContactScreen extends React.Component {
                        forTabletPortraitUp={[require('./images/input-arrow.svg')]}
                        alt="Стрелка"/>
               <Input className="contact-screen__input"
-                     placeholder="Телефон, почта или скайп"
+                     placeholder="Телефон"
                      value={inputValue}
                      isValid={inputIsValid}
                      onChange={this.handleInputChange}/>
