@@ -1,0 +1,247 @@
+@import "../../../../common/vars";
+@import "../../../../common/mixins";
+
+.design-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 568px;
+  @include for-phone-only {
+    justify-content: flex-start;
+  }
+  @include for-tablet-portrait-up {
+    width: calc(100% - 48px);
+    margin: auto;
+    align-items: normal;
+  }
+
+  @include for-tablet-landscape-up {
+    width: 944px;
+    margin: auto;
+    align-items: normal;
+  }
+
+  &__title {
+    margin-top: 80px;
+    margin-bottom: 24px;
+    @include for-phone-only {
+      margin-left: 16px;
+      margin-right: 16px;
+    }
+
+    @include for-tablet-portrait-up {
+      margin-bottom: 24px;
+      margin-top: 150px;
+      text-align: left;
+      align-self: flex-start;
+    }
+
+    @include for-tablet-landscape-up {
+      margin-bottom: 24px;
+      margin-top: 150px;
+      text-align: right;
+      align-self: flex-end;
+    }
+  }
+
+  &__subtitle {
+    text-align: right;
+    @include for-tablet-portrait-up {
+      text-align: left;
+    }
+    @include for-tablet-landscape-up {
+      text-align: right;
+    }
+    @include for-phone-only {
+      margin-left: 16px;
+      margin-right: 16px;
+      text-align: left;
+    }
+
+    @include for-tablet-portrait-up {
+      width: 589px;
+    }
+
+    @include for-tablet-landscape-up {
+      width: 707px;
+      align-self: flex-end;
+    }
+  }
+
+  &__title2 {
+
+    @include for-tablet-portrait-up {
+      margin-bottom: 40px;
+      margin-top: 64px;
+    }
+
+    @include for-tablet-landscape-up {
+      margin-bottom: 40px;
+      margin-top: 64px;
+    }
+
+    @include for-phone-only {
+      margin-left: 16px;
+      margin-top: 40px;
+    }
+
+  }
+
+  &__portfolio {
+    @include for-tablet-portrait-up {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    @include for-tablet-landscape-up {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: -8px -8px 32px -8px;
+    }
+  }
+
+  &__card {
+    cursor: pointer;
+    @include for-phone-only {
+      margin: 24px 16px 0;
+    }
+    @include for-tablet-portrait-up {
+      width: 336px;
+      height: 336px;
+      margin-bottom: 48px;
+    }
+    @include for-tablet-landscape-up {
+      width: 464px;
+      height: 464px;
+      margin: 8px;
+      overflow: hidden;
+      border-radius: 7px;
+      transition: 0.3s ease-out;
+      &:hover {
+        transform: scale(0.9);
+      }
+    }
+  }
+
+  &__image {
+    @include for-tablet-landscape-up {
+      width: 464px;
+      height: 464px;
+    }
+  }
+
+  &__image-img {
+    @include for-tablet-landscape-up {
+      width: 464px;
+      height: 464px;
+    }
+  }
+
+  &__card-name {
+    position: absolute;
+    font-family: $font-family-title;
+    font-size: 40px;
+    padding: 32px;
+    z-index: 1;
+    color: #333333;
+    box-sizing: border-box;
+    border-radius: 7px;
+    @include for-phone-only {
+      font-size: 32px;
+      padding: 16px;
+      width: calc(100vw - 32px);
+      height: calc(100vw - 32px);
+    }
+    @include for-tablet-portrait-up {
+      width: 336px;
+      height: 336px;
+      font-size: 32px;
+      padding: 16px;
+    }
+    @include for-tablet-landscape-up {
+      width: 464px;
+      height: 464px;
+      padding: 32px;
+      font-size: 40px;
+    }
+  }
+
+  &__card-name_white {
+    color: #ffffff;
+  }
+
+  &__card-name_blue {
+    color: #3603A4;
+  }
+
+  &__card-type {
+    position: absolute;
+    font-family: $font-family;
+    font-size: 18px;
+    font-style: italic;
+    color: #131416;
+    margin: 90px 32px;
+    z-index: 1;
+  }
+
+  &__card-type_white {
+    color: #ffffff;
+  }
+
+  &__card-type_blue {
+    color: #3603A4;
+  }
+
+  &__image-foreign {
+    @include for-tablet-portrait-up {
+    }
+  }
+
+  &__image-foreign-img {
+    margin-top: 5px;
+    margin-right: 8px;
+    @include for-tablet-portrait-up {
+      width: 16px;
+      height: 16px;
+    }
+    @include for-phone-only {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__text-row {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    margin-top: -1px;
+    @include for-phone-only {
+      margin-left: 2px;
+    }
+  }
+
+  &__structure-text {
+    font-weight: 600;
+    max-width: 157px;
+    color: #FF78A0;
+    cursor: pointer;
+    @include for-phone-only {
+      text-align: center;
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 82px;
+    @include for-phone-only {
+      flex-direction: column;
+      margin-left: 16px;
+      margin-top: 16px;
+    }
+  }
+
+}

@@ -10,11 +10,13 @@ import {DislikeScreen} from './screens/dislike/DislikeScreen';
 import {ContactScreen} from './screens/contact/ContactScreen';
 import {Popup} from '../../components/Popup/Popup';
 import {RevolutionScreen} from './screens/revolution/RevolutionScreen';
-import {PortfolioScreen} from './screens/portfolio/PortfolioScreen';
 import {Footer} from '../../components/footer/Footer';
 import {DoScreen} from './screens/do/DoScreen';
 import {OptionsScreen} from './screens/options/OptionsScreen';
 import {PriceScreen} from './screens/price/PriceScreen';
+import {DesignScreen} from './screens/design/DesignScreen';
+import {IllustrationsScreen} from './screens/illustrations/IllustrationsScreen';
+import {BlogScreen} from './screens/blog/BlogScreen';
 
 export class HomePage extends React.Component {
 
@@ -92,7 +94,11 @@ export class HomePage extends React.Component {
           </div>
           <TeamScreen/>
           <div className="home__portfolio-screen">
-            <PortfolioScreen id="portfolio"/>
+            <DesignScreen id="portfolio"/>
+          </div>
+          <IllustrationsScreen/>
+          <div className="home__blog-screen">
+            <BlogScreen/>
           </div>
           <RevolutionScreen/>
           <div className="home__money-screen">

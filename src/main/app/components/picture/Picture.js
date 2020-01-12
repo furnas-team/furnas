@@ -19,6 +19,14 @@ const MediaQuery = {
   FOR_BIG_DESKTOP_UP: '(min-width: 1800px)'
 };
 
+const MediaQueryWithMinMax = {
+  FOR_PHONE_ONLY: '(max-width: 599px)',
+  FOR_TABLET_PORTRAIT_UP: '(min-width: 600px) and (max-width: 899px)',
+  FOR_TABLE_LANDSCAPE_UP: '(min-width: 900px) and (max-width: 1199px)',
+  FOR_DESKTOP_UP: '(min-width: 1200px) and (max-width: 1799px)',
+  FOR_BIG_DESKTOP_UP: '(min-width: 1800px)'
+};
+
 export class Picture extends React.Component {
 
   static propTypes = {
@@ -88,17 +96,25 @@ export class Picture extends React.Component {
     } = this.props;
     const biggestImage = last(compact(filter(flatten([forPhoneOnly, forTabletPortraitUp, forTabletLandscapeUp, forDesktopUp, forBigDesktopUp]), url => !endsWith(url, 'jp2') && !endsWith(url, 'webp'))));
 
+
+    //todo
+    const bigDesktopUp = this.renderGroup(forBigDesktopUp, forBigDesktopUpRetina, MediaQuery.FOR_BIG_DESKTOP_UP);
+    const desktopUpGroup = this.renderGroup(forDesktopUp, forDesktopUpRetina, isEmpty(bigDesktopUp) ? MediaQuery.FOR_DESKTOP_UP : MediaQueryWithMinMax.FOR_DESKTOP_UP);
+    const tabletLandscapeUpGroup = this.renderGroup(forTabletLandscapeUp, forTabletLandscapeUpRetina, isEmpty(desktopUpGroup) ? MediaQuery.FOR_TABLE_LANDSCAPE_UP : MediaQueryWithMinMax.FOR_TABLE_LANDSCAPE_UP);
+    const tabletPortraitUpGroup = this.renderGroup(forTabletPortraitUp, forTabletPortraitUpRetina, isEmpty(tabletLandscapeUpGroup) ? MediaQuery.FOR_TABLET_PORTRAIT_UP : MediaQueryWithMinMax.FOR_TABLET_PORTRAIT_UP);
+    const phoneOnlyGroup = this.renderGroup(forPhoneOnly, forPhoneOnlyRetina, MediaQuery.FOR_PHONE_ONLY);
+
     return (
       <picture className={className}
                onClick={onClick}
                data-aos={dataAos}
                data-aos-duration={dataAosDuration}
                onMouseOver={onMouseOver}>
-        {this.renderGroup(forPhoneOnly, forPhoneOnlyRetina, MediaQuery.FOR_PHONE_ONLY)}
-        {this.renderGroup(forTabletPortraitUp, forTabletPortraitUpRetina, MediaQuery.FOR_TABLET_PORTRAIT_UP)}
-        {this.renderGroup(forTabletLandscapeUp, forTabletLandscapeUpRetina, MediaQuery.FOR_TABLE_LANDSCAPE_UP)}
-        {this.renderGroup(forDesktopUp, forDesktopUpRetina, MediaQuery.FOR_DESKTOP_UP)}
-        {this.renderGroup(forBigDesktopUp, forBigDesktopUpRetina, MediaQuery.FOR_BIG_DESKTOP_UP)}
+        {phoneOnlyGroup}
+        {tabletPortraitUpGroup}
+        {tabletLandscapeUpGroup}
+        {desktopUpGroup}
+        {bigDesktopUp}
         <img className={classNames(imgClassName, 'picture__img')}
              src={`/${biggestImage}`}
              alt={alt}/>
