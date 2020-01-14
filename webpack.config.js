@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const nodeExternals = require("webpack-node-externals");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CompressionPlugin = require('compression-webpack-plugin');
 
 const clientConfig = {
   entry: ["babel-polyfill", "./src/main/client/client.js"],
@@ -56,6 +57,9 @@ const clientConfig = {
   },
   plugins: [
     new ExtractTextPlugin("styles.css"),
+    new CompressionPlugin({
+      test: /\.(js|css)(\?.*)?$/i
+    }),
     new webpack.DefinePlugin({
       SERVER: false
     })
