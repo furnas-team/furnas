@@ -3,9 +3,10 @@
 
 .popup {
   position: fixed;
-  top: 0;
+  top: -19px;
   height: 100vh;
   background: #ffffff;
   width: 100vw;
   z-index: 1001;
+  left: -16px;
 }

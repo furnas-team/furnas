@@ -1,0 +1,80 @@
+@import "../../common/vars";
+@import "../../common/mixins";
+
+.mobile-menu {
+  &__hamburger {
+    display: block;
+    background: url('images/hamburger_2x.png') no-repeat;
+    width: 24px;
+    height: 17px;
+    background-size: contain;
+    @include for-tablet-landscape-up {
+      display: none;
+    }
+  }
+
+  &__content {
+    max-height: 100vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 16px;
+  }
+
+  &__close-image {
+    width: 16px;
+    height: 16px;
+    position: fixed;
+    right: 2px;
+    top: 2px;
+  }
+
+  &__close-image-img {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__title {
+    font-family: $font-family-title;
+    font-size: 18px;
+    line-height: 16px;
+    @include for-tablet-portrait-up {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+
+  &__logo-image {
+    background: url('images/logo.png') no-repeat;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    background-size: contain !important;
+    @include for-phone-only {
+      background: url('images/logo_mob.png') no-repeat;
+      width: 18px;
+      height: 18px;
+    }
+    @include for-phone-only-retina {
+      background: url('images/logo_mob_2x.png') no-repeat;
+    }
+  }
+
+  &__title-with-logo {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    margin-bottom: 32px;
+  }
+
+  &__item {
+    text-align: center;
+    margin-bottom: 24px;
+    opacity: 0.6;
+  }
+
+  &__contact-button {
+    margin-top: 8px;
+  }
+}

@@ -5,6 +5,7 @@ import {bool, func, string} from 'prop-types';
 import {Button} from '../button/Button';
 import {MediumText} from '../medium-text/MediumText';
 import {UniversalLink} from '../universal-link/UniversalLink';
+import {MobileMenu} from '../mobile-menu/MobileMenu';
 
 export class Header extends React.Component {
 
@@ -41,7 +42,11 @@ export class Header extends React.Component {
     const {scrollY} = this.state;
     const {className, onContactClick, contactPopupShown, portfolioMode} = this.props;
     return (
-      <div className={classNames('header', {'header_header-without-shadow': scrollY === 0 || contactPopupShown, 'header_contact-popup-shown': contactPopupShown, 'header_portfolio-mode': portfolioMode}, className)}>
+      <div className={classNames('header', {
+        'header_header-without-shadow': scrollY === 0 || contactPopupShown,
+        'header_contact-popup-shown': contactPopupShown,
+        'header_portfolio-mode': portfolioMode
+      }, className)}>
         <div className="header__container"
              data-aos="fade-down"
              data-aos-duration="1000">
@@ -81,9 +86,7 @@ export class Header extends React.Component {
               Связаться
             </Button>}
             {!contactPopupShown &&
-            <div className="header__hamburger"
-                 onClick={onContactClick}>
-            </div>}
+            <MobileMenu onContactClick={onContactClick}/>}
           </div>
         </div>
       </div>
