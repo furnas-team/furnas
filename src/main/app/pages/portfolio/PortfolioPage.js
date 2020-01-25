@@ -13,6 +13,7 @@ import {VisaPortfolioPage} from './visa/VisaPortfolioPage';
 import {WorkPortfolioPage} from './work/WorkPortfolioPage';
 import {Navigation} from './components/navigation/Navigation';
 import {CodeFighterPortfolioPage} from './code-fighter/CodeFighterPortfolioPage';
+import {LivenHousePortfolioPage} from './livenhouse/LivenHousePortfolioPage';
 import {TeaPortfolioPage} from './tea/TeaPortfolioPage';
 
 const items = [
@@ -28,6 +29,7 @@ const items = [
 export class PortfolioPage extends React.Component {
 
   teaRef = React.createRef();
+  livenHouseRef = React.createRef();
   codeFighterRef = React.createRef();
   finansistRef = React.createRef();
   smikwellRef = React.createRef();
@@ -38,6 +40,7 @@ export class PortfolioPage extends React.Component {
   items = [
     {name: 'Tea Shop', ref: this.teaRef},
     {name: 'CodeFighter', ref: this.codeFighterRef},
+    {name: 'LivenHouse', ref: this.livenHouseRef},
     {name: 'Финансист', ref: this.finansistRef},
     {name: 'Smikwell', ref: this.smikwellRef},
     {name: 'Visa.Furnas', ref: this.visaRef},
@@ -107,6 +110,7 @@ export class PortfolioPage extends React.Component {
                   portfolioMode={true}
                   contactPopupShown={contactPopupShown}/>
           <Navigation items={this.items} active={selectedItem} onChange={this.handleActiveItemChange}/>
+          <LivenHousePortfolioPage refProp={this.livenHouseRef}/>
           <TeaPortfolioPage refProp={this.teaRef}/>
           <CodeFighterPortfolioPage refProp={this.codeFighterRef}/>
           <FinansistPortfolioPage refProp={this.finansistRef}/>
