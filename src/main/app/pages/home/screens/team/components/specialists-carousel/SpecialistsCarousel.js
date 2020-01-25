@@ -4,6 +4,7 @@ import './specialists-carousel.scss';
 import {SpecialistCard, SpecialistSex} from '../specialist-card/SpecialistCard';
 import classNames from 'classnames';
 import map from 'lodash/map';
+import {SherlockCard} from '../sherlock-card/SherlockCard';
 
 export class SpecialistsCarousel extends React.Component {
 
@@ -12,17 +13,22 @@ export class SpecialistsCarousel extends React.Component {
   };
 
   state = {
-    activeIndex: 0
+    activeIndex: 0,
+    totalClicksCount: 0
   };
 
   handleLeftClick = () => {
-    const {activeIndex} = this.state;
-    this.setState({activeIndex: Math.abs((6 + activeIndex - 1) % 6)});
+    const {activeIndex, totalClicksCount} = this.state;
+    const newTotalClicksCount = totalClicksCount + 1;
+    const newActiveIndex = newTotalClicksCount > 5 ? Math.abs((7 + activeIndex + 1) % 7) : Math.abs((6 + activeIndex - 1) % 6);
+    this.setState({activeIndex: newActiveIndex, totalClicksCount: newTotalClicksCount });
   };
 
   handleRightClick = () => {
-    const {activeIndex} = this.state;
-    this.setState({activeIndex: Math.abs((6 + activeIndex + 1) % 6)});
+    const {activeIndex, totalClicksCount} = this.state;
+    const newTotalClicksCount = totalClicksCount + 1;
+    const newActiveIndex = newTotalClicksCount > 5 ? Math.abs((7 + activeIndex + 1) % 7) : Math.abs((6 + activeIndex + 1) % 6);
+    this.setState({activeIndex: newActiveIndex, totalClicksCount: newTotalClicksCount});
   };
 
   getSpecialistClassName = (index) => {
@@ -116,6 +122,11 @@ export class SpecialistsCarousel extends React.Component {
                           className={this.getSpecialistClassName(index)}
                           previousWorks={['IIG', 'DevExpress']}/>
         );
+
+      case 6:
+        return (
+          <SherlockCard className={this.getSpecialistClassName(index)}/>
+        );
     }
   }
 
@@ -126,7 +137,7 @@ export class SpecialistsCarousel extends React.Component {
         <div className="specialists-carousel__left-arrow"
              onClick={this.handleLeftClick}>
         </div>
-        {map([0,1,2,3,4,5], index => this.renderSpecialistCard(index))}
+        {map([0,1,2,3,4,5,6], index => this.renderSpecialistCard(index))}
         <div className="specialists-carousel__right-arrow"
              onClick={this.handleRightClick}>
         </div>

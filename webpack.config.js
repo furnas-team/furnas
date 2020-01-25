@@ -57,9 +57,6 @@ const clientConfig = {
   },
   plugins: [
     new ExtractTextPlugin("styles.css"),
-    new CompressionPlugin({
-      test: /\.(js|css)(\?.*)?$/i
-    }),
     new webpack.DefinePlugin({
       SERVER: false
     })

@@ -20,7 +20,7 @@
       height: 98px;
       margin-top: 126vw;
       left: 16px;
-      z-index: 1;
+      z-index: 2;
     }
 
     @include for-tablet-portrait-up {
@@ -54,6 +54,7 @@
       height: 98px;
       margin-top: 128vw;
       right: 16px;
+      z-index: 2;
     }
 
     @include for-tablet-portrait-up {
@@ -64,7 +65,7 @@
     @include for-tablet-landscape-up {
       width: 48px;
       height: 98px;
-      margin-top: 190px;
+      margin-top: 196px;
     }
 
     @include for-desktop-up {
@@ -80,6 +81,7 @@
   &__specialist-card_active {
     position: relative;
     opacity: 1;
+    z-index: 1;
   }
 
 }
