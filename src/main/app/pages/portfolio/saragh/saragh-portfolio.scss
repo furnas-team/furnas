@@ -1,7 +1,7 @@
 @import "../../../common/vars";
 @import "../../../common/mixins";
 
-.livenhouse-portfolio {
+.saragh-portfolio {
   width: 100%;
 
   &__title-container {
@@ -19,6 +19,18 @@
     padding-bottom: 264px;
   }
 
+  &__task-screen {
+    width: 100%;
+    background: #2DC4B6;
+  }
+
+  &__task-container {
+    flex-direction: row !important;
+    
+    @include for-phone-only{
+      margin-top: 70px !important;
+    }
+  }
   &__task-text-block {
     width: 50%;
     
@@ -29,7 +41,7 @@
     }
     color: white;
   }
-
+  
   &__task-image-block {
     width: 50%;
     display: flex;
@@ -51,18 +63,6 @@
     }
   }
 
-  &__task-screen {
-    width: 100%;
-    background: linear-gradient(166.82deg, #1F2023 22.37%, #352B4A 83.95%, #4E4762 106.4%);
-  }
-
-  &__task-container {
-    flex-direction: row !important;
-    
-    @include for-phone-only{
-      margin-top: 70px !important;
-    }
-  }
   
   &__design-text-block {
     width: 50%;
@@ -133,140 +133,79 @@
     }
   }
   
-  &__photo-container {
-    flex-direction: column;
-  }
-
-  &__photo-picture {
+  &__estimate-screen {
     width: 100%;
+    background: linear-gradient(180deg, #FFF1D3 0%, #FFDEA8 100%);
   }
 
-  &__photo-text-block {
-    width: 320px;
-    align-self: flex-end;
-    position: absolute;
-    margin: 120px 0px;
+  &__estimate-container {
+    padding-top: 100px;
+  }
+
+  &__estimate-image2-block {
     padding: 40px 20px 40px 60px;
-    color: white;
-    background: #4D0FF7;
     border-radius: 20px 0px 0px 20px;
   }
 
-  &__faсts-container {
-    flex-direction: column;
-    align-items: center;
+  &__account-container{
+    padding-top: 120px;
   }
 
-  &__faсts-text-block{
-    width: 420px;
-    padding: 140px 60px 40px 60px;
-
-    
-  }
-
-  &__faсts-image-block{
-    width: 700px;
-
-  }
-    
-
-  &__faсts-image-img{
-    width: 700px;
-
-  }
-
-  &__simplification-text-block {
-    width: 50%;
-   
-    margin-top: 320px;
-    @include for-phone-only {
-      width: auto;
-      margin: 0 auto 64px;
-    }
-  }
-
-  &__simplification-image-block {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    margin-top: 160px;
-
-    @include for-phone-only {
-      width: auto;
-      order: 2;
-      margin: 0 auto 64px auto;
-    }
-  }
-
-  &__adaptation-text-block {
-    width: 50%;
-   
-    margin-top: 320px;
-    @include for-phone-only {
-      width: auto;
-      margin: 0 auto 64px;
-    }
-  }
-
-  &__adaptation-image-block {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    margin-top: 160px;
-
-    @include for-phone-only {
-      width: auto;
-      order: 2;
-      margin: 0 auto 64px auto;
-    }
-  }
-  &__adaptation-image-img{
-    width: 230px;
-
-  }
-
-  &__kettle-container{
-    align-content: center;
-    justify-content: center;
-  }
-
-  &__kettle-image-img{
-    width: 700px;
-    margin-top: 240px;
-  }
-
-  &__interactive-container {
-    flex-direction: column;
-    margin-top: 320px;
-  }
-
-  &__interactive-picture {
-    width: 100%;
-    
-  }
-
-  &__interactive-image-img{
-    width: 100%;
-    padding: 0px;
-  }
-
-  &__interactive-text-block {
-    width: 320px;
+  &__account-text-block {
     position: absolute;
-    margin: 120px 0px;
-    padding: 40px 60px;
-    background: #231F20;
-    color: white;
-    border-radius: 0px 20px 20px 0px
+    width: 440px;
+    @include for-phone-only {
+      width: auto;
+      margin: 64px auto;
+    }
   }
 
-  &__breeze-container{
-    align-content: center;
-    justify-content: center;
+  &__data-container{
+    flex-direction: column;
   }
 
-  &__breeze-image-img{
-    width: 700px;
-    margin-top: 240px;
+  &__data-container{
+    padding-top: 120px;
+  }
+
+  &__data-text-block {
+    position: absolute;
+    align-self: flex-end;
+    width: 440px;
+    @include for-phone-only {
+      width: auto;
+      margin: 64px auto;
+    }
+  }
+
+  &__tables-background{
+    width: 100%;
+  }
+
+  &__tables-container{
+    flex-direction: column;
+  }
+
+  &__tables-container{
+    padding-top: 120px;
+  }
+
+  &__tables-content-block {
+    position: absolute;
+  }
+  
+  &__tables-text-block{
+    width: 400px;
+  }
+
+  &__tables-picture,
+  &__tables-picture2,
+  &__tables-picture-img{
+    width: 600px;
+  }
+  &__tables-picture2{
+    @include for-phone-only {
+      display: none;
+    }
   }
 }
