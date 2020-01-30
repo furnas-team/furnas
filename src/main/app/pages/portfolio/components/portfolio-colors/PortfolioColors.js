@@ -9,6 +9,8 @@ export const PortfolioType = {
   FURNAS: 'FURNAS',
   FINANSIST: 'FINANSIST',
   CODE_FIGHTER: 'CODE_FIGHTER',
+  LIVENHOUSE:'LIVENHOUSE',
+  SARAGH:'SARAGH',
   TEA: 'TEA',
 };
 
@@ -18,6 +20,8 @@ export const PortfolioClassNameByType = {
   [PortfolioType.FURNAS]: 'portfolio-colors__furnas',
   [PortfolioType.FINANSIST]: 'portfolio-colors__finansist',
   [PortfolioType.CODE_FIGHTER]: 'portfolio-colors__code-fighter',
+  [PortfolioType.LIVENHOUSE]: 'portfolio-colors__livenhouse',
+  [PortfolioType.SARAGH]: 'portfolio-colors__saragh',
   [PortfolioType.TEA]: 'portfolio-colors__tea'
 };
 

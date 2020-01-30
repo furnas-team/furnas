@@ -9,6 +9,7 @@ import { PortfolioText } from '../components/portfolio-text/PortfolioText';
 import { Popup } from '../../../components/Popup/Popup';
 import { ContactScreen } from '../../home/screens/contact/ContactScreen';
 import { NextPortfolioScreen } from '../components/next-portfolio-screen/NextPortfolioScreen';
+import { PortfolioColors, PortfolioType } from '../components/portfolio-colors/PortfolioColors';
 
 export class SaraghPortfolioPage extends React.Component {
 
@@ -96,7 +97,8 @@ export class SaraghPortfolioPage extends React.Component {
               <p>Продукт имеет сложную структуру и для облегчения восприятия данных осоновным цветом берём белый цвет. Данные не тесним, а с помощью пустых мест добавляем свободы. Дополнительные цвета яркие и бодрящие: бирюзовый и тепло-жёлтый.</p>
             </PortfolioText>
           </div>
-          <div className="saragh-portfolio__design-image-block">
+          <div className="saragh-portfolio__colors-block">
+            <PortfolioColors portfolioType={PortfolioType.SARAGH}/>
           </div>
         </PortfolioContainer>
 
@@ -146,8 +148,6 @@ export class SaraghPortfolioPage extends React.Component {
         </PortfolioContainer>
 
         <div className="saragh-portfolio__tables-screen">
-
-
           <PortfolioContainer className="saragh-portfolio__tables-container">
             <Picture className="saragh-portfolio__tables-background"
               imgClassName="saragh-portfolio__tables-background-img"

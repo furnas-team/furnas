@@ -9,6 +9,7 @@ import { PortfolioText } from '../components/portfolio-text/PortfolioText';
 import { Popup } from '../../../components/Popup/Popup';
 import { ContactScreen } from '../../home/screens/contact/ContactScreen';
 import { NextPortfolioScreen } from '../components/next-portfolio-screen/NextPortfolioScreen';
+import { PortfolioColors, PortfolioType } from '../components/portfolio-colors/PortfolioColors';
 
 export class LivenHousePortfolioPage extends React.Component {
 
@@ -96,7 +97,8 @@ export class LivenHousePortfolioPage extends React.Component {
               <p>Основным цветом был выбран индиго. Акцентный цвет — спелый апельсин. Страницы разбиты на экраны, с чередованием белых и чёрных экранов, для отображения, что умный дом LivenHouse работает как днём, так и ночью. </p>
             </PortfolioText>
           </div>
-          <div className="livenhouse-portfolio__design-image-block">
+          <div className="livenhouse-portfolio__colors-block">
+            <PortfolioColors portfolioType={PortfolioType.LIVENHOUSE} />
           </div>
         </PortfolioContainer>
 
@@ -117,10 +119,10 @@ export class LivenHousePortfolioPage extends React.Component {
         <PortfolioContainer className="livenhouse-portfolio__faсts-container">
           <div className="livenhouse-portfolio__faсts-text-block">
             <PortfolioSubtitle>Факты</PortfolioSubtitle>
-            <PortfolioText className="livenhouse-portfolio__design-text">
+            <PortfolioText className="livenhouse-portfolio__faсts-text">
               <p>
                 Воспринимать текст быстро — не легкая задача. Зацепить пользователя есть всего несколько минут. Сложные данные отображаем легкопонятными графиками.
-                </p>
+              </p>
             </PortfolioText>
           </div>
           <div className="livenhouse-portfolio__faсts-image-block">
@@ -133,10 +135,10 @@ export class LivenHousePortfolioPage extends React.Component {
         <PortfolioContainer className="livenhouse-portfolio__simplification-container">
           <div className="livenhouse-portfolio__simplification-text-block">
             <PortfolioSubtitle>Упрощение</PortfolioSubtitle>
-            <PortfolioText className="livenhouse-portfolio__design-text">
+            <PortfolioText className="livenhouse-portfolio__faсts-text">
               <p>
                 Узкая доля людей понимает что такое умный дом. Все возможности технологии умный дом упрощаем до реальных фактов и объясняем простыми словами.
-                </p>
+              </p>
             </PortfolioText>
           </div>
           <div className="livenhouse-portfolio__simplification-image-block">
@@ -154,10 +156,10 @@ export class LivenHousePortfolioPage extends React.Component {
           </div>
           <div className="livenhouse-portfolio__adaptation-text-block">
             <PortfolioSubtitle>Адаптация</PortfolioSubtitle>
-            <PortfolioText className="livenhouse-portfolio__design-text">
+            <PortfolioText className="livenhouse-portfolio__faсts-text">
               <p>
                 Дизайн разработан для десктопной и мобильной версии сайта. Проработана структура для возможности добавления новых страниц, без изменения архитектуры сайта.
-                </p>
+              </p>
             </PortfolioText>
           </div>
         </PortfolioContainer>
@@ -181,7 +183,7 @@ export class LivenHousePortfolioPage extends React.Component {
             <PortfolioText className="livenhouse-portfolio__interactive-text">
               <p>
                 Оживляем сайт с помощью интерактивного экрана. Пользователь может посмотреть где устанавливаются приборы умного дома и почитать их характеристики.
-            </p>
+              </p>
             </PortfolioText>
           </div>
         </PortfolioContainer>
