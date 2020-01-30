@@ -103,10 +103,6 @@ export class LivenHousePortfolioPage extends React.Component {
         </PortfolioContainer>
 
         <PortfolioContainer className="livenhouse-portfolio__photo-container">
-          <Picture className="livenhouse-portfolio__photo-picture"
-            imgClassName="livenhouse-portfolio__photo-image-img"
-            forPhoneOnly={[require('./images/livenhouse-girl_2x.png')]}
-            forTabletPortraitUp={[require('./images/livenhouse-girl_mob_2x.png')]} />
           <div className="livenhouse-portfolio__photo-text-block">
             <PortfolioSubtitle>Фотографии</PortfolioSubtitle>
             <PortfolioText>
@@ -114,6 +110,10 @@ export class LivenHousePortfolioPage extends React.Component {
             Фотографии людей и животных помогоают пользователю проецировать продукт на себя.</p>
             </PortfolioText>
           </div>
+          <Picture className="livenhouse-portfolio__photo-picture"
+            imgClassName="livenhouse-portfolio__photo-image-img"
+            forPhoneOnly={[require('./images/livenhouse-girl_2x.png')]}
+            forTabletPortraitUp={[require('./images/livenhouse-girl_mob_2x.png')]} />
         </PortfolioContainer>
 
         <PortfolioContainer className="livenhouse-portfolio__faсts-container">
@@ -147,7 +147,7 @@ export class LivenHousePortfolioPage extends React.Component {
               forTabletPortraitUp={[require('./images/livenhouse-ipad_2x.png')]} />
           </div>
         </PortfolioContainer>
-
+ 
         <PortfolioContainer className="livenhouse-portfolio__adaptation-container">
           <div className="livenhouse-portfolio__adaptation-image-block">
             <Picture imgClassName="livenhouse-portfolio__adaptation-image-img"
@@ -178,6 +178,9 @@ export class LivenHousePortfolioPage extends React.Component {
               forPhoneOnly={[require('./images/livenhouse-room_mob_2x.png')]}
               forTabletPortraitUp={[require('./images/livenhouse-room_2x.png')]} />
           </div>
+          <div className="livenhouse-portfolio__interactive-text-block-mobile">
+            <PortfolioSubtitle className="livenhouse-portfolio__interactive-text-block-mobile-subtitle">Умный дом</PortfolioSubtitle>
+          </div>
           <div className="livenhouse-portfolio__interactive-text-block">
             <PortfolioSubtitle>Интерактив</PortfolioSubtitle>
             <PortfolioText className="livenhouse-portfolio__interactive-text">
@@ -194,7 +197,7 @@ export class LivenHousePortfolioPage extends React.Component {
               forPhoneOnly={[require('./images/livenhouse-laptop-4_mob_2x.png')]}
               forTabletPortraitUp={[require('./images/livenhouse-laptop-4_2x.png')]} />
           </div>
-        </PortfolioContainer>
+        </PortfolioContainer> 
 
         <NextPortfolioScreen nextPageHref="/portfolio/work" />
         <Popup shown={contactPopupShown}>
