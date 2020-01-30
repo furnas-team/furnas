@@ -8,6 +8,11 @@
   padding: 0;
   margin-left: 16px;
   cursor: pointer;
+  z-index: 1;
+
+  @include for-phone-only {
+    display: none;
+  }
 
   &__item {
     display: flex;
@@ -46,5 +51,11 @@
     .navigation__text {
       opacity: 1;
     }
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 }

@@ -4,6 +4,7 @@ import map from 'lodash/map';
 import throttle from 'lodash/throttle';
 import classNames from 'classnames';
 import './navigation.scss';
+import {UniversalLink} from '../../../../components/universal-link/UniversalLink';
 
 export class Navigation extends React.Component {
 
@@ -49,8 +50,10 @@ export class Navigation extends React.Component {
         {map(items, item => (
           <li className={classNames('navigation__item', item === active ? 'navigation__item-active' : '')}
               onClick={() => onChange(item)}>
-            <div className="navigation__point"></div>
-            <div className="navigation__text">{item.name}</div>
+            <UniversalLink noStyle={true} href={item.url} className="navigation__link">
+              <div className="navigation__point"></div>
+              <div className="navigation__text">{item.name}</div>
+            </UniversalLink>
           </li>
         ))}
       </ul>

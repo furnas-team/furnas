@@ -12,6 +12,15 @@ import {PolicyPage} from './pages/policy/PolicyPage';
 import AOS from 'aos';
 import '../../3rd-part/aos.scss';
 import {PortfolioPage} from './pages/portfolio/PortfolioPage';
+import {FinansistPortfolioPage} from './pages/portfolio/finansist/FinansistPortfolioPage';
+import {TeaPortfolioPage} from './pages/portfolio/tea/TeaPortfolioPage';
+import {VisaPortfolioPage} from './pages/portfolio/visa/VisaPortfolioPage';
+import {FurnasPortfolioPage} from './pages/portfolio/furnas/FurnasPortfolioPage';
+import {SmikwellPortfolioPage} from './pages/portfolio/smikwell/SmikwellPortfolioPage';
+import {WorkPortfolioPage} from './pages/portfolio/work/WorkPortfolioPage';
+import {LivenHousePortfolioPage} from './pages/portfolio/livenhouse/LivenHousePortfolioPage';
+import {CodeFighterPortfolioPage} from './pages/portfolio/code-fighter/CodeFighterPortfolioPage';
+import {SaraghPortfolioPage} from './pages/portfolio/saragh/SaraghPortfolioPage';
 
 export class App extends React.Component {
 
@@ -30,20 +39,24 @@ export class App extends React.Component {
         <Switch>
           <Route exact path='/learn' component={LearnPage}/>
           <Route exact path='/learn/:name' component={LearnArticlePage}/>
-          {/*<Route exact path='/test' component={ConnectedTestPage}/>*/}
-          {/*<Route exact path='/test/:step' component={ConnectedTestPage}/>*/}
-          <Route path='/portfolio/work' component={PortfolioPage}/>
-          <Route path='/portfolio/smikwell' component={PortfolioPage}/>
-          <Route path='/portfolio/furnas' component={PortfolioPage}/>
-          <Route path='/portfolio/visa' component={PortfolioPage}/>
-          <Route path='/portfolio/finansist' component={PortfolioPage}/>
-          <Route path='/portfolio' component={PortfolioPage}/>
+          <Route path='/portfolio/work' component={WorkPortfolioPage}/>
+          <Route path='/portfolio/smikwell' component={SmikwellPortfolioPage}/>
+          <Route path='/portfolio/furnas' component={FurnasPortfolioPage}/>
+          <Route path='/portfolio/visa' component={VisaPortfolioPage}/>
+          <Route path='/portfolio/tea' component={TeaPortfolioPage}/>
+          <Route path='/portfolio/finansist' component={FinansistPortfolioPage}/>
+          <Route path='/portfolio/livenhouse' component={LivenHousePortfolioPage}/>
+          <Route path='/portfolio/codefighter' component={CodeFighterPortfolioPage}/>
+          <Route path='/portfolio/saragh' component={SaraghPortfolioPage}/>
+          <Route path='/portfolio' component={FinansistPortfolioPage}/>
           <Route path='/policy' component={PolicyPage}/>
           {/*<Route path='/test-canvas' component={TestCanvasPage}/>*/}
           {/*<Route path='/about' component={LandingPage}/>*/}
           {/*<Route path='/2018' component={HomePage}/>*/}
           {/*<Route path='/en' component={LandingPageEn}/>*/}
           {/*<Route path='/2019' component={LandingPage}/>*/}
+          {/*<Route exact path='/test' component={ConnectedTestPage}/>*/}
+          {/*<Route exact path='/test/:step' component={ConnectedTestPage}/>*/}
           <Route path='/' component={HomePage}/>
         </Switch>
       </Provider>,

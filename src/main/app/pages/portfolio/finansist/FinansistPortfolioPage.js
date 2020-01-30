@@ -7,7 +7,7 @@ import {PortfolioTitle} from '../components/portfolio-title/PortfolioTitle';
 import {Picture} from '../../../components/picture/Picture';
 import {PortfolioText} from '../components/portfolio-text/PortfolioText';
 import {PortfolioColors, PortfolioType} from '../components/portfolio-colors/PortfolioColors';
-import {NextPortfolioScreen} from '../components/next-portfolio-screen/NextPortfolioScreen';
+import {AbstractPortfolioPage, PortfolioCode} from '../abstract-portfolio-page/AbstractPortfolioPage';
 
 export class FinansistPortfolioPage extends React.Component {
 
@@ -57,9 +57,8 @@ export class FinansistPortfolioPage extends React.Component {
   };
 
   render() {
-    const {contactPopupShown, requestSent} = this.state;
     return (
-      <div ref={this.props.refProp}>
+      <AbstractPortfolioPage code={PortfolioCode.FINANSIST}>
         <PortfolioContainer className="finansist-portfolio__title-container">
           <PortfolioTitle additionalText="проект">Финансист</PortfolioTitle>
         </PortfolioContainer>
@@ -182,8 +181,7 @@ export class FinansistPortfolioPage extends React.Component {
                    forPhoneOnly={[require('./images/finansist-team_mob.png')]}
                    forTabletPortraitUp={[require('./images/finansist-team.png')]}/>
         </PortfolioContainer>
-        <NextPortfolioScreen nextPageHref="/portfolio/work"/>
-      </div>
+      </AbstractPortfolioPage>
     );
   }
 
