@@ -113,9 +113,9 @@ export class SaraghPortfolioPage extends React.Component {
               forTabletPortraitUp={[require('./images/saragh-screen-1_2x.png')]} />
             <div className="saragh-portfolio__estimate-image2-block">
               <PortfolioSubtitle >Смета</PortfolioSubtitle>
-              <Picture className="saragh-portfolio__estimate-picture"
+              <Picture className="saragh-portfolio__estimate-picture2"
                 imgClassName="saragh-portfolio__estimate-image-img"
-                forPhoneOnly={[require('./images/saragh-screen-2_2x.png')]}
+                forPhoneOnly={[require('./images/saragh-screen-1+2_mob_2x.png')]}
                 forTabletPortraitUp={[require('./images/saragh-screen-2_2x.png')]} />
             </div>
           </PortfolioContainer>

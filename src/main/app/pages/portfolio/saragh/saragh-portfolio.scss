@@ -17,6 +17,10 @@
   &__main-image-block {
     margin: auto;
     padding-bottom: 264px;
+    
+    @include for-phone-only {
+      padding-bottom: 0px !important;
+    }
   }
 
   &__task-screen {
@@ -29,6 +33,7 @@
     
     @include for-phone-only{
       margin-top: 70px !important;
+      flex-direction: column !important;;
     }
   }
   &__task-text-block {
@@ -37,7 +42,7 @@
     margin-top: 260px;
     @include for-phone-only {
       width: auto;
-      margin: 0 auto 64px;
+      margin: 64px auto 64px;
     }
     color: white;
   }
@@ -58,7 +63,6 @@
     width: 230px;
     padding: 136px 0;
     @include for-phone-only {
-      width: 180px;
       padding: 0;
     }
   }
@@ -108,6 +112,7 @@
     @include for-phone-only {
       width: auto;
       margin: 64px auto;
+      padding-left: 0px !important;
     }
     color: #333333;
   }
@@ -117,25 +122,41 @@
     background: linear-gradient(180deg, #FFF1D3 0%, #FFDEA8 100%);
   }
 
+  &__estimate-picture{
+    @include for-phone-only {
+      display: none;
+    }
+  }
+
   &__estimate-container {
     padding-top: 100px;
+    @include for-phone-only {
+      padding-top: 64px;
+    }
   }
 
   &__estimate-image2-block {
     padding: 40px 20px 40px 60px;
     border-radius: 20px 0px 0px 20px;
+    @include for-phone-only {
+      padding: 0px;
+    }
   }
 
   &__account-container{
     padding-top: 120px;
+    @include for-phone-only {
+      padding-top: 64px;
+    }
   }
 
   &__account-text-block {
     position: absolute;
     width: 440px;
     @include for-phone-only {
+      position: relative !important;
       width: auto;
-      margin: 64px auto;
+      margin: 0px auto 64px auto;
     }
   }
 
@@ -152,8 +173,9 @@
     align-self: flex-end;
     width: 440px;
     @include for-phone-only {
+      position: relative !important;
       width: auto;
-      margin: 64px auto;
+      margin: 0px auto 64px auto;
     }
   }
 
@@ -175,12 +197,20 @@
   
   &__tables-text-block{
     width: 400px;
+    @include for-phone-only {
+      width: auto;
+      margin: 0 24px 24px 24px;
+    }
   }
 
   &__tables-picture,
   &__tables-picture2,
   &__tables-picture-img{
     width: 600px;
+    @include for-phone-only {
+      width: 280px;
+      margin: 0 24px;
+    }
   }
   &__tables-picture2{
     @include for-phone-only {
