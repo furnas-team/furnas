@@ -63,17 +63,22 @@ export class LivenHousePortfolioPage extends React.Component {
     return (
       <div className="livenhouse-portfolio" ref={this.props.refProp}>
         <PortfolioContainer className="livenhouse-portfolio__title-container">
-          <PortfolioTitle additionalText="проект">LivenHouse</PortfolioTitle>
+          <PortfolioTitle additionalText="проект" className="livenhouse-portfolio__main-title">LivenHouse</PortfolioTitle>
         </PortfolioContainer>
 
-        <PortfolioContainer className="livenhouse-portfolio__main-container">
-          <div className="livenhouse-portfolio__main-image-block">
-            <Picture imgClassName="livenhouse-portfolio__main-image-img"
-              forPhoneOnly={[require('./images/livenhouse-laptop-1_mob_2x.png')]}
-              forTabletPortraitUp={[require('./images/livenhouse-laptop-1_2x.png')]} />
-          </div>
-        </PortfolioContainer>
-
+        <div className="livenhouse-portfolio__main-screen">
+          <PortfolioContainer className="livenhouse-portfolio__main-container">
+            <div className="livenhouse-portfolio__main-image-block">
+              <Picture imgClassName="livenhouse-portfolio__main-image-img"
+                forPhoneOnly={[require('./images/livenhouse-laptop-1_mob_2x.png')]}
+                forTabletPortraitUp={[require('./images/livenhouse-laptop-1_2x.png')]} />
+            </div>
+          </PortfolioContainer>
+          {/* нужна большая картинка */}
+          <Picture imgClassName="livenhouse-portfolio__background-image-img"
+            forPhoneOnly={[require('./images/livenhouse-background-strips_mob_2x.png')]}
+            forTabletPortraitUp={[require('./images/livenhouse-background-strips_mob_2x.png')]} />
+        </div>
         <div className="livenhouse-portfolio__task-screen">
           <PortfolioContainer className="livenhouse-portfolio__task-container">
             <div className="livenhouse-portfolio__task-text-block">
@@ -112,8 +117,8 @@ export class LivenHousePortfolioPage extends React.Component {
           </div>
           <Picture className="livenhouse-portfolio__photo-picture"
             imgClassName="livenhouse-portfolio__photo-image-img"
-            forPhoneOnly={[require('./images/livenhouse-girl_2x.png')]}
-            forTabletPortraitUp={[require('./images/livenhouse-girl_mob_2x.png')]} />
+            forPhoneOnly={[require('./images/livenhouse-girl_mob_2x.png')]}
+            forTabletPortraitUp={[require('./images/livenhouse-girl_2x.png')]} />
         </PortfolioContainer>
 
         <PortfolioContainer className="livenhouse-portfolio__faсts-container">
