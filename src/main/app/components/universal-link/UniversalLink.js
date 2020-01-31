@@ -3,7 +3,7 @@ import './universal-link.scss';
 import classNames from 'classnames';
 import {any, func, string, bool} from 'prop-types';
 import startsWith from 'lodash/startsWith'
-import {Link} from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 
 UniversalLink.propTypes = {
   className: string,

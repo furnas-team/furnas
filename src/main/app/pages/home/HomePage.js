@@ -26,6 +26,16 @@ export class HomePage extends React.Component {
     requestSent: false
   };
 
+  componentDidMount() {
+    if (location.hash === '#contact') {
+      setTimeout(() => {
+        location.hash = 'contacts';
+      }, 100);
+      setTimeout(() => {
+        this.handleContactClick();
+      }, 500);
+    }
+  }
 
   handleContactClick = () => {
     if (window.yaCounter) {
@@ -80,7 +90,7 @@ export class HomePage extends React.Component {
         </Helmet>
         <div className="home">
           <Header onContactClick={this.handleContactClick}
-                  portfolioMode={true}
+                  portfolioMode={false}
                   contactPopupShown={contactPopupShown}/>
           <MainScreen onSendContactClick={this.handleSendContactClick}/>
           <div className="home__do-screen">

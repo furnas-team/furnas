@@ -1,65 +1,15 @@
 import React from 'react';
 import './smikwell-portfolio.scss';
-import {object} from 'prop-types';
 import {PortfolioContainer} from '../components/portfolio-container/PortfolioContainer';
 import {PortfolioTitle} from '../components/portfolio-title/PortfolioTitle';
 import {PortfolioSubtitle} from '../components/portfolio-subtitle/PortfolioSubtitle';
 import {Picture} from '../../../components/picture/Picture';
 import {PortfolioText} from '../components/portfolio-text/PortfolioText';
-import {Popup} from '../../../components/Popup/Popup';
-import {ContactScreen} from '../../home/screens/contact/ContactScreen';
-import {NextPortfolioScreen} from '../components/next-portfolio-screen/NextPortfolioScreen';
 import {AbstractPortfolioPage, PortfolioCode} from '../abstract-portfolio-page/AbstractPortfolioPage';
 
 export class SmikwellPortfolioPage extends React.Component {
 
-  static propTypes = {
-    refProp: object
-  };
-
-  state = {
-    userContact: '',
-    contactPopupShown: false,
-    requestSent: false
-  };
-
-  handleContactClick = () => {
-    if (window.yaCounter) {
-      window.yaCounter.reachGoal('ClickedContactButton');
-    }
-    window.mixpanel.track(
-      "Furnas | user clicked contact button"
-    );
-    this.setState({contactPopupShown: !this.state.contactPopupShown, requestSent: false});
-  };
-
-  handleSendContactClick = contact => {
-    if (contact) {
-      window.fetch('https://api.furnas.ru/requests', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({email: contact})
-      });
-      if (window.yaCounter) {
-        window.yaCounter.reachGoal('AddedContact', {email: contact});
-      }
-      window.mixpanel.track(
-        "Furnas | added user contact",
-        {email: contact}
-      );
-      this.setState({contactPopupShown: true, requestSent: true});
-    }
-  };
-
-  handleCloseButtonClick = () => {
-    this.setState({contactPopupShown: false, requestSent: false});
-  };
-
   render() {
-    const {contactPopupShown, requestSent} = this.state;
     return (
       <AbstractPortfolioPage code={PortfolioCode.SMIKWELL}>
         <div className="smikwell-portfolio" ref={this.props.refProp}>
@@ -127,12 +77,6 @@ export class SmikwellPortfolioPage extends React.Component {
               </PortfolioText>
             </div>
           </PortfolioContainer>
-          <NextPortfolioScreen nextPageHref="/portfolio/work"/>
-          <Popup shown={contactPopupShown}>
-            <ContactScreen requestSent={requestSent}
-                           onCloseButtonClick={this.handleCloseButtonClick}
-                           onSendContactClick={this.handleSendContactClick}/>
-          </Popup>
         </div>
       </AbstractPortfolioPage>
     );

@@ -11,7 +11,6 @@ import {Helmet} from 'react-helmet';
 import {PolicyPage} from './pages/policy/PolicyPage';
 import AOS from 'aos';
 import '../../3rd-part/aos.scss';
-import {PortfolioPage} from './pages/portfolio/PortfolioPage';
 import {FinansistPortfolioPage} from './pages/portfolio/finansist/FinansistPortfolioPage';
 import {TeaPortfolioPage} from './pages/portfolio/tea/TeaPortfolioPage';
 import {VisaPortfolioPage} from './pages/portfolio/visa/VisaPortfolioPage';

@@ -1,11 +1,13 @@
 import React from 'react';
-import {string, func} from 'prop-types';
+import {array, bool, func, string} from 'prop-types';
 import './mobile-menu.scss';
 import {Popup} from '../Popup/Popup';
 import {Picture} from '../picture/Picture';
 import {UniversalLink} from '../universal-link/UniversalLink';
 import {BlockText} from '../block-text/BlockText';
 import {Button} from '../button/Button';
+import classNames from 'classnames';
+import map from 'lodash/map';
 
 export const MobileMenuType = {
   HOME: 'HOME',
@@ -16,7 +18,9 @@ export class MobileMenu extends React.Component {
 
   static propTypes = {
     menuType: string,
-    onContactClick: func
+    onContactClick: func,
+    portfolioMode: bool,
+    items: array
   };
 
   static defaultProps = {
@@ -50,16 +54,16 @@ export class MobileMenu extends React.Component {
   };
 
   render() {
-    const {menuType, onContactClick} = this.props;
+    const {menuType, onContactClick, portfolioMode, items} = this.props;
     const {popupShown} = this.state;
     return (
       <div className="mobile-menu">
         <div className="mobile-menu__hamburger"
              onClick={this.handleHamburgerClick}>
         </div>
-        <Popup shown={popupShown}>
+        <Popup shown={popupShown} portfolioMode={portfolioMode}>
           <div className="mobile-menu__content">
-            <Picture className="mobile-menu__close-image"
+            <Picture className={classNames('mobile-menu__close-image', portfolioMode ? 'mobile-menu__close-image_portfolio-mode' : null)}
                      imgClassName="mobile-menu__close-image-img"
                      forPhoneOnly={[require('./images/close.svg')]}
                      forTabletPortraitUp={[require('./images/close.svg')]}
@@ -85,9 +89,18 @@ export class MobileMenu extends React.Component {
                 <BlockText className="mobile-menu__item">Портфолио</BlockText>
               </UniversalLink>
             </div>}
-            <Button onClick={this.handleContactClick} className="mobile-menu__contact-button">
-              Связаться
-            </Button>
+            {menuType === MobileMenuType.PORTFOLIO && <div>
+              {map(items, item => (
+                <UniversalLink key={item.code} noStyle={true} href={item.url} onClick={this.handleItemClick}>
+                  <BlockText className="mobile-menu__item">{item.name}</BlockText>
+                </UniversalLink>
+              ))}
+            </div>}
+            <UniversalLink noStyle={true} href="/#contact">
+              <Button onClick={this.handleContactClick} className="mobile-menu__contact-button">
+                Связаться
+              </Button>
+            </UniversalLink>
           </div>
         </Popup>
       </div>

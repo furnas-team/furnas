@@ -28,7 +28,7 @@ export class DesignScreen extends React.Component {
           UI/UX Дизайн
         </SectionTitle>
         <div className="design-screen__portfolio">
-          <UniversalLink noStyle={true} target="_blank" href="https://www.behance.net/gallery/83443803/finansist">
+          <UniversalLink noStyle={true} target="_blank" href="/portfolio/finansist">
             <div className="design-screen__card">
               <div className="design-screen__card-name">Финансист</div>
               <div className="design-screen__card-type">UI дизайн</div>
@@ -43,7 +43,7 @@ export class DesignScreen extends React.Component {
                        alt="Финансист"/>
             </div>
           </UniversalLink>
-          <UniversalLink noStyle={true} target="_blank" href="https://www.behance.net/gallery/83377225/UIUX-Design-Saragh">
+          <UniversalLink noStyle={true} target="_blank" href="/portfolio/saragh">
             <div className="design-screen__card">
               <div className="design-screen__card-name design-screen__card-name_white">Saragh</div>
               <div className="design-screen__card-type design-screen__card-type_white">UI дизайн</div>
@@ -58,7 +58,7 @@ export class DesignScreen extends React.Component {
                        alt="Saragh"/>
             </div>
           </UniversalLink>
-          <UniversalLink noStyle={true} target="_blank" href="https://www.behance.net/gallery/83376977/UIUX-Design-CodeFighter">
+          <UniversalLink noStyle={true} target="_blank" href="/portfolio/codefighter">
             <div className="design-screen__card">
               <div className="design-screen__card-name design-screen__card-name_white">CodeFighter</div>
               <div className="design-screen__card-type design-screen__card-type_white">UI дизайн</div>
@@ -73,7 +73,7 @@ export class DesignScreen extends React.Component {
                        alt="CodeFighter"/>
             </div>
           </UniversalLink>
-          <UniversalLink noStyle={true} target="_blank" href="https://www.behance.net/gallery/83376977/UIUX-Design-CodeFighter">
+          <UniversalLink noStyle={true} target="_blank" href="/portfolio/livenhouse">
             <div className="design-screen__card">
               <div className="design-screen__card-name design-screen__card-name_blue">LivenHouse</div>
               <div className="design-screen__card-type design-screen__card-type_blue">UI дизайн</div>

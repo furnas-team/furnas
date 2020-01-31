@@ -1,11 +1,11 @@
 import React from 'react';
 import './header.scss';
 import classNames from 'classnames';
-import {bool, func, string} from 'prop-types';
+import {array, bool, func, string} from 'prop-types';
 import {Button} from '../button/Button';
 import {MediumText} from '../medium-text/MediumText';
 import {UniversalLink} from '../universal-link/UniversalLink';
-import {MobileMenu} from '../mobile-menu/MobileMenu';
+import {MobileMenu, MobileMenuType} from '../mobile-menu/MobileMenu';
 
 export class Header extends React.Component {
 
@@ -13,7 +13,8 @@ export class Header extends React.Component {
     className: string,
     onContactClick: func,
     contactPopupShown: bool,
-    portfolioMode: bool
+    portfolioMode: bool,
+    items: array
   };
 
   static defaultProps = {
@@ -40,16 +41,15 @@ export class Header extends React.Component {
 
   render() {
     const {scrollY} = this.state;
-    const {className, onContactClick, contactPopupShown, portfolioMode} = this.props;
+    const {className, onContactClick, contactPopupShown, portfolioMode, items} = this.props;
     return (
-      <div className={classNames('header', {
+      <div className={classNames('header header_portfolio-mode', {
         'header_header-without-shadow': scrollY === 0 || contactPopupShown,
-        'header_contact-popup-shown': contactPopupShown,
-        'header_portfolio-mode': portfolioMode
+        'header_contact-popup-shown': contactPopupShown
       }, className)}>
         <div className="header__container"
-             data-aos="fade-down"
-             data-aos-duration="1000">
+             data-aos={portfolioMode ? null : 'fade-down'}
+             data-aos-duration={portfolioMode ? null : '1000'}>
           <div className="header__menu-container">
             <UniversalLink noStyle={true} href="/">
               <div className="header__title-with-logo">
@@ -60,17 +60,17 @@ export class Header extends React.Component {
                 </div>
               </div>
             </UniversalLink>
-            <UniversalLink noStyle={true} href="#do">
+            <UniversalLink noStyle={true} href="/#do">
               <MediumText className="header__title header__menu-title">
                 Что делаем
               </MediumText>
             </UniversalLink>
-            <UniversalLink noStyle={true} href="#how">
+            <UniversalLink noStyle={true} href="/#how">
               <MediumText className="header__title header__menu-title">
                 Как работаем
               </MediumText>
             </UniversalLink>
-            <UniversalLink noStyle={true} href="#portfolio">
+            <UniversalLink noStyle={true} href="/#portfolio">
               <MediumText className="header__title header__menu-title">
                 Портфолио
               </MediumText>
@@ -82,11 +82,16 @@ export class Header extends React.Component {
                  onClick={onContactClick}>
             </div>}
             {!contactPopupShown &&
-            <Button onClick={onContactClick} className="header__button">
-              Связаться
-            </Button>}
+            <UniversalLink noStyle={true} href="/#contact">
+              <Button className="header__button">
+                Связаться
+              </Button>
+            </UniversalLink>}
             {!contactPopupShown &&
-            <MobileMenu onContactClick={onContactClick}/>}
+            <MobileMenu onContactClick={onContactClick}
+                        portfolioMode={portfolioMode}
+                        menuType={portfolioMode ? MobileMenuType.PORTFOLIO : MobileMenuType.HOME}
+                        items={items}/>}
           </div>
         </div>
       </div>

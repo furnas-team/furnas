@@ -30,6 +30,8 @@ export const PortfolioCode = {
 const portfolioOrder = [
   PortfolioCode.FINANSIST,
   PortfolioCode.TEA_SHOP,
+  PortfolioCode.SARAGH,
+  PortfolioCode.LIVEN_HOUSE,
   PortfolioCode.CODE_FIGHTER,
   PortfolioCode.SMIKWELL,
   PortfolioCode.VISA,
@@ -38,15 +40,15 @@ const portfolioOrder = [
 ];
 
 const portfolioItems = [
-  {name: 'Tea Shop', code: PortfolioCode.TEA_SHOP, url: '/portfolio/tea', img: require('./images/teashop-main_mob_2x.png')},
+  {name: 'Tea Shop', code: PortfolioCode.TEA_SHOP, url: '/portfolio/tea', img: require('./images/teashop-main_mob_2x.png'), imgClassName: 'abstract-portfolio-page__image-img_tea-shop'},
   {name: 'CodeFighter', code: PortfolioCode.CODE_FIGHTER, url: '/portfolio/codefighter', img: require('./images/codefighter-ipad-iphone_mob_2x.png')},
-  {name: 'LivenHouse', code: PortfolioCode.LIVEN_HOUSE, url: '/portfolio/livenhouse'},
-  {name: 'Saragh', code: PortfolioCode.SARAGH, url: '/portfolio/saragh'},
+  {name: 'LivenHouse', code: PortfolioCode.LIVEN_HOUSE, url: '/portfolio/livenhouse', img: require('./images/livenhouse-laptop-1_mob_2x.png')},
+  {name: 'Saragh', code: PortfolioCode.SARAGH, url: '/portfolio/saragh', img: require('./images/saragh-main_mob_2x.png')},
   {name: 'Финансист', code: PortfolioCode.FINANSIST, url: '/portfolio/finansist', img: require('./images/finansist-main_mob.png')},
   {name: 'Smikwell', code: PortfolioCode.SMIKWELL, url: '/portfolio/smikwell', img: require('./images/smikwell-macbook_mob.png')},
   {name: 'Visa.Furnas', code: PortfolioCode.VISA, url: '/portfolio/visa', img: require('./images/visa-main_mob.png')},
   {name: 'Тест о профессиях', code: PortfolioCode.WORK, url: '/portfolio/work', img: require('./images/profession-main_mob.png')},
-  {name: 'Furnas', code: PortfolioCode.FURNAS, url: '/portfolio/furnas', img: require('./images/furnas-team-ipad_mob.png')}
+  {name: 'Furnas', code: PortfolioCode.FURNAS, url: '/portfolio/furnas', img: require('./images/furnas-team-macbook_mob_new.png')}
 ];
 
 const navigationItems = map(portfolioOrder, code => find(portfolioItems, {code}));
@@ -108,6 +110,9 @@ export class AbstractPortfolioPage extends React.Component {
     return find(navigationItems, {code: nextPortfolioCode});
   };
 
+  handleContactClick = () => {
+  };
+
   render() {
     const {children, code} = this.props;
     const {nextPortfolioShown} = this.state;
@@ -121,6 +126,7 @@ export class AbstractPortfolioPage extends React.Component {
         </Helmet>
         <div className="abstract-portfolio-page">
           <Header onContactClick={this.handleContactClick}
+                  items={navigationItems}
                   portfolioMode={true}/>
           <Navigation items={navigationItems}
                       active={find(portfolioItems, {code})}
@@ -138,8 +144,8 @@ export class AbstractPortfolioPage extends React.Component {
                                 additionalText="Следующий проект">
                   {nextPortfolioItem.name}
                 </PortfolioTitle>
-                <Picture className="abstract-portfolio-page__image"
-                         imgClassName="abstract-portfolio-page__image-img"
+                <Picture className={classNames('abstract-portfolio-page__image', nextPortfolioItem.imageClassName)}
+                         imgClassName={classNames('abstract-portfolio-page__image-img', nextPortfolioItem.imgClassName)}
                          forPhoneOnly={[nextPortfolioItem.img]}
                          forTabletPortraitUp={[nextPortfolioItem.img]}/>
                 <div className="abstract-portfolio-page__next-row">

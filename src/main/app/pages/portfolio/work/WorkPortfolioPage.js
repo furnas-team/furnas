@@ -1,66 +1,16 @@
 import React from 'react';
-import {ContactScreen} from '../../home/screens/contact/ContactScreen';
-import {Popup} from '../../../components/Popup/Popup';
 import './work-portfolio.scss';
-import {object} from 'prop-types';
 import {Picture} from '../../../components/picture/Picture';
 import {PortfolioTitle} from '../components/portfolio-title/PortfolioTitle';
 import {PortfolioContainer} from '../components/portfolio-container/PortfolioContainer';
 import {PortfolioSubtitle} from '../components/portfolio-subtitle/PortfolioSubtitle';
 import {PortfolioText} from '../components/portfolio-text/PortfolioText';
 import {PortfolioColors, PortfolioType} from '../components/portfolio-colors/PortfolioColors';
-import {NextPortfolioScreen} from '../components/next-portfolio-screen/NextPortfolioScreen';
 import {AbstractPortfolioPage, PortfolioCode} from '../abstract-portfolio-page/AbstractPortfolioPage';
 
 export class WorkPortfolioPage extends React.Component {
 
-  static propTypes = {
-    refProp: object
-  };
-
-  state = {
-    userContact: '',
-    contactPopupShown: false,
-    requestSent: false
-  };
-
-  handleContactClick = () => {
-    if (window.yaCounter) {
-      window.yaCounter.reachGoal('ClickedContactButton');
-    }
-    window.mixpanel.track(
-      "Furnas | user clicked contact button"
-    );
-    this.setState({contactPopupShown: !this.state.contactPopupShown, requestSent: false});
-  };
-
-  handleSendContactClick = contact => {
-    if (contact) {
-      window.fetch('https://api.furnas.ru/requests', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({email: contact})
-      });
-      if (window.yaCounter) {
-        window.yaCounter.reachGoal('AddedContact', {email: contact});
-      }
-      window.mixpanel.track(
-        "Furnas | added user contact",
-        {email: contact}
-      );
-      this.setState({contactPopupShown: true, requestSent: true});
-    }
-  };
-
-  handleCloseButtonClick = () => {
-    this.setState({contactPopupShown: false, requestSent: false});
-  };
-
   render() {
-    const {contactPopupShown, requestSent} = this.state;
     return (
       <AbstractPortfolioPage code={PortfolioCode.WORK}>
         <div className="work-portfolio" ref={this.props.refProp}>
@@ -150,12 +100,6 @@ export class WorkPortfolioPage extends React.Component {
               </div>
             </PortfolioContainer>
           </div>
-          <NextPortfolioScreen nextPageHref="/portfolio/furnas"/>
-          <Popup shown={contactPopupShown}>
-            <ContactScreen requestSent={requestSent}
-                           onCloseButtonClick={this.handleCloseButtonClick}
-                           onSendContactClick={this.handleSendContactClick}/>
-          </Popup>
         </div>
       </AbstractPortfolioPage>
     );
