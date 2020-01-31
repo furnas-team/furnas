@@ -63,7 +63,11 @@ export class LivenHousePortfolioPage extends React.Component {
     return (
       <div className="livenhouse-portfolio" ref={this.props.refProp}>
         <PortfolioContainer className="livenhouse-portfolio__title-container">
-          <PortfolioTitle additionalText="проект" className="livenhouse-portfolio__main-title">LivenHouse</PortfolioTitle>
+          <PortfolioTitle
+            additionalText="проект"
+            className="livenhouse-portfolio__main-title">
+            LivenHouse
+            </PortfolioTitle>
         </PortfolioContainer>
 
         <div className="livenhouse-portfolio__main-screen">

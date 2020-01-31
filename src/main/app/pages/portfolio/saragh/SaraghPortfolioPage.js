@@ -63,7 +63,11 @@ export class SaraghPortfolioPage extends React.Component {
     return (
       <div className="saragh-portfolio" ref={this.props.refProp}>
         <PortfolioContainer className="saragh-portfolio__title-container">
-          <PortfolioTitle additionalText="проект">Saragh</PortfolioTitle>
+          <PortfolioTitle
+            additionalText="проект"
+            className="saragh-portfolio__main-title">
+            Saragh
+            </PortfolioTitle>
         </PortfolioContainer>
 
         <PortfolioContainer className="saragh-portfolio__main-container">
