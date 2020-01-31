@@ -129,22 +129,18 @@ export class TeaPortfolioPage extends React.Component {
             <div className="tea-portfolio__prepare-image-block">
               <Picture className="tea-portfolio__prepare-picture"
                        imgClassName="tea-portfolio__prepare-image-img"
-                       forPhoneOnly={[require('./images/teashop-ipad_mob_2x.png')]}
-                       forTabletPortraitUp={[require('./images/teashop-ipad_2x.png')]}/>
+                forPhoneOnly={[require('./images/teashop-ipad_mob_2x.png')]}
+                forTabletPortraitUp={[require('./images/teashop-ipad_2x.png')]} />
             </div>
           </PortfolioContainer>
-          <div className="tea-portfolio__result-container">
-            <PortfolioContainer>
-              <Picture className="tea-portfolio__big-tablet-picture"
-                       imgClassName="tea-portfolio__big-tablet-img"
-                       forPhoneOnly={[require('./images/teashop-laptop_mob_2x.png')]}
-                       forTabletPortraitUp={[require('./images/teashop-laptop_2x.png')]}/>
-            </PortfolioContainer>
-          </div>
+          <PortfolioContainer className="tea-portfolio__result-container">
+            <Picture className="tea-portfolio__big-tablet-picture"
+              imgClassName="tea-portfolio__big-tablet-img"
+              forPhoneOnly={[require('./images/teashop-laptop_mob_2x.png')]}
+              forTabletPortraitUp={[require('./images/teashop-laptop_2x.png')]} />
+          </PortfolioContainer>
         </div>
       </AbstractPortfolioPage>
     );
   }
-
-
 }
