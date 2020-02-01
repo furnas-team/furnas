@@ -49,7 +49,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0;
+    padding: 0 !important;
     @include for-phone-only {
       font-size: 32px;
     }
@@ -110,7 +110,9 @@
 
   &__continue {
     color: #2B7A9E;
-    font-size: 24px;
+    @include for-phone-only {
+      font-size: 24px;
+    }
   }
 
 }
