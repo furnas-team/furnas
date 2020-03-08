@@ -10,6 +10,7 @@ const endsWith = require('lodash/endsWith');
 const app = express();
 app.get('*.gz', function(req, res, next) {
   res.set('Content-Encoding', 'gzip');
+  res.set('Content-Type', 'application/javascript');
   next();
 });
 // app.get('*.css', function(req, res, next) {

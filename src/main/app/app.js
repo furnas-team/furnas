@@ -20,6 +20,7 @@ import {WorkPortfolioPage} from './pages/portfolio/work/WorkPortfolioPage';
 import {LivenHousePortfolioPage} from './pages/portfolio/livenhouse/LivenHousePortfolioPage';
 import {CodeFighterPortfolioPage} from './pages/portfolio/code-fighter/CodeFighterPortfolioPage';
 import {SaraghPortfolioPage} from './pages/portfolio/saragh/SaraghPortfolioPage';
+import {ShareMasterPage} from './pages/sharemaster/ShareMasterPage';
 
 export class App extends React.Component {
 
@@ -48,6 +49,7 @@ export class App extends React.Component {
           <Route path='/portfolio/codefighter' component={CodeFighterPortfolioPage}/>
           <Route path='/portfolio/saragh' component={SaraghPortfolioPage}/>
           <Route path='/portfolio' component={FinansistPortfolioPage}/>
+          <Route path='/sharemaster' component={ShareMasterPage}/>
           <Route path='/policy' component={PolicyPage}/>
           {/*<Route path='/test-canvas' component={TestCanvasPage}/>*/}
           {/*<Route path='/about' component={LandingPage}/>*/}
